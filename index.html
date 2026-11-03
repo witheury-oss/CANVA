@@ -1,1807 +1,1767 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="strawberry">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Recap Canva Eurydice 🍓</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Fredoka & Quicksand for Cute Kawaii Aesthetic -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-    <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>🍓 Recap Canva Eurydice</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Fredoka & Quicksand for super cute rounded look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    <style>
-        /* =========================================
-           THEME VARIABLES (UBAH TEMA LUCU)
-           ========================================= */
-        :root, [data-theme="strawberry"] {
-            --bg-main: #FFF0F5;
-            --bg-pattern: #FFD6E4;
-            --bg-card: #FFFFFF;
-            --bg-soft: #FFE4EE;
-            --primary: #FF4D79;
-            --primary-hover: #FF2E63;
-            --primary-shadow: #D62856;
-            --secondary: #FF85A2;
-            --accent: #FFB3C6;
-            --text-main: #592638;
-            --text-muted: #9E6378;
-            --border-color: #FFC2D4;
-            --badge-bg: #FFE0E9;
-            --badge-text: #D92B5A;
-            --theme-emoji: "🍓";
-            --theme-name: "Pink Strawberry";
-        }
+  <style>
+    :root {
+      --bg-primary: #fff0f5;
+      --bg-pattern: #ffd6e7;
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --border-cute: #ffb3d1;
+      --accent-main: #ff4d88;
+      --accent-hover: #e6005c;
+      --accent-soft: #ffe0ec;
+      --text-main: #6b2341;
+      --text-muted: #a65978;
+      --shadow-cute: 0 8px 24px -4px rgba(255, 77, 136, 0.18);
+      --btn-shadow: 0 4px 0px #d92662;
+    }
 
-        [data-theme="matcha"] {
-            --bg-main: #F2F9F1;
-            --bg-pattern: #D4ECD2;
-            --bg-card: #FFFFFF;
-            --bg-soft: #E3F4E1;
-            --primary: #52B788;
-            --primary-hover: #40916C;
-            --primary-shadow: #2D6A4F;
-            --secondary: #74C69D;
-            --accent: #B7E4C7;
-            --text-main: #244735;
-            --text-muted: #5C8570;
-            --border-color: #B7E4C7;
-            --badge-bg: #D8F3DC;
-            --badge-text: #2D6A4F;
-            --theme-emoji: "🍵";
-            --theme-name: "Matcha Melon";
-        }
+    /* Theme 2: Blueberry Mochi */
+    [data-theme="blueberry"] {
+      --bg-primary: #f0f6ff;
+      --bg-pattern: #d0e3ff;
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --border-cute: #adcfff;
+      --accent-main: #4a8cff;
+      --accent-hover: #296ee8;
+      --accent-soft: #e0edff;
+      --text-main: #1f3c73;
+      --text-muted: #5b7bb2;
+      --shadow-cute: 0 8px 24px -4px rgba(74, 140, 255, 0.18);
+      --btn-shadow: 0 4px 0px #2b66cc;
+    }
 
-        [data-theme="blueberry"] {
-            --bg-main: #F0F5FF;
-            --bg-pattern: #D6E4FF;
-            --bg-card: #FFFFFF;
-            --bg-soft: #E5EEFF;
-            --primary: #5E8BFF;
-            --primary-hover: #4274F5;
-            --primary-shadow: #2F59C9;
-            --secondary: #8AAEFF;
-            --accent: #BFD4FF;
-            --text-main: #253863;
-            --text-muted: #647BA8;
-            --border-color: #C4D7FF;
-            --badge-bg: #E0EAFF;
-            --badge-text: #2F59C9;
-            --theme-emoji: "🫐";
-            --theme-name: "Blueberry Milk";
-        }
+    /* Theme 3: Matcha Latte */
+    [data-theme="matcha"] {
+      --bg-primary: #f2fbf4;
+      --bg-pattern: #ccf0d6;
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --border-cute: #a6e3b8;
+      --accent-main: #3ebf6b;
+      --accent-hover: #2ba154;
+      --accent-soft: #dff7e7;
+      --text-main: #1d5230;
+      --text-muted: #568c69;
+      --shadow-cute: 0 8px 24px -4px rgba(62, 191, 107, 0.18);
+      --btn-shadow: 0 4px 0px #27914c;
+    }
 
-        [data-theme="peach"] {
-            --bg-main: #FFF6F0;
-            --bg-pattern: #FFE0CC;
-            --bg-card: #FFFFFF;
-            --bg-soft: #FFEDE0;
-            --primary: #FF7F50;
-            --primary-hover: #FF632B;
-            --primary-shadow: #CC4B1D;
-            --secondary: #FFA07A;
-            --accent: #FFCBB8;
-            --text-main: #5C3222;
-            --text-muted: #9E6D5A;
-            --border-color: #FFD0BD;
-            --badge-bg: #FFE6DC;
-            --badge-text: #CC4B1D;
-            --theme-emoji: "🍑";
-            --theme-name: "Peach Cream";
-        }
+    /* Theme 4: Peach Tart */
+    [data-theme="peach"] {
+      --bg-primary: #fff5f0;
+      --bg-pattern: #ffd9c7;
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --border-cute: #ffbfa3;
+      --accent-main: #ff7747;
+      --accent-hover: #e65828;
+      --accent-soft: #ffe8df;
+      --text-main: #6e3019;
+      --text-muted: #ad684e;
+      --shadow-cute: 0 8px 24px -4px rgba(255, 119, 71, 0.18);
+      --btn-shadow: 0 4px 0px #cc4c20;
+    }
 
-        [data-theme="taro"] {
-            --bg-main: #F8F2FF;
-            --bg-pattern: #E7D6FF;
-            --bg-card: #FFFFFF;
-            --bg-soft: #F0E5FF;
-            --primary: #9D65FF;
-            --primary-hover: #8542FA;
-            --primary-shadow: #6728D6;
-            --secondary: #B88EFF;
-            --accent: #D7BFFF;
-            --text-main: #3D2563;
-            --text-muted: #7B63A1;
-            --border-color: #DEC9FF;
-            --badge-bg: #EDE0FF;
-            --badge-text: #6728D6;
-            --theme-emoji: "🔮";
-            --theme-name: "Taro Boba";
-        }
+    /* Theme 5: Taro Bingsu */
+    [data-theme="taro"] {
+      --bg-primary: #f8f2ff;
+      --bg-pattern: #e3d1ff;
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --border-cute: #cbb0ff;
+      --accent-main: #9b5de5;
+      --accent-hover: #7d3ac7;
+      --accent-soft: #efe6ff;
+      --text-main: #41226e;
+      --text-muted: #795ca6;
+      --shadow-cute: 0 8px 24px -4px rgba(155, 93, 229, 0.18);
+      --btn-shadow: 0 4px 0px #6d2fb3;
+    }
 
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: var(--bg-primary);
+      background-image: radial-gradient(var(--bg-pattern) 2px, transparent 2px), radial-gradient(var(--bg-pattern) 2px, var(--bg-primary) 2px);
+      background-size: 32px 32px;
+      background-position: 0 0, 16px 16px;
+      color: var(--text-main);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      padding-bottom: 120px;
+    }
 
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: var(--bg-main);
-            background-image: radial-gradient(var(--bg-pattern) 2px, transparent 2px), radial-gradient(var(--bg-pattern) 2px, var(--bg-main) 2px);
-            background-size: 32px 32px;
-            background-position: 0 0, 16px 16px;
-            color: var(--text-main);
-            transition: background-color 0.35s ease, color 0.35s ease;
-            padding-bottom: 130px; /* Space for fixed cute bottom navigation */
-        }
+    h1, h2, h3, h4, .font-cute {
+      font-family: 'Fredoka', sans-serif;
+    }
 
-        h1, h2, h3, h4, .font-cute {
-            font-family: 'Fredoka', sans-serif;
-        }
+    /* Cute Card Styling */
+    .cute-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 2.5px solid var(--border-cute);
+      border-radius: 26px;
+      box-shadow: var(--shadow-cute);
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
 
-        /* Cute 3D Bubbly Buttons */
-        .btn-cute {
-            background-color: var(--primary);
-            color: #ffffff;
-            border: 2px solid var(--primary-shadow);
-            box-shadow: 0 4px 0 var(--primary-shadow);
-            border-radius: 18px;
-            font-family: 'Fredoka', sans-serif;
-            font-weight: 500;
-            transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            cursor: pointer;
-            user-select: none;
-        }
+    /* Bouncy 3D Cute Buttons */
+    .btn-cute {
+      background-color: var(--accent-main);
+      color: #ffffff;
+      font-family: 'Fredoka', sans-serif;
+      border-radius: 9999px;
+      box-shadow: var(--btn-shadow);
+      transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+    .btn-cute:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+    .btn-cute:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0px transparent;
+    }
 
-        .btn-cute:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-1px);
-            box-shadow: 0 5px 0 var(--primary-shadow);
-        }
+    /* Soft Pill Buttons (for Durations & Filters) */
+    .btn-pill {
+      background-color: #ffffff;
+      color: var(--text-main);
+      border: 2px solid var(--border-cute);
+      border-radius: 18px;
+      font-family: 'Fredoka', sans-serif;
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 3px 0px var(--border-cute);
+    }
+    .btn-pill:hover {
+      transform: translateY(-2px) scale(1.02);
+      background-color: var(--accent-soft);
+    }
+    .btn-pill.active {
+      background-color: var(--accent-main);
+      color: #ffffff;
+      border-color: var(--accent-main);
+      box-shadow: var(--btn-shadow);
+      transform: translateY(-2px);
+    }
 
-        .btn-cute:active {
-            transform: translateY(3px);
-            box-shadow: 0 1px 0 var(--primary-shadow);
-        }
+    /* Cute Inputs */
+    .input-cute {
+      background-color: #ffffff;
+      border: 2px solid var(--border-cute);
+      border-radius: 18px;
+      color: var(--text-main);
+      transition: all 0.2s ease;
+      outline: none;
+    }
+    .input-cute:focus {
+      border-color: var(--accent-main);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+    }
 
-        .btn-cute-soft {
-            background-color: var(--bg-soft);
-            color: var(--text-main);
-            border: 2px solid var(--border-color);
-            box-shadow: 0 4px 0 var(--border-color);
-            border-radius: 16px;
-            font-family: 'Fredoka', sans-serif;
-            font-weight: 500;
-            transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            cursor: pointer;
-            user-select: none;
-        }
+    /* Bottom Floating Dock */
+    .bottom-dock {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border: 3px solid var(--border-cute);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12), 0 4px 0px var(--border-cute);
+      border-radius: 32px;
+    }
 
-        .btn-cute-soft:hover {
-            background-color: var(--badge-bg);
-            transform: translateY(-1px);
-        }
+    .dock-btn {
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      color: var(--text-muted);
+    }
+    .dock-btn:hover {
+      transform: translateY(-4px) scale(1.06);
+      color: var(--accent-main);
+    }
+    .dock-btn.active {
+      background-color: var(--accent-soft);
+      color: var(--accent-main);
+      border: 2px solid var(--border-cute);
+      transform: translateY(-4px);
+    }
 
-        .btn-cute-soft:active {
-            transform: translateY(3px);
-            box-shadow: 0 1px 0 var(--border-color);
-        }
+    /* Floating Strawberry Animation */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-5px) rotate(4deg); }
+    }
+    .float-icon {
+      animation: floatSlow 3s ease-in-out infinite;
+    }
 
-        .btn-cute-white {
-            background-color: #FFFFFF;
-            color: var(--text-main);
-            border: 2px solid var(--border-color);
-            box-shadow: 0 4px 0 var(--border-color);
-            border-radius: 16px;
-            font-family: 'Fredoka', sans-serif;
-            font-weight: 500;
-            transition: all 0.15s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            cursor: pointer;
-        }
-
-        .btn-cute-white:active {
-            transform: translateY(3px);
-            box-shadow: 0 1px 0 var(--border-color);
-        }
-
-        /* Cute Card Styling */
-        .card-cute {
-            background-color: var(--bg-card);
-            border: 2.5px solid var(--border-color);
-            box-shadow: 0 6px 0 var(--border-color);
-            border-radius: 24px;
-            transition: all 0.2s ease;
-        }
-
-        .card-cute:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 0 var(--border-color);
-        }
-
-        /* Inputs */
-        .input-cute {
-            background-color: #FFFFFF;
-            border: 2px solid var(--border-color);
-            color: var(--text-main);
-            border-radius: 16px;
-            padding: 10px 14px;
-            font-weight: 600;
-            outline: none;
-            transition: all 0.2s ease;
-            width: 100%;
-        }
-
-        .input-cute:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px var(--bg-soft);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-main);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 99px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--secondary);
-        }
-
-        /* Hide scrollbar for duration pills */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        /* Floating Animation */
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-5px) rotate(4deg); }
-        }
-        .animate-float {
-            animation: floatSlow 3.5s ease-in-out infinite;
-        }
-
-        @keyframes pulseBounce {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
-        }
-        .animate-pulse-cute {
-            animation: pulseBounce 2s infinite;
-        }
-
-        /* Bottom Dock Active State */
-        .nav-dock-btn.active {
-            background-color: var(--primary);
-            color: #FFFFFF;
-            border-color: var(--primary-shadow);
-            box-shadow: 0 4px 0 var(--primary-shadow);
-            transform: translateY(-4px);
-        }
-    </style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-cute);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-main);
+    }
+  </style>
 </head>
-<body class="min-h-screen selection:bg-pink-200 selection:text-pink-900">
+<body data-theme="strawberry" class="min-h-screen selection:bg-pink-300 selection:text-pink-900">
 
-    <!-- =========================================
-         TOP HEADER BANNER
-         ========================================= -->
-    <header class="sticky top-0 z-30 backdrop-blur-md bg-white/80 border-b-2 border-[var(--border-color)] px-4 py-3 transition-all">
-        <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-3">
-            <!-- Brand Title -->
-            <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-2xl bg-[var(--bg-soft)] border-2 border-[var(--border-color)] flex items-center justify-center text-2xl shadow-sm animate-float" id="headerEmoji">
-                    🍓
-                </div>
-                <div>
-                    <div class="flex items-center gap-2">
-                        <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-[var(--text-main)]">
-                            Recap Canva Eurydice
-                        </h1>
-                        <span class="text-xs font-cute px-2.5 py-0.5 rounded-full bg-[var(--badge-bg)] text-[var(--badge-text)] border border-[var(--border-color)]" id="currentThemeBadge">
-                            Pink Strawberry
-                        </span>
-                    </div>
-                    <p class="text-xs sm:text-sm font-semibold text-[var(--text-muted)]">
-                        Kelola Member, Team & Pengingat Durasi Canva ✨
-                    </p>
-                </div>
-            </div>
+  <!-- TOP HEADER -->
+  <header class="max-w-5xl mx-auto pt-5 px-4">
+    <div class="cute-card p-4 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 relative overflow-hidden">
+      <!-- Decorative Corner Ribbons / Bubbles -->
+      <div class="absolute -right-6 -top-6 w-24 h-24 rounded-full opacity-25 pointer-events-none" style="background: var(--accent-main);"></div>
+      <div class="absolute -left-6 -bottom-6 w-20 h-20 rounded-full opacity-20 pointer-events-none" style="background: var(--accent-main);"></div>
 
-            <!-- Quick Stats Summary Pills -->
-            <div class="flex items-center gap-2 ml-auto">
-                <div class="px-3 py-1.5 rounded-2xl bg-[var(--bg-soft)] border-2 border-[var(--border-color)] flex items-center gap-2">
-                    <span class="text-xs font-bold text-[var(--text-muted)]">Total:</span>
-                    <span class="font-cute font-bold text-sm text-[var(--primary)]" id="statTotalCount">0</span>
-                </div>
-                <button onclick="openModal('reminderModal')" class="px-3 py-1.5 rounded-2xl bg-rose-100 border-2 border-rose-300 flex items-center gap-1.5 hover:bg-rose-200 transition cursor-pointer" title="Lihat Pengingat Hari Ini">
-                    <span class="text-sm">⏰</span>
-                    <span class="text-xs font-bold text-rose-700">Habis Hari Ini:</span>
-                    <span class="font-cute font-bold text-sm px-1.5 py-0.2 bg-rose-500 text-white rounded-full" id="statExpiringToday">0</span>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- =========================================
-         MAIN CONTENT CONTAINER
-         ========================================= -->
-    <main class="max-w-5xl mx-auto px-4 pt-5 pb-10 space-y-6">
-
-        <!-- URGENT BANNER IF ANY SUBSCRIPTION EXPIRES TODAY -->
-        <div id="urgentExpiryBanner" class="hidden card-cute !bg-gradient-to-r from-rose-50 to-pink-50 !border-rose-300 !shadow-[0_5px_0_#fda4af] p-4">
-            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                <div class="flex items-center gap-3">
-                    <div class="w-11 h-11 rounded-2xl bg-rose-500 text-white flex items-center justify-center text-xl shrink-0 animate-pulse-cute">
-                        🔔
-                    </div>
-                    <div>
-                        <h3 class="font-cute font-bold text-rose-800 text-base sm:text-lg" id="urgentBannerTitle">
-                            Ada Customer yang Durasinya Habis Hari Ini!
-                        </h3>
-                        <p class="text-xs sm:text-sm text-rose-600 font-semibold">
-                            Yuk cek daftar pengingat & tinggal copas emailnya untuk dikirim notif perpanjangan 💌
-                        </p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
-                    <button onclick="copyAllExpiringEmails()" class="btn-cute-white !border-rose-300 !text-rose-700 !shadow-[0_3px_0_#fda4af] px-3 py-2 text-xs sm:text-sm">
-                        <i class="ph-bold ph-copy"></i> Copas Semua Email
-                    </button>
-                    <button onclick="openModal('reminderModal')" class="btn-cute !bg-rose-500 !border-rose-700 !shadow-[0_3px_0_#be123c] px-4 py-2 text-xs sm:text-sm">
-                        <i class="ph-bold ph-bell-ringing"></i> Buka Pengingat
-                    </button>
-                </div>
-            </div>
+      <div class="flex items-center gap-3.5 z-10 text-center sm:text-left flex-col sm:flex-row">
+        <!-- Cute Strawberry Mascot SVG -->
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm border-2 float-icon shrink-0" style="background: var(--accent-soft); border-color: var(--border-cute);">
+          <svg id="mascot-svg" class="w-11 h-11" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Strawberry Leaf -->
+            <path d="M32 10C26 10 21 14 21 14C21 14 26 18 32 18C38 18 43 14 43 14C43 14 38 10 32 10Z" fill="#4ADE80" stroke="#166534" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M32 6V15" stroke="#166534" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Strawberry Body -->
+            <path d="M16 28C16 19 23 15 32 15C41 15 48 19 48 28C48 41 38 55 32 55C26 55 16 41 16 28Z" fill="#FF4D88" stroke="#831843" stroke-width="2.5"/>
+            <!-- Cute Eyes -->
+            <circle cx="26" cy="31" r="2.5" fill="#4A0424"/>
+            <circle cx="38" cy="31" r="2.5" fill="#4A0424"/>
+            <circle cx="25.2" cy="30.2" r="0.9" fill="white"/>
+            <circle cx="37.2" cy="30.2" r="0.9" fill="white"/>
+            <!-- Cute Smile -->
+            <path d="M29 34C30 35.8 34 35.8 35 34" stroke="#4A0424" stroke-width="2.2" stroke-linecap="round"/>
+            <!-- Rosy Cheeks -->
+            <ellipse cx="22" cy="33.5" rx="2.5" ry="1.5" fill="#FFB3D1"/>
+            <ellipse cx="42" cy="33.5" rx="2.5" ry="1.5" fill="#FFB3D1"/>
+            <!-- Seeds -->
+            <circle cx="24" cy="23" r="1.2" fill="#FFE4E6"/>
+            <circle cx="40" cy="23" r="1.2" fill="#FFE4E6"/>
+            <circle cx="32" cy="24" r="1.2" fill="#FFE4E6"/>
+            <circle cx="27" cy="43" r="1.2" fill="#FFE4E6"/>
+            <circle cx="37" cy="43" r="1.2" fill="#FFE4E6"/>
+            <circle cx="32" cy="48" r="1.2" fill="#FFE4E6"/>
+          </svg>
         </div>
 
-        <!-- SEARCH & DURATION FILTER BAR -->
-        <section class="card-cute p-4 sm:p-5 space-y-4">
-            <div class="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
-                <!-- Search Input -->
-                <div class="relative flex-1">
-                    <i class="ph-bold ph-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-lg text-[var(--primary)]"></i>
-                    <input 
-                        type="text" 
-                        id="searchInput" 
-                        oninput="handleSearchAndFilter()"
-                        placeholder="Cari nomor customer, email, atau nama team Canva..." 
-                        class="input-cute !pl-11 !pr-10 py-2.5 text-sm"
-                    >
-                    <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--primary)]">
-                        <i class="ph-fill ph-x-circle text-lg"></i>
-                    </button>
-                </div>
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-bold mb-1" style="background: var(--accent-soft); color: var(--accent-main);">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Canva Pro & Teams Manager
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-bold tracking-tight" style="color: var(--text-main);">
+            Recap Canva Eurydice 🍓
+          </h1>
+          <p class="text-xs sm:text-sm font-semibold" style="color: var(--text-muted);">
+            Catatan Pelanggan Canva Lucu &bull; Otomatis Tersimpan Lintas Browser
+          </p>
+        </div>
+      </div>
 
-                <!-- Status Filter & View Mode -->
-                <div class="flex items-center gap-2">
-                    <select id="statusFilter" onchange="handleSearchAndFilter()" class="input-cute !w-auto text-xs sm:text-sm py-2.5 cursor-pointer">
-                        <option value="ALL">🍓 Semua Status</option>
-                        <option value="EXPIRING_TODAY">⏰ Habis Hari Ini</option>
-                        <option value="ACTIVE">✨ Masih Aktif</option>
-                        <option value="EXPIRED">🥀 Sudah Lewat</option>
-                    </select>
+      <!-- Cloud Status & Quick Stats -->
+      <div class="flex flex-wrap items-center justify-center sm:justify-end gap-2 z-10">
+        <button onclick="openModal('cloudModal')" id="syncStatusBadge" class="px-3.5 py-2 rounded-2xl text-xs font-bold flex items-center gap-2 border-2 transition hover:scale-105" style="background: #ffffff; border-color: var(--border-cute); color: var(--text-main);">
+          <span id="syncDot" class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+          <span id="syncText">Menghubungkan Cloud...</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-                    <button onclick="copyFilteredEmails()" class="btn-cute-soft px-3.5 py-2.5 text-xs sm:text-sm shrink-0" title="Salin semua email yang tampil saat ini">
-                        <i class="ph-bold ph-copy-simple"></i> Copas Email Filter
-                    </button>
-                </div>
-            </div>
+  <!-- ALERT BANNER IF ANY CUSTOMER EXPIRES TODAY -->
+  <section id="todayAlertBanner" class="max-w-5xl mx-auto mt-4 px-4 hidden">
+    <div class="cute-card p-4 border-2 border-rose-400 bg-gradient-to-r from-rose-50 via-pink-50 to-rose-100 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-md">
+      <div class="flex items-center gap-3 text-center sm:text-left flex-col sm:flex-row">
+        <div class="w-11 h-11 rounded-2xl bg-rose-500 text-white flex items-center justify-center text-lg shadow shrink-0 animate-bounce">
+          <i class="fa-solid fa-bell"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-rose-800 text-base">
+            🍓 Pengingat! Ada <span id="bannerExpireCount" class="underline decoration-wavy">0</span> Customer Habis Hari Ini!
+          </h3>
+          <p class="text-xs text-rose-600 font-semibold">
+            Yuk cek daftar pengingat untuk langsung copas email atau kirim pengingat perpanjangan.
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <button onclick="copyAllExpiringTodayEmails()" class="px-4 py-2 rounded-xl bg-white text-rose-600 border-2 border-rose-300 font-bold text-xs hover:bg-rose-50 transition flex items-center gap-1.5 shadow-sm">
+          <i class="fa-regular fa-copy"></i> Copas Semua Email
+        </button>
+        <button onclick="switchTab('pengingat')" class="btn-cute px-4 py-2 text-xs font-bold flex items-center gap-1.5">
+          Lihat Pengingat <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
 
-            <!-- Duration Grouping Tabs (Dikelompokkan per Durasi) -->
-            <div>
-                <div class="flex items-center justify-between mb-2">
-                    <span class="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] flex items-center gap-1.5">
-                        <i class="ph-fill ph-folders text-[var(--primary)]"></i> Kelompok Durasi Langganan:
-                    </span>
-                    <span class="text-xs font-semibold text-[var(--text-muted)]" id="showingCountText">Menampilkan semua data</span>
-                </div>
-                <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 pt-0.5" id="durationTabsContainer">
-                    <!-- Populated dynamically by JS -->
-                </div>
-            </div>
-        </section>
+  <!-- SUMMARY MINI CARDS -->
+  <section class="max-w-5xl mx-auto mt-4 px-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div onclick="filterByStatus('all')" class="cute-card p-3.5 flex items-center gap-3 cursor-pointer hover:scale-[1.02]">
+      <div class="w-11 h-11 rounded-2xl flex items-center justify-center text-lg shrink-0" style="background: var(--accent-soft); color: var(--accent-main);">
+        <i class="fa-solid fa-users"></i>
+      </div>
+      <div>
+        <div class="text-xs font-bold" style="color: var(--text-muted);">Total Customer</div>
+        <div id="statTotal" class="text-xl font-bold font-cute">0</div>
+      </div>
+    </div>
 
-        <!-- GROUPED CUSTOMER CARDS CONTAINER -->
-        <section id="groupedCustomerContainer" class="space-y-8">
-            <!-- Dynamically populated grouped by duration -->
-        </section>
+    <div onclick="filterByStatus('active')" class="cute-card p-3.5 flex items-center gap-3 cursor-pointer hover:scale-[1.02]">
+      <div class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg shrink-0">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <div>
+        <div class="text-xs font-bold" style="color: var(--text-muted);">Masih Aktif</div>
+        <div id="statActive" class="text-xl font-bold font-cute text-emerald-600">0</div>
+      </div>
+    </div>
 
-        <!-- EMPTY STATE -->
-        <div id="emptyStateContainer" class="hidden card-cute p-10 text-center space-y-4">
-            <div class="w-20 h-20 rounded-full bg-[var(--bg-soft)] border-2 border-[var(--border-color)] mx-auto flex items-center justify-center text-4xl animate-float">
-                🍰
-            </div>
-            <div class="max-w-md mx-auto space-y-1">
-                <h3 class="font-cute text-xl font-bold text-[var(--text-main)]">Belum Ada Data Customer</h3>
-                <p class="text-sm font-semibold text-[var(--text-muted)]">
-                    Yuk tambahkan data customer Canva Eurydice pertamamu lewat tombol <b>+ Tambah</b> di bagian bawah layar!
-                </p>
-            </div>
-            <button onclick="openAddCustomerModal()" class="btn-cute px-5 py-2.5 text-sm">
-                <i class="ph-bold ph-plus-circle text-lg"></i> Tambah Customer Sekarang
+    <div onclick="switchTab('pengingat')" class="cute-card p-3.5 flex items-center gap-3 cursor-pointer hover:scale-[1.02]">
+      <div class="w-11 h-11 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-lg shrink-0">
+        <i class="fa-solid fa-bell"></i>
+      </div>
+      <div>
+        <div class="text-xs font-bold" style="color: var(--text-muted);">Habis Hari Ini</div>
+        <div id="statToday" class="text-xl font-bold font-cute text-amber-600">0</div>
+      </div>
+    </div>
+
+    <div onclick="filterByStatus('expired')" class="cute-card p-3.5 flex items-center gap-3 cursor-pointer hover:scale-[1.02]">
+      <div class="w-11 h-11 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-lg shrink-0">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+      </div>
+      <div>
+        <div class="text-xs font-bold" style="color: var(--text-muted);">Sudah Lewat</div>
+        <div id="statExpired" class="text-xl font-bold font-cute text-rose-600">0</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto mt-5 px-4 space-y-6">
+
+    <!-- ================= SECTION 1: FORM TAMBAH / EDIT DATA ================= -->
+    <section id="section-tambah" class="cute-card p-5 sm:p-6">
+      <div class="flex items-center justify-between border-b-2 pb-3 mb-4" style="border-color: var(--accent-soft);">
+        <div class="flex items-center gap-2.5">
+          <span class="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold shadow-sm" style="background: var(--accent-main);">
+            <i id="formIcon" class="fa-solid fa-plus"></i>
+          </span>
+          <div>
+            <h2 id="formTitle" class="text-lg sm:text-xl font-bold">Tambah Customer Baru 🍓</h2>
+            <p class="text-xs font-semibold" style="color: var(--text-muted);">Pilih button durasi di bawah, tanggal selesai otomatis terhitung!</p>
+          </div>
+        </div>
+        <button id="cancelEditBtn" onclick="resetCustomerForm()" class="hidden px-3 py-1.5 rounded-xl bg-rose-100 text-rose-600 text-xs font-bold hover:bg-rose-200 transition">
+          <i class="fa-solid fa-xmark"></i> Batal Edit
+        </button>
+      </div>
+
+      <form id="customerForm" onsubmit="handleSaveCustomer(event)" class="space-y-4">
+        <input type="hidden" id="editCustomerId" value="" />
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <!-- Nomor Customer -->
+          <div>
+            <label class="block text-xs font-bold mb-1.5" style="color: var(--text-main);">
+              <i class="fa-brands fa-whatsapp text-emerald-500 mr-1"></i> Nomor Customer / WA
+            </label>
+            <input type="text" id="inputNomor" required placeholder="Contoh: 081234567890" class="input-cute w-full px-3.5 py-2.5 text-sm font-semibold" />
+          </div>
+
+          <!-- Email Customer -->
+          <div>
+            <label class="block text-xs font-bold mb-1.5" style="color: var(--text-main);">
+              <i class="fa-regular fa-envelope mr-1" style="color: var(--accent-main);"></i> Email Customer Canva
+            </label>
+            <input type="email" id="inputEmail" required placeholder="customer@email.com" class="input-cute w-full px-3.5 py-2.5 text-sm font-semibold" />
+          </div>
+
+          <!-- Nama Team -->
+          <div>
+            <label class="block text-xs font-bold mb-1.5" style="color: var(--text-main);">
+              <i class="fa-solid fa-people-group mr-1 text-purple-500"></i> Nama Team Canva
+            </label>
+            <input type="text" id="inputTeam" required placeholder="Contoh: Eurydice Team 01" list="teamSuggestions" class="input-cute w-full px-3.5 py-2.5 text-sm font-semibold" />
+            <datalist id="teamSuggestions"></datalist>
+          </div>
+        </div>
+
+        <!-- Durasi Button Selector (9 Buttons as requested) -->
+        <div>
+          <label class="block text-xs font-bold mb-2" style="color: var(--text-main);">
+            <i class="fa-solid fa-wand-sparkles mr-1" style="color: var(--accent-main);"></i> Pilih Durasi Langganan (Klik Button Lucu):
+          </label>
+          <div id="durationButtonsContainer" class="grid grid-cols-3 sm:grid-cols-9 gap-2">
+            <button type="button" onclick="selectDuration('1 Hari')" data-duration="1 Hari" class="btn-pill py-2.5 px-2 text-xs font-bold flex flex-col items-center justify-center gap-0.5">
+              <span>🍬</span><span>1 Hari</span>
             </button>
+            <button type="button" onclick="selectDuration('3 Hari')" data-duration="3 Hari" class="btn-pill py-2.5 px-2 text-xs font-bold flex flex-col items-center justify-center gap-0.5">
+              <span>🍭</span><span>3 Hari</span>
+            </button>
+            <button type="button" onclick="selectDuration('7 Hari')" data-duration="7 Hari" class="btn-pill py-2.5 px-2 text-xs font-bold flex flex-col items-center justify-center gap-0.5">
+              <span>🧁</span><span>7 Hari</span>
+            </button>
+            <button type="button" onclick="selectDuration('1 Bulan')" data-duration="1 Bulan" class="btn-pill active py-2.5 px-2 text-xs font-bold flex flex-col items-center justify-center gap-0.5">
+              <span>🍓</span><span>1 Bulan</span>
+            </button>
+            <button type="button" onclick="selectDuration('2 Bulan')" data-duration="2 Bulan" class="btn-pill py-2.5 px-2 text-xs font-bold flex flex-col items-center justify-center gap-0.5">
+              <span>🍒</span><span>2 Bulan</span>
+            </button>
+            <button type="button" onclick="selectDuration('3 Bulan')" data-duration="3 Bulan" class="btn-pill py-2.5 px-2 text-xs font-bold flex flex-col items-center justify-center gap-0.5">
+              <span>🍰</span><span>3 Bulan</span>
+            </button>
+            <button type="button" onclick="selectDuration('6 Bulan')" data-duration="6 Bulan" class="btn-pill py-2.5 px-2 text-xs font-bold flex flex-col items-center justify-center gap-0.5">
+              <span>🎂</span><span>6 Bulan</span>
+            </button>
+            <button type="button" onclick="selectDuration('1 Tahun')" data-duration="1 Tahun" class="btn-pill py-2.5 px-2 text-xs font-bold flex flex-col items-center justify-center gap-0.5">
+              <span>👑</span><span>1 Tahun</span>
+            </button>
+            <button type="button" onclick="selectDuration('Lifetime')" data-duration="Lifetime" class="btn-pill py-2.5 px-2 text-xs font-bold flex flex-col items-center justify-center gap-0.5">
+              <span>♾️</span><span>Lifetime</span>
+            </button>
+          </div>
         </div>
 
-    </main>
+        <!-- Tanggal Pembelian & Tanggal Selesai -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+          <div>
+            <label class="block text-xs font-bold mb-1.5" style="color: var(--text-main);">
+              <i class="fa-regular fa-calendar-plus mr-1 text-sky-500"></i> Tanggal Pembelian
+            </label>
+            <input type="date" id="inputTglBeli" required onchange="recalculateEndDate()" class="input-cute w-full px-3.5 py-2.5 text-sm font-semibold" />
+          </div>
 
-    <!-- =========================================
-         FIXED BOTTOM NAVIGATION BAR (BUTTON DI BAWAH)
-         ========================================= -->
-    <nav class="fixed bottom-0 left-0 right-0 z-40 px-3 pb-3 pt-1 pointer-events-none">
-        <div class="max-w-2xl mx-auto card-cute !rounded-3xl bg-white/95 backdrop-blur-md p-2 pointer-events-auto shadow-xl border-2 border-[var(--border-color)]">
-            <div class="grid grid-cols-5 gap-1.5 sm:gap-2">
-                
-                <!-- 1. Home / Reset Filter -->
-                <button onclick="resetAllFilters()" class="btn-cute-soft py-2 px-1 flex-col !gap-0.5 !rounded-2xl text-[11px] sm:text-xs">
-                    <i class="ph-fill ph-house-line text-lg sm:text-xl text-[var(--primary)]"></i>
-                    <span>Recap</span>
-                </button>
-
-                <!-- 2. Notif Pengingat Hari Ini -->
-                <button onclick="openModal('reminderModal')" class="btn-cute-soft py-2 px-1 flex-col !gap-0.5 !rounded-2xl text-[11px] sm:text-xs relative">
-                    <i class="ph-fill ph-bell-ringing text-lg sm:text-xl text-rose-500"></i>
-                    <span>Pengingat</span>
-                    <span id="bottomNavBadge" class="hidden absolute -top-1.5 right-2 min-w-[20px] h-5 px-1.5 rounded-full bg-rose-500 text-white font-cute text-[11px] font-bold flex items-center justify-center border-2 border-white shadow">
-                        0
-                    </span>
-                </button>
-
-                <!-- 3. Center Highlight Button: + Tambah Customer -->
-                <button onclick="openAddCustomerModal()" class="btn-cute py-2 px-2 flex-col !gap-0.5 !rounded-2xl text-[11px] sm:text-xs -mt-4 shadow-lg">
-                    <i class="ph-bold ph-plus-circle text-xl sm:text-2xl"></i>
-                    <span class="font-bold">+ Tambah</span>
-                </button>
-
-                <!-- 4. Ubah Tema Lucu -->
-                <button onclick="openModal('themeModal')" class="btn-cute-soft py-2 px-1 flex-col !gap-0.5 !rounded-2xl text-[11px] sm:text-xs">
-                    <i class="ph-fill ph-palette text-lg sm:text-xl text-[var(--primary)]"></i>
-                    <span>Ubah Tema</span>
-                </button>
-
-                <!-- 5. Backup & GitHub Code -->
-                <button onclick="openModal('toolsModal')" class="btn-cute-soft py-2 px-1 flex-col !gap-0.5 !rounded-2xl text-[11px] sm:text-xs">
-                    <i class="ph-fill ph-github-logo text-lg sm:text-xl text-[var(--primary)]"></i>
-                    <span>Data/Code</span>
-                </button>
-
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <label class="text-xs font-bold" style="color: var(--text-main);">
+                <i class="fa-regular fa-calendar-check mr-1 text-pink-500"></i> Tanggal Selesai (Otomatis / Bisa Diubah)
+              </label>
+              <span id="lifetimeBadge" class="hidden text-[11px] font-bold px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">
+                ♾️ Aktif Selamanya
+              </span>
             </div>
+            <input type="date" id="inputTglSelesai" required class="input-cute w-full px-3.5 py-2.5 text-sm font-semibold" />
+          </div>
         </div>
-    </nav>
 
-    <!-- =========================================
-         MODAL 1: TAMBAH / EDIT CUSTOMER
-         ========================================= -->
-    <div id="customerModal" class="fixed inset-0 z-50 hidden bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-        <div class="card-cute w-full max-w-lg p-5 sm:p-6 space-y-4 my-auto animate-in fade-in zoom-in-95 duration-150">
-            <div class="flex items-center justify-between border-b-2 border-[var(--border-color)] pb-3">
-                <div class="flex items-center gap-2.5">
-                    <span class="text-2xl">🍓</span>
-                    <h2 id="modalFormTitle" class="font-cute text-xl font-bold text-[var(--text-main)]">
-                        Tambah Data Customer
-                    </h2>
-                </div>
-                <button onclick="closeModal('customerModal')" class="w-9 h-9 rounded-xl bg-[var(--bg-soft)] text-[var(--text-main)] flex items-center justify-center hover:bg-[var(--badge-bg)]">
-                    <i class="ph-bold ph-x text-lg"></i>
-                </button>
-            </div>
+        <!-- Submit Button -->
+        <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="text-xs font-semibold flex items-center gap-1.5" style="color: var(--text-muted);">
+            <i class="fa-solid fa-cloud-arrow-up" style="color: var(--accent-main);"></i>
+            <span>Durasi terpilih: <strong id="selectedDurationLabel" class="underline" style="color: var(--accent-main);">1 Bulan</strong></span>
+          </div>
 
-            <form id="customerForm" onsubmit="saveCustomer(event)" class="space-y-3.5">
-                <input type="hidden" id="customerId">
-
-                <!-- Nomor Customer & Nama Team -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-bold mb-1 text-[var(--text-main)]">
-                            📱 Nomor Customer (WA/HP) *
-                        </label>
-                        <input type="text" id="inputPhone" required placeholder="Contoh: 081234567890" class="input-cute text-sm">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold mb-1 text-[var(--text-main)]">
-                            👑 Nama Team Canva *
-                        </label>
-                        <input type="text" id="inputTeam" required placeholder="Contoh: Eurydice Team 01" class="input-cute text-sm">
-                    </div>
-                </div>
-
-                <!-- Email Customer -->
-                <div>
-                    <label class="block text-xs font-bold mb-1 text-[var(--text-main)]">
-                        💌 Email Customer Canva *
-                    </label>
-                    <input type="email" id="inputEmail" required placeholder="customer.canva@gmail.com" class="input-cute text-sm">
-                </div>
-
-                <!-- Pilihan Durasi (Quick Cute Buttons + Select) -->
-                <div>
-                    <label class="block text-xs font-bold mb-1.5 text-[var(--text-main)]">
-                        ⏳ Pilih Durasi Langganan *
-                    </label>
-                    <div class="grid grid-cols-3 gap-2" id="durationQuickPicker">
-                        <button type="button" onclick="selectDurationInForm('1 Hari')" data-dur="1 Hari" class="dur-pick-btn btn-cute-soft py-2 text-xs">1 Hari</button>
-                        <button type="button" onclick="selectDurationInForm('3 Hari')" data-dur="3 Hari" class="dur-pick-btn btn-cute-soft py-2 text-xs">3 Hari</button>
-                        <button type="button" onclick="selectDurationInForm('7 Hari')" data-dur="7 Hari" class="dur-pick-btn btn-cute-soft py-2 text-xs">7 Hari</button>
-                        <button type="button" onclick="selectDurationInForm('1 Bulan')" data-dur="1 Bulan" class="dur-pick-btn btn-cute-soft py-2 text-xs">1 Bulan</button>
-                        <button type="button" onclick="selectDurationInForm('2 Bulan')" data-dur="2 Bulan" class="dur-pick-btn btn-cute-soft py-2 text-xs">2 Bulan</button>
-                        <button type="button" onclick="selectDurationInForm('3 Bulan')" data-dur="3 Bulan" class="dur-pick-btn btn-cute-soft py-2 text-xs">3 Bulan</button>
-                        <button type="button" onclick="selectDurationInForm('6 Bulan')" data-dur="6 Bulan" class="dur-pick-btn btn-cute-soft py-2 text-xs">6 Bulan</button>
-                        <button type="button" onclick="selectDurationInForm('1 Tahun')" data-dur="1 Tahun" class="dur-pick-btn btn-cute-soft py-2 text-xs">1 Tahun</button>
-                        <button type="button" onclick="selectDurationInForm('Lifetime')" data-dur="Lifetime" class="dur-pick-btn btn-cute-soft py-2 text-xs">♾️ Lifetime</button>
-                    </div>
-                    <input type="hidden" id="inputDuration" value="1 Bulan" required>
-                </div>
-
-                <!-- Tanggal Pembelian & Tanggal Selesai -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                    <div>
-                        <label class="block text-xs font-bold mb-1 text-[var(--text-main)]">
-                            📅 Tanggal Pembelian *
-                        </label>
-                        <input type="date" id="inputBuyDate" required onchange="autoCalculateEndDate()" class="input-cute text-sm">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold mb-1 text-[var(--text-main)]">
-                            🏁 Tanggal Selesai (Otomatis) *
-                        </label>
-                        <input type="date" id="inputEndDate" required class="input-cute text-sm">
-                        <div id="lifetimeEndText" class="hidden input-cute text-sm bg-amber-50 border-amber-300 text-amber-800 text-center font-cute">
-                            ♾️ Aktif Selamanya (Lifetime)
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Catatan Opsional -->
-                <div>
-                    <label class="block text-xs font-bold mb-1 text-[var(--text-main)]">
-                        📝 Catatan Tambahan (Opsional)
-                    </label>
-                    <input type="text" id="inputNotes" placeholder="Misal: Invite via link / Member langganan..." class="input-cute text-sm">
-                </div>
-
-                <!-- Bottom Modal Buttons -->
-                <div class="flex items-center justify-end gap-2 pt-3 border-t-2 border-[var(--border-color)]">
-                    <button type="button" onclick="closeModal('customerModal')" class="btn-cute-soft px-4 py-2.5 text-sm">
-                        Batal
-                    </button>
-                    <button type="submit" class="btn-cute px-6 py-2.5 text-sm">
-                        <i class="ph-bold ph-floppy-disk text-lg"></i> Simpan Data
-                    </button>
-                </div>
-            </form>
+          <button type="submit" id="submitBtn" class="btn-cute w-full sm:w-auto px-7 py-3 text-sm font-bold flex items-center justify-center gap-2">
+            <i class="fa-solid fa-heart"></i>
+            <span id="submitBtnText">Simpan ke Recap Eurydice</span>
+          </button>
         </div>
-    </div>
+      </form>
+    </section>
 
-    <!-- =========================================
-         MODAL 2: PENGINGAT DURASI HABIS HARI INI (COPAS EMAIL)
-         ========================================= -->
-    <div id="reminderModal" class="fixed inset-0 z-50 hidden bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-        <div class="card-cute w-full max-w-2xl p-5 sm:p-6 space-y-4 my-auto max-h-[90vh] flex flex-col">
-            <!-- Header -->
-            <div class="flex items-center justify-between border-b-2 border-[var(--border-color)] pb-3 shrink-0">
-                <div class="flex items-center gap-2.5">
-                    <span class="text-2xl">⏰</span>
-                    <div>
-                        <h2 class="font-cute text-xl font-bold text-[var(--text-main)]">
-                            Notif Pengingat Durasi Habis
-                        </h2>
-                        <p class="text-xs font-semibold text-[var(--text-muted)]">
-                            Daftar customer yang habis hari ini atau sudah lewat batas waktunya (Tinggal Copas Email!)
-                        </p>
-                    </div>
-                </div>
-                <button onclick="closeModal('reminderModal')" class="w-9 h-9 rounded-xl bg-[var(--bg-soft)] text-[var(--text-main)] flex items-center justify-center hover:bg-[var(--badge-bg)]">
-                    <i class="ph-bold ph-x text-lg"></i>
-                </button>
-            </div>
-
-            <!-- Quick Copy Box (Semua Email Habis Hari Ini) -->
-            <div class="p-3.5 rounded-2xl bg-[var(--bg-soft)] border-2 border-[var(--border-color)] space-y-2 shrink-0">
-                <div class="flex items-center justify-between gap-2">
-                    <span class="text-xs font-bold text-[var(--text-main)] flex items-center gap-1.5">
-                        <i class="ph-fill ph-envelope-simple-open text-[var(--primary)]"></i>
-                        Kumpulan Email yang Habis Hari Ini (Siap Copas):
-                    </span>
-                    <button onclick="copyAllExpiringEmails()" class="btn-cute px-3 py-1.5 text-xs">
-                        <i class="ph-bold ph-copy"></i> Copas Semua Email
-                    </button>
-                </div>
-                <textarea id="expiringEmailsTextarea" readonly rows="2" class="input-cute !bg-white text-xs font-mono select-all" placeholder="Tidak ada email yang habis hari ini..."></textarea>
-            </div>
-
-            <!-- List of Expiring Today & Expired Customers -->
-            <div id="reminderListContainer" class="space-y-3 overflow-y-auto pr-1 flex-1">
-                <!-- Populated dynamically -->
-            </div>
-
-            <!-- Footer Buttons (Ditaruh Bawah) -->
-            <div class="flex items-center justify-between gap-2 pt-3 border-t-2 border-[var(--border-color)] shrink-0">
-                <button onclick="openAddDemoExpiringToday()" class="btn-cute-soft px-3 py-2 text-xs" title="Buat contoh data habis hari ini untuk tes fitur">
-                    <i class="ph-bold ph-magic-wand"></i> + Tes Data Habis Hari Ini
-                </button>
-                <button onclick="closeModal('reminderModal')" class="btn-cute px-5 py-2 text-sm">
-                    Selesai & Tutup
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- =========================================
-         MODAL 3: UBAH TEMA TAMPILAN LUCU
-         ========================================= -->
-    <div id="themeModal" class="fixed inset-0 z-50 hidden bg-black/40 backdrop-blur-xs flex items-center justify-center p-4">
-        <div class="card-cute w-full max-w-md p-5 sm:p-6 space-y-4">
-            <div class="flex items-center justify-between border-b-2 border-[var(--border-color)] pb-3">
-                <div class="flex items-center gap-2">
-                    <span class="text-2xl">🎀</span>
-                    <h2 class="font-cute text-xl font-bold text-[var(--text-main)]">
-                        Pilih Tema Web Lucu
-                    </h2>
-                </div>
-                <button onclick="closeModal('themeModal')" class="w-9 h-9 rounded-xl bg-[var(--bg-soft)] text-[var(--text-main)] flex items-center justify-center">
-                    <i class="ph-bold ph-x text-lg"></i>
-                </button>
-            </div>
-
-            <p class="text-xs sm:text-sm font-semibold text-[var(--text-muted)]">
-                Ubah suasana warna Recap Canva Eurydice sesuai mood kamu hari ini! Otomatis tersimpan ✨
+    <!-- ================= SECTION 2: PENGINGAT HABIS HARI INI (COPAS EMAIL MUDAH) ================= -->
+    <section id="section-pengingat" class="cute-card p-5 sm:p-6 hidden border-2 border-rose-300">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 pb-4 mb-4" style="border-color: var(--accent-soft);">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-2xl bg-rose-500 text-white flex items-center justify-center text-xl shadow">
+            <i class="fa-solid fa-bell"></i>
+          </div>
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-rose-700">Pengingat Durasi Habis 🍓</h2>
+            <p class="text-xs font-semibold" style="color: var(--text-muted);">
+              Email customer yang habis hari ini tinggal klik <strong>Copas Email</strong> untuk dikeluarkan/diperpanjang dari Team Canva!
             </p>
-
-            <div class="grid grid-cols-1 gap-2.5">
-                <!-- Pink Strawberry -->
-                <button onclick="setCuteTheme('strawberry')" class="p-3.5 rounded-2xl border-2 border-[#FFC2D4] bg-[#FFF0F5] hover:scale-[1.01] transition flex items-center justify-between text-left">
-                    <div class="flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-xl bg-[#FF4D79] text-white flex items-center justify-center text-xl shadow">🍓</span>
-                        <div>
-                            <div class="font-cute font-bold text-[#592638]">Pink Strawberry (Utama)</div>
-                            <div class="text-xs font-semibold text-[#9E6378]">Manis, cerah & penuh cinta stroberi</div>
-                        </div>
-                    </div>
-                    <span class="w-5 h-5 rounded-full bg-[#FF4D79] border-2 border-white shadow"></span>
-                </button>
-
-                <!-- Matcha Melon -->
-                <button onclick="setCuteTheme('matcha')" class="p-3.5 rounded-2xl border-2 border-[#B7E4C7] bg-[#F2F9F1] hover:scale-[1.01] transition flex items-center justify-between text-left">
-                    <div class="flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-xl bg-[#52B788] text-white flex items-center justify-center text-xl shadow">🍵</span>
-                        <div>
-                            <div class="font-cute font-bold text-[#244735]">Matcha Melon</div>
-                            <div class="text-xs font-semibold text-[#5C8570]">Segar, adem & menenangkan mata</div>
-                        </div>
-                    </div>
-                    <span class="w-5 h-5 rounded-full bg-[#52B788] border-2 border-white shadow"></span>
-                </button>
-
-                <!-- Blueberry Milk -->
-                <button onclick="setCuteTheme('blueberry')" class="p-3.5 rounded-2xl border-2 border-[#C4D7FF] bg-[#F0F5FF] hover:scale-[1.01] transition flex items-center justify-between text-left">
-                    <div class="flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-xl bg-[#5E8BFF] text-white flex items-center justify-center text-xl shadow">🫐</span>
-                        <div>
-                            <div class="font-cute font-bold text-[#253863]">Blueberry Milk</div>
-                            <div class="text-xs font-semibold text-[#647BA8]">Pastel langit biru lembut & bersih</div>
-                        </div>
-                    </div>
-                    <span class="w-5 h-5 rounded-full bg-[#5E8BFF] border-2 border-white shadow"></span>
-                </button>
-
-                <!-- Peach Cream -->
-                <button onclick="setCuteTheme('peach')" class="p-3.5 rounded-2xl border-2 border-[#FFD0BD] bg-[#FFF6F0] hover:scale-[1.01] transition flex items-center justify-between text-left">
-                    <div class="flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-xl bg-[#FF7F50] text-white flex items-center justify-center text-xl shadow">🍑</span>
-                        <div>
-                            <div class="font-cute font-bold text-[#5C3222]">Peach Cream</div>
-                            <div class="text-xs font-semibold text-[#9E6D5A]">Hangat, ceria & estetik kawaii</div>
-                        </div>
-                    </div>
-                    <span class="w-5 h-5 rounded-full bg-[#FF7F50] border-2 border-white shadow"></span>
-                </button>
-
-                <!-- Taro Boba -->
-                <button onclick="setCuteTheme('taro')" class="p-3.5 rounded-2xl border-2 border-[#DEC9FF] bg-[#F8F2FF] hover:scale-[1.01] transition flex items-center justify-between text-left">
-                    <div class="flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-xl bg-[#9D65FF] text-white flex items-center justify-center text-xl shadow">🔮</span>
-                        <div>
-                            <div class="font-cute font-bold text-[#3D2563]">Taro Boba</div>
-                            <div class="text-xs font-semibold text-[#7B63A1]">Ungu lilac manis ala minuman boba</div>
-                        </div>
-                    </div>
-                    <span class="w-5 h-5 rounded-full bg-[#9D65FF] border-2 border-white shadow"></span>
-                </button>
-            </div>
-
-            <div class="pt-2 flex justify-end">
-                <button onclick="closeModal('themeModal')" class="btn-cute w-full py-2.5 text-sm">
-                    Pakai Tema Ini ✨
-                </button>
-            </div>
+          </div>
         </div>
-    </div>
 
-    <!-- =========================================
-         MODAL 4: BACKUP DATA & PANDUAN GITHUB PAGES
-         ========================================= -->
-    <div id="toolsModal" class="fixed inset-0 z-50 hidden bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-        <div class="card-cute w-full max-w-xl p-5 sm:p-6 space-y-4 my-auto">
-            <div class="flex items-center justify-between border-b-2 border-[var(--border-color)] pb-3">
-                <div class="flex items-center gap-2">
-                    <span class="text-2xl">📦</span>
-                    <h2 class="font-cute text-xl font-bold text-[var(--text-main)]">
-                        Backup Data & Code GitHub
-                    </h2>
-                </div>
-                <button onclick="closeModal('toolsModal')" class="w-9 h-9 rounded-xl bg-[var(--bg-soft)] text-[var(--text-main)] flex items-center justify-center">
-                    <i class="ph-bold ph-x text-lg"></i>
-                </button>
-            </div>
-
-            <!-- Backup & Restore JSON / CSV -->
-            <div class="p-4 rounded-2xl bg-[var(--bg-soft)] border-2 border-[var(--border-color)] space-y-3">
-                <h3 class="font-cute font-bold text-sm sm:text-base text-[var(--text-main)] flex items-center gap-1.5">
-                    <i class="ph-fill ph-database text-[var(--primary)]"></i> Simpan / Pindahkan Data Customer
-                </h3>
-                <p class="text-xs font-semibold text-[var(--text-muted)]">
-                    Data otomatis tersimpan di browser ini. Kamu juga bisa download file Backup JSON/Excel CSV agar data aman kapan saja.
-                </p>
-                <div class="flex flex-wrap gap-2 pt-1">
-                    <button onclick="exportDataJSON()" class="btn-cute px-3.5 py-2 text-xs">
-                        <i class="ph-bold ph-download-simple"></i> Download Backup (.json)
-                    </button>
-                    <button onclick="exportDataCSV()" class="btn-cute-white px-3.5 py-2 text-xs">
-                        <i class="ph-bold ph-file-csv"></i> Export Excel (.csv)
-                    </button>
-                    <label class="btn-cute-white px-3.5 py-2 text-xs cursor-pointer">
-                        <i class="ph-bold ph-upload-simple"></i> Restore Backup (.json)
-                        <input type="file" accept=".json" onchange="importDataJSON(event)" class="hidden">
-                    </label>
-                </div>
-            </div>
-
-            <!-- GitHub Pages Deployment Guide & Download HTML -->
-            <div class="p-4 rounded-2xl bg-white border-2 border-[var(--border-color)] space-y-3">
-                <h3 class="font-cute font-bold text-sm sm:text-base text-[var(--text-main)] flex items-center gap-1.5">
-                    <i class="ph-fill ph-github-logo text-[var(--primary)]"></i> Siap Dipasang di GitHub Pages!
-                </h3>
-                <ol class="text-xs font-semibold text-[var(--text-muted)] space-y-1.5 list-decimal list-inside">
-                    <li>Buat repository baru di GitHub (misal: <code>recap-canva-eurydice</code>).</li>
-                    <li>Upload file <code>index.html</code> ini ke repository tersebut.</li>
-                    <li>Buka menu <b>Settings &rarr; Pages</b> di GitHub, pilih branch <b>main</b> lalu klik <b>Save</b>.</li>
-                    <li>Website Recap Canva Eurydice kamu langsung online dan siap dipakai! 🍓</li>
-                </ol>
-                <div class="flex flex-wrap gap-2 pt-1">
-                    <button onclick="downloadSourceHTML()" class="btn-cute px-4 py-2 text-xs">
-                        <i class="ph-bold ph-code"></i> Download File index.html
-                    </button>
-                    <button onclick="resetDemoData()" class="btn-cute-soft px-3.5 py-2 text-xs ml-auto text-rose-600">
-                        <i class="ph-bold ph-arrow-counter-clockwise"></i> Reset ke Data Contoh
-                    </button>
-                </div>
-            </div>
-
-            <div class="flex justify-end">
-                <button onclick="closeModal('toolsModal')" class="btn-cute-soft px-5 py-2 text-sm">
-                    Tutup
-                </button>
-            </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="copyAllExpiringTodayEmails()" class="btn-cute px-4 py-2.5 text-xs font-bold flex items-center gap-1.5">
+            <i class="fa-regular fa-copy"></i> Copas Semua Email Habis Hari Ini
+          </button>
+          <button onclick="copyAllExpiredEmails()" class="px-3.5 py-2.5 rounded-full bg-rose-100 text-rose-700 hover:bg-rose-200 text-xs font-bold transition flex items-center gap-1.5">
+            <i class="fa-solid fa-clipboard-list"></i> Copas Hari Ini + Terlewat
+          </button>
         </div>
-    </div>
+      </div>
 
-    <!-- =========================================
-         MODAL 5: KONFIRMASI HAPUS LUCU (NO ALERT/CONFIRM)
-         ========================================= -->
-    <div id="deleteConfirmModal" class="fixed inset-0 z-50 hidden bg-black/40 backdrop-blur-xs flex items-center justify-center p-4">
-        <div class="card-cute w-full max-w-sm p-5 text-center space-y-4">
-            <div class="w-16 h-16 rounded-2xl bg-rose-100 border-2 border-rose-300 text-rose-600 mx-auto flex items-center justify-center text-3xl">
-                🥺
-            </div>
-            <div class="space-y-1">
-                <h3 class="font-cute text-lg font-bold text-[var(--text-main)]">Hapus Data Customer Ini?</h3>
-                <p id="deleteCustomerTargetText" class="text-xs font-semibold text-[var(--text-muted)] break-all"></p>
-            </div>
-            <div class="flex items-center justify-center gap-2 pt-2">
-                <button onclick="closeModal('deleteConfirmModal')" class="btn-cute-soft flex-1 py-2.5 text-sm">
-                    Batal
-                </button>
-                <button id="confirmDeleteBtn" class="btn-cute !bg-rose-500 !border-rose-700 !shadow-[0_4px_0_#be123c] flex-1 py-2.5 text-sm">
-                    Ya, Hapus
-                </button>
-            </div>
+      <!-- Box Copy Semua Email Sekaligus -->
+      <div class="p-4 rounded-2xl mb-5 border-2" style="background: var(--accent-soft); border-color: var(--border-cute);">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs font-bold flex items-center gap-1.5" style="color: var(--text-main);">
+            <i class="fa-solid fa-envelope-open-text" style="color: var(--accent-main);"></i> Daftar Cepat Email Habis Hari Ini (Tinggal Copas):
+          </span>
+          <button onclick="copyAllExpiringTodayEmails()" class="text-xs font-bold px-3 py-1 rounded-xl bg-white shadow-sm hover:scale-105 transition" style="color: var(--accent-main);">
+            <i class="fa-regular fa-copy mr-1"></i> Klik Salin Semua
+          </button>
         </div>
+        <input id="quickEmailCopyBox" type="text" readonly value="Belum ada email yang habis hari ini ✨" onclick="this.select(); copyAllExpiringTodayEmails();" class="input-cute w-full px-3.5 py-2 text-xs font-bold cursor-pointer" />
+      </div>
+
+      <!-- Sub-list: Habis Hari Ini -->
+      <div class="space-y-4">
+        <div>
+          <h3 class="text-sm font-bold mb-2.5 flex items-center gap-2 text-amber-700">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+            Habis Tepat Hari Ini (<span id="countTodayList">0</span> Customer)
+          </h3>
+          <div id="reminderTodayContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+        </div>
+
+        <!-- Sub-list: Segera Habis Besok (H-1) & Sudah Terlewat -->
+        <div class="pt-3 border-t-2" style="border-color: var(--accent-soft);">
+          <h3 class="text-sm font-bold mb-2.5 flex items-center gap-2 text-rose-700">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+            Sudah Lewat Tanggal Selesai / Expired (<span id="countOverdueList">0</span> Customer)
+          </h3>
+          <div id="reminderOverdueContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 3: PENCARIAN & REKAP DIKELOMPOKKAN PER DURASI ================= -->
+    <section id="section-rekap" class="space-y-4">
+      <!-- Search & Filter Bar -->
+      <div class="cute-card p-4 sm:p-5 space-y-4">
+        <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+          <!-- Live Search Input -->
+          <div class="relative flex-1">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-sm" style="color: var(--accent-main);"></i>
+            <input
+              type="text"
+              id="searchInput"
+              oninput="renderCustomerGroups()"
+              placeholder="Cari nomor customer, email customer, atau nama team..."
+              class="input-cute w-full pl-10 pr-10 py-3 text-sm font-semibold"
+            />
+            <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3.5 top-1/2 -translate-y-1/2 text-xs px-2 py-1 rounded-lg bg-rose-100 text-rose-600 font-bold">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Status Filter Pills -->
+          <div class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0">
+            <button onclick="filterByStatus('all')" data-status="all" class="status-pill btn-pill active px-3.5 py-2 text-xs font-bold shrink-0">
+              ✨ Semua Status
+            </button>
+            <button onclick="filterByStatus('active')" data-status="active" class="status-pill btn-pill px-3.5 py-2 text-xs font-bold shrink-0">
+              ✅ Aktif
+            </button>
+            <button onclick="filterByStatus('today')" data-status="today" class="status-pill btn-pill px-3.5 py-2 text-xs font-bold shrink-0">
+              🔔 Habis Hari Ini
+            </button>
+            <button onclick="filterByStatus('expired')" data-status="expired" class="status-pill btn-pill px-3.5 py-2 text-xs font-bold shrink-0">
+              ⏰ Expired
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Kelompok Durasi -->
+        <div>
+          <div class="text-xs font-bold mb-2 flex items-center justify-between" style="color: var(--text-muted);">
+            <span><i class="fa-solid fa-layer-group mr-1" style="color: var(--accent-main);"></i> Filter Kelompok Durasi:</span>
+            <span id="showingCountLabel" class="font-bold" style="color: var(--accent-main);">Menampilkan 0 data</span>
+          </div>
+          <div id="durationFilterBar" class="flex items-center gap-2 overflow-x-auto pb-2">
+            <!-- Populated dynamically with counts per duration -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Grouped Customer Cards Container -->
+      <div id="groupedCustomersContainer" class="space-y-6">
+        <!-- Rendered by JS grouped by 1 Hari, 3 Hari, 7 Hari, 1 Bulan, 2 Bulan, 3 Bulan, 6 Bulan, 1 Tahun, Lifetime -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FLOATING CUTE BOTTOM NAVIGATION BAR ("Button-button lucunya ditaruh bawah ya") ================= -->
+  <nav class="fixed bottom-3 left-0 right-0 z-40 px-3 pointer-events-none">
+    <div class="max-w-xl mx-auto bottom-dock p-2 flex items-center justify-around gap-1 pointer-events-auto">
+      <!-- 1. Tambah Data -->
+      <button onclick="switchTab('tambah')" id="nav-tambah" class="dock-btn flex-1 py-2 px-2 rounded-2xl flex flex-col items-center justify-center gap-0.5 font-cute">
+        <div class="w-8 h-8 rounded-xl flex items-center justify-center text-base" style="background: var(--accent-soft); color: var(--accent-main);">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <span class="text-[11px] font-bold">Tambah</span>
+      </button>
+
+      <!-- 2. Rekap per Durasi -->
+      <button onclick="switchTab('rekap')" id="nav-rekap" class="dock-btn active flex-1 py-2 px-2 rounded-2xl flex flex-col items-center justify-center gap-0.5 font-cute">
+        <div class="w-8 h-8 rounded-xl flex items-center justify-center text-base" style="background: var(--accent-soft); color: var(--accent-main);">
+          <i class="fa-solid fa-layer-group"></i>
+        </div>
+        <span class="text-[11px] font-bold">Per Durasi</span>
+      </button>
+
+      <!-- 3. Pengingat Habis Hari Ini (dengan Badge Notif) -->
+      <button onclick="switchTab('pengingat')" id="nav-pengingat" class="dock-btn relative flex-1 py-2 px-2 rounded-2xl flex flex-col items-center justify-center gap-0.5 font-cute">
+        <div class="w-8 h-8 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-base relative">
+          <i class="fa-solid fa-bell"></i>
+          <span id="dockNotifBadge" class="hidden absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 rounded-full bg-rose-600 text-white text-[10px] font-bold flex items-center justify-center border-2 border-white animate-bounce">
+            0
+          </span>
+        </div>
+        <span class="text-[11px] font-bold">Pengingat</span>
+      </button>
+
+      <!-- 4. Ubah Tema Lucu -->
+      <button onclick="openModal('themeModal')" id="nav-tema" class="dock-btn flex-1 py-2 px-2 rounded-2xl flex flex-col items-center justify-center gap-0.5 font-cute">
+        <div class="w-8 h-8 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-base">
+          <i class="fa-solid fa-palette"></i>
+        </div>
+        <span class="text-[11px] font-bold">Ubah Tema</span>
+      </button>
+
+      <!-- 5. Cloud Sync & GitHub Code -->
+      <button onclick="openModal('cloudModal')" id="nav-cloud" class="dock-btn flex-1 py-2 px-2 rounded-2xl flex flex-col items-center justify-center gap-0.5 font-cute">
+        <div class="w-8 h-8 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-base">
+          <i class="fa-solid fa-cloud"></i>
+        </div>
+        <span class="text-[11px] font-bold">Cloud/GitHub</span>
+      </button>
     </div>
+  </nav>
 
-    <!-- =========================================
-         CUTE FLOATING TOAST NOTIFICATION
-         ========================================= -->
-    <div id="toastContainer" class="fixed top-20 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+  <!-- ================= MODAL 1: UBAH TEMA TAMPILAN LUCU ================= -->
+  <div id="themeModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="cute-card max-w-md w-full p-6 space-y-4 animate-[ scaleIn_0.2s_ease ]">
+      <div class="flex items-center justify-between border-b-2 pb-3" style="border-color: var(--accent-soft);">
+        <h3 class="text-xl font-bold flex items-center gap-2">
+          <span>🎨</span> Pilih Tema Tampilan Lucu
+        </h3>
+        <button onclick="closeModal('themeModal')" class="w-8 h-8 rounded-full bg-rose-100 text-rose-600 font-bold hover:bg-rose-200">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
 
-    <!-- =========================================
-         APPLICATION JAVASCRIPT
-         ========================================= -->
-    <script>
-        // --- CONSTANTS & STATE ---
-        const STORAGE_KEY = 'recap_canva_eurydice_v1';
-        const THEME_KEY = 'recap_canva_eurydice_theme';
+      <p class="text-xs font-semibold" style="color: var(--text-muted);">
+        Pilih suasana warna favoritmu! Tema akan langsung tersimpan otomatis.
+      </p>
 
-        const DURATION_ORDER = [
-            '1 Hari',
-            '3 Hari',
-            '7 Hari',
-            '1 Bulan',
-            '2 Bulan',
-            '3 Bulan',
-            '6 Bulan',
-            '1 Tahun',
-            'Lifetime'
-        ];
+      <div class="grid grid-cols-1 gap-2.5">
+        <button onclick="setCuteTheme('strawberry')" class="p-3.5 rounded-2xl border-2 border-[#ffb3d1] bg-[#fff0f5] text-[#6b2341] flex items-center justify-between hover:scale-[1.02] transition">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🍓</span>
+            <div class="text-left">
+              <div class="font-bold font-cute text-sm">Pink Strawberry Milk (Default)</div>
+              <div class="text-[11px] opacity-75">Pink pastel manis dengan aksen buah stroberi</div>
+            </div>
+          </div>
+          <span class="w-6 h-6 rounded-full bg-[#ff4d88] border-2 border-white shadow"></span>
+        </button>
 
-        const DURATION_ICONS = {
-            '1 Hari': '⚡',
-            '3 Hari': '🌸',
-            '7 Hari': '🍬',
-            '1 Bulan': '🍓',
-            '2 Bulan': '🍒',
-            '3 Bulan': '🧁',
-            '6 Bulan': '🍰',
-            '1 Tahun': '👑',
-            'Lifetime': '♾️'
-        };
+        <button onclick="setCuteTheme('blueberry')" class="p-3.5 rounded-2xl border-2 border-[#adcfff] bg-[#f0f6ff] text-[#1f3c73] flex items-center justify-between hover:scale-[1.02] transition">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🫐</span>
+            <div class="text-left">
+              <div class="font-bold font-cute text-sm">Blueberry Sky Mochi</div>
+              <div class="text-[11px] opacity-75">Biru langit lembut & segar</div>
+            </div>
+          </div>
+          <span class="w-6 h-6 rounded-full bg-[#4a8cff] border-2 border-white shadow"></span>
+        </button>
 
-        let customers = [];
-        let selectedDurationTab = 'SEMUA';
-        let deleteTargetId = null;
+        <button onclick="setCuteTheme('matcha')" class="p-3.5 rounded-2xl border-2 border-[#a6e3b8] bg-[#f2fbf4] text-[#1d5230] flex items-center justify-between hover:scale-[1.02] transition">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🍵</span>
+            <div class="text-left">
+              <div class="font-bold font-cute text-sm">Sweet Matcha Latte</div>
+              <div class="text-[11px] opacity-75">Hijau pastel mint yang adem di mata</div>
+            </div>
+          </div>
+          <span class="w-6 h-6 rounded-full bg-[#3ebf6b] border-2 border-white shadow"></span>
+        </button>
 
-        // --- HELPER: TODAY'S DATE IN YYYY-MM-DD (LOCAL TIME) ---
-        function getTodayStr() {
-            const now = new Date();
-            const year = now.getFullYear();
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const day = String(now.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
+        <button onclick="setCuteTheme('peach')" class="p-3.5 rounded-2xl border-2 border-[#ffbfa3] bg-[#fff5f0] text-[#6e3019] flex items-center justify-between hover:scale-[1.02] transition">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🍑</span>
+            <div class="text-left">
+              <div class="font-bold font-cute text-sm">Juicy Peach Tart</div>
+              <div class="text-[11px] opacity-75">Warna peach coral hangat & ceria</div>
+            </div>
+          </div>
+          <span class="w-6 h-6 rounded-full bg-[#ff7747] border-2 border-white shadow"></span>
+        </button>
+
+        <button onclick="setCuteTheme('taro')" class="p-3.5 rounded-2xl border-2 border-[#cbb0ff] bg-[#f8f2ff] text-[#41226e] flex items-center justify-between hover:scale-[1.02] transition">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🍇</span>
+            <div class="text-left">
+              <div class="font-bold font-cute text-sm">Lavender Taro Bingsu</div>
+              <div class="text-[11px] opacity-75">Ungu lilac estetik & manis</div>
+            </div>
+          </div>
+          <span class="w-6 h-6 rounded-full bg-[#9b5de5] border-2 border-white shadow"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL 2: CLOUD SYNC & GITHUB PAGES SETUP ================= -->
+  <div id="cloudModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
+    <div class="cute-card max-w-lg w-full p-6 space-y-4 my-8">
+      <div class="flex items-center justify-between border-b-2 pb-3" style="border-color: var(--accent-soft);">
+        <h3 class="text-lg sm:text-xl font-bold flex items-center gap-2">
+          <span>☁️</span> Sinkronisasi Lintas Browser & GitHub
+        </h3>
+        <button onclick="closeModal('cloudModal')" class="w-8 h-8 rounded-full bg-rose-100 text-rose-600 font-bold hover:bg-rose-200">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Status Cloud saat ini -->
+      <div class="p-3.5 rounded-2xl border-2 text-xs space-y-1" style="background: var(--accent-soft); border-color: var(--border-cute);">
+        <div class="font-bold flex items-center gap-1.5" style="color: var(--accent-main);">
+          <i class="fa-solid fa-circle-info"></i> Status Penyimpanan Saat Ini:
+        </div>
+        <p id="cloudModalStatusDesc" class="font-semibold">
+          Terhubung ke Cloud Database. Data yang kamu input otomatis tersimpan dan sama persis saat dibuka di HP, Laptop, atau browser apa pun!
+        </p>
+      </div>
+
+      <!-- Custom Firebase Config for User's Own GitHub Pages -->
+      <div class="space-y-2 pt-1">
+        <label class="block text-xs font-bold">
+          🔧 Pasang di GitHub Pages Sendiri? (Opsional - Custom Firebase Config):
+        </label>
+        <p class="text-[11px] font-semibold" style="color: var(--text-muted);">
+          Saat di-hosting di GitHub Pages milikmu sendiri, kamu bisa menempelkan objek <code>firebaseConfig</code> dari Firebase Console gratis agar database cloud pribadimu aktif di semua perangkat:
+        </p>
+        <textarea
+          id="customFirebaseInput"
+          rows="4"
+          placeholder='{"apiKey": "AIza...", "authDomain": "...", "projectId": "...", "appId": "..."}'
+          class="input-cute w-full p-3 text-xs font-mono"
+        ></textarea>
+        <div class="flex flex-wrap gap-2">
+          <button onclick="saveCustomFirebaseConfig()" class="btn-cute px-4 py-2 text-xs font-bold">
+            <i class="fa-solid fa-cloud-bolt mr-1"></i> Simpan Config Cloud
+          </button>
+          <button onclick="clearCustomFirebaseConfig()" class="px-3 py-2 rounded-full bg-gray-100 text-gray-600 text-xs font-bold hover:bg-gray-200">
+            Reset Default
+          </button>
+        </div>
+      </div>
+
+      <!-- Backup & Restore JSON File -->
+      <div class="border-t-2 pt-4 space-y-2.5" style="border-color: var(--accent-soft);">
+        <div class="text-xs font-bold">📦 Backup / Pindah Data Manual (JSON & CSV):</div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          <button onclick="exportDataJSON()" class="btn-pill py-2.5 px-3 text-xs font-bold flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-download text-pink-500"></i> Download Backup
+          </button>
+          <label class="btn-pill py-2.5 px-3 text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-upload text-sky-500"></i> Restore JSON
+            <input type="file" accept=".json" onchange="importDataJSON(event)" class="hidden" />
+          </label>
+          <button onclick="exportDataCSV()" class="btn-pill py-2.5 px-3 text-xs font-bold flex items-center justify-center gap-1.5 col-span-2 sm:col-span-1">
+            <i class="fa-solid fa-file-csv text-emerald-600"></i> Export Excel/CSV
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL 3: KONFIRMASI HAPUS LUCU (NO NATIVE ALERT/CONFIRM) ================= -->
+  <div id="deleteModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="cute-card max-w-sm w-full p-6 text-center space-y-4">
+      <div class="w-14 h-14 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-2xl mx-auto">
+        <i class="fa-solid fa-trash-can"></i>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold">Hapus Data Customer Ini? 🥺</h3>
+        <p id="deleteModalDesc" class="text-xs font-semibold mt-1" style="color: var(--text-muted);"></p>
+      </div>
+      <div class="flex items-center justify-center gap-2 pt-2">
+        <button onclick="closeModal('deleteModal')" class="btn-pill px-5 py-2.5 text-xs font-bold">
+          Batal
+        </button>
+        <button id="confirmDeleteBtn" class="px-5 py-2.5 rounded-full bg-rose-500 hover:bg-rose-600 text-white text-xs font-bold shadow">
+          Ya, Hapus
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= CUTE TOAST NOTIFICATION ================= -->
+  <div id="toastContainer" class="fixed top-4 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- ================= JAVASCRIPT & FIREBASE CLOUD LOGIC ================= -->
+  <script type="module">
+    import { initializeApp, getApps, deleteApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+    // --- CONSTANTS: 9 ORDERED DURATIONS ---
+    const DURATIONS = [
+      { label: '1 Hari', icon: '🍬', days: 1, months: 0 },
+      { label: '3 Hari', icon: '🍭', days: 3, months: 0 },
+      { label: '7 Hari', icon: '🧁', days: 7, months: 0 },
+      { label: '1 Bulan', icon: '🍓', days: 0, months: 1 },
+      { label: '2 Bulan', icon: '🍒', days: 0, months: 2 },
+      { label: '3 Bulan', icon: '🍰', days: 0, months: 3 },
+      { label: '6 Bulan', icon: '🎂', days: 0, months: 6 },
+      { label: '1 Tahun', icon: '👑', days: 0, months: 12 },
+      { label: 'Lifetime', icon: '♾️', days: 0, months: 0, lifetime: true }
+    ];
+
+    // --- STATE ---
+    let customers = [];
+    let selectedDuration = '1 Bulan';
+    let activeDurationFilter = 'ALL';
+    let activeStatusFilter = 'all';
+    let db = null;
+    let auth = null;
+    let currentUser = null;
+    let isCloudConnected = false;
+    let useCustomConfig = false;
+    let appId = typeof __app_id !== 'undefined' ? __app_id : 'recap-canva-eurydice';
+
+    // --- HELPER: TODAY'S LOCAL YYYY-MM-DD ---
+    function getTodayYMD() {
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const d = String(now.getDate()).padStart(2, '0');
+      return `${y}-${m}-${d}`;
+    }
+
+    // --- HELPER: FORMAT INDONESIAN DATE ---
+    function formatDateIndo(ymd) {
+      if (!ymd || ymd === '9999-12-31') return '♾️ Selamanya (Lifetime)';
+      const parts = ymd.split('-');
+      if (parts.length !== 3) return ymd;
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+      const d = parseInt(parts[2], 10);
+      const m = months[parseInt(parts[1], 10) - 1] || parts[1];
+      const y = parts[0];
+      return `${d} ${m} ${y}`;
+    }
+
+    // --- HELPER: STATUS EVALUATION ---
+    function getCustomerStatus(customer) {
+      if (customer.durasi === 'Lifetime' || customer.tglSelesai === '9999-12-31') {
+        return { code: 'active', label: '♾️ Lifetime', badgeClass: 'bg-purple-100 text-purple-700 border-purple-300', diffDays: 99999 };
+      }
+      const todayStr = getTodayYMD();
+      const todayDate = new Date(todayStr + 'T00:00:00');
+      const endDate = new Date(customer.tglSelesai + 'T00:00:00');
+      const diffTime = endDate - todayDate;
+      const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+
+      if (diffDays === 0) {
+        return { code: 'today', label: '🔔 Habis Hari Ini!', badgeClass: 'bg-amber-100 text-amber-800 border-amber-400 animate-pulse', diffDays: 0 };
+      } else if (diffDays < 0) {
+        return { code: 'expired', label: `⏰ Lewat ${Math.abs(diffDays)} hari`, badgeClass: 'bg-rose-100 text-rose-700 border-rose-300', diffDays };
+      } else if (diffDays <= 2) {
+        return { code: 'active', label: `⚡ Sisa ${diffDays} hari`, badgeClass: 'bg-orange-100 text-orange-700 border-orange-300', diffDays };
+      } else {
+        return { code: 'active', label: `✅ Aktif (${diffDays} hr)`, badgeClass: 'bg-emerald-100 text-emerald-700 border-emerald-300', diffDays };
+      }
+    }
+
+    // --- TOAST MESSAGE ---
+    window.showToast = function(message, icon = '🍓') {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = 'cute-card px-4 py-3 flex items-center gap-2.5 shadow-lg border-2 text-xs font-bold pointer-events-auto transition-all duration-300';
+      toast.style.borderColor = 'var(--accent-main)';
+      toast.innerHTML = `<span class="text-base">${icon}</span><span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(-10px)';
+        setTimeout(() => toast.remove(), 300);
+      }, 2600);
+    };
+
+    // --- CLIPBOARD COPY HELPER ---
+    window.copyToClipboard = function(text, label = 'Teks') {
+      if (!text) return;
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast(`${label} berhasil dicopas! ✨`, '📋');
+      } catch (err) {
+        showToast('Gagal menyalin teks', '⚠️');
+      }
+      document.body.removeChild(textarea);
+    };
+
+    // --- DURATION SELECTION & AUTO END-DATE CALCULATION ---
+    window.selectDuration = function(durationLabel) {
+      selectedDuration = durationLabel;
+      document.getElementById('selectedDurationLabel').textContent = durationLabel;
+
+      const buttons = document.querySelectorAll('#durationButtonsContainer button');
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-duration') === durationLabel) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      recalculateEndDate();
+    };
+
+    window.recalculateEndDate = function() {
+      const tglBeliInput = document.getElementById('inputTglBeli');
+      const tglSelesaiInput = document.getElementById('inputTglSelesai');
+      const lifetimeBadge = document.getElementById('lifetimeBadge');
+
+      if (!tglBeliInput.value) {
+        tglBeliInput.value = getTodayYMD();
+      }
+
+      const durObj = DURATIONS.find(d => d.label === selectedDuration) || DURATIONS[3];
+
+      if (durObj.lifetime) {
+        tglSelesaiInput.value = '9999-12-31';
+        tglSelesaiInput.disabled = true;
+        lifetimeBadge.classList.remove('hidden');
+        return;
+      }
+
+      tglSelesaiInput.disabled = false;
+      lifetimeBadge.classList.add('hidden');
+
+      const parts = tglBeliInput.value.split('-');
+      const date = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+
+      if (durObj.days > 0) {
+        date.setDate(date.getDate() + durObj.days);
+      }
+      if (durObj.months > 0) {
+        date.setMonth(date.getMonth() + durObj.months);
+      }
+
+      const y = date.getFullYear();
+      const m = String(date.getMonth() + 1).padStart(2, '0');
+      const d = String(date.getDate()).padStart(2, '0');
+      tglSelesaiInput.value = `${y}-${m}-${d}`;
+    };
+
+    // --- FIREBASE INITIALIZATION & REAL-TIME SYNC ---
+    async function initCloudSync() {
+      const syncDot = document.getElementById('syncDot');
+      const syncText = document.getElementById('syncText');
+
+      try {
+        let firebaseConfig = null;
+        // Check if user saved custom Firebase config for their own GitHub Pages
+        const savedCustomStr = window.__custom_fb_config || null;
+        if (savedCustomStr) {
+          firebaseConfig = JSON.parse(savedCustomStr);
+          useCustomConfig = true;
+        } else if (typeof __firebase_config !== 'undefined' && __firebase_config) {
+          firebaseConfig = JSON.parse(__firebase_config);
+          useCustomConfig = false;
         }
 
-        function addDaysToDateStr(dateStr, daysToAdd, monthsToAdd = 0, yearsToAdd = 0) {
-            const parts = dateStr.split('-').map(Number);
-            const dt = new Date(parts[0], parts[1] - 1, parts[2]);
-            if (yearsToAdd) dt.setFullYear(dt.getFullYear() + yearsToAdd);
-            if (monthsToAdd) dt.setMonth(dt.getMonth() + monthsToAdd);
-            if (daysToAdd) dt.setDate(dt.getDate() + daysToAdd);
-            const y = dt.getFullYear();
-            const m = String(dt.getMonth() + 1).padStart(2, '0');
-            const d = String(dt.getDate()).padStart(2, '0');
-            return `${y}-${m}-${d}`;
+        if (!firebaseConfig || !firebaseConfig.apiKey) {
+          throw new Error('No Firebase Config found');
         }
 
-        // --- INITIALIZATION ---
-        window.addEventListener('DOMContentLoaded', () => {
-            loadSavedTheme();
-            loadCustomersFromStorage();
+        const existingApps = getApps();
+        for (const a of existingApps) {
+          await deleteApp(a);
+        }
+
+        const app = initializeApp(firebaseConfig);
+        auth = getAuth(app);
+        db = getFirestore(app);
+
+        // Rule 3: Auth Before Queries
+        if (!useCustomConfig && typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+          await signInWithCustomToken(auth, __initial_auth_token);
+        } else {
+          await signInAnonymously(auth);
+        }
+
+        currentUser = auth.currentUser;
+        if (!currentUser) throw new Error('Auth failed');
+
+        // Rule 1: Strict Public Collection Path so data is identical across any browser/device
+        const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'canva_customers');
+
+        onSnapshot(
+          colRef,
+          (snapshot) => {
+            const list = [];
+            snapshot.forEach((docSnap) => {
+              list.push({ id: docSnap.id, ...docSnap.data() });
+            });
+            // Sort newest added or closest expiry first
+            list.sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
+            customers = list;
+            isCloudConnected = true;
+
+            syncDot.className = 'w-2.5 h-2.5 rounded-full bg-emerald-500';
+            syncText.textContent = 'Cloud Aktif (Tersinkron)';
             renderAll();
-        });
-
-        function loadCustomersFromStorage() {
-            try {
-                const raw = localStorage.getItem(STORAGE_KEY);
-                if (raw) {
-                    customers = JSON.parse(raw);
-                } else {
-                    seedInitialSampleData();
-                }
-            } catch (e) {
-                console.error('Gagal memuat localStorage:', e);
-                seedInitialSampleData();
-            }
-        }
-
-        function saveCustomersToStorage() {
-            try {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(customers));
-            } catch (e) {
-                showToast('Gagal menyimpan ke browser storage', '⚠️');
-            }
-        }
-
-        // --- SAMPLE DATA (INCLUDES EXPIRING TODAY FOR IMMEDIATE TESTING) ---
-        function seedInitialSampleData() {
-            const today = getTodayStr();
-            const threeDaysAgo = addDaysToDateStr(today, -3);
-            const oneMonthAgo = addDaysToDateStr(today, 0, -1);
-
-            customers = [
-                {
-                    id: 'cust-1',
-                    phone: '081234567891',
-                    email: 'nabila.strawberry@gmail.com',
-                    duration: '3 Hari',
-                    team: 'Eurydice Sweet 01',
-                    buyDate: threeDaysAgo,
-                    endDate: today, // Habis Hari Ini!
-                    notes: 'Langganan trial 3 hari, ingatkan perpanjang ke 1 bulan'
-                },
-                {
-                    id: 'cust-2',
-                    phone: '085711223344',
-                    email: 'alya.designcanva@gmail.com',
-                    duration: '1 Bulan',
-                    team: 'Eurydice Sweet 01',
-                    buyDate: oneMonthAgo,
-                    endDate: today, // Habis Hari Ini!
-                    notes: 'Member rutin bulanan'
-                },
-                {
-                    id: 'cust-3',
-                    phone: '082199887766',
-                    email: 'chika.artspace@gmail.com',
-                    duration: '1 Bulan',
-                    team: 'Eurydice Pro 02',
-                    buyDate: today,
-                    endDate: addDaysToDateStr(today, 0, 1),
-                    notes: 'Baru join hari ini'
-                },
-                {
-                    id: 'cust-4',
-                    phone: '081355667788',
-                    email: 'zahra.kawaii@gmail.com',
-                    duration: '1 Tahun',
-                    team: 'Eurydice VIP Team',
-                    buyDate: today,
-                    endDate: addDaysToDateStr(today, 0, 0, 1),
-                    notes: 'Paket hemat tahunan'
-                },
-                {
-                    id: 'cust-5',
-                    phone: '089654321098',
-                    email: 'queen.eurydice@gmail.com',
-                    duration: 'Lifetime',
-                    team: 'Eurydice Lifetime VVIP',
-                    buyDate: today,
-                    endDate: 'LIFETIME',
-                    notes: 'Member VVIP Selamanya'
-                }
-            ];
-            saveCustomersToStorage();
-        }
-
-        // --- DURATION CALCULATION ---
-        function calculateEndDateFromDuration(buyDateStr, duration) {
-            if (!buyDateStr) buyDateStr = getTodayStr();
-            switch (duration) {
-                case '1 Hari': return addDaysToDateStr(buyDateStr, 1);
-                case '3 Hari': return addDaysToDateStr(buyDateStr, 3);
-                case '7 Hari': return addDaysToDateStr(buyDateStr, 7);
-                case '1 Bulan': return addDaysToDateStr(buyDateStr, 0, 1);
-                case '2 Bulan': return addDaysToDateStr(buyDateStr, 0, 2);
-                case '3 Bulan': return addDaysToDateStr(buyDateStr, 0, 3);
-                case '6 Bulan': return addDaysToDateStr(buyDateStr, 0, 6);
-                case '1 Tahun': return addDaysToDateStr(buyDateStr, 0, 0, 1);
-                case 'Lifetime': return 'LIFETIME';
-                default: return addDaysToDateStr(buyDateStr, 0, 1);
-            }
-        }
-
-        // --- STATUS EVALUATION ---
-        function getSubscriptionStatus(customer) {
-            if (customer.duration === 'Lifetime' || customer.endDate === 'LIFETIME') {
-                return {
-                    code: 'LIFETIME',
-                    label: '♾️ Aktif Selamanya',
-                    badgeClass: 'bg-purple-100 text-purple-800 border-purple-300',
-                    daysDiff: 999999
-                };
-            }
-
-            const today = getTodayStr();
-            const tParts = today.split('-').map(Number);
-            const eParts = customer.endDate.split('-').map(Number);
-
-            const tDate = new Date(tParts[0], tParts[1] - 1, tParts[2]);
-            const eDate = new Date(eParts[0], eParts[1] - 1, eParts[2]);
-            const diffTime = eDate.getTime() - tDate.getTime();
-            const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
-
-            if (diffDays === 0) {
-                return {
-                    code: 'EXPIRING_TODAY',
-                    label: '⏰ Habis Hari Ini!',
-                    badgeClass: 'bg-rose-500 text-white border-rose-700 animate-pulse-cute',
-                    daysDiff: 0
-                };
-            } else if (diffDays < 0) {
-                return {
-                    code: 'EXPIRED',
-                    label: `🥀 Lewat ${Math.abs(diffDays)} Hari`,
-                    badgeClass: 'bg-stone-200 text-stone-700 border-stone-400',
-                    daysDiff: diffDays
-                };
-            } else if (diffDays <= 3) {
-                return {
-                    code: 'ACTIVE',
-                    label: `⚠️ Sisa ${diffDays} Hari`,
-                    badgeClass: 'bg-amber-100 text-amber-800 border-amber-300',
-                    daysDiff: diffDays
-                };
-            } else {
-                return {
-                    code: 'ACTIVE',
-                    label: `✨ Sisa ${diffDays} Hari`,
-                    badgeClass: 'bg-emerald-100 text-emerald-800 border-emerald-300',
-                    daysDiff: diffDays
-                };
-            }
-        }
-
-        function formatIndonesianDate(dateStr) {
-            if (!dateStr || dateStr === 'LIFETIME') return '♾️ Selamanya';
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
-            const parts = dateStr.split('-');
-            if (parts.length !== 3) return dateStr;
-            const day = parseInt(parts[2], 10);
-            const month = months[parseInt(parts[1], 10) - 1] || parts[1];
-            const year = parts[0];
-            return `${day} ${month} ${year}`;
-        }
-
-        // --- RENDER EVERYTHING ---
-        function renderAll() {
-            updateStatsAndNotifications();
-            renderDurationTabs();
-            renderGroupedCustomers();
-            renderReminderModalList();
-        }
-
-        function updateStatsAndNotifications() {
-            const total = customers.length;
-            const expiringTodayList = customers.filter(c => getSubscriptionStatus(c).code === 'EXPIRING_TODAY');
-            const expiredList = customers.filter(c => getSubscriptionStatus(c).code === 'EXPIRED');
-            const urgentCount = expiringTodayList.length;
-
-            document.getElementById('statTotalCount').textContent = total;
-            document.getElementById('statExpiringToday').textContent = urgentCount;
-
-            const bottomBadge = document.getElementById('bottomNavBadge');
-            if (urgentCount > 0) {
-                bottomBadge.textContent = urgentCount;
-                bottomBadge.classList.remove('hidden');
-            } else {
-                bottomBadge.classList.add('hidden');
-            }
-
-            const urgentBanner = document.getElementById('urgentExpiryBanner');
-            const urgentBannerTitle = document.getElementById('urgentBannerTitle');
-            if (urgentCount > 0) {
-                urgentBanner.classList.remove('hidden');
-                urgentBannerTitle.textContent = `🍓 Ada ${urgentCount} Customer yang Durasinya Habis Hari Ini!`;
-            } else if (expiredList.length > 0) {
-                urgentBanner.classList.remove('hidden');
-                urgentBannerTitle.textContent = `🔔 Ada ${expiredList.length} Customer yang Sudah Melewati Tanggal Selesai!`;
-            } else {
-                urgentBanner.classList.add('hidden');
-            }
-        }
-
-        // --- DURATION TABS ---
-        function renderDurationTabs() {
-            const container = document.getElementById('durationTabsContainer');
-            const counts = { SEMUA: customers.length };
-            DURATION_ORDER.forEach(d => counts[d] = 0);
-            customers.forEach(c => {
-                if (counts[c.duration] !== undefined) counts[c.duration]++;
-            });
-
-            const allTabs = ['SEMUA', ...DURATION_ORDER];
-            container.innerHTML = allTabs.map(tab => {
-                const isSelected = selectedDurationTab === tab;
-                const count = counts[tab] || 0;
-                const icon = tab === 'SEMUA' ? '🎀' : (DURATION_ICONS[tab] || '🍓');
-                const label = tab === 'SEMUA' ? 'Semua Durasi' : tab;
-
-                return `
-                    <button 
-                        onclick="selectDurationTab('${tab}')"
-                        class="${isSelected ? 'btn-cute' : 'btn-cute-soft'} px-3.5 py-2 text-xs whitespace-nowrap shrink-0"
-                    >
-                        <span>${icon} ${label}</span>
-                        <span class="px-1.5 py-0.2 rounded-full text-[10px] font-bold ${isSelected ? 'bg-white/25 text-white' : 'bg-white text-[var(--primary)]'}">
-                            ${count}
-                        </span>
-                    </button>
-                `;
-            }).join('');
-        }
-
-        function selectDurationTab(tab) {
-            selectedDurationTab = tab;
-            renderDurationTabs();
-            renderGroupedCustomers();
-        }
-
-        function handleSearchAndFilter() {
-            const q = document.getElementById('searchInput').value.trim();
-            const clearBtn = document.getElementById('clearSearchBtn');
-            if (q.length > 0) {
-                clearBtn.classList.remove('hidden');
-            } else {
-                clearBtn.classList.add('hidden');
-            }
-            renderGroupedCustomers();
-        }
-
-        function clearSearch() {
-            document.getElementById('searchInput').value = '';
-            handleSearchAndFilter();
-        }
-
-        function resetAllFilters() {
-            selectedDurationTab = 'SEMUA';
-            document.getElementById('searchInput').value = '';
-            document.getElementById('statusFilter').value = 'ALL';
-            document.getElementById('clearSearchBtn').classList.add('hidden');
+          },
+          (error) => {
+            console.error('Firestore listener error:', error);
+            syncDot.className = 'w-2.5 h-2.5 rounded-full bg-rose-500';
+            syncText.textContent = 'Mode Lokal / Offline';
             renderAll();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            showToast('Menampilkan semua recap data 🍓');
+          }
+        );
+      } catch (err) {
+        console.warn('Cloud sync fallback:', err.message);
+        syncDot.className = 'w-2.5 h-2.5 rounded-full bg-amber-500';
+        syncText.textContent = 'Setup Cloud GitHub';
+        renderAll();
+      }
+    }
+
+    // --- CREATE / UPDATE CUSTOMER ---
+    window.handleSaveCustomer = async function(e) {
+      e.preventDefault();
+
+      const editId = document.getElementById('editCustomerId').value;
+      const nomor = document.getElementById('inputNomor').value.trim();
+      const email = document.getElementById('inputEmail').value.trim();
+      const team = document.getElementById('inputTeam').value.trim();
+      const tglBeli = document.getElementById('inputTglBeli').value;
+      const tglSelesai = selectedDuration === 'Lifetime' ? '9999-12-31' : document.getElementById('inputTglSelesai').value;
+
+      if (!nomor || !email || !team || !tglBeli || !tglSelesai) {
+        showToast('Mohon lengkapi semua kolom ya!', '⚠️');
+        return;
+      }
+
+      const id = editId || ('cust_' + Date.now() + '_' + Math.random().toString(36).substring(2, 7));
+      const payload = {
+        nomor,
+        email,
+        team,
+        durasi: selectedDuration,
+        tglBeli,
+        tglSelesai,
+        updatedAt: Date.now()
+      };
+
+      // Optimistic local update
+      const existingIndex = customers.findIndex(c => c.id === id);
+      if (existingIndex >= 0) {
+        customers[existingIndex] = { id, ...payload };
+      } else {
+        customers.unshift({ id, ...payload });
+      }
+      renderAll();
+      resetCustomerForm();
+
+      if (isCloudConnected && db && currentUser) {
+        try {
+          const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'canva_customers', id);
+          await setDoc(docRef, payload);
+          showToast(editId ? 'Data customer diperbarui di Cloud! 🍓' : 'Customer baru tersimpan di Cloud! 🍓', '✅');
+        } catch (err) {
+          console.error(err);
+          showToast('Tersimpan di sesi ini (Gagal sinkron cloud)', '⚠️');
         }
+      } else {
+        showToast(editId ? 'Data customer berhasil diperbarui! 🍓' : 'Customer baru berhasil ditambahkan! 🍓', '✅');
+      }
+    };
 
-        function getFilteredCustomers() {
-            const query = document.getElementById('searchInput').value.trim().toLowerCase();
-            const statusFilter = document.getElementById('statusFilter').value;
+    // --- EDIT CUSTOMER ---
+    window.editCustomer = function(id) {
+      const cust = customers.find(c => c.id === id);
+      if (!cust) return;
 
-            return customers.filter(c => {
-                const matchDuration = selectedDurationTab === 'SEMUA' || c.duration === selectedDurationTab;
-                const matchQuery = !query || 
-                    (c.phone && c.phone.toLowerCase().includes(query)) ||
-                    (c.email && c.email.toLowerCase().includes(query)) ||
-                    (c.team && c.team.toLowerCase().includes(query)) ||
-                    (c.notes && c.notes.toLowerCase().includes(query));
+      document.getElementById('editCustomerId').value = cust.id;
+      document.getElementById('inputNomor').value = cust.nomor || '';
+      document.getElementById('inputEmail').value = cust.email || '';
+      document.getElementById('inputTeam').value = cust.team || '';
+      document.getElementById('inputTglBeli').value = cust.tglBeli || getTodayYMD();
 
-                const statusCode = getSubscriptionStatus(c).code;
-                let matchStatus = true;
-                if (statusFilter === 'EXPIRING_TODAY') matchStatus = (statusCode === 'EXPIRING_TODAY');
-                else if (statusFilter === 'ACTIVE') matchStatus = (statusCode === 'ACTIVE' || statusCode === 'LIFETIME');
-                else if (statusFilter === 'EXPIRED') matchStatus = (statusCode === 'EXPIRED');
+      selectDuration(cust.durasi || '1 Bulan');
+      if (cust.durasi !== 'Lifetime' && cust.tglSelesai) {
+        document.getElementById('inputTglSelesai').value = cust.tglSelesai;
+      }
 
-                return matchDuration && matchQuery && matchStatus;
-            });
+      document.getElementById('formTitle').textContent = 'Edit Data Customer ✏️';
+      document.getElementById('submitBtnText').textContent = 'Update Data Customer';
+      document.getElementById('cancelEditBtn').classList.remove('hidden');
+
+      switchTab('tambah');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    // --- QUICK RENEW TODAY ---
+    window.renewCustomerToday = async function(id) {
+      const cust = customers.find(c => c.id === id);
+      if (!cust) return;
+
+      const today = getTodayYMD();
+      const durObj = DURATIONS.find(d => d.label === cust.durasi) || DURATIONS[3];
+      let newEnd = '9999-12-31';
+
+      if (!durObj.lifetime) {
+        const parts = today.split('-');
+        const dt = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+        if (durObj.days > 0) dt.setDate(dt.getDate() + durObj.days);
+        if (durObj.months > 0) dt.setMonth(dt.getMonth() + durObj.months);
+        newEnd = `${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, '0')}-${String(dt.getDate()).padStart(2, '0')}`;
+      }
+
+      const updated = {
+        ...cust,
+        tglBeli: today,
+        tglSelesai: newEnd,
+        updatedAt: Date.now()
+      };
+      delete updated.id;
+
+      const idx = customers.findIndex(c => c.id === id);
+      if (idx >= 0) customers[idx] = { id, ...updated };
+      renderAll();
+
+      if (isCloudConnected && db && currentUser) {
+        const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'canva_customers', id);
+        await setDoc(docRef, updated);
+      }
+      showToast(`Langganan ${cust.email} diperpanjang (${cust.durasi})! 🎉`, '🍓');
+    };
+
+    // --- DELETE CUSTOMER (WITH CUTE MODAL) ---
+    let pendingDeleteId = null;
+    window.promptDeleteCustomer = function(id) {
+      const cust = customers.find(c => c.id === id);
+      if (!cust) return;
+      pendingDeleteId = id;
+      document.getElementById('deleteModalDesc').textContent = `${cust.email} (${cust.nomor}) di team "${cust.team}" akan dihapus dari rekap.`;
+      openModal('deleteModal');
+    };
+
+    document.getElementById('confirmDeleteBtn').addEventListener('click', async () => {
+      if (!pendingDeleteId) return;
+      const id = pendingDeleteId;
+      pendingDeleteId = null;
+      closeModal('deleteModal');
+
+      customers = customers.filter(c => c.id !== id);
+      renderAll();
+
+      if (isCloudConnected && db && currentUser) {
+        try {
+          await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'canva_customers', id));
+          showToast('Data customer dihapus dari Cloud', '🗑️');
+        } catch (err) {
+          console.error(err);
         }
+      } else {
+        showToast('Data customer dihapus', '🗑️');
+      }
+    });
 
-        // --- RENDER CUSTOMER CARDS GROUPED BY DURATION ---
-        function renderGroupedCustomers() {
-            const container = document.getElementById('groupedCustomerContainer');
-            const emptyState = document.getElementById('emptyStateContainer');
-            const showingText = document.getElementById('showingCountText');
+    // --- RESET FORM ---
+    window.resetCustomerForm = function() {
+      document.getElementById('editCustomerId').value = '';
+      document.getElementById('inputNomor').value = '';
+      document.getElementById('inputEmail').value = '';
+      document.getElementById('inputTeam').value = '';
+      document.getElementById('inputTglBeli').value = getTodayYMD();
+      selectDuration('1 Bulan');
 
-            const filtered = getFilteredCustomers();
-            showingText.textContent = `Menampilkan ${filtered.length} dari ${customers.length} customer`;
+      document.getElementById('formTitle').textContent = 'Tambah Customer Baru 🍓';
+      document.getElementById('submitBtnText').textContent = 'Simpan ke Recap Eurydice';
+      document.getElementById('cancelEditBtn').classList.add('hidden');
+    };
 
-            if (customers.length === 0) {
-                container.innerHTML = '';
-                emptyState.classList.remove('hidden');
-                return;
-            } else {
-                emptyState.classList.add('hidden');
-            }
+    // --- COPY REMINDER FUNCTIONS ---
+    window.copyAllExpiringTodayEmails = function() {
+      const expiringToday = customers.filter(c => getCustomerStatus(c).code === 'today');
+      if (expiringToday.length === 0) {
+        showToast('Tidak ada email customer yang habis hari ini ✨', '🍓');
+        return;
+      }
+      const emails = expiringToday.map(c => c.email).join(', ');
+      copyToClipboard(emails, `${expiringToday.length} Email Habis Hari Ini`);
+    };
 
-            if (filtered.length === 0) {
-                container.innerHTML = `
-                    <div class="card-cute p-8 text-center space-y-2">
-                        <div class="text-3xl">🔍</div>
-                        <h3 class="font-cute font-bold text-lg text-[var(--text-main)]">Data Tidak Ditemukan</h3>
-                        <p class="text-xs font-semibold text-[var(--text-muted)]">Coba ganti kata kunci pencarian atau pilih tab durasi lainnya ya!</p>
-                        <button onclick="resetAllFilters()" class="btn-cute-soft px-4 py-2 text-xs mt-2">Reset Pencarian</button>
-                    </div>
-                `;
-                return;
-            }
+    window.copyAllExpiredEmails = function() {
+      const list = customers.filter(c => {
+        const st = getCustomerStatus(c).code;
+        return st === 'today' || st === 'expired';
+      });
+      if (list.length === 0) {
+        showToast('Tidak ada email yang habis atau terlewat ✨', '🍓');
+        return;
+      }
+      const emails = list.map(c => c.email).join(', ');
+      copyToClipboard(emails, `${list.length} Email (Habis Hari Ini + Expired)`);
+    };
 
-            // Group filtered records by DURATION_ORDER
-            const groupsHtml = [];
+    window.copyWhatsAppReminder = function(id) {
+      const c = customers.find(x => x.id === id);
+      if (!c) return;
+      const msg = `Halo kak! 🍓 Mengingatkan untuk langganan *Canva Pro (${c.durasi})* dengan email *${c.email}* di team *${c.team}* berakhir pada *${formatDateIndo(c.tglSelesai)}*. Apakah ingin diperpanjang kak? Terima kasih! ✨`;
+      copyToClipboard(msg, 'Pesan Pengingat WA');
+    };
 
-            DURATION_ORDER.forEach(durationName => {
-                const itemsInGroup = filtered.filter(c => c.duration === durationName);
-                if (itemsInGroup.length === 0) return;
+    window.openWhatsAppChat = function(id) {
+      const c = customers.find(x => x.id === id);
+      if (!c) return;
+      let phone = (c.nomor || '').replace(/[^0-9]/g, '');
+      if (phone.startsWith('0')) phone = '62' + phone.slice(1);
+      const msg = encodeURIComponent(`Halo kak! 🍓 Mengingatkan untuk langganan Canva Pro (${c.durasi}) dengan email ${c.email} di team ${c.team} berakhir pada ${formatDateIndo(c.tglSelesai)}. Apakah ingin diperpanjang kak? Terima kasih! ✨`);
+      window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+    };
 
-                // Sort items so expiring today comes first
-                itemsInGroup.sort((a, b) => {
-                    const sa = getSubscriptionStatus(a).daysDiff;
-                    const sb = getSubscriptionStatus(b).daysDiff;
-                    return sa - sb;
-                });
+    // --- FILTER & NAVIGATION HELPERS ---
+    window.setDurationFilter = function(durLabel) {
+      activeDurationFilter = durLabel;
+      renderCustomerGroups();
+    };
 
-                const groupEmails = itemsInGroup.map(x => x.email).join(', ');
-                const icon = DURATION_ICONS[durationName] || '🍓';
-
-                const cardsHtml = itemsInGroup.map(c => buildCustomerCardHTML(c)).join('');
-
-                groupsHtml.push(`
-                    <div class="space-y-3">
-                        <!-- Group Header Banner -->
-                        <div class="flex flex-wrap items-center justify-between gap-2 px-4 py-2.5 rounded-2xl bg-[var(--bg-soft)] border-2 border-[var(--border-color)]">
-                            <div class="flex items-center gap-2">
-                                <span class="text-xl">${icon}</span>
-                                <h3 class="font-cute font-bold text-base sm:text-lg text-[var(--text-main)]">
-                                    Kelompok Durasi: ${durationName}
-                                </h3>
-                                <span class="px-2.5 py-0.5 rounded-full text-xs font-cute font-bold bg-white text-[var(--primary)] border border-[var(--border-color)]">
-                                    ${itemsInGroup.length} Customer
-                                </span>
-                            </div>
-                            <button 
-                                onclick="copyTextToClipboard('${escapeQuotes(groupEmails)}', 'Semua email durasi ${durationName} berhasil disalin! 🍓')"
-                                class="btn-cute-white px-3 py-1.5 text-xs"
-                            >
-                                <i class="ph-bold ph-copy"></i> Copas Semua Email (${durationName})
-                            </button>
-                        </div>
-
-                        <!-- Cards Grid -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            ${cardsHtml}
-                        </div>
-                    </div>
-                `);
-            });
-
-            container.innerHTML = groupsHtml.join('');
+    window.filterByStatus = function(status) {
+      activeStatusFilter = status;
+      document.querySelectorAll('.status-pill').forEach(btn => {
+        if (btn.getAttribute('data-status') === status) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
         }
+      });
+      switchTab('rekap');
+      renderCustomerGroups();
+    };
 
-        function buildCustomerCardHTML(c) {
-            const status = getSubscriptionStatus(c);
-            const icon = DURATION_ICONS[c.duration] || '🍓';
-            const waClean = (c.phone || '').replace(/[^0-9]/g, '').replace(/^0/, '62');
-            const reminderText = `Halo kak! 🍓 Mengingatkan untuk langganan *Canva Pro (${c.team})* dengan email *${c.email}* durasi *${c.duration}* berakhir pada *${formatIndonesianDate(c.endDate)}*. Apakah ingin diperpanjang kak? Terima kasih ✨`;
+    window.clearSearch = function() {
+      document.getElementById('searchInput').value = '';
+      renderCustomerGroups();
+    };
 
-            return `
-                <article class="card-cute p-4 flex flex-col justify-between gap-3 relative overflow-hidden">
-                    <!-- Top Row: Team Badge & Expiry Status -->
-                    <div class="flex items-start justify-between gap-2">
-                        <div class="flex items-center gap-2">
-                            <span class="w-10 h-10 rounded-2xl bg-[var(--bg-soft)] border-2 border-[var(--border-color)] flex items-center justify-center text-lg shrink-0">
-                                ${icon}
-                            </span>
-                            <div>
-                                <div class="flex items-center gap-1.5 flex-wrap">
-                                    <span class="font-cute font-bold text-sm sm:text-base text-[var(--text-main)]">
-                                        ${escapeHTML(c.team)}
-                                    </span>
-                                    <span class="text-[11px] font-cute font-bold px-2 py-0.5 rounded-full bg-[var(--badge-bg)] text-[var(--badge-text)]">
-                                        ${escapeHTML(c.duration)}
-                                    </span>
-                                </div>
-                                <div class="text-xs font-bold text-[var(--text-muted)] flex items-center gap-1 mt-0.5">
-                                    <i class="ph-fill ph-whatsapp-logo text-emerald-600"></i>
-                                    <span>${escapeHTML(c.phone)}</span>
-                                </div>
-                            </div>
-                        </div>
+    window.switchTab = function(tabName) {
+      const secTambah = document.getElementById('section-tambah');
+      const secPengingat = document.getElementById('section-pengingat');
+      const secRekap = document.getElementById('section-rekap');
 
-                        <span class="text-[11px] font-cute font-bold px-2.5 py-1 rounded-full border ${status.badgeClass} shrink-0">
-                            ${status.label}
-                        </span>
-                    </div>
-
-                    <!-- Middle Box: Email (Tinggal Copas) & Dates -->
-                    <div class="p-3 rounded-2xl bg-[var(--bg-soft)]/70 border border-[var(--border-color)] space-y-2">
-                        <div class="flex items-center justify-between gap-2 bg-white px-3 py-2 rounded-xl border border-[var(--border-color)]">
-                            <div class="truncate">
-                                <span class="block text-[10px] font-bold uppercase text-[var(--text-muted)]">Email Customer (Klik Salin)</span>
-                                <span class="font-bold text-xs sm:text-sm text-[var(--text-main)] select-all">${escapeHTML(c.email)}</span>
-                            </div>
-                            <button 
-                                onclick="copyTextToClipboard('${escapeQuotes(c.email)}', 'Email ${escapeQuotes(c.email)} berhasil disalin! 🍓')"
-                                class="btn-cute px-3 py-1.5 text-xs shrink-0"
-                                title="Salin Email"
-                            >
-                                <i class="ph-bold ph-copy"></i> Copas
-                            </button>
-                        </div>
-
-                        <!-- Tanggal Pembelian & Tanggal Selesai -->
-                        <div class="grid grid-cols-2 gap-2 text-xs pt-0.5">
-                            <div class="bg-white/80 px-2.5 py-1.5 rounded-xl border border-[var(--border-color)]">
-                                <span class="block text-[10px] font-bold text-[var(--text-muted)]">📅 Tgl Pembelian</span>
-                                <span class="font-bold text-[var(--text-main)]">${formatIndonesianDate(c.buyDate)}</span>
-                            </div>
-                            <div class="bg-white/80 px-2.5 py-1.5 rounded-xl border border-[var(--border-color)]">
-                                <span class="block text-[10px] font-bold text-[var(--text-muted)]">🏁 Tgl Selesai</span>
-                                <span class="font-bold ${status.code === 'EXPIRING_TODAY' ? 'text-rose-600' : 'text-[var(--text-main)]'}">
-                                    ${formatIndonesianDate(c.endDate)}
-                                </span>
-                            </div>
-                        </div>
-
-                        ${c.notes ? `
-                            <div class="text-xs font-semibold text-[var(--text-muted)] bg-white/60 px-2.5 py-1 rounded-lg">
-                                📝 ${escapeHTML(c.notes)}
-                            </div>
-                        ` : ''}
-                    </div>
-
-                    <!-- Bottom Card Action Buttons (Ditaruh di Bawah Card) -->
-                    <div class="flex flex-wrap items-center justify-between gap-1.5 pt-1 border-t border-[var(--border-color)]">
-                        <div class="flex items-center gap-1.5">
-                            <button 
-                                onclick="copyTextToClipboard('${escapeQuotes(c.email)}', 'Email disalin! 💌')"
-                                class="btn-cute-soft px-2.5 py-1.5 text-xs"
-                                title="Copas Email Saja"
-                            >
-                                <i class="ph-bold ph-envelope-simple"></i> Copas Email
-                            </button>
-                            <button 
-                                onclick="copyTextToClipboard('${escapeQuotes(reminderText)}', 'Format pesan pengingat + email berhasil disalin! ✨')"
-                                class="btn-cute-soft px-2.5 py-1.5 text-xs"
-                                title="Salin Pesan Pengingat WA"
-                            >
-                                <i class="ph-bold ph-chat-heart"></i> Copas Notif
-                            </button>
-                            ${waClean ? `
-                                <a 
-                                    href="https://wa.me/${waClean}?text=${encodeURIComponent(reminderText)}" 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    class="btn-cute-soft !bg-emerald-50 !border-emerald-300 !text-emerald-800 !shadow-[0_3px_0_#6ee7b7] px-2.5 py-1.5 text-xs"
-                                    title="Kirim Pengingat ke WhatsApp"
-                                >
-                                    <i class="ph-bold ph-whatsapp-logo"></i> WA
-                                </a>
-                            ` : ''}
-                        </div>
-
-                        <div class="flex items-center gap-1.5 ml-auto">
-                            <button 
-                                onclick="openEditCustomerModal('${c.id}')"
-                                class="btn-cute-white px-2.5 py-1.5 text-xs"
-                                title="Edit Data"
-                            >
-                                <i class="ph-bold ph-pencil-simple"></i>
-                            </button>
-                            <button 
-                                onclick="askDeleteCustomer('${c.id}')"
-                                class="btn-cute-white !border-rose-200 !text-rose-600 px-2.5 py-1.5 text-xs"
-                                title="Hapus Data"
-                            >
-                                <i class="ph-bold ph-trash"></i>
-                            </button>
-                        </div>
-                    </div>
-                </article>
-            `;
+      ['tambah', 'rekap', 'pengingat'].forEach(t => {
+        const navBtn = document.getElementById('nav-' + t);
+        if (navBtn) {
+          if (t === tabName) navBtn.classList.add('active');
+          else navBtn.classList.remove('active');
         }
+      });
 
-        // --- REMINDER MODAL (NOTIF PENGINGAT HARI INI) ---
-        function renderReminderModalList() {
-            const listContainer = document.getElementById('reminderListContainer');
-            const textarea = document.getElementById('expiringEmailsTextarea');
+      if (tabName === 'tambah') {
+        secTambah.classList.remove('hidden');
+        secRekap.classList.remove('hidden');
+        secPengingat.classList.add('hidden');
+        secTambah.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else if (tabName === 'pengingat') {
+        secPengingat.classList.remove('hidden');
+        secPengingat.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        secTambah.classList.remove('hidden');
+        secRekap.classList.remove('hidden');
+        secPengingat.classList.add('hidden');
+        secRekap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
 
-            // Get customers expiring today or already expired
-            const urgentCustomers = customers.filter(c => {
-                const code = getSubscriptionStatus(c).code;
-                return code === 'EXPIRING_TODAY' || code === 'EXPIRED';
-            });
+    // --- RENDER EVERYTHING ---
+    function renderAll() {
+      updateStatsAndNotifications();
+      updateTeamAutocomplete();
+      renderRemindersSection();
+      renderCustomerGroups();
+    }
 
-            const expiringTodayEmails = urgentCustomers.map(c => c.email).join(', ');
-            textarea.value = expiringTodayEmails || 'Belum ada email yang habis hari ini ✨';
+    function updateTeamAutocomplete() {
+      const teams = [...new Set(customers.map(c => c.team).filter(Boolean))];
+      const datalist = document.getElementById('teamSuggestions');
+      datalist.innerHTML = teams.map(t => `<option value="${escapeHtml(t)}"></option>`).join('');
+    }
 
-            if (urgentCustomers.length === 0) {
-                listContainer.innerHTML = `
-                    <div class="p-8 rounded-2xl bg-[var(--bg-soft)]/50 border-2 border-dashed border-[var(--border-color)] text-center space-y-2">
-                        <div class="text-3xl">🎉</div>
-                        <h4 class="font-cute font-bold text-base text-[var(--text-main)]">Semua Durasi Customer Masih Aman!</h4>
-                        <p class="text-xs font-semibold text-[var(--text-muted)]">
-                            Tidak ada langganan Canva yang habis tepat hari ini.
-                        </p>
-                    </div>
-                `;
-                return;
-            }
+    function updateStatsAndNotifications() {
+      let activeCount = 0;
+      let todayCount = 0;
+      let expiredCount = 0;
 
-            listContainer.innerHTML = urgentCustomers.map(c => {
-                const status = getSubscriptionStatus(c);
-                const reminderMsg = `Halo kak! 🍓 Mengingatkan untuk langganan *Canva (${c.team})* dengan email *${c.email}* (${c.duration}) habis hari ini (${formatIndonesianDate(c.endDate)}). Yuk perpanjang agar akses tim tetap aman kak ✨`;
+      customers.forEach(c => {
+        const st = getCustomerStatus(c).code;
+        if (st === 'today') todayCount++;
+        else if (st === 'expired') expiredCount++;
+        else activeCount++;
+      });
 
-                return `
-                    <div class="p-3.5 rounded-2xl bg-white border-2 border-[var(--border-color)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
-                        <div class="space-y-1">
-                            <div class="flex items-center gap-2 flex-wrap">
-                                <span class="text-xs font-cute font-bold px-2.5 py-0.5 rounded-full ${status.badgeClass}">
-                                    ${status.label}
-                                </span>
-                                <span class="font-cute font-bold text-sm text-[var(--text-main)]">
-                                    ${escapeHTML(c.team)} (${escapeHTML(c.duration)})
-                                </span>
-                            </div>
-                            <div class="text-sm font-bold text-[var(--primary)] select-all">
-                                ${escapeHTML(c.email)}
-                            </div>
-                            <div class="text-xs font-semibold text-[var(--text-muted)]">
-                                📱 ${escapeHTML(c.phone)} &bull; Selesai: ${formatIndonesianDate(c.endDate)}
-                            </div>
-                        </div>
+      document.getElementById('statTotal').textContent = customers.length;
+      document.getElementById('statActive').textContent = activeCount;
+      document.getElementById('statToday').textContent = todayCount;
+      document.getElementById('statExpired').textContent = expiredCount;
 
-                        <!-- Action Buttons to Copy Email / Reminder -->
-                        <div class="flex items-center gap-2 w-full sm:w-auto justify-end shrink-0">
-                            <button 
-                                onclick="copyTextToClipboard('${escapeQuotes(c.email)}', 'Email ${escapeQuotes(c.email)} berhasil disalin! 🍓')"
-                                class="btn-cute px-3.5 py-2 text-xs"
-                            >
-                                <i class="ph-bold ph-copy"></i> Copas Email
-                            </button>
-                            <button 
-                                onclick="copyTextToClipboard('${escapeQuotes(reminderMsg)}', 'Pesan pengingat + email disalin! 💌')"
-                                class="btn-cute-soft px-3 py-2 text-xs"
-                            >
-                                <i class="ph-bold ph-chat-text"></i> Copas Pesan
-                            </button>
-                        </div>
-                    </div>
-                `;
-            }).join('');
+      // Alert banner & dock badge
+      const banner = document.getElementById('todayAlertBanner');
+      const bannerCount = document.getElementById('bannerExpireCount');
+      const dockBadge = document.getElementById('dockNotifBadge');
+
+      if (todayCount > 0) {
+        banner.classList.remove('hidden');
+        bannerCount.textContent = todayCount;
+        dockBadge.classList.remove('hidden');
+        dockBadge.textContent = todayCount;
+      } else {
+        banner.classList.add('hidden');
+        dockBadge.classList.add('hidden');
+      }
+    }
+
+    function renderRemindersSection() {
+      const todayList = customers.filter(c => getCustomerStatus(c).code === 'today');
+      const overdueList = customers.filter(c => getCustomerStatus(c).code === 'expired');
+
+      document.getElementById('countTodayList').textContent = todayList.length;
+      document.getElementById('countOverdueList').textContent = overdueList.length;
+
+      const quickBox = document.getElementById('quickEmailCopyBox');
+      if (todayList.length > 0) {
+        quickBox.value = todayList.map(c => c.email).join(', ');
+      } else {
+        quickBox.value = 'Belum ada email customer yang habis tepat hari ini ✨';
+      }
+
+      const todayContainer = document.getElementById('reminderTodayContainer');
+      if (todayList.length === 0) {
+        todayContainer.innerHTML = `
+          <div class="col-span-full p-5 rounded-2xl bg-white/70 border-2 border-dashed text-center text-xs font-bold" style="border-color: var(--border-cute); color: var(--text-muted);">
+            🎉 Yeay! Tidak ada langganan customer yang habis tepat hari ini.
+          </div>
+        `;
+      } else {
+        todayContainer.innerHTML = todayList.map(c => buildReminderCard(c, 'today')).join('');
+      }
+
+      const overdueContainer = document.getElementById('reminderOverdueContainer');
+      if (overdueList.length === 0) {
+        overdueContainer.innerHTML = `
+          <div class="col-span-full p-4 rounded-2xl bg-white/70 border-2 border-dashed text-center text-xs font-bold" style="border-color: var(--border-cute); color: var(--text-muted);">
+            ✨ Bersih! Tidak ada langganan yang terlewat.
+          </div>
+        `;
+      } else {
+        overdueContainer.innerHTML = overdueList.map(c => buildReminderCard(c, 'expired')).join('');
+      }
+    }
+
+    function buildReminderCard(c, type) {
+      const st = getCustomerStatus(c);
+      return `
+        <div class="p-4 rounded-2xl bg-white border-2 shadow-sm flex flex-col justify-between gap-3" style="border-color: ${type === 'today' ? '#fbbf24' : '#fda4af'};">
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold border ${st.badgeClass}">
+                ${st.label}
+              </span>
+              <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full" style="background: var(--accent-soft); color: var(--accent-main);">
+                ${escapeHtml(c.durasi)}
+              </span>
+            </div>
+
+            <!-- Email Box (Super Easy Copy) -->
+            <div class="p-2.5 rounded-xl bg-rose-50/70 border border-rose-200 flex items-center justify-between gap-2 mt-1">
+              <div class="truncate text-xs font-bold text-rose-900">
+                <i class="fa-regular fa-envelope mr-1 text-rose-500"></i> ${escapeHtml(c.email)}
+              </div>
+              <button onclick="copyToClipboard('${escapeJs(c.email)}', 'Email ${escapeJs(c.email)}')" class="btn-cute px-3 py-1 text-[11px] font-bold shrink-0">
+                <i class="fa-regular fa-copy mr-1"></i> Copas Email
+              </button>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between text-xs font-semibold pt-1" style="color: var(--text-muted);">
+              <span><i class="fa-brands fa-whatsapp text-emerald-500 mr-1"></i> ${escapeHtml(c.nomor)}</span>
+              <span><i class="fa-solid fa-people-group text-purple-500 mr-1"></i> ${escapeHtml(c.team)}</span>
+            </div>
+            <div class="text-[11px] font-bold text-rose-600">
+              Selesai: ${formatDateIndo(c.tglSelesai)}
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-1.5 pt-2 border-t" style="border-color: var(--accent-soft);">
+            <button onclick="copyWhatsAppReminder('${escapeJs(c.id)}')" class="flex-1 py-1.5 px-2.5 rounded-xl bg-amber-100 text-amber-800 hover:bg-amber-200 text-[11px] font-bold transition">
+              <i class="fa-regular fa-comment-dots mr-1"></i> Copas Pesan WA
+            </button>
+            <button onclick="openWhatsAppChat('${escapeJs(c.id)}')" class="py-1.5 px-3 rounded-xl bg-emerald-500 text-white hover:bg-emerald-600 text-[11px] font-bold transition">
+              <i class="fa-brands fa-whatsapp"></i> Chat
+            </button>
+            <button onclick="renewCustomerToday('${escapeJs(c.id)}')" class="py-1.5 px-2.5 rounded-xl bg-sky-100 text-sky-700 hover:bg-sky-200 text-[11px] font-bold transition" title="Perpanjang Otomatis">
+              <i class="fa-solid fa-rotate"></i> Perpanjang
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    // --- RENDER GROUPED BY DURATION ---
+    window.renderCustomerGroups = function() {
+      const searchVal = (document.getElementById('searchInput').value || '').trim().toLowerCase();
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (searchVal) clearBtn.classList.remove('hidden');
+      else clearBtn.classList.add('hidden');
+
+      // Filter customers by search & status first
+      const filteredBySearchAndStatus = customers.filter(c => {
+        const matchSearch =
+          !searchVal ||
+          (c.nomor && c.nomor.toLowerCase().includes(searchVal)) ||
+          (c.email && c.email.toLowerCase().includes(searchVal)) ||
+          (c.team && c.team.toLowerCase().includes(searchVal)) ||
+          (c.durasi && c.durasi.toLowerCase().includes(searchVal));
+
+        if (!matchSearch) return false;
+
+        if (activeStatusFilter === 'all') return true;
+        const stCode = getCustomerStatus(c).code;
+        return stCode === activeStatusFilter;
+      });
+
+      // Render Duration Filter Pills with counts
+      const filterBar = document.getElementById('durationFilterBar');
+      let filterHtml = `
+        <button onclick="setDurationFilter('ALL')" class="btn-pill ${activeDurationFilter === 'ALL' ? 'active' : ''} px-3.5 py-2 text-xs font-bold shrink-0 flex items-center gap-1.5">
+          <span>🍓 Semua Durasi</span>
+          <span class="px-1.5 py-0.2 rounded-full text-[10px] bg-black/10">${filteredBySearchAndStatus.length}</span>
+        </button>
+      `;
+
+      DURATIONS.forEach(d => {
+        const count = filteredBySearchAndStatus.filter(c => c.durasi === d.label).length;
+        const isActive = activeDurationFilter === d.label;
+        filterHtml += `
+          <button onclick="setDurationFilter('${d.label}')" class="btn-pill ${isActive ? 'active' : ''} px-3 py-2 text-xs font-bold shrink-0 flex items-center gap-1.5">
+            <span>${d.icon} ${d.label}</span>
+            <span class="px-1.5 py-0.2 rounded-full text-[10px] ${count > 0 ? 'bg-pink-500/20' : 'opacity-50'}">${count}</span>
+          </button>
+        `;
+      });
+      filterBar.innerHTML = filterHtml;
+
+      // Apply Duration Group filter
+      const finalFiltered = activeDurationFilter === 'ALL'
+        ? filteredBySearchAndStatus
+        : filteredBySearchAndStatus.filter(c => c.durasi === activeDurationFilter);
+
+      document.getElementById('showingCountLabel').textContent = `Menampilkan ${finalFiltered.length} customer`;
+
+      const container = document.getElementById('groupedCustomersContainer');
+
+      if (finalFiltered.length === 0) {
+        container.innerHTML = `
+          <div class="cute-card p-10 text-center space-y-3">
+            <div class="text-4xl">🍓✨</div>
+            <h3 class="text-lg font-bold">Belum Ada Data Customer di Kelompok Ini</h3>
+            <p class="text-xs font-semibold max-w-md mx-auto" style="color: var(--text-muted);">
+              Yuk tambahkan data customer baru melalui form di atas atau ubah kata kunci pencarianmu!
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      // Group by the 9 durations in order
+      let groupsHtml = '';
+      DURATIONS.forEach(durObj => {
+        if (activeDurationFilter !== 'ALL' && activeDurationFilter !== durObj.label) return;
+
+        const groupItems = finalFiltered.filter(c => c.durasi === durObj.label);
+        if (groupItems.length === 0) return;
+
+        const groupEmails = groupItems.map(c => c.email).join(', ');
+
+        groupsHtml += `
+          <div class="cute-card p-4 sm:p-5 space-y-4">
+            <!-- Group Header -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b-2 pb-3" style="border-color: var(--accent-soft);">
+              <div class="flex items-center gap-2.5">
+                <span class="w-10 h-10 rounded-2xl flex items-center justify-center text-xl shadow-sm border-2" style="background: var(--accent-soft); border-color: var(--border-cute);">
+                  ${durObj.icon}
+                </span>
+                <div>
+                  <h3 class="text-base sm:text-lg font-bold flex items-center gap-2">
+                    <span>Kelompok Durasi: ${durObj.label}</span>
+                    <span class="text-xs px-2.5 py-0.5 rounded-full text-white" style="background: var(--accent-main);">
+                      ${groupItems.length} Customer
+                    </span>
+                  </h3>
+                  <p class="text-[11px] font-semibold" style="color: var(--text-muted);">
+                    Daftar pelanggan Canva dengan paket durasi ${durObj.label}
+                  </p>
+                </div>
+              </div>
+
+              <button onclick="copyToClipboard('${escapeJs(groupEmails)}', 'Semua Email Durasi ${durObj.label}')" class="btn-pill px-3.5 py-1.5 text-xs font-bold self-start sm:self-auto flex items-center gap-1.5">
+                <i class="fa-regular fa-copy" style="color: var(--accent-main);"></i> Copas Semua Email (${durObj.label})
+              </button>
+            </div>
+
+            <!-- Customer Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+              ${groupItems.map(c => buildCustomerCard(c, durObj.icon)).join('')}
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = groupsHtml;
+    };
+
+    function buildCustomerCard(c, durIcon) {
+      const st = getCustomerStatus(c);
+      return `
+        <div class="p-4 rounded-2xl bg-white border-2 transition hover:shadow-md flex flex-col justify-between gap-3" style="border-color: var(--border-cute);">
+          <div class="space-y-2">
+            <!-- Top Badges: Duration & Status -->
+            <div class="flex items-center justify-between gap-2">
+              <span class="px-2.5 py-1 rounded-xl text-xs font-bold flex items-center gap-1" style="background: var(--accent-soft); color: var(--accent-main);">
+                <span>${durIcon}</span> <span>${escapeHtml(c.durasi)}</span>
+              </span>
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold border ${st.badgeClass}">
+                ${st.label}
+              </span>
+            </div>
+
+            <!-- Email Row with One-Click Copy -->
+            <div class="p-2.5 rounded-xl flex items-center justify-between gap-2 border" style="background: var(--bg-primary); border-color: var(--border-cute);">
+              <div class="truncate text-xs font-bold" title="${escapeHtml(c.email)}">
+                <i class="fa-regular fa-envelope mr-1" style="color: var(--accent-main);"></i>
+                ${escapeHtml(c.email)}
+              </div>
+              <button onclick="copyToClipboard('${escapeJs(c.email)}', 'Email')" class="px-2.5 py-1 rounded-lg bg-white text-[11px] font-bold border shadow-sm hover:scale-105 transition shrink-0" style="border-color: var(--border-cute); color: var(--accent-main);">
+                <i class="fa-regular fa-copy"></i> Copas
+              </button>
+            </div>
+
+            <!-- Nomor WA & Nama Team -->
+            <div class="grid grid-cols-2 gap-2 text-xs font-semibold pt-0.5">
+              <div class="flex items-center justify-between p-2 rounded-xl bg-gray-50 border border-gray-200 truncate">
+                <span class="truncate"><i class="fa-brands fa-whatsapp text-emerald-500 mr-1"></i>${escapeHtml(c.nomor)}</span>
+                <button onclick="copyToClipboard('${escapeJs(c.nomor)}', 'Nomor Customer')" class="text-gray-400 hover:text-gray-700 ml-1" title="Salin Nomor">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
+              </div>
+              <div class="p-2 rounded-xl bg-purple-50/60 border border-purple-200 text-purple-900 truncate" title="${escapeHtml(c.team)}">
+                <i class="fa-solid fa-people-group text-purple-500 mr-1"></i>${escapeHtml(c.team)}
+              </div>
+            </div>
+
+            <!-- Dates Row -->
+            <div class="grid grid-cols-2 gap-2 pt-1 text-[11px] font-bold" style="color: var(--text-muted);">
+              <div class="p-2 rounded-xl bg-sky-50/70 text-sky-900 border border-sky-200">
+                <div class="text-[10px] opacity-75">📅 Tgl Pembelian</div>
+                <div>${formatDateIndo(c.tglBeli)}</div>
+              </div>
+              <div class="p-2 rounded-xl ${st.code === 'today' || st.code === 'expired' ? 'bg-rose-50 text-rose-800 border-rose-300' : 'bg-pink-50/70 text-pink-900 border-pink-200'} border">
+                <div class="text-[10px] opacity-75">🏁 Tgl Selesai</div>
+                <div>${formatDateIndo(c.tglSelesai)}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cute Bottom Card Action Buttons -->
+          <div class="flex items-center justify-between gap-1.5 pt-2 border-t" style="border-color: var(--accent-soft);">
+            <div class="flex items-center gap-1">
+              <button onclick="openWhatsAppChat('${escapeJs(c.id)}')" class="px-2.5 py-1.5 rounded-xl bg-emerald-100 text-emerald-700 hover:bg-emerald-200 text-[11px] font-bold transition" title="Kirim Pengingat WA">
+                <i class="fa-brands fa-whatsapp"></i> WA
+              </button>
+              <button onclick="copyWhatsAppReminder('${escapeJs(c.id)}')" class="px-2.5 py-1.5 rounded-xl bg-amber-100 text-amber-800 hover:bg-amber-200 text-[11px] font-bold transition" title="Salin Pesan Pengingat">
+                <i class="fa-regular fa-bell"></i> Pesan
+              </button>
+            </div>
+
+            <div class="flex items-center gap-1">
+              <button onclick="renewCustomerToday('${escapeJs(c.id)}')" class="px-2.5 py-1.5 rounded-xl bg-sky-100 text-sky-700 hover:bg-sky-200 text-[11px] font-bold transition" title="Perpanjang Durasi dari Hari Ini">
+                <i class="fa-solid fa-rotate"></i>
+              </button>
+              <button onclick="editCustomer('${escapeJs(c.id)}')" class="px-2.5 py-1.5 rounded-xl bg-purple-100 text-purple-700 hover:bg-purple-200 text-[11px] font-bold transition" title="Edit Customer">
+                <i class="fa-solid fa-pen"></i>
+              </button>
+              <button onclick="promptDeleteCustomer('${escapeJs(c.id)}')" class="px-2.5 py-1.5 rounded-xl bg-rose-100 text-rose-600 hover:bg-rose-200 text-[11px] font-bold transition" title="Hapus Customer">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // --- THEME SWITCHER ---
+    window.setCuteTheme = function(themeName) {
+      document.body.setAttribute('data-theme', themeName);
+      closeModal('themeModal');
+      const names = {
+        strawberry: '🍓 Pink Strawberry Milk',
+        blueberry: '🫐 Blueberry Sky Mochi',
+        matcha: '🍵 Sweet Matcha Latte',
+        peach: '🍑 Juicy Peach Tart',
+        taro: '🍇 Lavender Taro Bingsu'
+      };
+      showToast(`Tema diubah ke ${names[themeName] || themeName}!`, '🎨');
+    };
+
+    // --- MODAL CONTROLS ---
+    window.openModal = function(id) {
+      const m = document.getElementById(id);
+      if (m) {
+        m.classList.remove('hidden');
+        m.classList.add('flex');
+      }
+    };
+
+    window.closeModal = function(id) {
+      const m = document.getElementById(id);
+      if (m) {
+        m.classList.add('hidden');
+        m.classList.remove('flex');
+      }
+    };
+
+    // --- CUSTOM FIREBASE CONFIG FOR USER'S GITHUB PAGES ---
+    window.saveCustomFirebaseConfig = function() {
+      const raw = document.getElementById('customFirebaseInput').value.trim();
+      if (!raw) {
+        showToast('Masukkan JSON Firebase Config terlebih dahulu', '⚠️');
+        return;
+      }
+      try {
+        const parsed = JSON.parse(raw);
+        if (!parsed.apiKey || !parsed.projectId) {
+          showToast('Format Firebase Config belum lengkap (butuh apiKey & projectId)', '⚠️');
+          return;
         }
+        window.__custom_fb_config = JSON.stringify(parsed);
+        closeModal('cloudModal');
+        showToast('Menghubungkan ke Firebase Cloud pribadimu...', '☁️');
+        initCloudSync();
+      } catch (e) {
+        showToast('Format JSON tidak valid. Pastikan tanda kutip benar.', '⚠️');
+      }
+    };
 
-        function copyAllExpiringEmails() {
-            const urgentCustomers = customers.filter(c => {
-                const code = getSubscriptionStatus(c).code;
-                return code === 'EXPIRING_TODAY' || code === 'EXPIRED';
-            });
+    window.clearCustomFirebaseConfig = function() {
+      window.__custom_fb_config = null;
+      document.getElementById('customFirebaseInput').value = '';
+      initCloudSync();
+      showToast('Kembali ke pengaturan Cloud bawaan', '✨');
+    };
 
-            if (urgentCustomers.length === 0) {
-                showToast('Tidak ada email yang habis hari ini untuk disalin ✨', '🍓');
-                return;
-            }
+    // --- EXPORT / IMPORT BACKUP ---
+    window.exportDataJSON = function() {
+      const dataStr = JSON.stringify(customers, null, 2);
+      const blob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `recap-canva-eurydice-${getTodayYMD()}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('File Backup JSON berhasil didownload!', '📦');
+    };
 
-            const emailList = urgentCustomers.map(c => c.email).join(', ');
-            copyTextToClipboard(emailList, `${urgentCustomers.length} Email pengingat hari ini berhasil disalin! 🍓`);
-        }
-
-        function copyFilteredEmails() {
-            const filtered = getFilteredCustomers();
-            if (filtered.length === 0) {
-                showToast('Tidak ada email pada filter saat ini', '⚠️');
-                return;
-            }
-            const emails = filtered.map(c => c.email).join(', ');
-            copyTextToClipboard(emails, `${filtered.length} Email berhasil disalin! 🍓`);
-        }
-
-        function openAddDemoExpiringToday() {
-            const today = getTodayStr();
-            const randomNum = Math.floor(100 + Math.random() * 900);
-            const demoCust = {
-                id: 'cust-' + Date.now(),
-                phone: `081299887${randomNum}`,
-                email: `member.berry${randomNum}@gmail.com`,
-                duration: '7 Hari',
-                team: 'Eurydice Pink Team',
-                buyDate: addDaysToDateStr(today, -7),
-                endDate: today,
-                notes: 'Contoh otomatis habis hari ini'
+    window.importDataJSON = function(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        try {
+          const imported = JSON.parse(e.target.result);
+          if (!Array.isArray(imported)) throw new Error('Invalid format');
+          for (const item of imported) {
+            const id = item.id || ('cust_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6));
+            const cleanItem = {
+              nomor: item.nomor || '-',
+              email: item.email || '-',
+              team: item.team || 'Eurydice Team',
+              durasi: item.durasi || '1 Bulan',
+              tglBeli: item.tglBeli || getTodayYMD(),
+              tglSelesai: item.tglSelesai || getTodayYMD(),
+              updatedAt: Date.now()
             };
-            customers.unshift(demoCust);
-            saveCustomersToStorage();
-            renderAll();
-            showToast('Berhasil menambah 1 contoh customer yang habis hari ini! ⏰');
-        }
-
-        // --- ADD / EDIT CUSTOMER FORM LOGIC ---
-        function openAddCustomerModal() {
-            document.getElementById('modalFormTitle').textContent = 'Tambah Data Customer';
-            document.getElementById('customerId').value = '';
-            document.getElementById('inputPhone').value = '';
-            document.getElementById('inputEmail').value = '';
-            document.getElementById('inputTeam').value = '';
-            document.getElementById('inputNotes').value = '';
-
-            const today = getTodayStr();
-            document.getElementById('inputBuyDate').value = today;
-
-            // Default to 1 Bulan or currently active tab
-            const defaultDur = (selectedDurationTab !== 'SEMUA') ? selectedDurationTab : '1 Bulan';
-            selectDurationInForm(defaultDur);
-
-            openModal('customerModal');
-        }
-
-        function openEditCustomerModal(id) {
-            const cust = customers.find(c => c.id === id);
-            if (!cust) return;
-
-            document.getElementById('modalFormTitle').textContent = 'Edit Data Customer';
-            document.getElementById('customerId').value = cust.id;
-            document.getElementById('inputPhone').value = cust.phone;
-            document.getElementById('inputEmail').value = cust.email;
-            document.getElementById('inputTeam').value = cust.team;
-            document.getElementById('inputBuyDate').value = cust.buyDate;
-            document.getElementById('inputNotes').value = cust.notes || '';
-
-            selectDurationInForm(cust.duration, false);
-
-            if (cust.duration === 'Lifetime' || cust.endDate === 'LIFETIME') {
-                document.getElementById('inputEndDate').classList.add('hidden');
-                document.getElementById('inputEndDate').required = false;
-                document.getElementById('lifetimeEndText').classList.remove('hidden');
+            if (isCloudConnected && db && currentUser) {
+              await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'canva_customers', id), cleanItem);
             } else {
-                document.getElementById('inputEndDate').classList.remove('hidden');
-                document.getElementById('inputEndDate').required = true;
-                document.getElementById('lifetimeEndText').classList.add('hidden');
-                document.getElementById('inputEndDate').value = cust.endDate;
+              customers.push({ id, ...cleanItem });
             }
-
-            openModal('customerModal');
+          }
+          renderAll();
+          closeModal('cloudModal');
+          showToast(`${imported.length} data customer berhasil di-restore!`, '🎉');
+        } catch (err) {
+          showToast('File JSON tidak valid', '⚠️');
         }
+      };
+      reader.readAsText(file);
+    };
 
-        function selectDurationInForm(duration, recalculate = true) {
-            document.getElementById('inputDuration').value = duration;
+    window.exportDataCSV = function() {
+      if (customers.length === 0) {
+        showToast('Belum ada data untuk di-export', '⚠️');
+        return;
+      }
+      const headers = ['Nomor Customer', 'Email Customer', 'Nama Team', 'Durasi', 'Tanggal Pembelian', 'Tanggal Selesai', 'Status'];
+      const rows = customers.map(c => [
+        `"${(c.nomor || '').replace(/"/g, '""')}"`,
+        `"${(c.email || '').replace(/"/g, '""')}"`,
+        `"${(c.team || '').replace(/"/g, '""')}"`,
+        `"${c.durasi || ''}"`,
+        `"${c.tglBeli || ''}"`,
+        `"${c.tglSelesai || ''}"`,
+        `"${getCustomerStatus(c).label}"`
+      ]);
+      const csvContent = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `rekap-canva-eurydice-${getTodayYMD()}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Data berhasil diexport ke CSV/Excel!', '📊');
+    };
 
-            // Highlight active duration button
-            const buttons = document.querySelectorAll('#durationQuickPicker .dur-pick-btn');
-            buttons.forEach(btn => {
-                if (btn.getAttribute('data-dur') === duration) {
-                    btn.className = 'dur-pick-btn btn-cute py-2 text-xs';
-                } else {
-                    btn.className = 'dur-pick-btn btn-cute-soft py-2 text-xs';
-                }
-            });
+    // --- ESCAPE HELPERS ---
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+    function escapeJs(str) {
+      return String(str || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+    }
 
-            if (recalculate) {
-                autoCalculateEndDate();
-            }
-        }
-
-        function autoCalculateEndDate() {
-            const buyDate = document.getElementById('inputBuyDate').value || getTodayStr();
-            const duration = document.getElementById('inputDuration').value;
-            const endDateInput = document.getElementById('inputEndDate');
-            const lifetimeText = document.getElementById('lifetimeEndText');
-
-            if (duration === 'Lifetime') {
-                endDateInput.classList.add('hidden');
-                endDateInput.required = false;
-                lifetimeText.classList.remove('hidden');
-            } else {
-                endDateInput.classList.remove('hidden');
-                endDateInput.required = true;
-                lifetimeText.classList.add('hidden');
-                endDateInput.value = calculateEndDateFromDuration(buyDate, duration);
-            }
-        }
-
-        function saveCustomer(event) {
-            event.preventDefault();
-
-            const id = document.getElementById('customerId').value;
-            const phone = document.getElementById('inputPhone').value.trim();
-            const email = document.getElementById('inputEmail').value.trim();
-            const team = document.getElementById('inputTeam').value.trim();
-            const duration = document.getElementById('inputDuration').value;
-            const buyDate = document.getElementById('inputBuyDate').value;
-            const endDate = duration === 'Lifetime' ? 'LIFETIME' : document.getElementById('inputEndDate').value;
-            const notes = document.getElementById('inputNotes').value.trim();
-
-            if (id) {
-                const idx = customers.findIndex(c => c.id === id);
-                if (idx !== -1) {
-                    customers[idx] = { id, phone, email, team, duration, buyDate, endDate, notes };
-                }
-                showToast('Data customer berhasil diperbarui! ✨');
-            } else {
-                const newCustomer = {
-                    id: 'cust-' + Date.now(),
-                    phone,
-                    email,
-                    team,
-                    duration,
-                    buyDate,
-                    endDate,
-                    notes
-                };
-                customers.unshift(newCustomer);
-                showToast('Customer baru berhasil ditambahkan! 🍓');
-            }
-
-            saveCustomersToStorage();
-            closeModal('customerModal');
-            renderAll();
-        }
-
-        // --- DELETE CUSTOMER ---
-        function askDeleteCustomer(id) {
-            const cust = customers.find(c => c.id === id);
-            if (!cust) return;
-            deleteTargetId = id;
-            document.getElementById('deleteCustomerTargetText').textContent = `${cust.email} (${cust.team} - ${cust.duration})`;
-            
-            const confirmBtn = document.getElementById('confirmDeleteBtn');
-            confirmBtn.onclick = () => {
-                customers = customers.filter(c => c.id !== deleteTargetId);
-                saveCustomersToStorage();
-                closeModal('deleteConfirmModal');
-                renderAll();
-                showToast('Data customer telah dihapus 🗑️');
-            };
-
-            openModal('deleteConfirmModal');
-        }
-
-        // --- THEME SWITCHER (UBAH TEMA LUCU) ---
-        const THEME_META = {
-            strawberry: { name: 'Pink Strawberry', emoji: '🍓' },
-            matcha: { name: 'Matcha Melon', emoji: '🍵' },
-            blueberry: { name: 'Blueberry Milk', emoji: '🫐' },
-            peach: { name: 'Peach Cream', emoji: '🍑' },
-            taro: { name: 'Taro Boba', emoji: '🔮' }
-        };
-
-        function setCuteTheme(themeKey) {
-            document.documentElement.setAttribute('data-theme', themeKey);
-            localStorage.setItem(THEME_KEY, themeKey);
-            const meta = THEME_META[themeKey] || THEME_META.strawberry;
-            document.getElementById('headerEmoji').textContent = meta.emoji;
-            document.getElementById('currentThemeBadge').textContent = meta.name;
-            showToast(`Tema diubah ke ${meta.name} ${meta.emoji}`);
-        }
-
-        function loadSavedTheme() {
-            const saved = localStorage.getItem(THEME_KEY) || 'strawberry';
-            document.documentElement.setAttribute('data-theme', saved);
-            const meta = THEME_META[saved] || THEME_META.strawberry;
-            document.getElementById('headerEmoji').textContent = meta.emoji;
-            document.getElementById('currentThemeBadge').textContent = meta.name;
-        }
-
-        // --- CLIPBOARD COPY (IFRAME & BROWSER SAFE) ---
-        function copyTextToClipboard(text, successMessage = 'Berhasil disalin! 🍓') {
-            if (!text) return;
-            const tempInput = document.createElement('textarea');
-            tempInput.value = text;
-            tempInput.style.position = 'fixed';
-            tempInput.style.left = '-9999px';
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            tempInput.setSelectionRange(0, 99999);
-            try {
-                document.execCommand('copy');
-                showToast(successMessage, '🍓');
-            } catch (err) {
-                showToast('Gagal menyalin teks', '⚠️');
-            }
-            document.body.removeChild(tempInput);
-        }
-
-        // --- TOAST NOTIFICATION ---
-        function showToast(message, icon = '🍓') {
-            const container = document.getElementById('toastContainer');
-            const toast = document.createElement('div');
-            toast.className = 'card-cute px-4 py-2.5 bg-white flex items-center gap-2.5 shadow-lg pointer-events-auto transition-all duration-300 transform translate-y-0 opacity-100';
-            toast.innerHTML = `
-                <span class="text-lg">${icon}</span>
-                <span class="font-cute font-bold text-xs sm:text-sm text-[var(--text-main)]">${escapeHTML(message)}</span>
-            `;
-            container.appendChild(toast);
-
-            setTimeout(() => {
-                toast.style.opacity = '0';
-                toast.style.transform = 'translateY(-10px)';
-                setTimeout(() => toast.remove(), 300);
-            }, 2600);
-        }
-
-        // --- EXPORT / IMPORT / DOWNLOAD GITHUB HTML ---
-        function exportDataJSON() {
-            const dataStr = JSON.stringify(customers, null, 2);
-            const blob = new Blob([dataStr], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `recap-canva-eurydice-${getTodayStr()}.json`;
-            a.click();
-            URL.revokeObjectURL(url);
-            showToast('File Backup JSON berhasil didownload! 📦');
-        }
-
-        function exportDataCSV() {
-            const headers = ['Nomor Customer', 'Email Customer', 'Durasi', 'Nama Team', 'Tanggal Pembelian', 'Tanggal Selesai', 'Catatan'];
-            const rows = customers.map(c => [
-                `"${(c.phone || '').replace(/"/g, '""')}"`,
-                `"${(c.email || '').replace(/"/g, '""')}"`,
-                `"${(c.duration || '').replace(/"/g, '""')}"`,
-                `"${(c.team || '').replace(/"/g, '""')}"`,
-                `"${c.buyDate || ''}"`,
-                `"${c.endDate || ''}"`,
-                `"${(c.notes || '').replace(/"/g, '""')}"`
-            ].join(','));
-
-            const csvContent = [headers.join(','), ...rows].join('\n');
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `recap-canva-eurydice-${getTodayStr()}.csv`;
-            a.click();
-            URL.revokeObjectURL(url);
-            showToast('File Excel CSV berhasil didownload! 📊');
-        }
-
-        function importDataJSON(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                try {
-                    const imported = JSON.parse(e.target.result);
-                    if (Array.isArray(imported)) {
-                        customers = imported;
-                        saveCustomersToStorage();
-                        renderAll();
-                        closeModal('toolsModal');
-                        showToast(`Berhasil memuat ${imported.length} data customer! 🎉`);
-                    } else {
-                        showToast('Format file JSON tidak sesuai', '⚠️');
-                    }
-                } catch (err) {
-                    showToast('Gagal membaca file JSON', '⚠️');
-                }
-            };
-            reader.readAsText(file);
-        }
-
-        function resetDemoData() {
-            seedInitialSampleData();
-            renderAll();
-            closeModal('toolsModal');
-            showToast('Data berhasil direset ke contoh awal! 🍓');
-        }
-
-        function downloadSourceHTML() {
-            const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-            const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'index.html';
-            a.click();
-            URL.revokeObjectURL(url);
-            showToast('File index.html siap diupload ke GitHub! 🚀');
-        }
-
-        // --- MODAL CONTROLS ---
-        function openModal(id) {
-            document.getElementById(id).classList.remove('hidden');
-            if (id === 'reminderModal') {
-                renderReminderModalList();
-            }
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).classList.add('hidden');
-        }
-
-        // --- ESCAPE UTILITIES ---
-        function escapeHTML(str) {
-            if (!str) return '';
-            return String(str)
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&#039;');
-        }
-
-        function escapeQuotes(str) {
-            if (!str) return '';
-            return String(str)
-                .replace(/\\/g, '\\\\')
-                .replace(/'/g, "\\'")
-                .replace(/"/g, '&quot;');
-        }
-    </script>
+    // --- INITIALIZE ON WINDOW LOAD ---
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('inputTglBeli').value = getTodayYMD();
+      selectDuration('1 Bulan');
+      renderAll();
+      initCloudSync();
+    });
+  </script>
 </body>
 </html>
 ```
