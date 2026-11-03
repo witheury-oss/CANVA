@@ -4,23 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🍓 Recap Canva Eurydice 🍓</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <style>
+        /* === TEMA WARNA === */
         :root {
-            /* Tema Default: Pink Strawberry */
+            /* Tema Default: Strawberry Pink 🍓 */
             --bg-color: #fff0f5;
             --primary: #ff4d6d;
             --secondary: #ffb3c6;
+            --accent: #ff8fa3;
             --text-main: #5c1a2e;
             --card-bg: #ffffff;
             --warning: #ff3333;
+            --warning-bg: #ffe6e6;
         }
 
+        [data-theme="blueberry"] {
+            /* Tema Blueberry Blue 🫐 */
+            --bg-color: #f0f4ff;
+            --primary: #5c6bc0;
+            --secondary: #c5cae9;
+            --accent: #8c9eff;
+            --text-main: #1a237e;
+            --warning: #ff5252;
+            --warning-bg: #ffebee;
+        }
+
+        [data-theme="matcha"] {
+            /* Tema Matcha Green 🍵 */
+            --bg-color: #f1f8e9;
+            --primary: #689f38;
+            --secondary: #c5e1a5;
+            --accent: #aed581;
+            --text-main: #33691e;
+            --warning: #ff5252;
+            --warning-bg: #ffebee;
+        }
+
+        /* === GLOBAL STYLES === */
         body {
             font-family: 'Quicksand', sans-serif;
             background-color: var(--bg-color);
-            background-image: radial-gradient(var(--secondary) 10%, transparent 10%);
-            background-size: 20px 20px;
+            background-image: radial-gradient(var(--secondary) 15%, transparent 15%);
+            background-size: 25px 25px;
             color: var(--text-main);
             margin: 0;
             padding: 15px;
@@ -29,191 +55,250 @@
         }
 
         h1, h2, h3 {
+            font-family: 'Fredoka', sans-serif;
             text-align: center;
             color: var(--primary);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 2px 2px 0px var(--secondary);
+            animation: float 3s ease-in-out infinite;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.95);
-            padding: 20px;
-            border-radius: 25px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            border: 3px solid var(--secondary);
+            padding: 25px;
+            border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 4px solid var(--secondary);
         }
 
-        /* Fitur Tema */
+        /* === ANIMASI === */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.9) translateY(10px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px) rotate(-1deg); }
+            50% { transform: translateX(5px) rotate(1deg); }
+            75% { transform: translateX(-5px) rotate(-1deg); }
+        }
+
+        /* === FITUR UBAH TEMA === */
         .theme-selector {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
             margin-bottom: 20px;
-            background: var(--bg-color);
-            padding: 10px;
-            border-radius: 20px;
-            border: 2px dashed var(--secondary);
         }
         .theme-btn {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            border: 2px solid white;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: transform 0.2s;
-        }
-        .theme-btn:hover { transform: scale(1.2); }
-        
-        .theme-strawberry { background-color: #ff4d6d; }
-        .theme-blueberry { background-color: #4d79ff; }
-        .theme-matcha { background-color: #4caf50; }
-        .theme-choco { background-color: #d2691e; }
-
-        /* Fitur Pencarian */
-        .search-box {
-            margin-bottom: 20px;
-        }
-        .search-box input {
-            width: 100%;
-            padding: 12px 20px;
-            border: 2px solid var(--primary);
-            border-radius: 25px;
-            font-size: 1rem;
-            font-family: 'Quicksand', sans-serif;
-            text-align: center;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 2px solid transparent;
+            background: var(--card-bg);
+            color: var(--text-main);
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
+        .theme-btn:hover {
+            transform: scale(1.1) rotate(-3deg);
+        }
 
-        /* Notifikasi Section */
-        .notif-section {
-            background-color: #ffe6e6;
-            border: 2px dashed var(--warning);
-            border-radius: 15px;
-            padding: 15px;
+        /* === FITUR SEARCH === */
+        .search-box {
             margin-bottom: 25px;
-            display: none;
+            position: relative;
         }
-        .notif-title { color: var(--warning); margin-top: 0; font-size: 1.2rem; }
-        .notif-card {
-            background: white;
-            border-left: 5px solid var(--warning);
-            padding: 10px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            box-shadow: 0 4px 8px rgba(255, 51, 51, 0.1);
+        .search-box input {
+            padding-left: 40px;
+            border-radius: 25px;
+            border: 3px solid var(--accent);
         }
-        .alert-text {
-            color: var(--warning);
-            font-weight: bold;
-            font-size: 1rem;
-            animation: blink 1s infinite alternate;
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
         }
-        @keyframes blink { from { opacity: 1; } to { opacity: 0.5; } }
 
-        /* Form Style */
-        .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; color: var(--primary); }
+        /* === FORM STYLE === */
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
         input, select {
             width: 100%;
-            padding: 12px;
-            border: 2px solid var(--secondary);
-            border-radius: 15px;
+            padding: 12px 15px;
+            border: 3px solid var(--secondary);
+            border-radius: 20px;
             box-sizing: border-box;
             font-family: 'Quicksand', sans-serif;
             font-size: 1rem;
             outline: none;
-            transition: 0.3s;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background-color: var(--card-bg);
         }
         input:focus, select:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 8px var(--secondary);
+            transform: scale(1.02);
+            box-shadow: 0 0 15px var(--secondary);
         }
 
-        /* Buttons */
+        /* === BUTTONS === */
         button {
-            font-family: 'Quicksand', sans-serif;
-            font-weight: bold;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
             border: none;
-            border-radius: 20px;
-            padding: 10px 15px;
+            border-radius: 25px;
+            padding: 10px 18px;
             cursor: pointer;
-            transition: transform 0.2s;
-            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 1rem;
         }
+        button:active {
+            transform: scale(0.95);
+        }
+
         .btn-submit {
             background-color: var(--primary);
             color: white;
             width: 100%;
             padding: 15px;
-            font-size: 1.1rem;
-            border-radius: 25px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            font-size: 1.2rem;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
             margin-top: 10px;
         }
-        .btn-submit:hover { transform: scale(1.02); filter: brightness(1.1); }
-        .btn-copy { background-color: var(--secondary); color: var(--text-main); }
-        .btn-copy:hover { transform: scale(1.05); filter: brightness(0.9); }
-        .btn-delete { background-color: var(--warning); color: white; }
-        .btn-delete:hover { transform: scale(1.05); filter: brightness(0.9); }
+        .btn-submit:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px var(--secondary);
+        }
 
-        /* Group & Card Style */
-        .group-container { margin-top: 30px; }
-        .duration-group {
-            background: var(--bg-color);
-            border: 2px solid var(--secondary);
-            border-radius: 15px;
+        .btn-copy { background-color: var(--accent); color: white; }
+        .btn-copy:hover { background-color: var(--primary); transform: scale(1.05) rotate(-2deg); }
+
+        .btn-delete { background-color: #ff4d6d; color: white; }
+        .btn-delete:hover { background-color: #d90429; transform: scale(1.05) rotate(2deg); }
+
+        /* === NOTIFIKASI PENGINGAT === */
+        .notif-section {
+            background-color: var(--warning-bg);
+            border: 3px dashed var(--warning);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 25px;
+            display: none;
+            animation: shake 2s ease-in-out infinite;
+            box-shadow: 0 5px 15px rgba(255, 51, 51, 0.2);
+        }
+        .notif-title {
+            color: var(--warning);
+            margin-top: 0;
+            font-size: 1.4rem;
+            text-shadow: none;
+        }
+        .notif-card {
+            background: white;
+            border-left: 6px solid var(--warning);
             padding: 15px;
-            margin-bottom: 20px;
+            border-radius: 15px;
+            margin-bottom: 12px;
+        }
+        .alert-text {
+            color: var(--warning);
+            font-weight: 800;
+            font-size: 1.1rem;
+            background: #ffe6e6;
+            padding: 5px 10px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* === DATA CARDS === */
+        .group-container { margin-top: 35px; }
+        .duration-group {
+            background: rgba(255, 255, 255, 0.6);
+            border: 3px solid var(--secondary);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
         }
         .duration-title {
             background: var(--primary);
             color: white;
             display: inline-block;
-            padding: 5px 15px;
-            border-radius: 15px;
-            margin-top: -30px;
-            font-size: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-top: -35px;
+            font-size: 1.1rem;
+            font-family: 'Fredoka', sans-serif;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         .data-card {
             background: var(--card-bg);
-            border: 1px solid var(--secondary);
+            border: 2px solid var(--secondary);
             padding: 15px;
             border-radius: 15px;
             margin-top: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            animation: popIn 0.4s ease-out forwards;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
         }
-        .data-card p { margin: 5px 0; font-size: 0.9rem; }
-        .data-card strong { color: var(--primary); }
+        .data-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+        }
+        .data-card p { margin: 6px 0; font-size: 0.95rem; }
+        .data-card strong { color: var(--primary); font-family: 'Fredoka', sans-serif; }
         .card-actions {
             display: flex;
             gap: 10px;
-            margin-top: 10px;
+            margin-top: 12px;
             flex-wrap: wrap;
+        }
+
+        /* Responsive HP */
+        @media (max-width: 480px) {
+            .container { padding: 15px; border-radius: 20px; }
+            h1 { font-size: 1.5rem; }
+            .card-actions button { flex: 1; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>🍓 Canva Eurydice 🍓</h1>
+        <h1>✨ Recap Canva Eurydice ✨</h1>
 
-        <!-- Pilihan Tema -->
+        <!-- Fitur Ganti Tema -->
         <div class="theme-selector">
-            <button class="theme-btn theme-strawberry" onclick="ubahTema('#ff4d6d', '#ffb3c6', '#fff0f5', '#5c1a2e')" title="Strawberry"></button>
-            <button class="theme-btn theme-blueberry" onclick="ubahTema('#4d79ff', '#b3c6ff', '#f0f5ff', '#1a2e5c')" title="Blueberry"></button>
-            <button class="theme-btn theme-matcha" onclick="ubahTema('#4caf50', '#a5d6a7', '#f1f8e9', '#1b5e20')" title="Matcha"></button>
-            <button class="theme-btn theme-choco" onclick="ubahTema('#d2691e', '#e6c2a8', '#fdf5e6', '#5c3a21')" title="Choco"></button>
+            <button class="theme-btn" onclick="setTheme('default')">🍓 Pink</button>
+            <button class="theme-btn" onclick="setTheme('blueberry')">🫐 Blue</button>
+            <button class="theme-btn" onclick="setTheme('matcha')">🍵 Green</button>
+        }
         </div>
 
-        <!-- Kolom Pencarian -->
+        <!-- Fitur Pencarian -->
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="🔍 Cari Nama Team, Email, atau Nomor..." onkeyup="renderUI()">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Cari Nama Team atau Email..." onkeyup="renderUI()">
         </div>
 
-        <!-- Notifikasi Hari Ini -->
+        <!-- Notifikasi Kolom Lain (Hanya Muncul Jika Ada yang Expired Hari Ini/Lewat) -->
         <div id="notifSection" class="notif-section">
             <h2 class="notif-title">🚨 PENGINGAT HARI INI 🚨</h2>
             <div id="notifList"></div>
@@ -222,16 +307,16 @@
         <!-- Form Input -->
         <form id="canvaForm">
             <div class="form-group">
-                <label>Nama Team 🍓</label>
-                <input type="text" id="team" placeholder="Contoh: Team Strawberry" required>
+                <label>Nama Team 👑</label>
+                <input type="text" id="team" placeholder="Masukkan nama team..." required>
             </div>
             <div class="form-group">
                 <label>Nomor Customer 📱</label>
-                <input type="number" id="nomor" placeholder="08123456789" required>
+                <input type="number" id="nomor" placeholder="Contoh: 08123456789" required>
             </div>
             <div class="form-group">
                 <label>Email Customer ✉️</label>
-                <input type="email" id="email" placeholder="email@gmail.com" required>
+                <input type="email" id="email" placeholder="customer@gmail.com" required>
             </div>
             <div class="form-group">
                 <label>Durasi ⏳</label>
@@ -248,38 +333,34 @@
                 <label>Tanggal Pembelian 📅</label>
                 <input type="date" id="tanggal_beli" required>
             </div>
-            <button type="submit" class="btn-submit">Simpan Data 🍰</button>
+            <button type="submit" class="btn-submit">Simpan Data 💖</button>
         </form>
 
-        <!-- Container Data -->
-        <div id="dataContainer" class="group-container"></div>
+        <!-- Container Data Kelompok Durasi -->
+        <div id="dataContainer" class="group-container">
+            <!-- Data akan di-render di sini oleh JavaScript -->
+        </div>
     </div>
 
     <script>
-        // Array Data & Urutan
+        // === INISIALISASI DATA & TEMA ===
         let canvaData = JSON.parse(localStorage.getItem('canvaData')) || [];
         const form = document.getElementById('canvaForm');
         const durasiOrder = ['1 bulan', '2 bulan', '3 bulan', '6 bulan', '1 tahun', 'lifetime'];
 
-        // Set default date hari ini
+        // Load Tema dari LocalStorage
+        const savedTheme = localStorage.getItem('eurydiceTheme') || 'default';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        function setTheme(themeName) {
+            document.documentElement.setAttribute('data-theme', themeName);
+            localStorage.setItem('eurydiceTheme', themeName);
+        }
+
+        // Set default date (Hari ini)
         document.getElementById('tanggal_beli').valueAsDate = new Date();
 
-        // Fitur Ubah Tema
-        function ubahTema(primary, secondary, bg, text) {
-            document.documentElement.style.setProperty('--primary', primary);
-            document.documentElement.style.setProperty('--secondary', secondary);
-            document.documentElement.style.setProperty('--bg-color', bg);
-            document.documentElement.style.setProperty('--text-main', text);
-            localStorage.setItem('canvaTheme', JSON.stringify({primary, secondary, bg, text}));
-        }
-
-        // Muat Tema Tersimpan
-        const savedTheme = JSON.parse(localStorage.getItem('canvaTheme'));
-        if (savedTheme) {
-            ubahTema(savedTheme.primary, savedTheme.secondary, savedTheme.bg, savedTheme.text);
-        }
-
-        // Hitung Tanggal Selesai
+        // === LOGIKA TANGGAL SELESAI ===
         function hitungTanggalSelesai(tanggalBeli, durasi) {
             if (durasi === 'lifetime') return 'Lifetime';
             let date = new Date(tanggalBeli);
@@ -291,7 +372,7 @@
             return date.toISOString().split('T')[0];
         }
 
-        // Simpan Data Form
+        // === SIMPAN DATA BARU ===
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             const newData = {
@@ -309,14 +390,14 @@
             document.getElementById('tanggal_beli').valueAsDate = new Date();
         });
 
-        // Copy Email
+        // === FITUR COPAS ===
         function copyText(text) {
             navigator.clipboard.writeText(text).then(() => {
-                alert('Email berhasil di-copy! 🍓');
+                alert('✨ Email berhasil di-copy! ✨');
             });
         }
 
-        // Hapus Data
+        // === FITUR HAPUS ===
         function hapusData(id) {
             if(confirm('Yakin ingin menghapus data ini? 🥺')) {
                 canvaData = canvaData.filter(item => item.id !== id);
@@ -324,13 +405,12 @@
             }
         }
 
-        // Simpan & Render
+        // === RENDER UI & PENCARIAN ===
         function simpanData() {
             localStorage.setItem('canvaData', JSON.stringify(canvaData));
             renderUI();
         }
 
-        // Render Antarmuka
         function renderUI() {
             const dataContainer = document.getElementById('dataContainer');
             const notifSection = document.getElementById('notifSection');
@@ -340,37 +420,42 @@
             dataContainer.innerHTML = '';
             notifList.innerHTML = '';
             
-            const today = new Date().toISOString().split('T')[0];
+            // Format Tanggal Hari Ini untuk Pengecekan Expired
+            const todayDate = new Date();
+            // Sesuaikan zona waktu lokal (Indonesia)
+            const today = new Date(todayDate.getTime() - (todayDate.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+            
             let hasNotif = false;
 
-            // Filter Data berdasarkan Pencarian
-            const searchedData = canvaData.filter(item => 
-                item.team.toLowerCase().includes(searchQuery) ||
-                item.email.toLowerCase().includes(searchQuery) ||
-                item.nomor.includes(searchQuery)
-            );
-
-            // Render per Durasi
             durasiOrder.forEach(durasi => {
-                const filteredData = searchedData.filter(item => item.durasi === durasi);
+                // Filter berdasarkan durasi dan pencarian (Team atau Email)
+                const filteredData = canvaData.filter(item => {
+                    const matchDurasi = item.durasi === durasi;
+                    const matchSearch = item.team.toLowerCase().includes(searchQuery) || 
+                                        item.email.toLowerCase().includes(searchQuery);
+                    return matchDurasi && matchSearch;
+                });
+
                 if (filteredData.length === 0) return;
 
+                // Buat Wrapper Kelompok Durasi
                 const groupDiv = document.createElement('div');
                 groupDiv.className = 'duration-group';
-                groupDiv.innerHTML = `<div class="duration-title">⏳ Durasi: ${durasi.toUpperCase()}</div>`;
+                groupDiv.innerHTML = `<div class="duration-title">✨ Paket: ${durasi.toUpperCase()}</div>`;
 
                 filteredData.forEach(item => {
                     const isExpired = item.tanggal_selesai !== 'Lifetime' && item.tanggal_selesai <= today;
                     
+                    // Card Biasa
                     const card = document.createElement('div');
                     card.className = 'data-card';
                     card.innerHTML = `
                         <p><strong>Nama Team:</strong> ${item.team}</p>
-                        <p><strong>Nomor:</strong> ${item.nomor}</p>
+                        <p><strong>Nomor HP:</strong> ${item.nomor}</p>
                         <p><strong>Email:</strong> ${item.email}</p>
                         <p><strong>Tgl Beli:</strong> ${item.tanggal_beli}</p>
                         <p><strong>Tgl Selesai:</strong> ${item.tanggal_selesai}</p>
-                        ${isExpired ? `<p class="alert-text">❗ HARUS KELUAR TEAM ❗</p>` : ''}
+                        ${isExpired ? `<div class="alert-text">⚠️ HARINI MASA HABIS HARUS KELUAR TEAM ⚠️</div>` : ''}
                         <div class="card-actions">
                             <button class="btn-copy" onclick="copyText('${item.email}')">Copas Email 📋</button>
                             <button class="btn-delete" onclick="hapusData('${item.id}')">Hapus 🗑️</button>
@@ -378,38 +463,39 @@
                     `;
                     groupDiv.appendChild(card);
 
-                    // Tambahkan ke Notifikasi jika Expired (Abaikan filter pencarian untuk Notif agar selalu muncul)
-                    if (isExpired && canvaData.find(d => d.id === item.id)) {
+                    // Tambahkan ke Notifikasi jika Expired & tidak sedang di-filter search (agar notif selalu terlihat)
+                    // (Atau tampilkan di notif meski di-search, sesuai kebutuhan)
+                    if (isExpired && !searchQuery) {
                         hasNotif = true;
+                        const notifCard = document.createElement('div');
+                        notifCard.className = 'notif-card';
+                        notifCard.innerHTML = `
+                            <div class="alert-text">❗ HARINI MASA HABIS HARUS KELUAR TEAM ❗</div>
+                            <p><strong>Team:</strong> ${item.team}</p>
+                            <p><strong>Email:</strong> ${item.email}</p>
+                            <p><strong>Batas:</strong> ${item.tanggal_selesai}</p>
+                            <div class="card-actions">
+                                <button class="btn-copy" onclick="copyText('${item.email}')">Copas Email 📋</button>
+                                <button class="btn-delete" onclick="hapusData('${item.id}')">Sudah Dihapus 🗑️</button>
+                            </div>
+                        `;
+                        notifList.appendChild(notifCard);
                     }
                 });
 
                 dataContainer.appendChild(groupDiv);
             });
 
-            // Logika terpisah untuk Notifikasi Utama agar tidak terpengaruh kolom pencarian
-            canvaData.forEach(item => {
-                const isExpired = item.tanggal_selesai !== 'Lifetime' && item.tanggal_selesai <= today;
-                if(isExpired) {
-                    hasNotif = true;
-                    const notifCard = document.createElement('div');
-                    notifCard.className = 'notif-card';
-                    notifCard.innerHTML = `
-                        <p class="alert-text">🍓 HARUS KELUAR TEAM! 🍓</p>
-                        <p><strong>Team:</strong> ${item.team}</p>
-                        <p><strong>Email:</strong> ${item.email}</p>
-                        <div class="card-actions">
-                            <button class="btn-copy" onclick="copyText('${item.email}')">Copas Email 📋</button>
-                            <button class="btn-delete" onclick="hapusData('${item.id}')">Hapus 🗑️</button>
-                        </div>
-                    `;
-                    notifList.appendChild(notifCard);
-                }
-            });
-
-            notifSection.style.display = hasNotif ? 'block' : 'none';
+            // Sembunyikan notif jika sedang menggunakan fitur search agar fokus ke hasil search,
+            // atau jika memang tidak ada notif.
+            if(hasNotif && !searchQuery) {
+                notifSection.style.display = 'block';
+            } else {
+                notifSection.style.display = 'none';
+            }
         }
 
+        // Render saat pertama kali load
         renderUI();
     </script>
 </body>
