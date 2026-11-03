@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍓 Recap Canva Eurydice 🍓</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fff0f5;
+            --primary: #ff4d6d;
+            --secondary: #ffb3c6;
+            --text-main: #5c1a2e;
+            --card-bg: #ffffff;
+            --warning: #ff3333;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(var(--secondary) 10%, transparent 10%);
+            background-size: 20px 20px;
+            color: var(--text-main);
+            margin: 0;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            color: var(--primary);
+            text-shadow: 2px 2px 4px rgba(255, 179, 198, 0.5);
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.15);
+            border: 3px solid var(--secondary);
+        }
+
+        /* Notifikasi Section */
+        .notif-section {
+            background-color: #ffe6e6;
+            border: 2px dashed var(--warning);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 25px;
+            display: none;
+        }
+        
+        .notif-title {
+            color: var(--warning);
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        .notif-card {
+            background: white;
+            border-left: 5px solid var(--warning);
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 8px rgba(255, 51, 51, 0.1);
+        }
+        .notif-card p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+        .alert-text {
+            color: var(--warning);
+            font-weight: bold;
+            font-size: 1rem;
+            animation: blink 1s infinite alternate;
+        }
+
+        @keyframes blink {
+            from { opacity: 1; }
+            to { opacity: 0.5; }
+        }
+
+        /* Form Style */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--secondary);
+            border-radius: 15px;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 8px rgba(255, 77, 109, 0.3);
+        }
+
+        /* Buttons */
+        button {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .btn-submit {
+            background-color: var(--primary);
+            color: white;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(255, 77, 109, 0.4);
+            margin-top: 10px;
+        }
+        
+        .btn-submit:hover {
+            transform: scale(1.02);
+            background-color: #e63956;
+        }
+
+        .btn-copy {
+            background-color: #ffb3c6;
+            color: var(--text-main);
+        }
+        .btn-copy:hover { background-color: #ff99b3; transform: scale(1.05); }
+
+        .btn-delete {
+            background-color: #ff4d6d;
+            color: white;
+        }
+        .btn-delete:hover { background-color: #e63956; transform: scale(1.05); }
+
+        /* Group & Card Style (Mobile Friendly) */
+        .group-container {
+            margin-top: 30px;
+        }
+
+        .duration-group {
+            background: #fff5f7;
+            border: 2px solid var(--secondary);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .duration-title {
+            background: var(--primary);
+            color: white;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 15px;
+            margin-top: -30px;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .data-card {
+            background: var(--card-bg);
+            border: 1px solid var(--secondary);
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(255, 179, 198, 0.2);
+            position: relative;
+        }
+
+        .data-card p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+        
+        .data-card strong {
+            color: var(--primary);
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🍓 Recap Canva Eurydice 🍓</h1>
+
+        <!-- Notifikasi Kolom Lain -->
+        <div id="notifSection" class="notif-section">
+            <h2 class="notif-title">🚨 PENGINGAT HARI INI 🚨</h2>
+            <div id="notifList"></div>
+        </div>
+
+        <!-- Form Input -->
+        <form id="canvaForm">
+            <div class="form-group">
+                <label>Team 🍓</label>
+                <input type="text" id="team" placeholder="Nama Team..." required>
+            </div>
+            <div class="form-group">
+                <label>Nomor Customer 📱</label>
+                <input type="number" id="nomor" placeholder="08123456789" required>
+            </div>
+            <div class="form-group">
+                <label>Email Customer ✉️</label>
+                <input type="email" id="email" placeholder="email@gmail.com" required>
+            </div>
+            <div class="form-group">
+                <label>Durasi ⏳</label>
+                <select id="durasi" required>
+                    <option value="1 bulan">1 Bulan</option>
+                    <option value="2 bulan">2 Bulan</option>
+                    <option value="3 bulan">3 Bulan</option>
+                    <option value="6 bulan">6 Bulan</option>
+                    <option value="1 tahun">1 Tahun</option>
+                    <option value="lifetime">Lifetime</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Tanggal Pembelian 📅</label>
+                <input type="date" id="tanggal_beli" required>
+            </div>
+            <button type="submit" class="btn-submit">Simpan Data 🍰</button>
+        </form>
+
+        <!-- Data Berdasarkan Durasi -->
+        <div id="dataContainer" class="group-container">
+            <!-- Data groups akan di-render di sini oleh JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Array Data & Setup Initial
+        let canvaData = JSON.parse(localStorage.getItem('canvaData')) || [];
+        const form = document.getElementById('canvaForm');
+        const durasiOrder = ['1 bulan', '2 bulan', '3 bulan', '6 bulan', '1 tahun', 'lifetime'];
+
+        // Set default date hari ini pada form
+        document.getElementById('tanggal_beli').valueAsDate = new Date();
+
+        // Hitung Tanggal Selesai
+        function hitungTanggalSelesai(tanggalBeli, durasi) {
+            if (durasi === 'lifetime') return 'Lifetime';
+            let date = new Date(tanggalBeli);
+            if (durasi === '1 bulan') date.setMonth(date.getMonth() + 1);
+            else if (durasi === '2 bulan') date.setMonth(date.getMonth() + 2);
+            else if (durasi === '3 bulan') date.setMonth(date.getMonth() + 3);
+            else if (durasi === '6 bulan') date.setMonth(date.getMonth() + 6);
+            else if (durasi === '1 tahun') date.setFullYear(date.getFullYear() + 1);
+            return date.toISOString().split('T')[0];
+        }
+
+        // Simpan Form
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const newData = {
+                id: Date.now().toString(),
+                team: document.getElementById('team').value,
+                nomor: document.getElementById('nomor').value,
+                email: document.getElementById('email').value,
+                durasi: document.getElementById('durasi').value,
+                tanggal_beli: document.getElementById('tanggal_beli').value,
+                tanggal_selesai: hitungTanggalSelesai(document.getElementById('tanggal_beli').value, document.getElementById('durasi').value)
+            };
+            canvaData.push(newData);
+            simpanData();
+            form.reset();
+            document.getElementById('tanggal_beli').valueAsDate = new Date();
+        });
+
+        // Copy Text
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Email berhasil di-copy! 🍓');
+            });
+        }
+
+        // Hapus Data
+        function hapusData(id) {
+            if(confirm('Yakin ingin menghapus data ini? 🥺')) {
+                canvaData = canvaData.filter(item => item.id !== id);
+                simpanData();
+            }
+        }
+
+        // Render Data UI
+        function simpanData() {
+            localStorage.setItem('canvaData', JSON.stringify(canvaData));
+            renderUI();
+        }
+
+        function renderUI() {
+            const dataContainer = document.getElementById('dataContainer');
+            const notifSection = document.getElementById('notifSection');
+            const notifList = document.getElementById('notifList');
+            
+            dataContainer.innerHTML = '';
+            notifList.innerHTML = '';
+            
+            // Format Tanggal Hari Ini untuk Pengecekan
+            const today = new Date().toISOString().split('T')[0];
+            let hasNotif = false;
+
+            // Render Kelompok per Durasi
+            durasiOrder.forEach(durasi => {
+                const filteredData = canvaData.filter(item => item.durasi === durasi);
+                if (filteredData.length === 0) return;
+
+                // Buat Group Container
+                const groupDiv = document.createElement('div');
+                groupDiv.className = 'duration-group';
+                groupDiv.innerHTML = `<div class="duration-title">🍓 Durasi: ${durasi.toUpperCase()}</div>`;
+
+                filteredData.forEach(item => {
+                    // Cek jika durasi habis hari ini (atau sudah terlewat)
+                    const isExpired = item.tanggal_selesai !== 'Lifetime' && item.tanggal_selesai <= today;
+                    
+                    // Card untuk Daftar Utama
+                    const card = document.createElement('div');
+                    card.className = 'data-card';
+                    card.innerHTML = `
+                        <p><strong>Team:</strong> ${item.team}</p>
+                        <p><strong>Nomor:</strong> ${item.nomor}</p>
+                        <p><strong>Email:</strong> ${item.email}</p>
+                        <p><strong>Tgl Beli:</strong> ${item.tanggal_beli}</p>
+                        <p><strong>Tgl Selesai:</strong> ${item.tanggal_selesai}</p>
+                        ${isExpired ? `<p class="alert-text">❗ HARUS KELUAR TEAM ❗</p>` : ''}
+                        <div class="card-actions">
+                            <button class="btn-copy" onclick="copyText('${item.email}')">Copas Email 📋</button>
+                            <button class="btn-delete" onclick="hapusData('${item.id}')">Hapus 🗑️</button>
+                        </div>
+                    `;
+                    groupDiv.appendChild(card);
+
+                    // Tambahkan ke Notifikasi jika Expired
+                    if (isExpired) {
+                        hasNotif = true;
+                        const notifCard = document.createElement('div');
+                        notifCard.className = 'notif-card';
+                        notifCard.innerHTML = `
+                            <p class="alert-text">🍓 HARUS KELUAR TEAM! 🍓</p>
+                            <p><strong>Team:</strong> ${item.team}</p>
+                            <p><strong>Email:</strong> ${item.email}</p>
+                            <p><strong>Batas:</strong> ${item.tanggal_selesai}</p>
+                            <div class="card-actions">
+                                <button class="btn-copy" onclick="copyText('${item.email}')">Copas Email 📋</button>
+                                <button class="btn-delete" onclick="hapusData('${item.id}')">Hapus 🗑️</button>
+                            </div>
+                        `;
+                        notifList.appendChild(notifCard);
+                    }
+                });
+
+                dataContainer.appendChild(groupDiv);
+            });
+
+            // Tampilkan Notifikasi jika ada yang habis hari ini
+            notifSection.style.display = hasNotif ? 'block' : 'none';
+        }
+
+        // Render saat pertama kali load
+        renderUI();
+    </script>
+</body>
+</html>
