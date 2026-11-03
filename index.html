@@ -1,1949 +1,418 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="strawberry">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recap Canva Eurydice 🍓</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Quicksand & Fredoka for ultra cute rounded typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            /* Default Theme: Strawberry Milk 🍓 */
-            --bg-main: #fff5f7;
-            --bg-pattern: #ffe4e9;
-            --card-bg: #ffffff;
-            --primary: #ff5c8a;
-            --primary-hover: #ff3870;
-            --primary-light: #ffe0e9;
-            --secondary: #ff8fa3;
-            --accent: #ffacc5;
-            --text-dark: #592e39;
-            --text-muted: #9e6b78;
-            --border-color: #ffc2d1;
-            --shadow-color: rgba(255, 92, 138, 0.18);
-            --btn-shadow: #e03e6d;
+        /* === TEMA LUCU === */
+        :root[data-theme="strawberry"] {
+            --bg-color: #ffe4e1;
+            --container-bg: #fff0f5;
+            --primary: #ff69b4;
+            --secondary: #ffb6c1;
+            --text: #c71585;
+            --btn-text: #fff;
+            --shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
+            --border: 2px dashed #ff69b4;
+        }
+        :root[data-theme="blueberry"] {
+            --bg-color: #e6e6fa;
+            --container-bg: #f8f8ff;
+            --primary: #7b68ee;
+            --secondary: #b0c4de;
+            --text: #483d8b;
+            --btn-text: #fff;
+            --shadow: 0 4px 15px rgba(123, 104, 238, 0.2);
+            --border: 2px dashed #7b68ee;
+        }
+        :root[data-theme="matcha"] {
+            --bg-color: #f5fffa;
+            --container-bg: #f0fff0;
+            --primary: #3cb371;
+            --secondary: #98fb98;
+            --text: #2e8b57;
+            --btn-text: #fff;
+            --shadow: 0 4px 15px rgba(60, 179, 113, 0.2);
+            --border: 2px dashed #3cb371;
         }
 
-        [data-theme="peach"] {
-            /* Peach Boba 🍑 */
-            --bg-main: #fff8f3;
-            --bg-pattern: #ffeadb;
-            --card-bg: #ffffff;
-            --primary: #ff8552;
-            --primary-hover: #f26df9;
-            --primary-hover: #ff6b2b;
-            --primary-light: #ffe5d9;
-            --secondary: #ffa680;
-            --accent: #ffcbb3;
-            --text-dark: #5c3728;
-            --text-muted: #9c705e;
-            --border-color: #ffd1b8;
-            --shadow-color: rgba(255, 133, 82, 0.18);
-            --btn-shadow: #d96536;
-        }
-
-        [data-theme="blueberry"] {
-            /* Blueberry Cheesecake 🫐 */
-            --bg-main: #f5f7ff;
-            --bg-pattern: #e3e8ff;
-            --card-bg: #ffffff;
-            --primary: #7b8cde;
-            --primary-hover: #5e72d6;
-            --primary-light: #e5e9ff;
-            --secondary: #9faoff;
-            --accent: #c4ccff;
-            --text-dark: #2f365f;
-            --text-muted: #6c75a3;
-            --border-color: #c9d2ff;
-            --shadow-color: rgba(123, 140, 222, 0.18);
-            --btn-shadow: #5768ba;
-        }
-
-        [data-theme="matcha"] {
-            /* Matcha Latte 🍵 */
-            --bg-main: #f4fbf7;
-            --bg-pattern: #dff2e6;
-            --card-bg: #ffffff;
-            --primary: #52b788;
-            --primary-hover: #40916c;
-            --primary-light: #d8f3dc;
-            --secondary: #74c69d;
-            --accent: #95d5b2;
-            --text-dark: #264736;
-            --text-muted: #628c77;
-            --border-color: #b7e4c7;
-            --shadow-color: rgba(82, 183, 136, 0.18);
-            --btn-shadow: #3b8f68;
-        }
-
+        /* === GLOBAL STYLES === */
         body {
             font-family: 'Quicksand', sans-serif;
-            background-color: var(--bg-main);
-            background-image: radial-gradient(var(--bg-pattern) 2.5px, transparent 2.5px), radial-gradient(var(--bg-pattern) 2.5px, var(--bg-main) 2.5px);
-            background-size: 32px 32px;
-            background-position: 0 0, 16px 16px;
-            color: var(--text-dark);
+            background-color: var(--bg-color);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            padding-bottom: 100px; /* Space for bottom buttons */
             transition: all 0.3s ease;
-            padding-bottom: 130px;
+        }
+        h1, h2, h3 { text-align: center; }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 25px;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            border: var(--border);
         }
 
-        h1, h2, h3, .font-cute {
-            font-family: 'Fredoka', sans-serif;
-        }
-
-        /* Cute 3D Bubbly Buttons */
-        .btn-cute {
-            background-color: var(--primary);
-            color: white;
-            border: 2px solid white;
-            box-shadow: 0 4px 0 var(--btn-shadow), 0 6px 12px var(--shadow-color);
-            transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .btn-cute:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 0 var(--btn-shadow), 0 8px 15px var(--shadow-color);
-        }
-        .btn-cute:active {
-            transform: translateY(3px);
-            box-shadow: 0 1px 0 var(--btn-shadow), 0 2px 4px var(--shadow-color);
-        }
-
-        .btn-pastel {
-            background-color: var(--primary-light);
-            color: var(--text-dark);
-            border: 2px solid var(--border-color);
-            box-shadow: 0 3px 0 var(--border-color);
-            transition: all 0.15s ease;
-        }
-        .btn-pastel:hover {
-            transform: translateY(-2px);
-            background-color: var(--accent);
-        }
-        .btn-pastel:active {
-            transform: translateY(2px);
-            box-shadow: 0 1px 0 var(--border-color);
-        }
-
-        /* Duration Pill Selection */
-        .durasi-btn {
-            background-color: white;
-            color: var(--text-dark);
-            border: 2px solid var(--border-color);
-            box-shadow: 0 3px 0 var(--border-color);
-            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .durasi-btn:hover {
-            transform: translateY(-2px) scale(1.02);
-            border-color: var(--primary);
-        }
-        .durasi-btn.active {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            box-shadow: 0 4px 0 var(--btn-shadow);
-            transform: scale(1.04);
-        }
-
-        /* Cute Card Styling */
-        .card-cute {
-            background-color: var(--card-bg);
-            border: 2.5px solid var(--border-color);
-            border-radius: 1.5rem;
-            box-shadow: 0 8px 20px -4px var(--shadow-color);
-        }
-
-        /* Custom Input Styling */
-        .input-cute {
-            background-color: #ffffff;
-            border: 2px solid var(--border-color);
-            color: var(--text-dark);
-            border-radius: 1rem;
-            transition: all 0.2s ease;
-        }
-        .input-cute:focus {
+        /* === FORM & INPUT === */
+        .form-group { margin-bottom: 15px; }
+        label { font-weight: 600; display: block; margin-bottom: 5px; }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--secondary);
+            border-radius: 15px;
+            font-family: 'Quicksand', sans-serif;
             outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px var(--primary-light);
+            box-sizing: border-box;
         }
+        input:focus { border-color: var(--primary); }
+        .info-text { font-size: 12px; color: var(--primary); }
 
-        /* Bottom Floating Bar */
-        .bottom-nav-cute {
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(12px);
-            border: 3px solid var(--border-color);
-            box-shadow: 0 10px 30px var(--shadow-color), 0 4px 0 var(--border-color);
+        /* === DURATION BUTTONS === */
+        .duration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 10px;
+            margin-top: 5px;
         }
-
-        /* Floating Animation */
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-5px) rotate(3deg); }
+        .btn-duration {
+            background: var(--container-bg);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 10px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
         }
-        .animate-float {
-            animation: floatSlow 3.5s ease-in-out infinite;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-main);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--border-color);
-            border-radius: 9999px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
+        .btn-duration.active, .btn-duration:hover {
             background: var(--primary);
+            color: var(--btn-text);
         }
+
+        /* === ALERTS & NOTIFS === */
+        .alert {
+            background: #ffb3ba;
+            color: #d1001f;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 2px dashed #ff4d4d;
+        }
+        .alert ul { margin: 10px 0 0 20px; padding: 0; }
+        .btn-copas {
+            background: #fff;
+            color: #d1001f;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        /* === CARDS / TABLE === */
+        .data-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary);
+            position: relative;
+        }
+        .data-card h4 { margin: 0 0 10px 0; color: var(--primary); }
+        .data-card p { margin: 5px 0; font-size: 14px; }
+        .badge {
+            background: var(--secondary);
+            color: var(--text);
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .btn-delete {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        /* === BOTTOM BUTTONS (STICKY) === */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--container-bg);
+            padding: 15px;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            box-sizing: border-box;
+            border-top: var(--border);
+            z-index: 1000;
+        }
+        .btn-cute {
+            background: var(--primary);
+            color: var(--btn-text);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: 'Quicksand', sans-serif;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+        }
+        .btn-cute:hover { transform: scale(1.05); }
+        .btn-theme { background: var(--secondary); color: var(--text); }
     </style>
 </head>
-<body class="min-h-screen selection:bg-pink-200 selection:text-pink-900">
+<body>
 
-    <!-- Top Cute Decorative Ribbon -->
-    <div class="w-full h-3 bg-gradient-to-r from-pink-300 via-rose-400 to-pink-300" style="background: repeating-linear-gradient(45deg, var(--primary), var(--primary) 12px, var(--primary-light) 12px, var(--primary-light) 24px);"></div>
-
-    <!-- Header Section -->
-    <header class="max-w-5xl mx-auto px-4 pt-6 pb-3">
-        <div class="card-cute p-5 md:p-6 relative overflow-hidden">
-            <!-- Decorative Background Icons -->
-            <div class="absolute -right-4 -top-4 text-7xl opacity-15 pointer-events-none select-none animate-float" id="headerDecoIcon">🍓</div>
-            <div class="absolute right-24 -bottom-4 text-5xl opacity-10 pointer-events-none select-none">🎀</div>
-
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 relative z-10">
-                <div class="flex items-center gap-3.5">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shadow-sm border-2"
-                         style="background-color: var(--primary-light); border-color: var(--border-color);" id="brandLogoIcon">
-                        🍓
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-2 flex-wrap">
-                            <h1 class="text-2xl md:text-3xl font-bold tracking-tight" style="color: var(--text-dark);">
-                                Recap Canva Eurydice
-                            </h1>
-                            <span class="text-xs font-bold px-2.5 py-1 rounded-full border"
-                                  style="background-color: var(--primary-light); color: var(--primary); border-color: var(--border-color);">
-                                ✨ Cute Admin
-                            </span>
-                        </div>
-                        <p class="text-sm font-medium mt-0.5" style="color: var(--text-muted);">
-                            Kelola pelanggan Canva Pro, tim, durasi & pengingat otomatis dengan gemas! 🎀
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Quick Stats Pills -->
-                <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
-                    <div class="flex-1 md:flex-initial px-3.5 py-2 rounded-2xl border-2 flex items-center gap-2.5 bg-white"
-                         style="border-color: var(--border-color);">
-                        <span class="text-xl">💌</span>
-                        <div>
-                            <div class="text-[11px] font-bold uppercase tracking-wider" style="color: var(--text-muted);">Total Data</div>
-                            <div class="text-base font-bold font-cute leading-tight" id="statTotal">0</div>
-                        </div>
-                    </div>
-
-                    <div class="flex-1 md:flex-initial px-3.5 py-2 rounded-2xl border-2 flex items-center gap-2.5 bg-emerald-50 border-emerald-200 text-emerald-800">
-                        <span class="text-xl">✨</span>
-                        <div>
-                            <div class="text-[11px] font-bold uppercase tracking-wider text-emerald-600">Aktif</div>
-                            <div class="text-base font-bold font-cute leading-tight" id="statActive">0</div>
-                        </div>
-                    </div>
-
-                    <button onclick="openModal('reminderModal')" class="flex-1 md:flex-initial px-3.5 py-2 rounded-2xl border-2 flex items-center gap-2.5 bg-rose-50 border-rose-300 text-rose-800 hover:bg-rose-100 transition cursor-pointer">
-                        <span class="text-xl animate-bounce">⏰</span>
-                        <div class="text-left">
-                            <div class="text-[11px] font-bold uppercase tracking-wider text-rose-600">Habis / Expired</div>
-                            <div class="text-base font-bold font-cute leading-tight" id="statExpiring">0</div>
-                        </div>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Alert Banner If Customers Expire Today -->
-    <section id="urgentBannerContainer" class="max-w-5xl mx-auto px-4 my-2 hidden">
-        <div class="bg-gradient-to-r from-rose-500 to-pink-500 text-white p-4 rounded-3xl shadow-md border-2 border-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-            <div class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-2xl bg-white/20 flex items-center justify-center text-2xl shrink-0">
-                    🔔
-                </div>
-                <div>
-                    <h3 class="font-cute font-bold text-base sm:text-lg leading-snug" id="urgentBannerTitle">
-                        Ada Customer yang Durasinya Habis Hari Ini!
-                    </h3>
-                    <p class="text-xs sm:text-sm text-rose-100" id="urgentBannerDesc">
-                        Yuk cek daftar emailnya, tinggal sekali klik langsung copas!
-                    </p>
-                </div>
-            </div>
-            <div class="flex items-center gap-2 w-full sm:w-auto">
-                <button onclick="copyAllExpiringTodayEmails()" class="flex-1 sm:flex-initial px-3.5 py-2 rounded-xl bg-white text-rose-600 font-bold text-xs sm:text-sm shadow hover:bg-rose-50 transition flex items-center justify-center gap-1.5">
-                    <i class="fa-regular fa-copy"></i> Copas Email Hari Ini
-                </button>
-                <button onclick="openModal('reminderModal')" class="px-3.5 py-2 rounded-xl bg-rose-700/60 hover:bg-rose-700 text-white font-bold text-xs sm:text-sm transition">
-                    Lihat Detail
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Content Area -->
-    <main class="max-w-5xl mx-auto px-4 py-3 space-y-5">
-
-        <!-- Search & Filter Controls -->
-        <div class="card-cute p-4 md:p-5 space-y-4">
-            <div class="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
-                <!-- Search Input -->
-                <div class="relative flex-1">
-                    <span class="absolute left-4 top-1/2 -translate-y-1/2 text-lg pointer-events-none">🔍</span>
-                    <input type="text" id="searchInput" oninput="renderCustomerList()"
-                           placeholder="Cari email customer, nomor WA/HP, atau nama team..."
-                           class="input-cute w-full pl-11 pr-10 py-3 text-sm font-semibold">
-                    <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3.5 top-1/2 -translate-y-1/2 text-xs px-2 py-1 rounded-full bg-rose-100 text-rose-600 font-bold hover:bg-rose-200">
-                        ✕
-                    </button>
-                </div>
-
-                <!-- Status Filter & View Mode -->
-                <div class="flex flex-wrap items-center gap-2">
-                    <select id="statusFilter" onchange="renderCustomerList()" class="input-cute px-3.5 py-3 text-sm font-bold cursor-pointer">
-                        <option value="ALL">🍓 Semua Status</option>
-                        <option value="EXPIRING_TODAY">⏰ Habis Hari Ini</option>
-                        <option value="EXPIRED">🥀 Sudah Lewat (Expired)</option>
-                        <option value="SOON">⚡ Segera Habis (≤ 2 Hari)</option>
-                        <option value="ACTIVE">✨ Masih Aktif</option>
-                    </select>
-
-                    <select id="teamFilter" onchange="renderCustomerList()" class="input-cute px-3.5 py-3 text-sm font-bold cursor-pointer">
-                        <option value="ALL">🎀 Semua Team</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Cute Duration Category Filter Pills -->
-            <div>
-                <div class="flex items-center justify-between mb-2">
-                    <span class="text-xs font-bold uppercase tracking-wider flex items-center gap-1.5" style="color: var(--text-muted);">
-                        <span>🍡</span> Kelompok Durasi (Klik untuk Filter):
-                    </span>
-                    <span class="text-xs font-semibold" style="color: var(--primary);" id="showingCountLabel">Menampilkan semua data</span>
-                </div>
-                <div class="flex items-center gap-2 overflow-x-auto pb-2 pt-1 no-scrollbar" id="durationFilterTabs">
-                    <!-- Populated via JS -->
-                </div>
+    <div class="container">
+        <h1>🍓 Recap Canva Eurydice 🍓</h1>
+        
+        <!-- PENGINGAT (REMINDER) -->
+        <div id="reminderSection" style="display: none;">
+            <div class="alert">
+                <strong>⚠️ Halo Kak! Ada langganan yang habis hari ini nih:</strong>
+                <ul id="reminderList"></ul>
             </div>
         </div>
 
-        <!-- Grouped Customer List Container -->
-        <div id="groupedCustomersContainer" class="space-y-6">
-            <!-- Populated dynamically via JS -->
+        <!-- FORM TAMBAH DATA -->
+        <h3>✨ Tambah Data Baru ✨</h3>
+        <div class="form-group">
+            <label>Nomor Customer (Bisa isi banyak, pisahkan koma)</label>
+            <input type="text" id="inputNomor" placeholder="0812xxx, 0857xxx">
         </div>
-
-    </main>
-
-    <!-- ========================================== -->
-    <!-- FLOATING CUTE BOTTOM NAVIGATION BAR        -->
-    <!-- ========================================== -->
-    <nav class="fixed bottom-3 left-1/2 -translate-x-1/2 z-40 w-[96%] max-w-2xl">
-        <div class="bottom-nav-cute rounded-3xl p-2 sm:p-2.5 flex items-center justify-around gap-1 sm:gap-2">
-            
-            <!-- Button 1: Tambah Satuan -->
-            <button onclick="openAddSingleModal()" class="btn-cute flex-1 py-2.5 px-2 rounded-2xl flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-bold">
-                <span class="text-base sm:text-lg">➕</span>
-                <span>Tambah Data</span>
-            </button>
-
-            <!-- Button 2: Bulk Recap (Beberapa Langsung) -->
-            <button onclick="openModal('bulkModal')" class="btn-pastel flex-1 py-2.5 px-2 rounded-2xl flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-bold">
-                <span class="text-base sm:text-lg">⚡</span>
-                <span>Recap Banyak</span>
-            </button>
-
-            <!-- Button 3: Pengingat / Copas Email Habis -->
-            <button onclick="openModal('reminderModal')" class="btn-pastel relative flex-1 py-2.5 px-2 rounded-2xl flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm font-bold">
-                <span class="text-base sm:text-lg">🔔</span>
-                <span>Pengingat</span>
-                <span id="bottomNavReminderBadge" class="hidden absolute -top-2 -right-1 bg-rose-500 text-white text-[11px] font-bold px-2 py-0.5 rounded-full border-2 border-white shadow animate-pulse">
-                    0
-                </span>
-            </button>
-
-            <!-- Button 4: Ubah Tema Lucu -->
-            <button onclick="openModal('themeModal')" class="btn-pastel py-2.5 px-3 rounded-2xl flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 text-xs sm:text-sm font-bold" title="Ubah Tema Web">
-                <span class="text-base sm:text-lg">🎨</span>
-                <span class="hidden md:inline">Tema</span>
-            </button>
-
-            <!-- Button 5: Backup / Export -->
-            <button onclick="openModal('backupModal')" class="btn-pastel py-2.5 px-3 rounded-2xl flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 text-xs sm:text-sm font-bold" title="Backup & Export Data">
-                <span class="text-base sm:text-lg">💾</span>
-                <span class="hidden md:inline">Backup</span>
-            </button>
+        <div class="form-group">
+            <label>Email Customer (Bisa isi banyak, pisahkan koma)</label>
+            <input type="text" id="inputEmail" placeholder="abc@gmail.com, def@gmail.com">
+            <small class="info-text">*Fitur recap beberapa langsung: Pisahkan dengan koma untuk tambah banyak data sekaligus.</small>
         </div>
-    </nav>
-
-    <!-- ========================================== -->
-    <!-- MODAL 1: INPUT SATUAN (TAMBAH / EDIT DATA) -->
-    <!-- ========================================== -->
-    <div id="singleModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
-        <div class="card-cute w-full max-w-lg p-5 sm:p-6 relative my-8 animate-fadeIn">
-            <div class="flex items-center justify-between pb-3 mb-4 border-b-2" style="border-color: var(--border-color);">
-                <div class="flex items-center gap-2.5">
-                    <span class="text-2xl">🍓</span>
-                    <h2 class="text-xl font-bold font-cute" id="singleModalTitle">Tambah Recap Customer</h2>
-                </div>
-                <button onclick="closeModal('singleModal')" class="w-9 h-9 rounded-full btn-pastel flex items-center justify-center font-bold">✕</button>
+        <div class="form-group">
+            <label>Nama Team Canva</label>
+            <input type="text" id="inputTeam" placeholder="Eurydice Team 1">
+        </div>
+        <div class="form-group">
+            <label>Tanggal Pembelian</label>
+            <input type="date" id="inputTglBeli">
+        </div>
+        <div class="form-group">
+            <label>Pilih Durasi ⏳</label>
+            <div class="duration-grid" id="durationGrid">
+                <button class="btn-duration" onclick="setDuration('1 Hari')">1 Hari</button>
+                <button class="btn-duration" onclick="setDuration('3 Hari')">3 Hari</button>
+                <button class="btn-duration" onclick="setDuration('7 Hari')">7 Hari</button>
+                <button class="btn-duration" onclick="setDuration('1 Bulan')">1 Bulan</button>
+                <button class="btn-duration" onclick="setDuration('2 Bulan')">2 Bulan</button>
+                <button class="btn-duration" onclick="setDuration('3 Bulan')">3 Bulan</button>
+                <button class="btn-duration" onclick="setDuration('6 Bulan')">6 Bulan</button>
+                <button class="btn-duration" onclick="setDuration('1 Tahun')">1 Tahun</button>
+                <button class="btn-duration" onclick="setDuration('Lifetime')">Lifetime</button>
             </div>
-
-            <form id="singleForm" onsubmit="saveSingleCustomer(event)" class="space-y-4">
-                <input type="hidden" id="editCustomerId" value="">
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                    <!-- Nomor Customer -->
-                    <div>
-                        <label class="block text-xs font-bold mb-1.5">📱 Nomor Customer (WA/HP)</label>
-                        <input type="text" id="inpPhone" required placeholder="Contoh: 081234567890"
-                               class="input-cute w-full px-3.5 py-2.5 text-sm font-semibold">
-                    </div>
-
-                    <!-- Email Customer -->
-                    <div>
-                        <label class="block text-xs font-bold mb-1.5">💌 Email Customer</label>
-                        <input type="email" id="inpEmail" required placeholder="customer@gmail.com"
-                               class="input-cute w-full px-3.5 py-2.5 text-sm font-semibold">
-                    </div>
-                </div>
-
-                <!-- Nama Team -->
-                <div>
-                    <label class="block text-xs font-bold mb-1.5">👑 Nama Team Canva</label>
-                    <input type="text" id="inpTeam" required list="teamSuggestions" placeholder="Contoh: Team Eurydice 01"
-                           class="input-cute w-full px-3.5 py-2.5 text-sm font-semibold">
-                    <datalist id="teamSuggestions"></datalist>
-                </div>
-
-                <!-- Pilihan Durasi (Button-Button Lucu) -->
-                <div>
-                    <label class="block text-xs font-bold mb-2">⏳ Pilih Durasi (Klik Button Lucu di Bawah):</label>
-                    <input type="hidden" id="inpDuration" value="1 Bulan">
-                    <div class="grid grid-cols-3 gap-2" id="singleDurationButtons">
-                        <!-- Generated via JS -->
-                    </div>
-                </div>
-
-                <!-- Tanggal Pembelian & Tanggal Selesai -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
-                    <div>
-                        <label class="block text-xs font-bold mb-1.5">📅 Tanggal Pembelian</label>
-                        <input type="date" id="inpBuyDate" required onchange="updateSingleEndDate()"
-                               class="input-cute w-full px-3.5 py-2.5 text-sm font-semibold">
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold mb-1.5">🏁 Tanggal Selesai</label>
-                        <input type="date" id="inpEndDate" required
-                               class="input-cute w-full px-3.5 py-2.5 text-sm font-semibold">
-                        <div id="lifetimeBadgeInfo" class="hidden mt-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300 flex items-center gap-1.5">
-                            <span>♾️</span> Durasi Lifetime (Aktif Selamanya!)
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Catatan Opsional -->
-                <div>
-                    <label class="block text-xs font-bold mb-1.5">📝 Catatan Tambahan (Opsional)</label>
-                    <input type="text" id="inpNotes" placeholder="Contoh: Invite via link, garansi full..."
-                           class="input-cute w-full px-3.5 py-2 text-sm font-semibold">
-                </div>
-
-                <div class="flex items-center justify-end gap-2.5 pt-3 border-t-2" style="border-color: var(--border-color);">
-                    <button type="button" onclick="closeModal('singleModal')" class="btn-pastel px-4 py-2.5 rounded-2xl text-sm font-bold">
-                        Batal
-                    </button>
-                    <button type="submit" class="btn-cute px-6 py-2.5 rounded-2xl text-sm font-bold flex items-center gap-2">
-                        <i class="fa-solid fa-heart"></i> Simpan Data
-                    </button>
-                </div>
-            </form>
         </div>
+
+        <hr style="border: 1px dashed var(--primary); margin: 30px 0;">
+
+        <!-- FILTER & PENCARIAN -->
+        <h3>🔍 Cari & Kelompokkan</h3>
+        <div class="form-group">
+            <input type="text" id="searchBox" placeholder="Cari email, nomor, atau team..." oninput="renderData()">
+        </div>
+        <div class="form-group">
+            <select id="filterDurasi" onchange="renderData()">
+                <option value="Semua">Semua Durasi</option>
+                <option value="1 Hari">1 Hari</option>
+                <option value="3 Hari">3 Hari</option>
+                <option value="7 Hari">7 Hari</option>
+                <option value="1 Bulan">1 Bulan</option>
+                <option value="2 Bulan">2 Bulan</option>
+                <option value="3 Bulan">3 Bulan</option>
+                <option value="6 Bulan">6 Bulan</option>
+                <option value="1 Tahun">1 Tahun</option>
+                <option value="Lifetime">Lifetime</option>
+            </select>
+        </div>
+
+        <!-- LIST DATA -->
+        <div id="dataContainer"></div>
     </div>
 
-    <!-- ========================================== -->
-    <!-- MODAL 2: BULK RECAP (BEBERAPA LANGSUNG)    -->
-    <!-- ========================================== -->
-    <div id="bulkModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
-        <div class="card-cute w-full max-w-2xl p-5 sm:p-6 relative my-8">
-            <div class="flex items-center justify-between pb-3 mb-4 border-b-2" style="border-color: var(--border-color);">
-                <div class="flex items-center gap-2.5">
-                    <span class="text-2xl">⚡</span>
-                    <div>
-                        <h2 class="text-xl font-bold font-cute">Recap Data Beberapa Langsung (Bulk)</h2>
-                        <p class="text-xs font-semibold" style="color: var(--text-muted);">Input banyak customer sekaligus dalam 1 Team & Durasi yang sama!</p>
-                    </div>
-                </div>
-                <button onclick="closeModal('bulkModal')" class="w-9 h-9 rounded-full btn-pastel flex items-center justify-center font-bold">✕</button>
-            </div>
-
-            <form id="bulkForm" onsubmit="saveBulkCustomers(event)" class="space-y-4">
-                <!-- Pengaturan Bersama (Team & Tanggal Beli) -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 p-3.5 rounded-2xl border-2" style="background-color: var(--bg-main); border-color: var(--border-color);">
-                    <div>
-                        <label class="block text-xs font-bold mb-1">👑 Nama Team Canva</label>
-                        <input type="text" id="bulkTeam" required list="teamSuggestions" placeholder="Team Eurydice 01"
-                               class="input-cute w-full px-3 py-2 text-sm font-semibold">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold mb-1">📅 Tanggal Pembelian</label>
-                        <input type="date" id="bulkBuyDate" required onchange="updateBulkEndDate()"
-                               class="input-cute w-full px-3 py-2 text-sm font-semibold">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold mb-1">🏁 Tanggal Selesai</label>
-                        <input type="date" id="bulkEndDate" required
-                               class="input-cute w-full px-3 py-2 text-sm font-semibold">
-                        <div id="bulkLifetimeInfo" class="hidden mt-1 px-2.5 py-1.5 rounded-lg text-xs font-bold bg-amber-100 text-amber-800">
-                            ♾️ Selamanya (Lifetime)
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pilihan Durasi Bersama -->
-                <div>
-                    <label class="block text-xs font-bold mb-2">⏳ Pilih Durasi untuk Semua Customer Ini:</label>
-                    <input type="hidden" id="bulkDuration" value="1 Bulan">
-                    <div class="grid grid-cols-3 sm:grid-cols-5 gap-2" id="bulkDurationButtons">
-                        <!-- Generated via JS -->
-                    </div>
-                </div>
-
-                <!-- Mode Input Bulk: Tabel Baris vs Paste Cepat -->
-                <div class="flex items-center justify-between pt-2">
-                    <div class="flex items-center gap-2">
-                        <button type="button" id="tabBulkRows" onclick="switchBulkMode('rows')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold btn-cute">
-                            📋 Tabel Baris Mudah
-                        </button>
-                        <button type="button" id="tabBulkPaste" onclick="switchBulkMode('paste')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold btn-pastel">
-                            📝 Copas Teks Cepat
-                        </button>
-                    </div>
-                    <button type="button" id="addBulkRowBtn" onclick="addBulkRow()" class="px-3 py-1.5 rounded-xl text-xs font-bold btn-pastel flex items-center gap-1">
-                        ➕ Tambah Baris
-                    </button>
-                </div>
-
-                <!-- Mode 1: Dynamic Rows -->
-                <div id="bulkRowsContainer" class="space-y-2 max-h-60 overflow-y-auto pr-1">
-                    <!-- Rows populated via JS -->
-                </div>
-
-                <!-- Mode 2: Paste Textarea -->
-                <div id="bulkPasteContainer" class="hidden space-y-2">
-                    <div class="p-3 rounded-xl text-xs font-semibold bg-amber-50 border border-amber-200 text-amber-900">
-                        💡 <b>Tips Copas Cepat:</b> Masukkan 1 customer per baris dengan format:<br>
-                        <code class="bg-white px-1.5 py-0.5 rounded border">email@gmail.com, 08123456789</code> atau cukup <code class="bg-white px-1.5 py-0.5 rounded border">email@gmail.com</code> saja (nomor WA otomatis "-").
-                    </div>
-                    <textarea id="bulkPasteTextarea" rows="6"
-                              placeholder="rina.canva@gmail.com, 081299887766&#10;putri.aesthetic@gmail.com, 085711223344&#10;dinda.study@gmail.com, 081355667788"
-                              class="input-cute w-full p-3.5 text-sm font-semibold font-mono"></textarea>
-                </div>
-
-                <div class="flex items-center justify-between pt-3 border-t-2" style="border-color: var(--border-color);">
-                    <span class="text-xs font-bold" style="color: var(--text-muted);" id="bulkPreviewCount">Siap menyimpan banyak data sekaligus!</span>
-                    <div class="flex items-center gap-2">
-                        <button type="button" onclick="closeModal('bulkModal')" class="btn-pastel px-4 py-2.5 rounded-2xl text-sm font-bold">
-                            Batal
-                        </button>
-                        <button type="submit" class="btn-cute px-6 py-2.5 rounded-2xl text-sm font-bold flex items-center gap-2">
-                            <span>🚀</span> Simpan Semua Sekaligus
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
+    <!-- BOTTOM BUTTONS LUCU -->
+    <div class="bottom-bar">
+        <button class="btn-cute btn-theme" onclick="gantiTema()">🎨 Ganti Tema</button>
+        <button class="btn-cute" onclick="simpanData()">💾 Simpan Data</button>
     </div>
 
-    <!-- ========================================== -->
-    <!-- MODAL 3: PENGINGAT & COPAS EMAIL HABIS     -->
-    <!-- ========================================== -->
-    <div id="reminderModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
-        <div class="card-cute w-full max-w-2xl p-5 sm:p-6 relative my-8">
-            <div class="flex items-center justify-between pb-3 mb-4 border-b-2" style="border-color: var(--border-color);">
-                <div class="flex items-center gap-2.5">
-                    <span class="text-2xl">🔔</span>
-                    <div>
-                        <h2 class="text-xl font-bold font-cute">Pengingat Durasi Habis & Tinggal Copas</h2>
-                        <p class="text-xs font-semibold" style="color: var(--text-muted);">Daftar email customer yang habis hari ini & sudah lewat waktu</p>
-                    </div>
-                </div>
-                <button onclick="closeModal('reminderModal')" class="w-9 h-9 rounded-full btn-pastel flex items-center justify-center font-bold">✕</button>
-            </div>
-
-            <!-- Quick Copy All Box for Today -->
-            <div class="p-4 rounded-2xl border-2 mb-4" style="background-color: var(--bg-main); border-color: var(--border-color);">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2.5">
-                    <div class="flex items-center gap-2">
-                        <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-rose-500 text-white">⏰ Habis Hari Ini</span>
-                        <span class="text-xs font-bold" id="todayDateLabel"></span>
-                    </div>
-                    <div class="flex flex-wrap items-center gap-1.5">
-                        <button onclick="copyAllExpiringTodayEmails(', ')" class="btn-cute px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5">
-                            <i class="fa-regular fa-copy"></i> Copas Semua Email (Koma)
-                        </button>
-                        <button onclick="copyAllExpiringTodayEmails('\n')" class="btn-pastel px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5">
-                            <i class="fa-solid fa-list"></i> Copas (Per Baris)
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Read-only Textbox for instant view & manual copy if needed -->
-                <div class="relative">
-                    <textarea id="expiringTodayEmailsBox" readonly rows="2"
-                              class="input-cute w-full p-3 text-xs font-mono font-bold bg-white/90"
-                              placeholder="Tidak ada email yang habis tepat hari ini ✨"></textarea>
-                </div>
-            </div>
-
-            <!-- Tabs inside Reminder Modal: Habis Hari Ini | Sudah Lewat (Expired) | Segera Habis (H-2) -->
-            <div class="flex items-center gap-2 mb-3 overflow-x-auto pb-1">
-                <button onclick="switchReminderTab('TODAY')" id="remTabToday" class="px-3.5 py-1.5 rounded-xl text-xs font-bold btn-cute">
-                    ⏰ Habis Hari Ini (<span id="countRemToday">0</span>)
-                </button>
-                <button onclick="switchReminderTab('EXPIRED')" id="remTabExpired" class="px-3.5 py-1.5 rounded-xl text-xs font-bold btn-pastel">
-                    🥀 Sudah Lewat / Expired (<span id="countRemExpired">0</span>)
-                </button>
-                <button onclick="switchReminderTab('SOON')" id="remTabSoon" class="px-3.5 py-1.5 rounded-xl text-xs font-bold btn-pastel">
-                    ⚡ Segera Habis ≤ 2 Hari (<span id="countRemSoon">0</span>)
-                </button>
-            </div>
-
-            <!-- List of Expiring Customers -->
-            <div id="reminderListContainer" class="space-y-2.5 max-h-72 overflow-y-auto pr-1">
-                <!-- Populated by JS -->
-            </div>
-
-            <div class="flex items-center justify-between mt-4 pt-3 border-t-2" style="border-color: var(--border-color);">
-                <button onclick="copyCurrentReminderTabEmails()" class="btn-pastel px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5">
-                    <i class="fa-regular fa-clipboard"></i> Copas Semua Email di Tab Ini
-                </button>
-                <button onclick="closeModal('reminderModal')" class="btn-cute px-5 py-2 rounded-xl text-xs font-bold">
-                    Selesai 🎀
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ========================================== -->
-    <!-- MODAL 4: UBAH TEMA TAMPILAN LUCU           -->
-    <!-- ========================================== -->
-    <div id="themeModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="card-cute w-full max-w-md p-5 sm:p-6 relative">
-            <div class="flex items-center justify-between pb-3 mb-4 border-b-2" style="border-color: var(--border-color);">
-                <div class="flex items-center gap-2">
-                    <span class="text-2xl">🎨</span>
-                    <h2 class="text-xl font-bold font-cute">Pilih Tema Lucu Favoritmu</h2>
-                </div>
-                <button onclick="closeModal('themeModal')" class="w-9 h-9 rounded-full btn-pastel flex items-center justify-center font-bold">✕</button>
-            </div>
-
-            <div class="grid grid-cols-1 gap-3">
-                <!-- Strawberry Milk -->
-                <button onclick="setCuteTheme('strawberry')" class="p-3.5 rounded-2xl border-2 border-pink-300 bg-pink-50 hover:bg-pink-100 transition flex items-center justify-between text-left group">
-                    <div class="flex items-center gap-3">
-                        <span class="w-12 h-12 rounded-2xl bg-pink-200 flex items-center justify-center text-2xl shadow-sm group-hover:scale-110 transition">🍓</span>
-                        <div>
-                            <div class="font-cute font-bold text-pink-900 text-base">Pink Strawberry Milk</div>
-                            <div class="text-xs text-pink-700 font-semibold">Tema utama pink pastel manis & buah strawberry</div>
-                        </div>
-                    </div>
-                    <div class="flex gap-1">
-                        <span class="w-4 h-4 rounded-full bg-[#ff5c8a] border border-white"></span>
-                        <span class="w-4 h-4 rounded-full bg-[#ffe0e9] border border-white"></span>
-                    </div>
-                </button>
-
-                <!-- Peach Boba -->
-                <button onclick="setCuteTheme('peach')" class="p-3.5 rounded-2xl border-2 border-orange-300 bg-orange-50 hover:bg-orange-100 transition flex items-center justify-between text-left group">
-                    <div class="flex items-center gap-3">
-                        <span class="w-12 h-12 rounded-2xl bg-orange-200 flex items-center justify-center text-2xl shadow-sm group-hover:scale-110 transition">🍑</span>
-                        <div>
-                            <div class="font-cute font-bold text-orange-950 text-base">Peach Creamy Boba</div>
-                            <div class="text-xs text-orange-700 font-semibold">Warna coral peach hangat & susu krim lembut</div>
-                        </div>
-                    </div>
-                    <div class="flex gap-1">
-                        <span class="w-4 h-4 rounded-full bg-[#ff8552] border border-white"></span>
-                        <span class="w-4 h-4 rounded-full bg-[#ffe5d9] border border-white"></span>
-                    </div>
-                </button>
-
-                <!-- Blueberry Cheesecake -->
-                <button onclick="setCuteTheme('blueberry')" class="p-3.5 rounded-2xl border-2 border-indigo-300 bg-indigo-50 hover:bg-indigo-100 transition flex items-center justify-between text-left group">
-                    <div class="flex items-center gap-3">
-                        <span class="w-12 h-12 rounded-2xl bg-indigo-200 flex items-center justify-center text-2xl shadow-sm group-hover:scale-110 transition">🫐</span>
-                        <div>
-                            <div class="font-cute font-bold text-indigo-950 text-base">Blueberry Cheesecake</div>
-                            <div class="text-xs text-indigo-700 font-semibold">Perpaduan pastel periwinkle & lavender lucu</div>
-                        </div>
-                    </div>
-                    <div class="flex gap-1">
-                        <span class="w-4 h-4 rounded-full bg-[#7b8cde] border border-white"></span>
-                        <span class="w-4 h-4 rounded-full bg-[#e5e9ff] border border-white"></span>
-                    </div>
-                </button>
-
-                <!-- Matcha Latte -->
-                <button onclick="setCuteTheme('matcha')" class="p-3.5 rounded-2xl border-2 border-emerald-300 bg-emerald-50 hover:bg-emerald-100 transition flex items-center justify-between text-left group">
-                    <div class="flex items-center gap-3">
-                        <span class="w-12 h-12 rounded-2xl bg-emerald-200 flex items-center justify-center text-2xl shadow-sm group-hover:scale-110 transition">🍵</span>
-                        <div>
-                            <div class="font-cute font-bold text-emerald-950 text-base">Sweet Matcha Latte</div>
-                            <div class="text-xs text-emerald-700 font-semibold">Hijau mint segar & sage pastel yang menenangkan</div>
-                        </div>
-                    </div>
-                    <div class="flex gap-1">
-                        <span class="w-4 h-4 rounded-full bg-[#52b788] border border-white"></span>
-                        <span class="w-4 h-4 rounded-full bg-[#d8f3dc] border border-white"></span>
-                    </div>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ========================================== -->
-    <!-- MODAL 5: BACKUP / EXPORT & IMPORT DATA     -->
-    <!-- ========================================== -->
-    <div id="backupModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="card-cute w-full max-w-md p-5 sm:p-6 relative space-y-4">
-            <div class="flex items-center justify-between pb-3 border-b-2" style="border-color: var(--border-color);">
-                <div class="flex items-center gap-2">
-                    <span class="text-2xl">💾</span>
-                    <h2 class="text-xl font-bold font-cute">Backup & Kelola Data</h2>
-                </div>
-                <button onclick="closeModal('backupModal')" class="w-9 h-9 rounded-full btn-pastel flex items-center justify-center font-bold">✕</button>
-            </div>
-
-            <p class="text-xs font-semibold leading-relaxed" style="color: var(--text-muted);">
-                Data kamu otomatis tersimpan di browser perangkat ini. Kamu juga bisa mengunduh file backup agar bisa dipindah ke HP/laptop lain kapan saja! ✨
-            </p>
-
-            <div class="space-y-2.5">
-                <button onclick="exportDataCSV()" class="btn-cute w-full py-3 px-4 rounded-2xl text-sm font-bold flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-file-csv text-lg"></i> Download Recap ke Excel / CSV
-                </button>
-
-                <button onclick="exportDataJSON()" class="btn-pastel w-full py-3 px-4 rounded-2xl text-sm font-bold flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-download"></i> Backup File JSON (Untuk Restore)
-                </button>
-
-                <label class="btn-pastel w-full py-3 px-4 rounded-2xl text-sm font-bold flex items-center justify-center gap-2 cursor-pointer">
-                    <i class="fa-solid fa-upload"></i> Restore / Import File Backup JSON
-                    <input type="file" accept=".json" onchange="importDataJSON(event)" class="hidden">
-                </label>
-            </div>
-
-            <div class="pt-3 border-t-2 flex items-center justify-between" style="border-color: var(--border-color);">
-                <button onclick="resetToDemoData()" class="text-xs font-bold text-rose-500 hover:underline">
-                    🔄 Muat Ulang Contoh Data Awal
-                </button>
-                <button onclick="clearAllDataConfirm()" class="text-xs font-bold text-rose-600 bg-rose-50 px-3 py-1.5 rounded-xl border border-rose-200 hover:bg-rose-100">
-                    🗑️ Hapus Semua Data
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ========================================== -->
-    <!-- MODAL 6: CUSTOM CONFIRMATION DIALOG        -->
-    <!-- ========================================== -->
-    <div id="confirmModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="card-cute w-full max-w-sm p-5 text-center space-y-4">
-            <div class="w-14 h-14 rounded-full bg-rose-100 text-rose-500 mx-auto flex items-center justify-center text-2xl">
-                🥺
-            </div>
-            <h3 class="font-cute font-bold text-lg" id="confirmModalTitle">Yakin ingin menghapus?</h3>
-            <p class="text-xs font-semibold" style="color: var(--text-muted);" id="confirmModalDesc">
-                Data yang dihapus tidak bisa dikembalikan lagi lho.
-            </p>
-            <div class="flex items-center justify-center gap-2.5 pt-2">
-                <button onclick="closeModal('confirmModal')" class="btn-pastel flex-1 py-2.5 rounded-2xl text-xs font-bold">
-                    Batal
-                </button>
-                <button id="confirmModalYesBtn" class="bg-rose-500 hover:bg-rose-600 text-white flex-1 py-2.5 rounded-2xl text-xs font-bold shadow">
-                    Ya, Lanjutkan
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cute Toast Notification -->
-    <div id="cuteToast" class="fixed top-5 right-5 z-50 transform translate-x-[150%] transition-transform duration-300">
-        <div class="card-cute px-4 py-3 flex items-center gap-3 bg-white border-2 shadow-lg">
-            <span class="text-2xl" id="toastIcon">🍓</span>
-            <div>
-                <div class="font-cute font-bold text-sm" id="toastTitle">Berhasil!</div>
-                <div class="text-xs font-semibold" style="color: var(--text-muted);" id="toastMessage">Email berhasil disalin</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ========================================== -->
-    <!-- MAIN JAVASCRIPT LOGIC                      -->
-    <!-- ========================================== -->
     <script>
-        // Daftar Durasi Sesuai Spesifikasi User
-        const DURATION_OPTIONS = [
-            { label: '1 Hari', days: 1, icon: '🍬' },
-            { label: '3 Hari', days: 3, icon: '🍭' },
-            { label: '7 Hari', days: 7, icon: '🧁' },
-            { label: '1 Bulan', months: 1, icon: '🍓' },
-            { label: '2 Bulan', months: 2, icon: '🍒' },
-            { label: '3 Bulan', months: 3, icon: '🍑' },
-            { label: '6 Bulan', months: 6, icon: '🍰' },
-            { label: '1 Tahun', years: 1, icon: '👑' },
-            { label: 'Lifetime', lifetime: true, icon: '♾️' }
-        ];
+        let selectedDuration = "";
+        let dataEurydice = JSON.parse(localStorage.getItem('dataEurydice')) || [];
+        const themes = ['strawberry', 'blueberry', 'matcha'];
+        let currentThemeIndex = 0;
 
-        const STORAGE_KEY = 'recap_canva_eurydice_v1';
-        const THEME_KEY = 'recap_canva_eurydice_theme';
+        // Set default date to today
+        document.getElementById('inputTglBeli').valueAsDate = new Date();
 
-        let customers = [];
-        let activeDurationFilter = 'ALL';
-        let currentReminderTab = 'TODAY';
-        let currentBulkMode = 'rows';
-
-        // Format Date YYYY-MM-DD (Local Timezone Safe)
-        function getTodayStr() {
-            const now = new Date();
-            const y = now.getFullYear();
-            const m = String(now.getMonth() + 1).padStart(2, '0');
-            const d = String(now.getDate()).padStart(2, '0');
-            return `${y}-${m}-${d}`;
-        }
-
-        function addDaysToDateStr(dateStr, daysToAdd = 0, monthsToAdd = 0, yearsToAdd = 0) {
-            const parts = dateStr.split('-').map(Number);
-            const dt = new Date(parts[0], parts[1] - 1, parts[2]);
-            if (yearsToAdd) dt.setFullYear(dt.getFullYear() + yearsToAdd);
-            if (monthsToAdd) dt.setMonth(dt.getMonth() + monthsToAdd);
-            if (daysToAdd) dt.setDate(dt.getDate() + daysToAdd);
-            const y = dt.getFullYear();
-            const m = String(dt.getMonth() + 1).padStart(2, '0');
-            const d = String(dt.getDate()).padStart(2, '0');
-            return `${y}-${m}-${d}`;
-        }
-
-        function calculateEndDateFromDuration(buyDateStr, durationLabel) {
-            if (!buyDateStr) buyDateStr = getTodayStr();
-            const found = DURATION_OPTIONS.find(d => d.label === durationLabel);
-            if (!found) return buyDateStr;
-            if (found.lifetime) return '9999-12-31';
-            return addDaysToDateStr(buyDateStr, found.days || 0, found.months || 0, found.years || 0);
-        }
-
-        function formatIndonesianDate(dateStr, isLifetime = false) {
-            if (isLifetime || dateStr === '9999-12-31' || dateStr === 'LIFETIME') {
-                return '♾️ Selamanya (Lifetime)';
-            }
-            if (!dateStr) return '-';
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
-            const parts = dateStr.split('-');
-            if (parts.length !== 3) return dateStr;
-            return `${parseInt(parts[2], 10)} ${months[parseInt(parts[1], 10) - 1]} ${parts[0]}`;
-        }
-
-        // Hitung selisih hari antara tanggal selesai dan hari ini
-        function getCustomerStatus(customer) {
-            if (customer.duration === 'Lifetime' || customer.endDate === '9999-12-31') {
-                return { code: 'ACTIVE', diffDays: 99999, badgeText: '♾️ Lifetime', badgeClass: 'bg-amber-100 text-amber-800 border-amber-300' };
-            }
-            const todayStr = getTodayStr();
-            const tParts = todayStr.split('-').map(Number);
-            const eParts = customer.endDate.split('-').map(Number);
-
-            const todayDate = new Date(tParts[0], tParts[1] - 1, tParts[2]);
-            const endDate = new Date(eParts[0], eParts[1] - 1, eParts[2]);
-
-            const diffTime = endDate.getTime() - todayDate.getTime();
-            const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
-
-            if (diffDays === 0) {
-                return {
-                    code: 'EXPIRING_TODAY',
-                    diffDays: 0,
-                    badgeText: '⏰ Habis Hari Ini!',
-                    badgeClass: 'bg-rose-500 text-white border-rose-600 animate-pulse'
-                };
-            } else if (diffDays < 0) {
-                return {
-                    code: 'EXPIRED',
-                    diffDays,
-                    badgeText: `🥀 Lewat ${Math.abs(diffDays)} hari`,
-                    badgeClass: 'bg-rose-100 text-rose-800 border-rose-300'
-                };
-            } else if (diffDays <= 2) {
-                return {
-                    code: 'SOON',
-                    diffDays,
-                    badgeText: `⚡ Sisa ${diffDays} hari`,
-                    badgeClass: 'bg-orange-100 text-orange-800 border-orange-300'
-                };
-            } else {
-                return {
-                    code: 'ACTIVE',
-                    diffDays,
-                    badgeText: `✨ Sisa ${diffDays} hari`,
-                    badgeClass: 'bg-emerald-100 text-emerald-800 border-emerald-300'
-                };
-            }
-        }
-
-        // Dummy Initial Data Realistic so User Immediately Sees Features
-        function createInitialDummyData() {
-            const today = getTodayStr();
-            const yesterday = addDaysToDateStr(today, -1);
-            const tomorrow = addDaysToDateStr(today, 1);
-            const threeDaysAgo = addDaysToDateStr(today, -3);
-            const oneMonthAgo = addDaysToDateStr(today, 0, -1);
-
-            return [
-                {
-                    id: 'cust-1',
-                    phone: '081234567891',
-                    email: 'nabila.sweet@gmail.com',
-                    team: 'Eurydice Sweet 01',
-                    duration: '1 Bulan',
-                    buyDate: oneMonthAgo,
-                    endDate: today, // Habis Hari Ini!
-                    notes: 'Langganan bulanan rajin perpanjang'
-                },
-                {
-                    id: 'cust-2',
-                    phone: '085712349988',
-                    email: 'cherish.design@gmail.com',
-                    team: 'Eurydice Sweet 01',
-                    duration: '3 Hari',
-                    buyDate: threeDaysAgo,
-                    endDate: today, // Habis Hari Ini!
-                    notes: 'Trial 3 hari untuk tugas kuliah'
-                },
-                {
-                    id: 'cust-3',
-                    phone: '081388776655',
-                    email: 'aurelia.canva@gmail.com',
-                    team: 'Eurydice Berry 02',
-                    duration: '7 Hari',
-                    buyDate: addDaysToDateStr(today, -6),
-                    endDate: tomorrow, // Sisa 1 hari
-                    notes: 'Beli paket mingguan'
-                },
-                {
-                    id: 'cust-4',
-                    phone: '082199001122',
-                    email: 'keisya.pinky@gmail.com',
-                    team: 'Eurydice Berry 02',
-                    duration: '1 Bulan',
-                    buyDate: today,
-                    endDate: addDaysToDateStr(today, 0, 1),
-                    notes: 'Member baru masuk hari ini'
-                },
-                {
-                    id: 'cust-5',
-                    phone: '087855443322',
-                    email: 'zahra.creative@gmail.com',
-                    team: 'Eurydice VIP',
-                    duration: '1 Tahun',
-                    buyDate: today,
-                    endDate: addDaysToDateStr(today, 0, 0, 1),
-                    notes: 'Paket hemat 1 tahun full garansi'
-                },
-                {
-                    id: 'cust-6',
-                    phone: '089611224488',
-                    email: 'melody.queen@gmail.com',
-                    team: 'Eurydice VIP',
-                    duration: 'Lifetime',
-                    buyDate: today,
-                    endDate: '9999-12-31',
-                    notes: 'Customer VVIP Lifetime'
-                },
-                {
-                    id: 'cust-7',
-                    phone: '081900223344',
-                    email: '신비.artstudio@gmail.com',
-                    team: 'Eurydice Sweet 01',
-                    duration: '1 Hari',
-                    buyDate: addDaysToDateStr(today, -2),
-                    endDate: yesterday, // Sudah lewat 1 hari
-                    notes: 'Belum konfirmasi perpanjang'
-                }
-            ];
-        }
-
-        // Load Data & Theme on Startup
-        window.onload = function () {
-            const savedTheme = localStorage.getItem(THEME_KEY) || 'strawberry';
-            setCuteTheme(savedTheme, false);
-
-            const savedData = localStorage.getItem(STORAGE_KEY);
-            if (savedData) {
-                try {
-                    customers = JSON.parse(savedData);
-                } catch (e) {
-                    customers = createInitialDummyData();
-                }
-            } else {
-                customers = createInitialDummyData();
-                saveToStorage();
-            }
-
-            renderDurationButtonsInForms();
-            initBulkModalDefaults();
-            refreshAllUI();
-        };
-
-        function saveToStorage() {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(customers));
-        }
-
-        // Render Duration Cute Buttons inside Single & Bulk Modal
-        function renderDurationButtonsInForms() {
-            const singleContainer = document.getElementById('singleDurationButtons');
-            const bulkContainer = document.getElementById('bulkDurationButtons');
-
-            singleContainer.innerHTML = DURATION_OPTIONS.map(opt => `
-                <button type="button" onclick="selectSingleDuration('${opt.label}')"
-                        data-dur="${opt.label}"
-                        class="durasi-btn single-dur-btn py-2.5 px-2 rounded-2xl text-xs font-bold flex items-center justify-center gap-1.5 ${opt.label === '1 Bulan' ? 'active' : ''}">
-                    <span>${opt.icon}</span>
-                    <span>${opt.label}</span>
-                </button>
-            `).join('');
-
-            bulkContainer.innerHTML = DURATION_OPTIONS.map(opt => `
-                <button type="button" onclick="selectBulkDuration('${opt.label}')"
-                        data-dur="${opt.label}"
-                        class="durasi-btn bulk-dur-btn py-2 px-2 rounded-2xl text-xs font-bold flex items-center justify-center gap-1 ${opt.label === '1 Bulan' ? 'active' : ''}">
-                    <span>${opt.icon}</span>
-                    <span>${opt.label}</span>
-                </button>
-            `).join('');
-        }
-
-        function selectSingleDuration(durationLabel) {
-            document.getElementById('inpDuration').value = durationLabel;
-            document.querySelectorAll('.single-dur-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-dur') === durationLabel);
+        function setDuration(durasi) {
+            selectedDuration = durasi;
+            document.querySelectorAll('.btn-duration').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.innerText === durasi) btn.classList.add('active');
             });
-            updateSingleEndDate();
         }
 
-        function updateSingleEndDate() {
-            const buyDate = document.getElementById('inpBuyDate').value || getTodayStr();
-            const durationLabel = document.getElementById('inpDuration').value;
-            const endDateInput = document.getElementById('inpEndDate');
-            const lifetimeBadge = document.getElementById('lifetimeBadgeInfo');
-
-            if (durationLabel === 'Lifetime') {
-                endDateInput.value = '9999-12-31';
-                endDateInput.classList.add('hidden');
-                lifetimeBadge.classList.remove('hidden');
-            } else {
-                endDateInput.classList.remove('hidden');
-                lifetimeBadge.classList.add('hidden');
-                endDateInput.value = calculateEndDateFromDuration(buyDate, durationLabel);
-            }
+        function gantiTema() {
+            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+            document.documentElement.setAttribute('data-theme', themes[currentThemeIndex]);
         }
 
-        function selectBulkDuration(durationLabel) {
-            document.getElementById('bulkDuration').value = durationLabel;
-            document.querySelectorAll('.bulk-dur-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-dur') === durationLabel);
-            });
-            updateBulkEndDate();
+        function hitungTanggalSelesai(tglMulai, durasi) {
+            if (durasi === 'Lifetime') return 'Lifetime 💖';
+            let date = new Date(tglMulai);
+            if(durasi === '1 Hari') date.setDate(date.getDate() + 1);
+            if(durasi === '3 Hari') date.setDate(date.getDate() + 3);
+            if(durasi === '7 Hari') date.setDate(date.getDate() + 7);
+            if(durasi === '1 Bulan') date.setMonth(date.getMonth() + 1);
+            if(durasi === '2 Bulan') date.setMonth(date.getMonth() + 2);
+            if(durasi === '3 Bulan') date.setMonth(date.getMonth() + 3);
+            if(durasi === '6 Bulan') date.setMonth(date.getMonth() + 6);
+            if(durasi === '1 Tahun') date.setFullYear(date.getFullYear() + 1);
+            return date.toISOString().split('T')[0];
         }
 
-        function updateBulkEndDate() {
-            const buyDate = document.getElementById('bulkBuyDate').value || getTodayStr();
-            const durationLabel = document.getElementById('bulkDuration').value;
-            const endDateInput = document.getElementById('bulkEndDate');
-            const lifetimeInfo = document.getElementById('bulkLifetimeInfo');
+        function simpanData() {
+            let nomorRaw = document.getElementById('inputNomor').value;
+            let emailRaw = document.getElementById('inputEmail').value;
+            let team = document.getElementById('inputTeam').value;
+            let tglBeli = document.getElementById('inputTglBeli').value;
 
-            if (durationLabel === 'Lifetime') {
-                endDateInput.value = '9999-12-31';
-                endDateInput.classList.add('hidden');
-                lifetimeInfo.classList.remove('hidden');
-            } else {
-                endDateInput.classList.remove('hidden');
-                lifetimeInfo.classList.add('hidden');
-                endDateInput.value = calculateEndDateFromDuration(buyDate, durationLabel);
-            }
-        }
-
-        // Refresh All Stats, Filters, Reminders & Grouped List
-        function refreshAllUI() {
-            updateStatsAndBanners();
-            updateTeamSuggestionsAndFilter();
-            renderDurationFilterTabs();
-            renderCustomerList();
-            renderReminderModalContent();
-        }
-
-        function updateStatsAndBanners() {
-            const total = customers.length;
-            let activeCount = 0;
-            let expiringTodayCount = 0;
-            let expiredCount = 0;
-
-            customers.forEach(c => {
-                const st = getCustomerStatus(c);
-                if (st.code === 'EXPIRING_TODAY') expiringTodayCount++;
-                else if (st.code === 'EXPIRED') expiredCount++;
-                else activeCount++;
-            });
-
-            document.getElementById('statTotal').textContent = total;
-            document.getElementById('statActive').textContent = activeCount;
-            document.getElementById('statExpiring').textContent = expiringTodayCount + expiredCount;
-
-            // Badge di Bottom Nav
-            const badge = document.getElementById('bottomNavReminderBadge');
-            const urgentCount = expiringTodayCount + expiredCount;
-            if (urgentCount > 0) {
-                badge.textContent = urgentCount;
-                badge.classList.remove('hidden');
-            } else {
-                badge.classList.add('hidden');
-            }
-
-            // Urgent Banner di Atas jika ada yang habis hari ini atau expired
-            const banner = document.getElementById('urgentBannerContainer');
-            if (expiringTodayCount > 0 || expiredCount > 0) {
-                banner.classList.remove('hidden');
-                if (expiringTodayCount > 0) {
-                    document.getElementById('urgentBannerTitle').textContent =
-                        `⏰ Ada ${expiringTodayCount} Customer yang Durasinya Habis Hari Ini!`;
-                    document.getElementById('urgentBannerDesc').textContent =
-                        expiredCount > 0
-                            ? `Plus ada ${expiredCount} customer yang sudah lewat masa aktifnya. Tinggal klik untuk copas email!`
-                            : `Yuk ingatkan atau keluarkan dari team, emailnya tinggal sekali klik langsung ter-copas!`;
-                } else {
-                    document.getElementById('urgentBannerTitle').textContent =
-                        `🥀 Ada ${expiredCount} Customer yang Masa Aktifnya Sudah Lewat!`;
-                    document.getElementById('urgentBannerDesc').textContent =
-                        `Cek daftar pengingat untuk copas email atau kirim pesan perpanjangan.`;
-                }
-            } else {
-                banner.classList.add('hidden');
-            }
-        }
-
-        function updateTeamSuggestionsAndFilter() {
-            const teams = [...new Set(customers.map(c => c.team.trim()).filter(Boolean))].sort();
-            const datalist = document.getElementById('teamSuggestions');
-            datalist.innerHTML = teams.map(t => `<option value="${escapeHtml(t)}">`).join('');
-
-            const teamFilter = document.getElementById('teamFilter');
-            const currentVal = teamFilter.value;
-            teamFilter.innerHTML = `<option value="ALL">🎀 Semua Team (${teams.length})</option>` +
-                teams.map(t => `<option value="${escapeHtml(t)}">👑 ${escapeHtml(t)}</option>`).join('');
-            if (teams.includes(currentVal)) {
-                teamFilter.value = currentVal;
-            }
-        }
-
-        // Render Duration Filter Tabs (Pilihan pengelompokan per durasi)
-        function renderDurationFilterTabs() {
-            const container = document.getElementById('durationFilterTabs');
-            const counts = { ALL: customers.length };
-            DURATION_OPTIONS.forEach(d => counts[d.label] = 0);
-            customers.forEach(c => {
-                if (counts[c.duration] !== undefined) counts[c.duration]++;
-            });
-
-            let html = `
-                <button onclick="setDurationFilter('ALL')"
-                        class="durasi-btn shrink-0 px-3.5 py-2 rounded-2xl text-xs font-bold flex items-center gap-1.5 ${activeDurationFilter === 'ALL' ? 'active' : ''}">
-                    <span>🍱</span>
-                    <span>Semua Durasi</span>
-                    <span class="px-1.5 py-0.5 rounded-full text-[10px] bg-black/10">${counts.ALL}</span>
-                </button>
-            `;
-
-            DURATION_OPTIONS.forEach(opt => {
-                const c = counts[opt.label] || 0;
-                const isActive = activeDurationFilter === opt.label;
-                html += `
-                    <button onclick="setDurationFilter('${opt.label}')"
-                            class="durasi-btn shrink-0 px-3.5 py-2 rounded-2xl text-xs font-bold flex items-center gap-1.5 ${isActive ? 'active' : ''}">
-                        <span>${opt.icon}</span>
-                        <span>${opt.label}</span>
-                        <span class="px-1.5 py-0.5 rounded-full text-[10px] ${isActive ? 'bg-white/25 text-white' : 'bg-pink-100 text-pink-800'}">${c}</span>
-                    </button>
-                `;
-            });
-
-            container.innerHTML = html;
-        }
-
-        function setDurationFilter(durLabel) {
-            activeDurationFilter = durLabel;
-            renderDurationFilterTabs();
-            renderCustomerList();
-        }
-
-        function clearSearch() {
-            document.getElementById('searchInput').value = '';
-            renderCustomerList();
-        }
-
-        // Render Customer List Grouped by Duration
-        function renderCustomerList() {
-            const query = document.getElementById('searchInput').value.trim().toLowerCase();
-            const statusFilter = document.getElementById('statusFilter').value;
-            const teamFilter = document.getElementById('teamFilter').value;
-
-            document.getElementById('clearSearchBtn').classList.toggle('hidden', query.length === 0);
-
-            // Filter customers
-            const filtered = customers.filter(c => {
-                if (activeDurationFilter !== 'ALL' && c.duration !== activeDurationFilter) return false;
-                if (teamFilter !== 'ALL' && c.team !== teamFilter) return false;
-
-                const st = getCustomerStatus(c);
-                if (statusFilter !== 'ALL' && st.code !== statusFilter) return false;
-
-                if (query) {
-                    const matchEmail = c.email.toLowerCase().includes(query);
-                    const matchPhone = c.phone.toLowerCase().includes(query);
-                    const matchTeam = c.team.toLowerCase().includes(query);
-                    const matchNotes = (c.notes || '').toLowerCase().includes(query);
-                    const matchDur = c.duration.toLowerCase().includes(query);
-                    if (!matchEmail && !matchPhone && !matchTeam && !matchNotes && !matchDur) return false;
-                }
-                return true;
-            });
-
-            document.getElementById('showingCountLabel').textContent =
-                `Menampilkan ${filtered.length} dari ${customers.length} customer`;
-
-            const container = document.getElementById('groupedCustomersContainer');
-
-            if (filtered.length === 0) {
-                container.innerHTML = `
-                    <div class="card-cute p-10 text-center space-y-3">
-                        <div class="text-5xl">🍓✨</div>
-                        <h3 class="font-cute font-bold text-lg">Belum Ada Data Customer di Kategori Ini</h3>
-                        <p class="text-xs font-semibold max-w-md mx-auto" style="color: var(--text-muted);">
-                            Yuk tambah data customer baru menggunakan tombol <b>➕ Tambah Data</b> atau <b>⚡ Recap Banyak</b> di bagian bawah layar!
-                        </p>
-                    </div>
-                `;
+            if(!emailRaw || !team || !selectedDuration) {
+                alert("Email, Team, dan Durasi wajib diisi ya kak! 🍓");
                 return;
             }
 
-            // Kelompokkan berdasarkan urutan DURATION_OPTIONS
-            let groupsHtml = '';
-            DURATION_OPTIONS.forEach(opt => {
-                const groupItems = filtered.filter(c => c.duration === opt.label);
-                if (groupItems.length === 0) return;
+            // Fitur RECAP BEBERAPA LANGSUNG (Split by comma)
+            let emailArray = emailRaw.split(',').map(e => e.trim()).filter(e => e);
+            let nomorArray = nomorRaw.split(',').map(n => n.trim()).filter(n => n);
 
-                // Sortir di dalam grup: yang habis hari ini / expired paling atas
-                groupItems.sort((a, b) => {
-                    const stA = getCustomerStatus(a).diffDays;
-                    const stB = getCustomerStatus(b).diffDays;
-                    return stA - stB;
-                });
-
-                const groupEmails = groupItems.map(item => item.email).join(', ');
-
-                groupsHtml += `
-                    <div class="card-cute overflow-hidden">
-                        <!-- Group Header per Durasi -->
-                        <div class="px-4 py-3.5 sm:px-5 border-b-2 flex flex-wrap items-center justify-between gap-2"
-                             style="background-color: var(--primary-light); border-color: var(--border-color);">
-                            <div class="flex items-center gap-2.5">
-                                <span class="w-9 h-9 rounded-xl bg-white flex items-center justify-center text-xl shadow-sm border"
-                                      style="border-color: var(--border-color);">
-                                    ${opt.icon}
-                                </span>
-                                <div>
-                                    <div class="flex items-center gap-2">
-                                        <h3 class="font-cute font-bold text-base sm:text-lg" style="color: var(--text-dark);">
-                                            Durasi ${opt.label}
-                                        </h3>
-                                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-white border"
-                                              style="color: var(--primary); border-color: var(--border-color);">
-                                            ${groupItems.length} Customer
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <button onclick="copyTextToClipboard('${escapeJsStr(groupEmails)}', 'Semua email durasi ${opt.label} (${groupItems.length}) berhasil disalin!')"
-                                    class="bg-white hover:bg-pink-50 px-3 py-1.5 rounded-xl text-xs font-bold border shadow-sm transition flex items-center gap-1.5"
-                                    style="color: var(--text-dark); border-color: var(--border-color);">
-                                <i class="fa-regular fa-copy"></i> Copas Semua Email ${opt.label}
-                            </button>
-                        </div>
-
-                        <!-- Customer Cards Grid inside this Duration Group -->
-                        <div class="p-4 sm:p-5 grid grid-cols-1 md:grid-cols-2 gap-3.5">
-                            ${groupItems.map(c => renderSingleCustomerCard(c)).join('')}
-                        </div>
-                    </div>
-                `;
-            });
-
-            container.innerHTML = groupsHtml;
-        }
-
-        function renderSingleCustomerCard(c) {
-            const st = getCustomerStatus(c);
-            const isLifetime = c.duration === 'Lifetime' || c.endDate === '9999-12-31';
-
-            return `
-                <div class="p-4 rounded-2xl border-2 bg-white hover:shadow-md transition flex flex-col justify-between gap-3 relative"
-                     style="border-color: ${st.code === 'EXPIRING_TODAY' ? '#f43f5e' : 'var(--border-color)'};">
-                    
-                    <!-- Top Row: Team Badge & Status Badge -->
-                    <div class="flex items-center justify-between gap-2 flex-wrap">
-                        <span class="px-2.5 py-1 rounded-xl text-xs font-bold flex items-center gap-1.5"
-                              style="background-color: var(--bg-main); color: var(--text-dark); border: 1px solid var(--border-color);">
-                            👑 ${escapeHtml(c.team)}
-                        </span>
-                        <span class="px-2.5 py-1 rounded-full text-xs font-bold border ${st.badgeClass}">
-                            ${st.badgeText}
-                        </span>
-                    </div>
-
-                    <!-- Middle Row: Email (With One-Click Copy) & Phone -->
-                    <div class="space-y-1.5">
-                        <div class="flex items-center justify-between gap-2 p-2 rounded-xl border bg-slate-50/60"
-                             style="border-color: var(--border-color);">
-                            <div class="truncate text-sm font-bold flex items-center gap-2" title="${escapeHtml(c.email)}">
-                                <span>💌</span>
-                                <span class="truncate select-all">${escapeHtml(c.email)}</span>
-                            </div>
-                            <button onclick="copyTextToClipboard('${escapeJsStr(c.email)}', 'Email ${escapeJsStr(c.email)} berhasil dicopas!')"
-                                    class="shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold btn-cute flex items-center gap-1"
-                                    title="Copas Email">
-                                <i class="fa-regular fa-copy"></i> Copas
-                            </button>
-                        </div>
-
-                        <div class="flex items-center justify-between text-xs font-semibold px-1 pt-0.5" style="color: var(--text-muted);">
-                            <div class="flex items-center gap-1.5">
-                                <span>📱 WA/HP:</span>
-                                <span class="font-bold" style="color: var(--text-dark);">${escapeHtml(c.phone || '-')}</span>
-                            </div>
-                            ${c.phone && c.phone !== '-' ? `
-                                <button onclick="sendWhatsAppReminder('${c.id}')" class="text-emerald-600 hover:text-emerald-700 font-bold flex items-center gap-1">
-                                    <i class="fa-brands fa-whatsapp"></i> Chat WA
-                                </button>
-                            ` : ''}
-                        </div>
-                    </div>
-
-                    <!-- Dates Info -->
-                    <div class="grid grid-cols-2 gap-2 p-2.5 rounded-xl text-xs" style="background-color: var(--bg-main);">
-                        <div>
-                            <div class="text-[10px] font-bold uppercase" style="color: var(--text-muted);">📅 Tgl Beli</div>
-                            <div class="font-bold mt-0.5">${formatIndonesianDate(c.buyDate)}</div>
-                        </div>
-                        <div>
-                            <div class="text-[10px] font-bold uppercase" style="color: var(--text-muted);">🏁 Tgl Selesai</div>
-                            <div class="font-bold mt-0.5 ${st.code === 'EXPIRING_TODAY' ? 'text-rose-600' : ''}">
-                                ${formatIndonesianDate(c.endDate, isLifetime)}
-                            </div>
-                        </div>
-                    </div>
-
-                    ${c.notes ? `
-                        <div class="text-xs italic px-2 py-1 rounded-lg bg-amber-50/70 text-amber-900 border border-amber-200/70">
-                            📝 "${escapeHtml(c.notes)}"
-                        </div>
-                    ` : ''}
-
-                    <!-- Action Buttons Footer -->
-                    <div class="flex items-center justify-between pt-2 border-t" style="border-color: var(--border-color);">
-                        <button onclick="quickExtendCustomer('${c.id}')"
-                                class="text-xs font-bold px-2.5 py-1.5 rounded-xl btn-pastel flex items-center gap-1"
-                                title="Perpanjang otomatis sesuai durasi (${c.duration}) dari hari ini">
-                            <span>🔄</span> Perpanjang (${c.duration})
-                        </button>
-
-                        <div class="flex items-center gap-1.5">
-                            <button onclick="openEditCustomerModal('${c.id}')"
-                                    class="w-8 h-8 rounded-xl btn-pastel flex items-center justify-center text-xs"
-                                    title="Edit Data">
-                                ✏️
-                            </button>
-                            <button onclick="deleteCustomerConfirm('${c.id}')"
-                                    class="w-8 h-8 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 flex items-center justify-center text-xs transition"
-                                    title="Hapus Data">
-                                🗑️
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // ==========================================
-        // SINGLE CUSTOMER CRUD
-        // ==========================================
-        function openAddSingleModal() {
-            document.getElementById('singleModalTitle').textContent = 'Tambah Recap Customer 🍓';
-            document.getElementById('editCustomerId').value = '';
-            document.getElementById('inpPhone').value = '';
-            document.getElementById('inpEmail').value = '';
-            document.getElementById('inpTeam').value = '';
-            document.getElementById('inpNotes').value = '';
-            document.getElementById('inpBuyDate').value = getTodayStr();
-            selectSingleDuration('1 Bulan');
-            openModal('singleModal');
-        }
-
-        function openEditCustomerModal(id) {
-            const c = customers.find(item => item.id === id);
-            if (!c) return;
-
-            document.getElementById('singleModalTitle').textContent = 'Edit Data Customer ✏️';
-            document.getElementById('editCustomerId').value = c.id;
-            document.getElementById('inpPhone').value = c.phone;
-            document.getElementById('inpEmail').value = c.email;
-            document.getElementById('inpTeam').value = c.team;
-            document.getElementById('inpNotes').value = c.notes || '';
-            document.getElementById('inpBuyDate').value = c.buyDate;
-
-            selectSingleDuration(c.duration);
-            if (c.duration !== 'Lifetime') {
-                document.getElementById('inpEndDate').value = c.endDate;
-            }
-            openModal('singleModal');
-        }
-
-        function saveSingleCustomer(e) {
-            e.preventDefault();
-            const editId = document.getElementById('editCustomerId').value;
-            const phone = document.getElementById('inpPhone').value.trim();
-            const email = document.getElementById('inpEmail').value.trim();
-            const team = document.getElementById('inpTeam').value.trim();
-            const duration = document.getElementById('inpDuration').value;
-            const buyDate = document.getElementById('inpBuyDate').value;
-            const endDate = duration === 'Lifetime' ? '9999-12-31' : document.getElementById('inpEndDate').value;
-            const notes = document.getElementById('inpNotes').value.trim();
-
-            if (editId) {
-                const idx = customers.findIndex(c => c.id === editId);
-                if (idx !== -1) {
-                    customers[idx] = { ...customers[idx], phone, email, team, duration, buyDate, endDate, notes };
-                }
-                showCuteToast('✨', 'Data Diperbarui!', `Recap ${email} berhasil disimpan.`);
-            } else {
-                customers.unshift({
-                    id: 'cust-' + Date.now() + '-' + Math.random().toString(36).substring(2, 6),
-                    phone,
-                    email,
-                    team,
-                    duration,
-                    buyDate,
-                    endDate,
-                    notes
-                });
-                showCuteToast('🍓', 'Berhasil Ditambahkan!', `${email} masuk ke grup ${duration}.`);
-            }
-
-            saveToStorage();
-            closeModal('singleModal');
-            refreshAllUI();
-        }
-
-        function quickExtendCustomer(id) {
-            const c = customers.find(item => item.id === id);
-            if (!c) return;
-            const today = getTodayStr();
-            c.buyDate = today;
-            c.endDate = calculateEndDateFromDuration(today, c.duration);
-            saveToStorage();
-            refreshAllUI();
-            showCuteToast('🔄', 'Berhasil Diperpanjang!', `${c.email} diperpanjang (${c.duration}) mulai hari ini.`);
-        }
-
-        function deleteCustomerConfirm(id) {
-            const c = customers.find(item => item.id === id);
-            if (!c) return;
-
-            document.getElementById('confirmModalTitle').textContent = 'Hapus Data Customer?';
-            document.getElementById('confirmModalDesc').textContent = `Yakin ingin menghapus ${c.email} (${c.team}) dari daftar recap?`;
-            const yesBtn = document.getElementById('confirmModalYesBtn');
-            yesBtn.onclick = function () {
-                customers = customers.filter(item => item.id !== id);
-                saveToStorage();
-                refreshAllUI();
-                closeModal('confirmModal');
-                showCuteToast('🗑️', 'Data Dihapus', `${c.email} telah dihapus.`);
-            };
-            openModal('confirmModal');
-        }
-
-        // ==========================================
-        // BULK RECAP (INPUT BEBERAPA LANGSUNG)
-        // ==========================================
-        function initBulkModalDefaults() {
-            document.getElementById('bulkBuyDate').value = getTodayStr();
-            selectBulkDuration('1 Bulan');
-            const rowsContainer = document.getElementById('bulkRowsContainer');
-            rowsContainer.innerHTML = '';
-            for (let i = 0; i < 4; i++) {
-                addBulkRow();
-            }
-        }
-
-        function switchBulkMode(mode) {
-            currentBulkMode = mode;
-            const isRows = mode === 'rows';
-            document.getElementById('bulkRowsContainer').classList.toggle('hidden', !isRows);
-            document.getElementById('addBulkRowBtn').classList.toggle('hidden', !isRows);
-            document.getElementById('bulkPasteContainer').classList.toggle('hidden', isRows);
-
-            document.getElementById('tabBulkRows').className = isRows
-                ? 'px-3.5 py-1.5 rounded-xl text-xs font-bold btn-cute'
-                : 'px-3.5 py-1.5 rounded-xl text-xs font-bold btn-pastel';
-            document.getElementById('tabBulkPaste').className = !isRows
-                ? 'px-3.5 py-1.5 rounded-xl text-xs font-bold btn-cute'
-                : 'px-3.5 py-1.5 rounded-xl text-xs font-bold btn-pastel';
-        }
-
-        function addBulkRow() {
-            const container = document.getElementById('bulkRowsContainer');
-            const rowCount = container.children.length + 1;
-            const div = document.createElement('div');
-            div.className = 'flex items-center gap-2 bulk-row-item';
-            div.innerHTML = `
-                <span class="w-6 text-center text-xs font-bold" style="color: var(--text-muted);">${rowCount}.</span>
-                <input type="email" placeholder="email.customer@gmail.com"
-                       class="bulk-inp-email input-cute flex-1 px-3 py-2 text-xs sm:text-sm font-semibold">
-                <input type="text" placeholder="Nomor WA/HP (Opsional)"
-                       class="bulk-inp-phone input-cute w-36 sm:w-44 px-3 py-2 text-xs sm:text-sm font-semibold">
-                <button type="button" onclick="this.parentElement.remove()"
-                        class="w-8 h-8 rounded-xl bg-rose-50 text-rose-500 hover:bg-rose-100 font-bold text-xs shrink-0">
-                    ✕
-                </button>
-            `;
-            container.appendChild(div);
-        }
-
-        function saveBulkCustomers(e) {
-            e.preventDefault();
-            const team = document.getElementById('bulkTeam').value.trim();
-            const duration = document.getElementById('bulkDuration').value;
-            const buyDate = document.getElementById('bulkBuyDate').value;
-            const endDate = duration === 'Lifetime' ? '9999-12-31' : document.getElementById('bulkEndDate').value;
-
-            const newEntries = [];
-
-            if (currentBulkMode === 'rows') {
-                const rowEls = document.querySelectorAll('.bulk-row-item');
-                rowEls.forEach(row => {
-                    const email = row.querySelector('.bulk-inp-email').value.trim();
-                    const phone = row.querySelector('.bulk-inp-phone').value.trim() || '-';
-                    if (email) {
-                        newEntries.push({ email, phone });
-                    }
-                });
-            } else {
-                const rawText = document.getElementById('bulkPasteTextarea').value.trim();
-                const lines = rawText.split(/\r?\n/);
-                lines.forEach(line => {
-                    const cleaned = line.trim();
-                    if (!cleaned) return;
-                    // Support comma, semicolon, tab, or pipe separated
-                    const parts = cleaned.split(/[,;\t|]+/).map(s => s.trim()).filter(Boolean);
-                    if (parts.length > 0) {
-                        // Find which part looks like an email
-                        const emailPart = parts.find(p => p.includes('@')) || parts[0];
-                        const phonePart = parts.find(p => p !== emailPart) || '-';
-                        newEntries.push({ email: emailPart, phone: phonePart });
-                    }
-                });
-            }
-
-            if (newEntries.length === 0) {
-                showCuteToast('🥺', 'Belum Ada Email!', 'Masukkan minimal 1 email customer ya.');
-                return;
-            }
-
-            newEntries.forEach((item, idx) => {
-                customers.unshift({
-                    id: 'cust-' + Date.now() + '-' + idx + '-' + Math.random().toString(36).substring(2, 5),
-                    phone: item.phone,
-                    email: item.email,
-                    team,
-                    duration,
-                    buyDate,
-                    endDate,
-                    notes: 'Input via Bulk Recap ⚡'
+            emailArray.forEach((email, index) => {
+                let nomor = nomorArray[index] || (nomorArray[0] || "-"); // Assign number appropriately
+                let tglSelesai = hitungTanggalSelesai(tglBeli, selectedDuration);
+                
+                dataEurydice.push({
+                    id: Date.now() + Math.random(),
+                    nomor: nomor,
+                    email: email,
+                    team: team,
+                    tglBeli: tglBeli,
+                    durasi: selectedDuration,
+                    tglSelesai: tglSelesai
                 });
             });
 
-            saveToStorage();
-            closeModal('bulkModal');
-            initBulkModalDefaults();
-            document.getElementById('bulkPasteTextarea').value = '';
-            refreshAllUI();
-            showCuteToast('🎉', `${newEntries.length} Customer Disimpan!`, `Berhasil masuk ke ${team} (${duration}).`);
+            localStorage.setItem('dataEurydice', JSON.stringify(dataEurydice));
+            
+            // Reset form
+            document.getElementById('inputNomor').value = '';
+            document.getElementById('inputEmail').value = '';
+            document.querySelectorAll('.btn-duration').forEach(b => b.classList.remove('active'));
+            selectedDuration = '';
+            
+            renderData();
+            alert("Yeay! Data berhasil disimpan ✨");
         }
 
-        // ==========================================
-        // FITUR PENGINGAT & COPAS EMAIL HABIS HARI INI
-        // ==========================================
-        function switchReminderTab(tab) {
-            currentReminderTab = tab;
-            document.getElementById('remTabToday').className = tab === 'TODAY'
-                ? 'px-3.5 py-1.5 rounded-xl text-xs font-bold btn-cute'
-                : 'px-3.5 py-1.5 rounded-xl text-xs font-bold btn-pastel';
-            document.getElementById('remTabExpired').className = tab === 'EXPIRED'
-                ? 'px-3.5 py-1.5 rounded-xl text-xs font-bold btn-cute'
-                : 'px-3.5 py-1.5 rounded-xl text-xs font-bold btn-pastel';
-            document.getElementById('remTabSoon').className = tab === 'SOON'
-                ? 'px-3.5 py-1.5 rounded-xl text-xs font-bold btn-cute'
-                : 'px-3.5 py-1.5 rounded-xl text-xs font-bold btn-pastel';
-
-            renderReminderModalContent();
-        }
-
-        function renderReminderModalContent() {
-            document.getElementById('todayDateLabel').textContent = `Hari ini: ${formatIndonesianDate(getTodayStr())}`;
-
-            const todayList = [];
-            const expiredList = [];
-            const soonList = [];
-
-            customers.forEach(c => {
-                const st = getCustomerStatus(c);
-                if (st.code === 'EXPIRING_TODAY') todayList.push(c);
-                else if (st.code === 'EXPIRED') expiredList.push(c);
-                else if (st.code === 'SOON') soonList.push(c);
-            });
-
-            document.getElementById('countRemToday').textContent = todayList.length;
-            document.getElementById('countRemExpired').textContent = expiredList.length;
-            document.getElementById('countRemSoon').textContent = soonList.length;
-
-            // Isi kotak copas cepat khusus yang habis hari ini
-            const todayEmailsBox = document.getElementById('expiringTodayEmailsBox');
-            todayEmailsBox.value = todayList.map(c => c.email).join(', ');
-
-            let activeList = todayList;
-            if (currentReminderTab === 'EXPIRED') activeList = expiredList;
-            if (currentReminderTab === 'SOON') activeList = soonList;
-
-            const container = document.getElementById('reminderListContainer');
-            if (activeList.length === 0) {
-                container.innerHTML = `
-                    <div class="p-8 text-center rounded-2xl border-2 border-dashed" style="border-color: var(--border-color);">
-                        <div class="text-3xl mb-1">🍓✨</div>
-                        <div class="font-cute font-bold text-sm">Yeay! Tidak ada customer di daftar ini</div>
-                        <div class="text-xs" style="color: var(--text-muted);">Semua durasi customer di kategori ini aman terkendali.</div>
-                    </div>
-                `;
-                return;
-            }
-
-            container.innerHTML = activeList.map(c => {
-                const st = getCustomerStatus(c);
-                return `
-                    <div class="p-3 rounded-2xl border-2 bg-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5"
-                         style="border-color: var(--border-color);">
-                        <div class="space-y-0.5">
-                            <div class="flex items-center gap-2 flex-wrap">
-                                <span class="font-bold text-sm select-all">${escapeHtml(c.email)}</span>
-                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold border ${st.badgeClass}">${st.badgeText}</span>
-                            </div>
-                            <div class="text-xs font-semibold flex flex-wrap items-center gap-2" style="color: var(--text-muted);">
-                                <span>👑 ${escapeHtml(c.team)}</span>
-                                <span>•</span>
-                                <span>⏳ ${c.duration}</span>
-                                <span>•</span>
-                                <span>📱 ${escapeHtml(c.phone || '-')}</span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-1.5 w-full sm:w-auto justify-end">
-                            <button onclick="copyTextToClipboard('${escapeJsStr(c.email)}', 'Email ${escapeJsStr(c.email)} berhasil dicopas!')"
-                                    class="btn-cute px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1">
-                                <i class="fa-regular fa-copy"></i> Copas Email
-                            </button>
-                            ${c.phone && c.phone !== '-' ? `
-                                <button onclick="sendWhatsAppReminder('${c.id}')"
-                                        class="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-600 text-white flex items-center gap-1 shadow-sm">
-                                    <i class="fa-brands fa-whatsapp"></i> Ingatkan WA
-                                </button>
-                            ` : ''}
-                            <button onclick="quickExtendCustomer('${c.id}')"
-                                    class="btn-pastel px-2.5 py-1.5 rounded-xl text-xs font-bold"
-                                    title="Perpanjang Otomatis">
-                                🔄
-                            </button>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function copyAllExpiringTodayEmails(separator = ', ') {
-            const todayList = customers.filter(c => getCustomerStatus(c).code === 'EXPIRING_TODAY');
-            if (todayList.length === 0) {
-                showCuteToast('✨', 'Tidak Ada yang Habis Hari Ini', 'Belum ada email customer yang habis tepat hari ini.');
-                return;
-            }
-            const joined = todayList.map(c => c.email).join(separator);
-            copyTextToClipboard(joined, `${todayList.length} email yang habis hari ini berhasil dicopas!`);
-        }
-
-        function copyCurrentReminderTabEmails() {
-            const list = customers.filter(c => {
-                const code = getCustomerStatus(c).code;
-                if (currentReminderTab === 'TODAY') return code === 'EXPIRING_TODAY';
-                if (currentReminderTab === 'EXPIRED') return code === 'EXPIRED';
-                if (currentReminderTab === 'SOON') return code === 'SOON';
-                return false;
-            });
-            if (list.length === 0) {
-                showCuteToast('🥺', 'Daftar Kosong', 'Tidak ada email untuk disalin pada tab ini.');
-                return;
-            }
-            const joined = list.map(c => c.email).join(', ');
-            copyTextToClipboard(joined, `${list.length} email berhasil disalin ke clipboard!`);
-        }
-
-        function sendWhatsAppReminder(id) {
-            const c = customers.find(item => item.id === id);
-            if (!c || !c.phone) return;
-
-            let cleanPhone = c.phone.replace(/[^0-9]/g, '');
-            if (cleanPhone.startsWith('0')) {
-                cleanPhone = '62' + cleanPhone.slice(1);
-            }
-
-            const st = getCustomerStatus(c);
-            let statusMsg = `hari ini (${formatIndonesianDate(c.endDate)}) sudah habis masa aktifnya`;
-            if (st.code === 'EXPIRED') {
-                statusMsg = `sudah berakhir pada tanggal ${formatIndonesianDate(c.endDate)}`;
-            } else if (st.code === 'SOON') {
-                statusMsg = `akan segera berakhir pada tanggal ${formatIndonesianDate(c.endDate)}`;
-            }
-
-            const text = `Halo kak! 🍓✨\nKami dari *Canva Eurydice* ingin menginfokan bahwa langganan Canva Pro kakak:\n\n💌 Email: *${c.email}*\n👑 Team: *${c.team}*\n⏳ Durasi: *${c.duration}*\n\nSaat ini ${statusMsg}. Apakah kakak ingin lanjut perpanjang agar desainnya tetap aman? Yuk kabari kami ya kak, terima kasih! 🎀🙏`;
-
-            const url = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
-        }
-
-        // ==========================================
-        // THEME SWITCHER (UBAH TEMA LUCU)
-        // ==========================================
-        function setCuteTheme(themeName, showNotif = true) {
-            if (themeName === 'strawberry') {
-                document.documentElement.removeAttribute('data-theme');
-            } else {
-                document.documentElement.setAttribute('data-theme', themeName);
-            }
-            localStorage.setItem(THEME_KEY, themeName);
-
-            const themeIcons = {
-                strawberry: '🍓',
-                peach: '🍑',
-                blueberry: '🫐',
-                matcha: '🍵'
-            };
-            const themeNames = {
-                strawberry: 'Pink Strawberry Milk 🍓',
-                peach: 'Peach Creamy Boba 🍑',
-                blueberry: 'Blueberry Cheesecake 🫐',
-                matcha: 'Sweet Matcha Latte 🍵'
-            };
-
-            const icon = themeIcons[themeName] || '🍓';
-            document.getElementById('brandLogoIcon').textContent = icon;
-            document.getElementById('headerDecoIcon').textContent = icon;
-
-            if (showNotif) {
-                closeModal('themeModal');
-                showCuteToast(icon, 'Tema Diubah!', `Tampilan berganti ke ${themeNames[themeName]}`);
+        function hapusData(id) {
+            if(confirm("Yakin ingin menghapus data ini? 🥺")) {
+                dataEurydice = dataEurydice.filter(d => d.id !== id);
+                localStorage.setItem('dataEurydice', JSON.stringify(dataEurydice));
+                renderData();
             }
         }
 
-        // ==========================================
-        // BACKUP, EXPORT CSV / JSON & RESTORE
-        // ==========================================
-        function exportDataCSV() {
-            if (customers.length === 0) {
-                showCuteToast('🥺', 'Data Kosong', 'Belum ada data untuk di-export.');
-                return;
-            }
-            const headers = ['Nomor Customer', 'Email Customer', 'Nama Team', 'Durasi', 'Tanggal Pembelian', 'Tanggal Selesai', 'Status', 'Catatan'];
-            const rows = customers.map(c => {
-                const st = getCustomerStatus(c);
-                return [
-                    `"${(c.phone || '').replace(/"/g, '""')}"`,
-                    `"${(c.email || '').replace(/"/g, '""')}"`,
-                    `"${(c.team || '').replace(/"/g, '""')}"`,
-                    `"${c.duration}"`,
-                    `"${c.buyDate}"`,
-                    `"${c.duration === 'Lifetime' ? 'Lifetime' : c.endDate}"`,
-                    `"${st.badgeText}"`,
-                    `"${(c.notes || '').replace(/"/g, '""')}"`
-                ].join(',');
-            });
-
-            const csvContent = '\uFEFF' + [headers.join(','), ...rows].join('\n');
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `Recap_Canva_Eurydice_${getTodayStr()}.csv`;
-            a.click();
-            URL.revokeObjectURL(url);
-            showCuteToast('📊', 'CSV Terunduh!', 'File recap siap dibuka di Excel / Spreadsheet.');
+        function copasEmail(email) {
+            navigator.clipboard.writeText(email);
+            alert("Email " + email + " berhasil di-copy! Siap kirim pengingat 💌");
         }
 
-        function exportDataJSON() {
-            const dataStr = JSON.stringify(customers, null, 2);
-            const blob = new Blob([dataStr], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `Backup_Canva_Eurydice_${getTodayStr()}.json`;
-            a.click();
-            URL.revokeObjectURL(url);
-            showCuteToast('💾', 'Backup Berhasil!', 'File JSON berhasil disimpan.');
-        }
-
-        function importDataJSON(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                try {
-                    const imported = JSON.parse(e.target.result);
-                    if (Array.isArray(imported)) {
-                        customers = imported;
-                        saveToStorage();
-                        refreshAllUI();
-                        closeModal('backupModal');
-                        showCuteToast('🎉', 'Restore Berhasil!', `${imported.length} data customer berhasil dimuat.`);
-                    } else {
-                        showCuteToast('⚠️', 'Format Tidak Sesuai', 'File JSON tidak valid.');
-                    }
-                } catch (err) {
-                    showCuteToast('⚠️', 'Gagal Membaca File', 'Pastikan file JSON berasal dari backup aplikasi ini.');
+        function checkReminders() {
+            let today = new Date().toISOString().split('T')[0];
+            let reminderList = document.getElementById('reminderList');
+            let reminderSection = document.getElementById('reminderSection');
+            reminderList.innerHTML = '';
+            
+            let adaReminder = false;
+            dataEurydice.forEach(d => {
+                if(d.tglSelesai === today) {
+                    adaReminder = true;
+                    let li = document.createElement('li');
+                    li.innerHTML = `Email: <b>${d.email}</b> (Team: ${d.team}) 
+                        <button class="btn-copas" onclick="copasEmail('${d.email}')">📋 Copas Email</button>`;
+                    reminderList.appendChild(li);
                 }
-            };
-            reader.readAsText(file);
-            event.target.value = '';
-        }
+            });
 
-        function resetToDemoData() {
-            customers = createInitialDummyData();
-            saveToStorage();
-            refreshAllUI();
-            closeModal('backupModal');
-            showCuteToast('🍓', 'Data Contoh Dimuat!', 'Data contoh awal berhasil ditampilkan kembali.');
-        }
-
-        function clearAllDataConfirm() {
-            closeModal('backupModal');
-            document.getElementById('confirmModalTitle').textContent = 'Hapus SEMUA Data Recap?';
-            document.getElementById('confirmModalDesc').textContent = 'Seluruh daftar customer akan dikosongkan. Pastikan kamu sudah download Backup jika diperlukan ya!';
-            const yesBtn = document.getElementById('confirmModalYesBtn');
-            yesBtn.onclick = function () {
-                customers = [];
-                saveToStorage();
-                refreshAllUI();
-                closeModal('confirmModal');
-                showCuteToast('🧹', 'Semua Data Dihapus', 'Daftar recap sekarang kosong.');
-            };
-            openModal('confirmModal');
-        }
-
-        // ==========================================
-        // HELPERS: CLIPBOARD, MODALS & TOAST
-        // ==========================================
-        function copyTextToClipboard(text, successMsg) {
-            if (!text) return;
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            textarea.style.position = 'fixed';
-            textarea.style.opacity = '0';
-            document.body.appendChild(textarea);
-            textarea.select();
-            try {
-                document.execCommand('copy');
-                showCuteToast('📋', 'Berhasil Dicopas!', successMsg || 'Teks telah disalin ke clipboard.');
-            } catch (err) {
-                showCuteToast('⚠️', 'Gagal Menyalin', 'Silakan salin secara manual.');
+            if(adaReminder) {
+                reminderSection.style.display = 'block';
+            } else {
+                reminderSection.style.display = 'none';
             }
-            document.body.removeChild(textarea);
         }
 
-        let toastTimeout;
-        function showCuteToast(icon, title, message) {
-            const toast = document.getElementById('cuteToast');
-            document.getElementById('toastIcon').textContent = icon || '🍓';
-            document.getElementById('toastTitle').textContent = title || 'Berhasil!';
-            document.getElementById('toastMessage').textContent = message || '';
+        function renderData() {
+            let container = document.getElementById('dataContainer');
+            let search = document.getElementById('searchBox').value.toLowerCase();
+            let filter = document.getElementById('filterDurasi').value;
+            container.innerHTML = '';
 
-            toast.classList.remove('translate-x-[150%]');
-            clearTimeout(toastTimeout);
-            toastTimeout = setTimeout(() => {
-                toast.classList.add('translate-x-[150%]');
-            }, 3000);
+            let filteredData = dataEurydice.filter(d => {
+                let matchSearch = d.email.toLowerCase().includes(search) || 
+                                  d.nomor.toLowerCase().includes(search) || 
+                                  d.team.toLowerCase().includes(search);
+                let matchFilter = filter === 'Semua' || d.durasi === filter;
+                return matchSearch && matchFilter;
+            });
+
+            // Sort by tanggal selesai terdekat
+            filteredData.sort((a, b) => new Date(a.tglSelesai) - new Date(b.tglSelesai));
+
+            filteredData.forEach(d => {
+                let card = document.createElement('div');
+                card.className = 'data-card';
+                card.innerHTML = `
+                    <button class="btn-delete" onclick="hapusData(${d.id})">✖</button>
+                    <h4>${d.team} <span class="badge">${d.durasi}</span></h4>
+                    <p>📱 Nomor: <b>${d.nomor}</b></p>
+                    <p>✉️ Email: <b>${d.email}</b></p>
+                    <p>🗓️ Mulai: ${d.tglBeli} &nbsp;|&nbsp; 🏁 Selesai: <b>${d.tglSelesai}</b></p>
+                `;
+                container.appendChild(card);
+            });
+
+            checkReminders();
         }
 
-        function openModal(modalId) {
-            const el = document.getElementById(modalId);
-            if (!el) return;
-            if (modalId === 'reminderModal') {
-                renderReminderModalContent();
-            }
-            el.classList.remove('hidden');
-            el.classList.add('flex');
-        }
-
-        function closeModal(modalId) {
-            const el = document.getElementById(modalId);
-            if (!el) return;
-            el.classList.add('hidden');
-            el.classList.remove('flex');
-        }
-
-        function escapeHtml(str) {
-            if (!str) return '';
-            return String(str)
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&#039;');
-        }
-
-        function escapeJsStr(str) {
-            if (!str) return '';
-            return String(str).replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '\\"').replace(/\n/g, '\\n');
-        }
+        // Initial render
+        renderData();
     </script>
 </body>
 </html>
-```
