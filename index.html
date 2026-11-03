@@ -4,85 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🍓 Recap Canva Eurydice 🍓</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #fff0f5;
-            --primary: #ff4d6d;
-            --secondary: #ffb3c6;
-            --text-main: #5c1a2e;
+            --bg-color: #fff0f5; /* Lavender blush */
+            --primary: #ff4d6d; /* Strawberry pink */
+            --secondary: #ffb3c6; /* Soft pink */
+            --text-main: #5c1a2e; /* Dark pinkish brown */
             --card-bg: #ffffff;
-            --warning: #ff3333;
+            --danger: #ff3333;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
         }
 
         body {
-            font-family: 'Quicksand', sans-serif;
             background-color: var(--bg-color);
-            background-image: radial-gradient(var(--secondary) 10%, transparent 10%);
-            background-size: 20px 20px;
+            background-image: radial-gradient(var(--secondary) 15%, transparent 15%);
+            background-size: 25px 25px;
             color: var(--text-main);
             margin: 0;
             padding: 15px;
-            box-sizing: border-box;
-        }
-
-        h1, h2, h3 {
-            text-align: center;
-            color: var(--primary);
-            text-shadow: 2px 2px 4px rgba(255, 179, 198, 0.5);
         }
 
         .container {
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px;
-            border-radius: 25px;
-            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.15);
-            border: 3px solid var(--secondary);
         }
 
-        /* Notifikasi Section */
-        .notif-section {
-            background-color: #ffe6e6;
-            border: 2px dashed var(--warning);
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 25px;
-            display: none;
-        }
-        
-        .notif-title {
-            color: var(--warning);
-            margin-top: 0;
-            font-size: 1.2rem;
-        }
-
-        .notif-card {
-            background: white;
-            border-left: 5px solid var(--warning);
-            padding: 10px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            box-shadow: 0 4px 8px rgba(255, 51, 51, 0.1);
-        }
-        .notif-card p {
-            margin: 5px 0;
-            font-size: 0.9rem;
-        }
-        .alert-text {
-            color: var(--warning);
-            font-weight: bold;
-            font-size: 1rem;
-            animation: blink 1s infinite alternate;
-        }
-
-        @keyframes blink {
-            from { opacity: 1; }
-            to { opacity: 0.5; }
+        h1, h2 {
+            text-align: center;
+            color: var(--primary);
+            text-shadow: 2px 2px 0px white;
+            margin-bottom: 20px;
         }
 
         /* Form Style */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 0 10px 20px rgba(255, 77, 109, 0.15);
+            border: 3px solid var(--secondary);
+            margin-bottom: 25px;
+        }
+
         .form-group {
             margin-bottom: 15px;
         }
@@ -90,37 +58,40 @@
         label {
             display: block;
             margin-bottom: 5px;
-            font-weight: bold;
+            font-weight: 800;
             color: var(--primary);
+            font-size: 0.9rem;
         }
 
         input, select {
             width: 100%;
-            padding: 12px;
+            padding: 12px 15px;
             border: 2px solid var(--secondary);
             border-radius: 15px;
-            box-sizing: border-box;
-            font-family: 'Quicksand', sans-serif;
             font-size: 1rem;
             outline: none;
             transition: 0.3s;
+            background: #fff9fa;
         }
 
         input:focus, select:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 8px rgba(255, 77, 109, 0.3);
+            box-shadow: 0 0 10px rgba(255, 77, 109, 0.2);
         }
 
         /* Buttons */
         button {
-            font-family: 'Quicksand', sans-serif;
-            font-weight: bold;
+            font-weight: 800;
             border: none;
             border-radius: 20px;
-            padding: 10px 15px;
+            padding: 12px 20px;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
         }
 
         .btn-submit {
@@ -130,77 +101,94 @@
             padding: 15px;
             font-size: 1.1rem;
             border-radius: 25px;
-            box-shadow: 0 4px 10px rgba(255, 77, 109, 0.4);
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
             margin-top: 10px;
         }
         
-        .btn-submit:hover {
-            transform: scale(1.02);
-            background-color: #e63956;
+        .btn-submit:active {
+            transform: scale(0.95);
         }
 
         .btn-copy {
-            background-color: #ffb3c6;
+            background-color: var(--secondary);
             color: var(--text-main);
+            flex: 1;
         }
-        .btn-copy:hover { background-color: #ff99b3; transform: scale(1.05); }
-
         .btn-delete {
-            background-color: #ff4d6d;
+            background-color: #ff6b81;
             color: white;
-        }
-        .btn-delete:hover { background-color: #e63956; transform: scale(1.05); }
-
-        /* Group & Card Style (Mobile Friendly) */
-        .group-container {
-            margin-top: 30px;
+            flex: 1;
         }
 
-        .duration-group {
-            background: #fff5f7;
-            border: 2px solid var(--secondary);
-            border-radius: 15px;
+        /* Notifikasi Warning */
+        .notif-container {
+            background: #ffe6e6;
+            border: 3px dashed var(--danger);
+            border-radius: 20px;
             padding: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            display: none; /* Hidden by default */
         }
 
-        .duration-title {
+        .notif-title {
+            color: var(--danger);
+            margin-top: 0;
+            font-size: 1.2rem;
+            animation: blink 1.2s infinite alternate;
+        }
+
+        @keyframes blink {
+            from { opacity: 1; text-shadow: 0 0 10px rgba(255,51,51,0.5); }
+            to { opacity: 0.5; text-shadow: none; }
+        }
+
+        /* Data List Style */
+        .group-title {
             background: var(--primary);
             color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
             display: inline-block;
-            padding: 5px 15px;
-            border-radius: 15px;
-            margin-top: -30px;
+            margin-bottom: 10px;
             font-size: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);
         }
 
-        .data-card {
+        .data-item {
             background: var(--card-bg);
-            border: 1px solid var(--secondary);
+            border: 2px solid var(--secondary);
             padding: 15px;
             border-radius: 15px;
-            margin-top: 15px;
-            box-shadow: 0 4px 6px rgba(255, 179, 198, 0.2);
+            margin-bottom: 15px;
             position: relative;
         }
 
-        .data-card p {
+        .data-item p {
             margin: 5px 0;
             font-size: 0.9rem;
+            line-height: 1.4;
         }
-        
-        .data-card strong {
+
+        .data-item strong {
             color: var(--primary);
         }
 
-        .card-actions {
+        .action-buttons {
             display: flex;
             gap: 10px;
-            margin-top: 10px;
-            flex-wrap: wrap;
+            margin-top: 15px;
         }
 
+        .expired-badge {
+            background: var(--danger);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -208,181 +196,189 @@
     <div class="container">
         <h1>🍓 Recap Canva Eurydice 🍓</h1>
 
-        <!-- Notifikasi Kolom Lain -->
-        <div id="notifSection" class="notif-section">
-            <h2 class="notif-title">🚨 PENGINGAT HARI INI 🚨</h2>
+        <!-- Area Notifikasi Khusus Expired -->
+        <div id="notifArea" class="notif-container">
+            <h2 class="notif-title">🚨 PENGINGAT HARI INI 🚨<br>HARUS KELUAR TEAM!</h2>
             <div id="notifList"></div>
         </div>
 
         <!-- Form Input -->
-        <form id="canvaForm">
-            <div class="form-group">
-                <label>Team 🍓</label>
-                <input type="text" id="team" placeholder="Nama Team..." required>
-            </div>
-            <div class="form-group">
-                <label>Nomor Customer 📱</label>
-                <input type="number" id="nomor" placeholder="08123456789" required>
-            </div>
-            <div class="form-group">
-                <label>Email Customer ✉️</label>
-                <input type="email" id="email" placeholder="email@gmail.com" required>
-            </div>
-            <div class="form-group">
-                <label>Durasi ⏳</label>
-                <select id="durasi" required>
-                    <option value="1 bulan">1 Bulan</option>
-                    <option value="2 bulan">2 Bulan</option>
-                    <option value="3 bulan">3 Bulan</option>
-                    <option value="6 bulan">6 Bulan</option>
-                    <option value="1 tahun">1 Tahun</option>
-                    <option value="lifetime">Lifetime</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Tanggal Pembelian 📅</label>
-                <input type="date" id="tanggal_beli" required>
-            </div>
-            <button type="submit" class="btn-submit">Simpan Data 🍰</button>
-        </form>
-
-        <!-- Data Berdasarkan Durasi -->
-        <div id="dataContainer" class="group-container">
-            <!-- Data groups akan di-render di sini oleh JavaScript -->
+        <div class="card">
+            <form id="recapForm">
+                <div class="form-group">
+                    <label>Nama Team 🍓</label>
+                    <input type="text" id="nama_team" placeholder="Contoh: Team Ceria" required>
+                </div>
+                <div class="form-group">
+                    <label>Nomor Customer 📱</label>
+                    <input type="tel" id="nomor_cust" placeholder="08123456789" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Customer ✉️</label>
+                    <input type="email" id="email_cust" placeholder="customer@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Durasi ⏳</label>
+                    <select id="durasi" required>
+                        <option value="1 bulan">1 Bulan</option>
+                        <option value="2 bulan">2 Bulan</option>
+                        <option value="3 bulan">3 Bulan</option>
+                        <option value="6 bulan">6 Bulan</option>
+                        <option value="1 tahun">1 Tahun</option>
+                        <option value="lifetime">Lifetime</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tanggal Pembelian 📅</label>
+                    <input type="date" id="tgl_beli" required>
+                </div>
+                <button type="submit" class="btn-submit">Simpan Data 🍰</button>
+            </form>
         </div>
+
+        <!-- Area Data Dikelompokkan -->
+        <div id="dataArea"></div>
     </div>
 
     <script>
-        // Array Data & Setup Initial
-        let canvaData = JSON.parse(localStorage.getItem('canvaData')) || [];
-        const form = document.getElementById('canvaForm');
-        const durasiOrder = ['1 bulan', '2 bulan', '3 bulan', '6 bulan', '1 tahun', 'lifetime'];
+        // Inisialisasi Data dari Local Storage
+        let dataCanva = JSON.parse(localStorage.getItem('dataCanvaEurydice')) || [];
+        const form = document.getElementById('recapForm');
+        
+        // Set Default Tanggal Pembelian = Hari Ini
+        document.getElementById('tgl_beli').valueAsDate = new Date();
 
-        // Set default date hari ini pada form
-        document.getElementById('tanggal_beli').valueAsDate = new Date();
-
-        // Hitung Tanggal Selesai
-        function hitungTanggalSelesai(tanggalBeli, durasi) {
+        // Fungsi Menghitung Tanggal Selesai
+        function hitungTglSelesai(tglBeli, durasi) {
             if (durasi === 'lifetime') return 'Lifetime';
-            let date = new Date(tanggalBeli);
-            if (durasi === '1 bulan') date.setMonth(date.getMonth() + 1);
-            else if (durasi === '2 bulan') date.setMonth(date.getMonth() + 2);
-            else if (durasi === '3 bulan') date.setMonth(date.getMonth() + 3);
-            else if (durasi === '6 bulan') date.setMonth(date.getMonth() + 6);
-            else if (durasi === '1 tahun') date.setFullYear(date.getFullYear() + 1);
+            
+            let date = new Date(tglBeli);
+            switch(durasi) {
+                case '1 bulan': date.setMonth(date.getMonth() + 1); break;
+                case '2 bulan': date.setMonth(date.getMonth() + 2); break;
+                case '3 bulan': date.setMonth(date.getMonth() + 3); break;
+                case '6 bulan': date.setMonth(date.getMonth() + 6); break;
+                case '1 tahun': date.setFullYear(date.getFullYear() + 1); break;
+            }
             return date.toISOString().split('T')[0];
         }
 
-        // Simpan Form
+        // Submit Form
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+            
             const newData = {
                 id: Date.now().toString(),
-                team: document.getElementById('team').value,
-                nomor: document.getElementById('nomor').value,
-                email: document.getElementById('email').value,
+                team: document.getElementById('nama_team').value,
+                nomor: document.getElementById('nomor_cust').value,
+                email: document.getElementById('email_cust').value,
                 durasi: document.getElementById('durasi').value,
-                tanggal_beli: document.getElementById('tanggal_beli').value,
-                tanggal_selesai: hitungTanggalSelesai(document.getElementById('tanggal_beli').value, document.getElementById('durasi').value)
+                tglBeli: document.getElementById('tgl_beli').value,
+                tglSelesai: hitungTglSelesai(document.getElementById('tgl_beli').value, document.getElementById('durasi').value)
             };
-            canvaData.push(newData);
-            simpanData();
-            form.reset();
-            document.getElementById('tanggal_beli').valueAsDate = new Date();
+
+            dataCanva.push(newData);
+            simpanDanRender();
+            
+            // Reset form text, tapi biarkan durasi & tanggal
+            document.getElementById('nama_team').value = '';
+            document.getElementById('nomor_cust').value = '';
+            document.getElementById('email_cust').value = '';
         });
 
-        // Copy Text
-        function copyText(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert('Email berhasil di-copy! 🍓');
+        // Copy Email ke Clipboard
+        function copasEmail(email) {
+            navigator.clipboard.writeText(email).then(() => {
+                alert('🍓 Email berhasil di-copas: ' + email);
+            }).catch(err => {
+                console.error('Gagal copy text: ', err);
             });
         }
 
         // Hapus Data
         function hapusData(id) {
-            if(confirm('Yakin ingin menghapus data ini? 🥺')) {
-                canvaData = canvaData.filter(item => item.id !== id);
-                simpanData();
+            if(confirm('Hapus data ini? 🥺')) {
+                dataCanva = dataCanva.filter(item => item.id !== id);
+                simpanDanRender();
             }
         }
 
-        // Render Data UI
-        function simpanData() {
-            localStorage.setItem('canvaData', JSON.stringify(canvaData));
-            renderUI();
+        // Simpan ke Local Storage & Render UI
+        function simpanDanRender() {
+            localStorage.setItem('dataCanvaEurydice', JSON.stringify(dataCanva));
+            renderData();
         }
 
-        function renderUI() {
-            const dataContainer = document.getElementById('dataContainer');
-            const notifSection = document.getElementById('notifSection');
+        // Fungsi Utama untuk Menampilkan Data
+        function renderData() {
+            const dataArea = document.getElementById('dataArea');
+            const notifArea = document.getElementById('notifArea');
             const notifList = document.getElementById('notifList');
             
-            dataContainer.innerHTML = '';
+            dataArea.innerHTML = '';
             notifList.innerHTML = '';
             
-            // Format Tanggal Hari Ini untuk Pengecekan
-            const today = new Date().toISOString().split('T')[0];
-            let hasNotif = false;
+            const hariIni = new Date().toISOString().split('T')[0];
+            let adaNotif = false;
 
-            // Render Kelompok per Durasi
-            durasiOrder.forEach(durasi => {
-                const filteredData = canvaData.filter(item => item.durasi === durasi);
-                if (filteredData.length === 0) return;
+            const urutanDurasi = ['1 bulan', '2 bulan', '3 bulan', '6 bulan', '1 tahun', 'lifetime'];
 
-                // Buat Group Container
-                const groupDiv = document.createElement('div');
-                groupDiv.className = 'duration-group';
-                groupDiv.innerHTML = `<div class="duration-title">🍓 Durasi: ${durasi.toUpperCase()}</div>`;
-
-                filteredData.forEach(item => {
-                    // Cek jika durasi habis hari ini (atau sudah terlewat)
-                    const isExpired = item.tanggal_selesai !== 'Lifetime' && item.tanggal_selesai <= today;
+            urutanDurasi.forEach(dur => {
+                const dataFilter = dataCanva.filter(item => item.durasi === dur);
+                
+                if (dataFilter.length > 0) {
+                    // Buat wrapper kelompok
+                    const groupDiv = document.createElement('div');
+                    groupDiv.innerHTML = `<div class="group-title">⏳ Durasi: ${dur.toUpperCase()}</div>`;
                     
-                    // Card untuk Daftar Utama
-                    const card = document.createElement('div');
-                    card.className = 'data-card';
-                    card.innerHTML = `
-                        <p><strong>Team:</strong> ${item.team}</p>
-                        <p><strong>Nomor:</strong> ${item.nomor}</p>
-                        <p><strong>Email:</strong> ${item.email}</p>
-                        <p><strong>Tgl Beli:</strong> ${item.tanggal_beli}</p>
-                        <p><strong>Tgl Selesai:</strong> ${item.tanggal_selesai}</p>
-                        ${isExpired ? `<p class="alert-text">❗ HARUS KELUAR TEAM ❗</p>` : ''}
-                        <div class="card-actions">
-                            <button class="btn-copy" onclick="copyText('${item.email}')">Copas Email 📋</button>
-                            <button class="btn-delete" onclick="hapusData('${item.id}')">Hapus 🗑️</button>
-                        </div>
-                    `;
-                    groupDiv.appendChild(card);
-
-                    // Tambahkan ke Notifikasi jika Expired
-                    if (isExpired) {
-                        hasNotif = true;
-                        const notifCard = document.createElement('div');
-                        notifCard.className = 'notif-card';
-                        notifCard.innerHTML = `
-                            <p class="alert-text">🍓 HARUS KELUAR TEAM! 🍓</p>
-                            <p><strong>Team:</strong> ${item.team}</p>
-                            <p><strong>Email:</strong> ${item.email}</p>
-                            <p><strong>Batas:</strong> ${item.tanggal_selesai}</p>
-                            <div class="card-actions">
-                                <button class="btn-copy" onclick="copyText('${item.email}')">Copas Email 📋</button>
-                                <button class="btn-delete" onclick="hapusData('${item.id}')">Hapus 🗑️</button>
+                    dataFilter.forEach(item => {
+                        const isExpired = item.tglSelesai !== 'Lifetime' && item.tglSelesai <= hariIni;
+                        
+                        // HTML untuk Card Data
+                        const cardHTML = `
+                            <div class="data-item">
+                                ${isExpired ? `<div class="expired-badge">🚨 WAKTUNYA KELUAR TEAM</div>` : ''}
+                                <p><strong>Nama Team:</strong> ${item.team}</p>
+                                <p><strong>Nomor Cust:</strong> ${item.nomor}</p>
+                                <p><strong>Email Cust:</strong> ${item.email}</p>
+                                <p><strong>Tgl Beli:</strong> ${item.tglBeli}</p>
+                                <p><strong>Tgl Selesai:</strong> ${item.tglSelesai}</p>
+                                <div class="action-buttons">
+                                    <button class="btn-copy" onclick="copasEmail('${item.email}')">Copas Email 📋</button>
+                                    <button class="btn-delete" onclick="hapusData('${item.id}')">Hapus 🗑️</button>
+                                </div>
                             </div>
                         `;
-                        notifList.appendChild(notifCard);
-                    }
-                });
+                        
+                        groupDiv.innerHTML += cardHTML;
 
-                dataContainer.appendChild(groupDiv);
+                        // Jika Expired, masukkan juga ke kolom Notifikasi Atas
+                        if (isExpired) {
+                            adaNotif = true;
+                            notifList.innerHTML += `
+                                <div class="data-item" style="border-color: var(--danger); background: white;">
+                                    <p><strong>Team:</strong> ${item.team}</p>
+                                    <p><strong>Email:</strong> ${item.email}</p>
+                                    <p><strong>Tgl Selesai:</strong> ${item.tglSelesai}</p>
+                                    <div class="action-buttons">
+                                        <button class="btn-copy" onclick="copasEmail('${item.email}')">Copas Email 📋</button>
+                                        <button class="btn-delete" onclick="hapusData('${item.id}')">Hapus 🗑️</button>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    });
+                    
+                    dataArea.appendChild(groupDiv);
+                }
             });
 
-            // Tampilkan Notifikasi jika ada yang habis hari ini
-            notifSection.style.display = hasNotif ? 'block' : 'none';
+            // Tampilkan/Sembunyikan Kolom Notifikasi
+            notifArea.style.display = adaNotif ? 'block' : 'none';
         }
 
-        // Render saat pertama kali load
-        renderUI();
+        // Render pertama kali saat web dibuka
+        renderData();
     </script>
 </body>
 </html>
