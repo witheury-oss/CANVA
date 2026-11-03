@@ -1,502 +1,1641 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🍓 Recap Canva Eurydice 🍓</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <title>Recap Canva Eurydice 🍓</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Fredoka & Quicksand untuk kesan Kawaii/Lucu -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
     <style>
-        /* === TEMA WARNA === */
-        :root {
-            /* Tema Default: Strawberry Pink 🍓 */
-            --bg-color: #fff0f5;
-            --primary: #ff4d6d;
-            --secondary: #ffb3c6;
-            --accent: #ff8fa3;
-            --text-main: #5c1a2e;
-            --card-bg: #ffffff;
-            --warning: #ff3333;
-            --warning-bg: #ffe6e6;
+        /* Variabel Tema Default: Pink Strawberry */
+        :root, [data-theme="strawberry"] {
+            --bg-main: #fff0f5;
+            --bg-pattern: #ffd6e6;
+            --bg-card: #ffffff;
+            --bg-soft: #ffe3ee;
+            --primary: #ff5c8a;
+            --primary-hover: #ff3b72;
+            --primary-shadow: #d93866;
+            --secondary: #ff9ebb;
+            --accent: #ff2a6d;
+            --text-main: #5c2839;
+            --text-muted: #9e6375;
+            --border-color: #ffb8d0;
+            --badge-bg: #ffe0eb;
+            --badge-text: #d92b60;
+            --emoji-icon: "🍓";
         }
 
-        [data-theme="blueberry"] {
-            /* Tema Blueberry Blue 🫐 */
-            --bg-color: #f0f4ff;
-            --primary: #5c6bc0;
-            --secondary: #c5cae9;
-            --accent: #8c9eff;
-            --text-main: #1a237e;
-            --warning: #ff5252;
-            --warning-bg: #ffebee;
-        }
-
+        /* Tema 2: Matcha Berry */
         [data-theme="matcha"] {
-            /* Tema Matcha Green 🍵 */
-            --bg-color: #f1f8e9;
-            --primary: #689f38;
-            --secondary: #c5e1a5;
-            --accent: #aed581;
-            --text-main: #33691e;
-            --warning: #ff5252;
-            --warning-bg: #ffebee;
+            --bg-main: #f2f9f1;
+            --bg-pattern: #d3eccd;
+            --bg-card: #ffffff;
+            --bg-soft: #e3f4df;
+            --primary: #68b684;
+            --primary-hover: #539e6e;
+            --primary-shadow: #428259;
+            --secondary: #f4a4b8;
+            --accent: #3d8b59;
+            --text-main: #2d4c39;
+            --text-muted: #668a73;
+            --border-color: #b7e1c4;
+            --badge-bg: #dff5e5;
+            --badge-text: #2e7748;
+            --emoji-icon: "🍵";
         }
 
-        /* === GLOBAL STYLES === */
+        /* Tema 3: Blueberry Milk */
+        [data-theme="blueberry"] {
+            --bg-main: #f0f6ff;
+            --bg-pattern: #d4e4ff;
+            --bg-card: #ffffff;
+            --bg-soft: #e3eeff;
+            --primary: #6c8cff;
+            --primary-hover: #5275f5;
+            --primary-shadow: #3f5ed4;
+            --secondary: #a8bfff;
+            --accent: #4263eb;
+            --text-main: #28355c;
+            --text-muted: #6576a6;
+            --border-color: #bfd3ff;
+            --badge-bg: #e0ebff;
+            --badge-text: #3652c9;
+            --emoji-icon: "🫐";
+        }
+
+        /* Tema 4: Peach Cream */
+        [data-theme="peach"] {
+            --bg-main: #fff7f0;
+            --bg-pattern: #ffdec7;
+            --bg-card: #ffffff;
+            --bg-soft: #ffede0;
+            --primary: #ff8c61;
+            --primary-hover: #f77445;
+            --primary-shadow: #d4592c;
+            --secondary: #ffb899;
+            --accent: #f26430;
+            --text-main: #5c3728;
+            --text-muted: #9e715f;
+            --border-color: #ffcbb5;
+            --badge-bg: #ffe8de;
+            --badge-text: #cc4f22;
+            --emoji-icon: "🍑";
+        }
+
+        /* Tema 5: Choco Berry Dark */
+        [data-theme="chocoberry"] {
+            --bg-main: #281c22;
+            --bg-pattern: #382730;
+            --bg-card: #36262e;
+            --bg-soft: #47323c;
+            --primary: #ff709b;
+            --primary-hover: #ff8aad;
+            --primary-shadow: #b8375e;
+            --secondary: #754c5b;
+            --accent: #ff9ebb;
+            --text-main: #ffeef4;
+            --text-muted: #d1a9b7;
+            --border-color: #634452;
+            --badge-bg: #543744;
+            --badge-text: #ffadc6;
+            --emoji-icon: "🍫";
+        }
+
         body {
             font-family: 'Quicksand', sans-serif;
-            background-color: var(--bg-color);
-            background-image: radial-gradient(var(--secondary) 15%, transparent 15%);
-            background-size: 25px 25px;
+            background-color: var(--bg-main);
             color: var(--text-main);
-            margin: 0;
-            padding: 15px;
-            box-sizing: border-box;
-            transition: background-color 0.5s ease;
+            background-image: radial-gradient(var(--bg-pattern) 2px, transparent 2px), radial-gradient(var(--bg-pattern) 2px, var(--bg-main) 2px);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            padding-bottom: 130px; /* Ruang untuk bottom navigation bar */
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4, .font-cute {
             font-family: 'Fredoka', sans-serif;
-            text-align: center;
-            color: var(--primary);
-            text-shadow: 2px 2px 0px var(--secondary);
-            animation: float 3s ease-in-out infinite;
         }
 
-        .container {
-            max-width: 650px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 25px;
-            border-radius: 30px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            border: 4px solid var(--secondary);
+        /* Kawaii Card & Containers */
+        .kawaii-card {
+            background-color: var(--bg-card);
+            border: 2.5px solid var(--border-color);
+            border-radius: 1.5rem;
+            box-shadow: 0 6px 0 var(--border-color), 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        /* === ANIMASI === */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-            100% { transform: translateY(0px); }
+        .kawaii-card:hover {
+            transform: translateY(-2px);
         }
 
-        @keyframes popIn {
-            0% { opacity: 0; transform: scale(0.9) translateY(10px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px) rotate(-1deg); }
-            50% { transform: translateX(5px) rotate(1deg); }
-            75% { transform: translateX(-5px) rotate(-1deg); }
-        }
-
-        /* === FITUR UBAH TEMA === */
-        .theme-selector {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .theme-btn {
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border: 2px solid transparent;
-            background: var(--card-bg);
-            color: var(--text-main);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        .theme-btn:hover {
-            transform: scale(1.1) rotate(-3deg);
-        }
-
-        /* === FITUR SEARCH === */
-        .search-box {
-            margin-bottom: 25px;
-            position: relative;
-        }
-        .search-box input {
-            padding-left: 40px;
-            border-radius: 25px;
-            border: 3px solid var(--accent);
-        }
-        .search-icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.2rem;
-        }
-
-        /* === FORM STYLE === */
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-        input, select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 3px solid var(--secondary);
-            border-radius: 20px;
-            box-sizing: border-box;
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1rem;
-            outline: none;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background-color: var(--card-bg);
-        }
-        input:focus, select:focus {
-            border-color: var(--primary);
-            transform: scale(1.02);
-            box-shadow: 0 0 15px var(--secondary);
-        }
-
-        /* === BUTTONS === */
-        button {
-            font-family: 'Fredoka', sans-serif;
-            font-weight: 600;
-            border: none;
-            border-radius: 25px;
-            padding: 10px 18px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            font-size: 1rem;
-        }
-        button:active {
-            transform: scale(0.95);
-        }
-
-        .btn-submit {
+        /* Kawaii Bouncy 3D Button */
+        .btn-kawaii {
             background-color: var(--primary);
-            color: white;
-            width: 100%;
-            padding: 15px;
-            font-size: 1.2rem;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-            margin-top: 10px;
-        }
-        .btn-submit:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 20px var(--secondary);
-        }
-
-        .btn-copy { background-color: var(--accent); color: white; }
-        .btn-copy:hover { background-color: var(--primary); transform: scale(1.05) rotate(-2deg); }
-
-        .btn-delete { background-color: #ff4d6d; color: white; }
-        .btn-delete:hover { background-color: #d90429; transform: scale(1.05) rotate(2deg); }
-
-        /* === NOTIFIKASI PENGINGAT === */
-        .notif-section {
-            background-color: var(--warning-bg);
-            border: 3px dashed var(--warning);
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 25px;
-            display: none;
-            animation: shake 2s ease-in-out infinite;
-            box-shadow: 0 5px 15px rgba(255, 51, 51, 0.2);
-        }
-        .notif-title {
-            color: var(--warning);
-            margin-top: 0;
-            font-size: 1.4rem;
-            text-shadow: none;
-        }
-        .notif-card {
-            background: white;
-            border-left: 6px solid var(--warning);
-            padding: 15px;
-            border-radius: 15px;
-            margin-bottom: 12px;
-        }
-        .alert-text {
-            color: var(--warning);
-            font-weight: 800;
-            font-size: 1.1rem;
-            background: #ffe6e6;
-            padding: 5px 10px;
-            border-radius: 10px;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        /* === DATA CARDS === */
-        .group-container { margin-top: 35px; }
-        .duration-group {
-            background: rgba(255, 255, 255, 0.6);
-            border: 3px solid var(--secondary);
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 30px;
-        }
-        .duration-title {
-            background: var(--primary);
-            color: white;
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 20px;
-            margin-top: -35px;
-            font-size: 1.1rem;
+            color: #ffffff;
             font-family: 'Fredoka', sans-serif;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .data-card {
-            background: var(--card-bg);
-            border: 2px solid var(--secondary);
-            padding: 15px;
-            border-radius: 15px;
-            margin-top: 15px;
-            animation: popIn 0.4s ease-out forwards;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-        }
-        .data-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--primary);
-        }
-        .data-card p { margin: 6px 0; font-size: 0.95rem; }
-        .data-card strong { color: var(--primary); font-family: 'Fredoka', sans-serif; }
-        .card-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 12px;
-            flex-wrap: wrap;
+            border: 2px solid var(--primary-shadow);
+            border-radius: 9999px;
+            box-shadow: 0 4px 0 var(--primary-shadow);
+            transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            cursor: pointer;
+            user-select: none;
         }
 
-        /* Responsive HP */
-        @media (max-width: 480px) {
-            .container { padding: 15px; border-radius: 20px; }
-            h1 { font-size: 1.5rem; }
-            .card-actions button { flex: 1; }
+        .btn-kawaii:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 var(--primary-shadow);
+        }
+
+        .btn-kawaii:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 var(--primary-shadow);
+        }
+
+        /* Secondary Soft Kawaii Button */
+        .btn-kawaii-soft {
+            background-color: var(--bg-soft);
+            color: var(--text-main);
+            font-family: 'Fredoka', sans-serif;
+            border: 2px solid var(--border-color);
+            border-radius: 9999px;
+            box-shadow: 0 4px 0 var(--border-color);
+            transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .btn-kawaii-soft:hover {
+            background-color: var(--badge-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 var(--border-color);
+        }
+
+        .btn-kawaii-soft:active, .btn-kawaii-soft.active-tab {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 var(--border-color);
+            background-color: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary-shadow);
+        }
+
+        /* Input Kawaii */
+        .input-kawaii {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            border: 2px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 0.65rem 1rem;
+            outline: none;
+            transition: all 0.2s ease;
+            width: 100%;
+            font-weight: 600;
+        }
+
+        .input-kawaii:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px var(--bg-soft);
+        }
+
+        /* Floating Bottom Dock */
+        .bottom-dock {
+            background-color: var(--bg-card);
+            border: 3px solid var(--border-color);
+            box-shadow: 0 8px 0 var(--border-color), 0 15px 35px rgba(0, 0, 0, 0.12);
+            border-radius: 2rem;
+        }
+
+        .dock-btn {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 0.75rem;
+            border-radius: 1.25rem;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+        }
+
+        .dock-btn:hover {
+            color: var(--primary);
+            transform: translateY(-4px);
+            background-color: var(--bg-soft);
+        }
+
+        .dock-btn.active {
+            background-color: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 4px 0 var(--primary-shadow);
+            transform: translateY(-4px);
+        }
+
+        .dock-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 9999px;
+        }
+
+        /* Animasi Melayang Halus */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(3deg); }
+        }
+        .animate-float {
+            animation: floatSlow 3.5s ease-in-out infinite;
+        }
+
+        /* Animasi Bell Bergetar */
+        @keyframes bellRing {
+            0%, 100% { transform: rotate(0); }
+            15% { transform: rotate(15deg); }
+            30% { transform: rotate(-15deg); }
+            45% { transform: rotate(10deg); }
+            60% { transform: rotate(-10deg); }
+            75% { transform: rotate(5deg); }
+        }
+        .animate-bell {
+            animation: bellRing 2s infinite;
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen antialiased selection:bg-pink-300 selection:text-pink-900">
 
-    <div class="container">
-        <h1>✨ Recap Canva Eurydice ✨</h1>
+    <!-- Toast Notification (Pesan Pop-up Lucu) -->
+    <div id="toastContainer" class="fixed top-4 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
-        <!-- Fitur Ganti Tema -->
-        <div class="theme-selector">
-            <button class="theme-btn" onclick="setTheme('default')">🍓 Pink</button>
-            <button class="theme-btn" onclick="setTheme('blueberry')">🫐 Blue</button>
-            <button class="theme-btn" onclick="setTheme('matcha')">🍵 Green</button>
-        }
+    <!-- Header Section -->
+    <header class="max-w-6xl mx-auto pt-6 pb-4 px-4">
+        <div class="kawaii-card p-5 md:p-6 flex flex-col md:flex-row items-center justify-between gap-4 relative overflow-hidden">
+            <!-- Dekorasi Latar Belakang Header -->
+            <div class="absolute -right-6 -top-6 text-7xl opacity-15 pointer-events-none select-none animate-float" id="headerBgEmoji">🍓</div>
+            
+            <div class="flex items-center gap-4 z-10 text-center md:text-left flex-col sm:flex-row">
+                <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-4xl shadow-inner border-2 animate-float"
+                     style="background-color: var(--bg-soft); border-color: var(--border-color);" id="headerIconBox">
+                    🍓
+                </div>
+                <div>
+                    <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-bold mb-1"
+                         style="background-color: var(--badge-bg); color: var(--badge-text);">
+                        <span>✨ Canva Pro & Teams Management</span>
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl font-bold tracking-tight" style="color: var(--text-main);">
+                        Recap Canva <span style="color: var(--primary);">Eurydice</span>
+                    </h1>
+                    <p class="text-sm font-semibold" style="color: var(--text-muted);" id="currentDateDisplay">
+                        Memuat tanggal hari ini...
+                    </p>
+                </div>
+            </div>
+
+            <!-- Statistik Ringkas -->
+            <div class="grid grid-cols-3 gap-2.5 w-full md:w-auto z-10">
+                <div class="p-3 rounded-2xl text-center border-2" style="background-color: var(--bg-soft); border-color: var(--border-color);">
+                    <p class="text-xs font-bold opacity-80">Total Member</p>
+                    <p class="text-xl sm:text-2xl font-cute font-bold" style="color: var(--primary);" id="statTotal">0</p>
+                </div>
+                <div class="p-3 rounded-2xl text-center border-2 cursor-pointer transition hover:scale-105"
+                     onclick="openModal('reminderModal')"
+                     style="background-color: #fff0f3; border-color: #ffadb9; color: #c9184a;">
+                    <p class="text-xs font-bold">Habis Hari Ini</p>
+                    <div class="flex items-center justify-center gap-1">
+                        <p class="text-xl sm:text-2xl font-cute font-bold" id="statDueToday">0</p>
+                        <i class="ph-fill ph-bell-ringing text-lg animate-bell"></i>
+                    </div>
+                </div>
+                <div class="p-3 rounded-2xl text-center border-2" style="background-color: var(--bg-soft); border-color: var(--border-color);">
+                    <p class="text-xs font-bold opacity-80">Aktif / Lifetime</p>
+                    <p class="text-xl sm:text-2xl font-cute font-bold" style="color: var(--accent);" id="statActive">0</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Pengingat Cepat (Muncul jika ada yang jatuh tempo hari ini/lewat) -->
+    <section id="urgentAlertBanner" class="max-w-6xl mx-auto px-4 mb-4 hidden">
+        <div class="p-4 rounded-2xl border-2 border-rose-300 bg-rose-50 text-rose-900 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
+            <div class="flex items-center gap-3 text-center sm:text-left">
+                <span class="text-3xl animate-bounce">🍓🔔</span>
+                <div>
+                    <h3 class="font-cute font-bold text-base sm:text-lg text-rose-700" id="urgentBannerTitle">
+                        Ada Customer yang Durasinya Habis Hari Ini!
+                    </h3>
+                    <p class="text-xs sm:text-sm font-medium text-rose-600">
+                        Yuk cek daftar pengingat untuk langsung copas email atau kirim pesan perpanjangan!
+                    </p>
+                </div>
+            </div>
+            <button onclick="openModal('reminderModal')" class="btn-kawaii px-4 py-2 text-sm shrink-0" style="background-color: #ff4d6d; border-color: #c9184a; box-shadow: 0 4px 0 #c9184a;">
+                <i class="ph-bold ph-bell-ringing"></i> Buka Pengingat Sekarang
+            </button>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="max-w-6xl mx-auto px-4 space-y-5">
+
+        <!-- Pencarian & Filter Durasi Bar -->
+        <div class="kawaii-card p-4 sm:p-5 space-y-4">
+            <div class="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+                <!-- Search Input -->
+                <div class="relative flex-1">
+                    <i class="ph-bold ph-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-lg" style="color: var(--primary);"></i>
+                    <input type="text" id="searchInput" oninput="renderCustomers()"
+                           placeholder="Cari nomor WA, email customer, atau nama team Canva..."
+                           class="input-kawaii pl-11 pr-10 text-sm sm:text-base">
+                    <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-lg opacity-60 hover:opacity-100" style="color: var(--text-main);">
+                        <i class="ph-fill ph-x-circle"></i>
+                    </button>
+                </div>
+
+                <!-- Toggle Mode Tampilan (Grup per Durasi vs Daftar Biasa) -->
+                <div class="flex items-center gap-2 self-end md:self-auto">
+                    <button id="viewModeGroupBtn" onclick="setViewMode('grouped')" class="btn-kawaii-soft active-tab px-3.5 py-2 text-xs sm:text-sm font-semibold">
+                        <i class="ph-bold ph-folders"></i> Kelompokkan Durasi
+                    </button>
+                    <button id="viewModeListBtn" onclick="setViewMode('flat')" class="btn-kawaii-soft px-3.5 py-2 text-xs sm:text-sm font-semibold">
+                        <i class="ph-bold ph-list-bullets"></i> Semua Daftar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filter Durasi Pills -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 pt-1 no-scrollbar" id="durationTabsContainer">
+                <!-- Di-render via JS -->
+            </div>
         </div>
 
-        <!-- Fitur Pencarian -->
-        <div class="search-box">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="searchInput" placeholder="Cari Nama Team atau Email..." onkeyup="renderUI()">
+        <!-- Container Daftar Customer (Dikelompokkan per Durasi) -->
+        <div id="customersContainer" class="space-y-6">
+            <!-- Di-render via JavaScript -->
         </div>
 
-        <!-- Notifikasi Kolom Lain (Hanya Muncul Jika Ada yang Expired Hari Ini/Lewat) -->
-        <div id="notifSection" class="notif-section">
-            <h2 class="notif-title">🚨 PENGINGAT HARI INI 🚨</h2>
-            <div id="notifList"></div>
+    </main>
+
+    <!-- FLOATING BOTTOM NAVIGATION BAR (Button-button Lucu di Bawah) -->
+    <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[95%] max-w-xl">
+        <div class="bottom-dock p-2 grid grid-cols-5 gap-1 sm:gap-2 items-center">
+            <!-- 1. Beranda / Recap -->
+            <button onclick="scrollToTopAndReset()" class="dock-btn active" id="navBtnRecap">
+                <span class="text-xl sm:text-2xl mb-0.5">🍓</span>
+                <span class="truncate">Recap</span>
+            </button>
+
+            <!-- 2. Pengingat Jatuh Tempo -->
+            <button onclick="openModal('reminderModal')" class="dock-btn relative" id="navBtnReminder">
+                <span class="text-xl sm:text-2xl mb-0.5">🔔</span>
+                <span class="truncate">Pengingat</span>
+                <!-- Badge Jumlah Jatuh Tempo -->
+                <span id="dockReminderBadge" class="hidden absolute top-1 right-2 sm:right-4 bg-rose-500 text-white text-[11px] font-bold px-1.5 py-0.2 rounded-full border-2 border-white animate-bounce">
+                    0
+                </span>
+            </button>
+
+            <!-- 3. Tombol Utama Tambah Customer (Tengah & Menonjol) -->
+            <div class="flex justify-center -mt-6">
+                <button onclick="openAddModal()" class="btn-kawaii w-14 h-14 sm:w-16 sm:h-16 rounded-full flex flex-col items-center justify-center shadow-lg border-4 border-white">
+                    <i class="ph-bold ph-plus text-2xl sm:text-3xl"></i>
+                </button>
+            </div>
+
+            <!-- 4. Ganti Tema Lucu -->
+            <button onclick="openModal('themeModal')" class="dock-btn" id="navBtnTheme">
+                <span class="text-xl sm:text-2xl mb-0.5">🎨</span>
+                <span class="truncate">Tema Web</span>
+            </button>
+
+            <!-- 5. Backup / Export Import -->
+            <button onclick="openModal('backupModal')" class="dock-btn" id="navBtnBackup">
+                <span class="text-xl sm:text-2xl mb-0.5">💾</span>
+                <span class="truncate">Backup</span>
+            </button>
         </div>
+    </nav>
 
-        <!-- Form Input -->
-        <form id="canvaForm">
-            <div class="form-group">
-                <label>Nama Team 👑</label>
-                <input type="text" id="team" placeholder="Masukkan nama team..." required>
+    <!-- ========================================== -->
+    <!-- MODAL 1: FORM TAMBAH / EDIT CUSTOMER       -->
+    <!-- ========================================== -->
+    <div id="customerFormModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
+        <div class="kawaii-card w-full max-w-lg p-5 sm:p-6 relative my-8 animate-fadeIn">
+            <div class="flex items-center justify-between border-b-2 pb-3 mb-4" style="border-color: var(--border-color);">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">🍓</span>
+                    <h2 id="formModalTitle" class="text-xl font-cute font-bold">Tambah Customer Baru</h2>
+                </div>
+                <button onclick="closeModal('customerFormModal')" class="w-8 h-8 rounded-full flex items-center justify-center font-bold hover:scale-110 transition" style="background-color: var(--bg-soft);">
+                    ✕
+                </button>
             </div>
-            <div class="form-group">
-                <label>Nomor Customer 📱</label>
-                <input type="number" id="nomor" placeholder="Contoh: 08123456789" required>
-            </div>
-            <div class="form-group">
-                <label>Email Customer ✉️</label>
-                <input type="email" id="email" placeholder="customer@gmail.com" required>
-            </div>
-            <div class="form-group">
-                <label>Durasi ⏳</label>
-                <select id="durasi" required>
-                    <option value="1 bulan">1 Bulan</option>
-                    <option value="2 bulan">2 Bulan</option>
-                    <option value="3 bulan">3 Bulan</option>
-                    <option value="6 bulan">6 Bulan</option>
-                    <option value="1 tahun">1 Tahun</option>
-                    <option value="lifetime">Lifetime</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Tanggal Pembelian 📅</label>
-                <input type="date" id="tanggal_beli" required>
-            </div>
-            <button type="submit" class="btn-submit">Simpan Data 💖</button>
-        </form>
 
-        <!-- Container Data Kelompok Durasi -->
-        <div id="dataContainer" class="group-container">
-            <!-- Data akan di-render di sini oleh JavaScript -->
+            <form id="customerForm" onsubmit="saveCustomer(event)" class="space-y-4">
+                <input type="hidden" id="customerId">
+
+                <!-- Nomor Customer & Email -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                        <label class="block text-xs font-bold mb-1.5" style="color: var(--text-main);">
+                            📱 Nomor WA / HP Customer <span class="text-rose-500">*</span>
+                        </label>
+                        <input type="text" id="custPhone" required placeholder="Contoh: 081234567890" class="input-kawaii text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold mb-1.5" style="color: var(--text-main);">
+                            💌 Email Customer (Canva) <span class="text-rose-500">*</span>
+                        </label>
+                        <input type="email" id="custEmail" required placeholder="customer@gmail.com" class="input-kawaii text-sm">
+                    </div>
+                </div>
+
+                <!-- Pilihan Durasi & Nama Team -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                        <label class="block text-xs font-bold mb-1.5" style="color: var(--text-main);">
+                            ⏳ Pilihan Durasi <span class="text-rose-500">*</span>
+                        </label>
+                        <select id="custDuration" onchange="calculateEndDate()" required class="input-kawaii text-sm cursor-pointer">
+                            <option value="1 Bulan">1 Bulan</option>
+                            <option value="2 Bulan">2 Bulan</option>
+                            <option value="3 Bulan">3 Bulan</option>
+                            <option value="6 Bulan">6 Bulan</option>
+                            <option value="1 Tahun">1 Tahun</option>
+                            <option value="Lifetime">Lifetime ✨</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold mb-1.5" style="color: var(--text-main);">
+                            👑 Nama Team Canva <span class="text-rose-500">*</span>
+                        </label>
+                        <input type="text" id="custTeam" required placeholder="Contoh: Eurydice Team 1" list="teamSuggestions" class="input-kawaii text-sm">
+                        <datalist id="teamSuggestions">
+                            <option value="Eurydice Berry 1">
+                            <option value="Eurydice Berry 2">
+                            <option value="Eurydice VIP Team">
+                            <option value="Eurydice Sweet Pro">
+                        </datalist>
+                    </div>
+                </div>
+
+                <!-- Tanggal Pembelian & Tanggal Selesai -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                        <label class="block text-xs font-bold mb-1.5" style="color: var(--text-main);">
+                            📅 Tanggal Pembelian <span class="text-rose-500">*</span>
+                        </label>
+                        <input type="date" id="custBuyDate" onchange="calculateEndDate()" required class="input-kawaii text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold mb-1.5" style="color: var(--text-main);">
+                            🏁 Tanggal Selesai (Otomatis/Edit)
+                        </label>
+                        <input type="date" id="custEndDate" class="input-kawaii text-sm">
+                        <div id="lifetimeBadgeInfo" class="hidden mt-1 px-3 py-2 rounded-xl text-xs font-bold text-center" style="background-color: var(--badge-bg); color: var(--badge-text);">
+                            ♾️ Aktif Selamanya (Lifetime Access)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Catatan Tambahan (Opsional) -->
+                <div>
+                    <label class="block text-xs font-bold mb-1.5" style="color: var(--text-main);">
+                        📝 Catatan Kecil (Opsional)
+                    </label>
+                    <input type="text" id="custNote" placeholder="Contoh: Sudah bayar via ShopeePay / Member langganan" class="input-kawaii text-sm">
+                </div>
+
+                <!-- Tombol Aksi Form di Bawah -->
+                <div class="pt-3 flex items-center justify-end gap-2.5 border-t-2" style="border-color: var(--border-color);">
+                    <button type="button" onclick="closeModal('customerFormModal')" class="btn-kawaii-soft px-5 py-2.5 text-sm font-bold">
+                        Batal
+                    </button>
+                    <button type="submit" class="btn-kawaii px-6 py-2.5 text-sm font-bold">
+                        <i class="ph-bold ph-floppy-disk"></i> Simpan Data
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 
+    <!-- ========================================== -->
+    <!-- MODAL 2: PENGINGAT JATUH TEMPO & COPAS     -->
+    <!-- ========================================== -->
+    <div id="reminderModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
+        <div class="kawaii-card w-full max-w-2xl p-5 sm:p-6 relative my-8 max-h-[88vh] flex flex-col">
+            <!-- Header Modal -->
+            <div class="flex items-center justify-between border-b-2 pb-3 mb-3 shrink-0" style="border-color: var(--border-color);">
+                <div class="flex items-center gap-2.5">
+                    <span class="text-2xl animate-bell">🔔</span>
+                    <div>
+                        <h2 class="text-xl font-cute font-bold">Pengingat Durasi Habis</h2>
+                        <p class="text-xs font-semibold" style="color: var(--text-muted);">
+                            Tinggal klik untuk salin email customer atau copas pesan pengingat!
+                        </p>
+                    </div>
+                </div>
+                <button onclick="closeModal('reminderModal')" class="w-8 h-8 rounded-full flex items-center justify-center font-bold hover:scale-110 transition" style="background-color: var(--bg-soft);">
+                    ✕
+                </button>
+            </div>
+
+            <!-- Filter Tab di Dalam Pengingat -->
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3 shrink-0">
+                <div class="flex gap-1.5">
+                    <button onclick="setReminderTab('today_expired')" id="remTabToday" class="btn-kawaii-soft active-tab px-3.5 py-1.5 text-xs font-bold">
+                        🚨 Habis Hari Ini & Lewat (<span id="countRemToday">0</span>)
+                    </button>
+                    <button onclick="setReminderTab('soon')" id="remTabSoon" class="btn-kawaii-soft px-3.5 py-1.5 text-xs font-bold">
+                        ⏳ Segera Habis ≤ 3 Hari (<span id="countRemSoon">0</span>)
+                    </button>
+                </div>
+
+                <!-- Tombol Salin Semua Email Sekaligus -->
+                <button onclick="copyAllReminderEmails()" class="btn-kawaii px-3.5 py-1.5 text-xs font-bold">
+                    <i class="ph-bold ph-copy"></i> Salin Semua Email di Tab Ini
+                </button>
+            </div>
+
+            <!-- Daftar Customer yang Jatuh Tempo -->
+            <div id="reminderListContainer" class="space-y-3 overflow-y-auto pr-1 flex-1">
+                <!-- Di-render via JS -->
+            </div>
+
+            <!-- Footer Modal -->
+            <div class="pt-3 mt-3 border-t-2 flex justify-between items-center shrink-0" style="border-color: var(--border-color);">
+                <span class="text-xs font-semibold" style="color: var(--text-muted);">
+                    💡 Tips: Gunakan tombol <b>Copas Email</b> untuk mengeluarkan/mengelola member dari Canva Team.
+                </span>
+                <button onclick="closeModal('reminderModal')" class="btn-kawaii-soft px-5 py-2 text-xs font-bold">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODAL 3: PILIH TEMA TAMPILAN LUCU          -->
+    <!-- ========================================== -->
+    <div id="themeModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="kawaii-card w-full max-w-md p-5 sm:p-6 relative">
+            <div class="flex items-center justify-between border-b-2 pb-3 mb-4" style="border-color: var(--border-color);">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">🎨</span>
+                    <h2 class="text-xl font-cute font-bold">Pilih Tema Tampilan Lucu</h2>
+                </div>
+                <button onclick="closeModal('themeModal')" class="w-8 h-8 rounded-full flex items-center justify-center font-bold hover:scale-110 transition" style="background-color: var(--bg-soft);">
+                    ✕
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 gap-3">
+                <!-- Strawberry Pink -->
+                <button onclick="applyTheme('strawberry')" class="flex items-center justify-between p-3.5 rounded-2xl border-2 border-[#ffb8d0] bg-[#fff0f5] text-[#5c2839] hover:scale-[1.02] transition shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <span class="text-3xl">🍓</span>
+                        <div class="text-left">
+                            <p class="font-cute font-bold text-base">Pink Strawberry (Default)</p>
+                            <p class="text-xs opacity-75">Pink pastel manis & merah stroberi segar</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1">
+                        <span class="w-5 h-5 rounded-full bg-[#ff5c8a] border border-white"></span>
+                        <span class="w-5 h-5 rounded-full bg-[#ffb8d0] border border-white"></span>
+                    </div>
+                </button>
+
+                <!-- Matcha Berry -->
+                <button onclick="applyTheme('matcha')" class="flex items-center justify-between p-3.5 rounded-2xl border-2 border-[#b7e1c4] bg-[#f2f9f1] text-[#2d4c39] hover:scale-[1.02] transition shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <span class="text-3xl">🍵</span>
+                        <div class="text-left">
+                            <p class="font-cute font-bold text-base">Matcha Strawberry</p>
+                            <p class="text-xs opacity-75">Hijau matcha lembut & sentuhan beri</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1">
+                        <span class="w-5 h-5 rounded-full bg-[#68b684] border border-white"></span>
+                        <span class="w-5 h-5 rounded-full bg-[#f4a4b8] border border-white"></span>
+                    </div>
+                </button>
+
+                <!-- Blueberry Milk -->
+                <button onclick="applyTheme('blueberry')" class="flex items-center justify-between p-3.5 rounded-2xl border-2 border-[#bfd3ff] bg-[#f0f6ff] text-[#28355c] hover:scale-[1.02] transition shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <span class="text-3xl">🫐</span>
+                        <div class="text-left">
+                            <p class="font-cute font-bold text-base">Blueberry Milk</p>
+                            <p class="text-xs opacity-75">Biru langit susu & ungu pastel tenang</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1">
+                        <span class="w-5 h-5 rounded-full bg-[#6c8cff] border border-white"></span>
+                        <span class="w-5 h-5 rounded-full bg-[#bfd3ff] border border-white"></span>
+                    </div>
+                </button>
+
+                <!-- Peach Cream -->
+                <button onclick="applyTheme('peach')" class="flex items-center justify-between p-3.5 rounded-2xl border-2 border-[#ffcbb5] bg-[#fff7f0] text-[#5c3728] hover:scale-[1.02] transition shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <span class="text-3xl">🍑</span>
+                        <div class="text-left">
+                            <p class="font-cute font-bold text-base">Peach Cream</p>
+                            <p class="text-xs opacity-75">Warna persik hangat & vanilla krim</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1">
+                        <span class="w-5 h-5 rounded-full bg-[#ff8c61] border border-white"></span>
+                        <span class="w-5 h-5 rounded-full bg-[#ffcbb5] border border-white"></span>
+                    </div>
+                </button>
+
+                <!-- Choco Berry Dark -->
+                <button onclick="applyTheme('chocoberry')" class="flex items-center justify-between p-3.5 rounded-2xl border-2 border-[#634452] bg-[#281c22] text-[#ffeef4] hover:scale-[1.02] transition shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <span class="text-3xl">🍫</span>
+                        <div class="text-left">
+                            <p class="font-cute font-bold text-base">Choco Berry Night</p>
+                            <p class="text-xs opacity-75">Mode gelap coklat manis & krim pink</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1">
+                        <span class="w-5 h-5 rounded-full bg-[#ff709b] border border-white"></span>
+                        <span class="w-5 h-5 rounded-full bg-[#47323c] border border-white"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODAL 4: BACKUP / EXPORT & IMPORT DATA     -->
+    <!-- ========================================== -->
+    <div id="backupModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="kawaii-card w-full max-w-md p-5 sm:p-6 relative space-y-4">
+            <div class="flex items-center justify-between border-b-2 pb-3" style="border-color: var(--border-color);">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">💾</span>
+                    <h2 class="text-xl font-cute font-bold">Kelola & Backup Data</h2>
+                </div>
+                <button onclick="closeModal('backupModal')" class="w-8 h-8 rounded-full flex items-center justify-center font-bold hover:scale-110 transition" style="background-color: var(--bg-soft);">
+                    ✕
+                </button>
+            </div>
+
+            <p class="text-xs sm:text-sm font-medium" style="color: var(--text-muted);">
+                Data Anda otomatis tersimpan di browser ini. Anda juga bisa mengunduh file cadangan (JSON) atau memulihkan data kapan saja.
+            </p>
+
+            <div class="space-y-3">
+                <button onclick="exportDataJSON()" class="btn-kawaii w-full py-3 text-sm font-bold">
+                    <i class="ph-bold ph-download-simple text-lg"></i> Download Backup Data (.JSON)
+                </button>
+
+                <label class="btn-kawaii-soft w-full py-3 text-sm font-bold cursor-pointer">
+                    <i class="ph-bold ph-upload-simple text-lg"></i> Upload / Import Data (.JSON)
+                    <input type="file" accept=".json" onchange="importDataJSON(event)" class="hidden">
+                </label>
+
+                <button onclick="resetToSampleData()" class="btn-kawaii-soft w-full py-2.5 text-xs font-bold opacity-80 hover:opacity-100">
+                    <i class="ph-bold ph-arrow-counter-clockwise"></i> Muat Ulang Data Contoh Awal
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODAL 5: KONFIRMASI HAPUS LUCU (Tanpa Alert)-->
+    <!-- ========================================== -->
+    <div id="deleteConfirmModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="kawaii-card w-full max-w-sm p-6 text-center space-y-4">
+            <div class="text-5xl animate-bounce">🥺🍓</div>
+            <h3 class="text-lg font-cute font-bold">Hapus Data Customer Ini?</h3>
+            <p id="deleteCustomerInfo" class="text-xs font-semibold px-3 py-2 rounded-xl" style="background-color: var(--bg-soft); color: var(--text-muted);"></p>
+            <div class="flex gap-2 justify-center pt-2">
+                <button onclick="closeModal('deleteConfirmModal')" class="btn-kawaii-soft px-5 py-2.5 text-sm font-bold flex-1">
+                    Batal
+                </button>
+                <button id="confirmDeleteBtn" class="btn-kawaii px-5 py-2.5 text-sm font-bold flex-1" style="background-color: #ff4d6d; border-color: #c9184a; box-shadow: 0 4px 0 #c9184a;">
+                    Ya, Hapus
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT LOGIC                           -->
+    <!-- ========================================== -->
     <script>
-        // === INISIALISASI DATA & TEMA ===
-        let canvaData = JSON.parse(localStorage.getItem('canvaData')) || [];
-        const form = document.getElementById('canvaForm');
-        const durasiOrder = ['1 bulan', '2 bulan', '3 bulan', '6 bulan', '1 tahun', 'lifetime'];
+        // Kunci Penyimpanan LocalStorage
+        const STORAGE_KEY = 'recap_canva_eurydice_v1';
+        const THEME_KEY = 'recap_canva_eurydice_theme';
 
-        // Load Tema dari LocalStorage
-        const savedTheme = localStorage.getItem('eurydiceTheme') || 'default';
-        document.documentElement.setAttribute('data-theme', savedTheme);
+        // Urutan Kategori Durasi
+        const DURATION_CATEGORIES = [
+            '1 Bulan',
+            '2 Bulan',
+            '3 Bulan',
+            '6 Bulan',
+            '1 Tahun',
+            'Lifetime'
+        ];
 
-        function setTheme(themeName) {
-            document.documentElement.setAttribute('data-theme', themeName);
-            localStorage.setItem('eurydiceTheme', themeName);
+        // State Aplikasi
+        let customers = [];
+        let selectedDurationFilter = 'Semua';
+        let viewMode = 'grouped'; // 'grouped' atau 'flat'
+        let activeReminderTab = 'today_expired'; // 'today_expired' atau 'soon'
+        let pendingDeleteId = null;
+
+        // Helper Format Tanggal YYYY-MM-DD Lokal
+        function getTodayISO() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
         }
 
-        // Set default date (Hari ini)
-        document.getElementById('tanggal_beli').valueAsDate = new Date();
-
-        // === LOGIKA TANGGAL SELESAI ===
-        function hitungTanggalSelesai(tanggalBeli, durasi) {
-            if (durasi === 'lifetime') return 'Lifetime';
-            let date = new Date(tanggalBeli);
-            if (durasi === '1 bulan') date.setMonth(date.getMonth() + 1);
-            else if (durasi === '2 bulan') date.setMonth(date.getMonth() + 2);
-            else if (durasi === '3 bulan') date.setMonth(date.getMonth() + 3);
-            else if (durasi === '6 bulan') date.setMonth(date.getMonth() + 6);
-            else if (durasi === '1 tahun') date.setFullYear(date.getFullYear() + 1);
-            return date.toISOString().split('T')[0];
+        // Helper Tambah/Kurang Hari dari Hari Ini (untuk Sample Data)
+        function getOffsetDateISO(offsetDays) {
+            const d = new Date();
+            d.setDate(d.getDate() + offsetDays);
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
         }
 
-        // === SIMPAN DATA BARU ===
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const newData = {
-                id: Date.now().toString(),
-                team: document.getElementById('team').value,
-                nomor: document.getElementById('nomor').value,
-                email: document.getElementById('email').value,
-                durasi: document.getElementById('durasi').value,
-                tanggal_beli: document.getElementById('tanggal_beli').value,
-                tanggal_selesai: hitungTanggalSelesai(document.getElementById('tanggal_beli').value, document.getElementById('durasi').value)
-            };
-            canvaData.push(newData);
-            simpanData();
-            form.reset();
-            document.getElementById('tanggal_beli').valueAsDate = new Date();
+        // Buat Data Contoh Awal (Termasuk yang habis hari ini agar fitur pengingat langsung terlihat)
+        function getInitialSampleData() {
+            const today = getTodayISO();
+            const oneMonthAgo = getOffsetDateISO(-30);
+            const twoMonthsAgo = getOffsetDateISO(-60);
+            const twoDaysLater = getOffsetDateISO(2);
+            const twentyDaysLater = getOffsetDateISO(20);
+            const fiftyDaysLater = getOffsetDateISO(50);
+            const eightyDaysLater = getOffsetDateISO(80);
+            const onefiftyDaysLater = getOffsetDateISO(150);
+            const threeHundredDaysLater = getOffsetDateISO(320);
+
+            return [
+                {
+                    id: 'cust-1',
+                    phone: '081234567891',
+                    email: 'nabila.strawberry@gmail.com',
+                    duration: '1 Bulan',
+                    team: 'Eurydice Berry 1',
+                    buyDate: oneMonthAgo,
+                    endDate: today, // Habis HARI INI
+                    note: 'Langganan tiap bulan, ramah banget'
+                },
+                {
+                    id: 'cust-2',
+                    phone: '085712349876',
+                    email: 'cherish.design@gmail.com',
+                    duration: '2 Bulan',
+                    team: 'Eurydice Berry 1',
+                    buyDate: twoMonthsAgo,
+                    endDate: today, // Habis HARI INI
+                    note: 'Minta diingatkan kalau sudah habis'
+                },
+                {
+                    id: 'cust-3',
+                    phone: '081399887766',
+                    email: 'aurelia.putri@yahoo.com',
+                    duration: '1 Bulan',
+                    team: 'Eurydice Berry 2',
+                    buyDate: getOffsetDateISO(-28),
+                    endDate: twoDaysLater, // Segera habis 2 hari lagi
+                    note: 'Order via DM Instagram'
+                },
+                {
+                    id: 'cust-4',
+                    phone: '082144556677',
+                    email: 'kirana.sweet@gmail.com',
+                    duration: '3 Bulan',
+                    team: 'Eurydice Berry 2',
+                    buyDate: today,
+                    endDate: eightyDaysLater,
+                    note: 'Lunas QRIS'
+                },
+                {
+                    id: 'cust-5',
+                    phone: '087811223344',
+                    email: 'tokokue.pinky@gmail.com',
+                    duration: '6 Bulan',
+                    team: 'Eurydice Sweet Pro',
+                    buyDate: today,
+                    endDate: onefiftyDaysLater,
+                    note: 'Akun admin sosmed toko kue'
+                },
+                {
+                    id: 'cust-6',
+                    phone: '081900112233',
+                    email: 'nadia.artstudio@gmail.com',
+                    duration: '1 Tahun',
+                    team: 'Eurydice VIP Team',
+                    buyDate: today,
+                    endDate: threeHundredDaysLater,
+                    note: 'Paket hemat 1 tahun'
+                },
+                {
+                    id: 'cust-7',
+                    phone: '081122334455',
+                    email: 'queen.eurydice@gmail.com',
+                    duration: 'Lifetime',
+                    team: 'Eurydice VIP Team',
+                    buyDate: today,
+                    endDate: 'Lifetime',
+                    note: 'Member VIP Lifetime garansi penuh'
+                },
+                {
+                    id: 'cust-8',
+                    phone: '089655443322',
+                    email: 'melody.canva@gmail.com',
+                    duration: '2 Bulan',
+                    team: 'Eurydice Berry 1',
+                    buyDate: today,
+                    endDate: fiftyDaysLater,
+                    note: 'Order ke-2 kalinya'
+                }
+            ];
+        }
+
+        // Inisialisasi saat halaman dimuat
+        window.addEventListener('DOMContentLoaded', () => {
+            // Muat Tema Tersimpan
+            const savedTheme = localStorage.getItem(THEME_KEY) || 'strawberry';
+            applyTheme(savedTheme, false);
+
+            // Tampilkan Tanggal Hari Ini di Header
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('currentDateDisplay').textContent =
+                '📅 Hari ini: ' + new Date().toLocaleDateString('id-ID', options);
+
+            // Muat Data Customer
+            const savedData = localStorage.getItem(STORAGE_KEY);
+            if (savedData) {
+                try {
+                    customers = JSON.parse(savedData);
+                } catch (e) {
+                    customers = getInitialSampleData();
+                }
+            } else {
+                customers = getInitialSampleData();
+                saveToStorage();
+            }
+
+            renderAll();
         });
 
-        // === FITUR COPAS ===
-        function copyText(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert('✨ Email berhasil di-copy! ✨');
+        // Simpan ke LocalStorage
+        function saveToStorage() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(customers));
+        }
+
+        // Hitung Selisih Hari antara Tanggal Selesai dan Hari Ini
+        function getDaysRemaining(endDateStr, duration) {
+            if (duration === 'Lifetime' || endDateStr === 'Lifetime' || !endDateStr) {
+                return Infinity;
+            }
+            const today = new Date(getTodayISO() + 'T00:00:00');
+            const end = new Date(endDateStr + 'T00:00:00');
+            const diffTime = end - today;
+            return Math.round(diffTime / (1000 * 60 * 60 * 24));
+        }
+
+        // Format Tanggal ke Bahasa Indonesia (contoh: 03 Nov 2026)
+        function formatDateIndo(dateStr) {
+            if (!dateStr || dateStr === 'Lifetime') return '♾️ Selamanya (Lifetime)';
+            const parts = dateStr.split('-');
+            if (parts.length !== 3) return dateStr;
+            const dateObj = new Date(parts[0], parts[1] - 1, parts[2]);
+            return dateObj.toLocaleDateString('id-ID', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric'
             });
         }
 
-        // === FITUR HAPUS ===
-        function hapusData(id) {
-            if(confirm('Yakin ingin menghapus data ini? 🥺')) {
-                canvaData = canvaData.filter(item => item.id !== id);
-                simpanData();
+        // Hitung Otomatis Tanggal Selesai Berdasarkan Tanggal Beli & Durasi
+        function calculateEndDate() {
+            const duration = document.getElementById('custDuration').value;
+            const buyDateVal = document.getElementById('custBuyDate').value;
+            const endDateInput = document.getElementById('custEndDate');
+            const lifetimeInfo = document.getElementById('lifetimeBadgeInfo');
+
+            if (duration === 'Lifetime') {
+                endDateInput.value = '';
+                endDateInput.classList.add('hidden');
+                lifetimeInfo.classList.remove('hidden');
+                return;
+            } else {
+                endDateInput.classList.remove('hidden');
+                lifetimeInfo.classList.add('hidden');
+            }
+
+            if (!buyDateVal) return;
+
+            const parts = buyDateVal.split('-');
+            const date = new Date(parts[0], parts[1] - 1, parts[2]);
+
+            if (duration === '1 Bulan') date.setMonth(date.getMonth() + 1);
+            else if (duration === '2 Bulan') date.setMonth(date.getMonth() + 2);
+            else if (duration === '3 Bulan') date.setMonth(date.getMonth() + 3);
+            else if (duration === '6 Bulan') date.setMonth(date.getMonth() + 6);
+            else if (duration === '1 Tahun') date.setFullYear(date.getFullYear() + 1);
+
+            const y = date.getFullYear();
+            const m = String(date.getMonth() + 1).padStart(2, '0');
+            const d = String(date.getDate()).padStart(2, '0');
+            endDateInput.value = `${y}-${m}-${d}`;
+        }
+
+        // Render Keseluruhan Tampilan
+        function renderAll() {
+            updateStatsAndAlerts();
+            renderDurationTabs();
+            renderCustomers();
+            renderReminderList();
+        }
+
+        // Update Statistik & Badge Pengingat
+        function updateStatsAndAlerts() {
+            const total = customers.length;
+            let dueTodayOrExpired = 0;
+            let activeCount = 0;
+
+            customers.forEach(c => {
+                const days = getDaysRemaining(c.endDate, c.duration);
+                if (days <= 0) {
+                    dueTodayOrExpired++;
+                } else {
+                    activeCount++;
+                }
+            });
+
+            document.getElementById('statTotal').textContent = total;
+            document.getElementById('statDueToday').textContent = dueTodayOrExpired;
+            document.getElementById('statActive').textContent = activeCount;
+
+            // Badge di Bottom Dock
+            const dockBadge = document.getElementById('dockReminderBadge');
+            const urgentBanner = document.getElementById('urgentAlertBanner');
+            const urgentTitle = document.getElementById('urgentBannerTitle');
+
+            if (dueTodayOrExpired > 0) {
+                dockBadge.textContent = dueTodayOrExpired;
+                dockBadge.classList.remove('hidden');
+                urgentBanner.classList.remove('hidden');
+                urgentTitle.textContent = `Ada ${dueTodayOrExpired} Customer yang Durasinya Habis Hari Ini / Lewat!`;
+            } else {
+                dockBadge.classList.add('hidden');
+                urgentBanner.classList.add('hidden');
             }
         }
 
-        // === RENDER UI & PENCARIAN ===
-        function simpanData() {
-            localStorage.setItem('canvaData', JSON.stringify(canvaData));
-            renderUI();
+        // Render Filter Tab Durasi
+        function renderDurationTabs() {
+            const container = document.getElementById('durationTabsContainer');
+            const allCategories = ['Semua', ...DURATION_CATEGORIES];
+
+            const emojiMap = {
+                'Semua': '🍓',
+                '1 Bulan': '🌸',
+                '2 Bulan': '🍬',
+                '3 Bulan': '🧁',
+                '6 Bulan': '🍰',
+                '1 Tahun': '👑',
+                'Lifetime': '♾️'
+            };
+
+            container.innerHTML = allCategories.map(cat => {
+                const count = cat === 'Semua'
+                    ? customers.length
+                    : customers.filter(c => c.duration === cat).length;
+                const isActive = selectedDurationFilter === cat;
+
+                return `
+                    <button onclick="selectDurationFilter('${cat}')"
+                            class="btn-kawaii-soft ${isActive ? 'active-tab' : ''} px-3.5 py-2 text-xs sm:text-sm font-bold shrink-0">
+                        <span>${emojiMap[cat] || '🍓'} ${cat}</span>
+                        <span class="px-2 py-0.5 rounded-full text-[11px]"
+                              style="background-color: ${isActive ? 'rgba(255,255,255,0.25)' : 'var(--badge-bg)'}; color: ${isActive ? '#fff' : 'var(--badge-text)'};">
+                            ${count}
+                        </span>
+                    </button>
+                `;
+            }).join('');
         }
 
-        function renderUI() {
-            const dataContainer = document.getElementById('dataContainer');
-            const notifSection = document.getElementById('notifSection');
-            const notifList = document.getElementById('notifList');
-            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
-            
-            dataContainer.innerHTML = '';
-            notifList.innerHTML = '';
-            
-            // Format Tanggal Hari Ini untuk Pengecekan Expired
-            const todayDate = new Date();
-            // Sesuaikan zona waktu lokal (Indonesia)
-            const today = new Date(todayDate.getTime() - (todayDate.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
-            
-            let hasNotif = false;
+        function selectDurationFilter(duration) {
+            selectedDurationFilter = duration;
+            renderDurationTabs();
+            renderCustomers();
+        }
 
-            durasiOrder.forEach(durasi => {
-                // Filter berdasarkan durasi dan pencarian (Team atau Email)
-                const filteredData = canvaData.filter(item => {
-                    const matchDurasi = item.durasi === durasi;
-                    const matchSearch = item.team.toLowerCase().includes(searchQuery) || 
-                                        item.email.toLowerCase().includes(searchQuery);
-                    return matchDurasi && matchSearch;
-                });
+        function setViewMode(mode) {
+            viewMode = mode;
+            document.getElementById('viewModeGroupBtn').classList.toggle('active-tab', mode === 'grouped');
+            document.getElementById('viewModeListBtn').classList.toggle('active-tab', mode === 'flat');
+            renderCustomers();
+        }
 
-                if (filteredData.length === 0) return;
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            renderCustomers();
+        }
 
-                // Buat Wrapper Kelompok Durasi
-                const groupDiv = document.createElement('div');
-                groupDiv.className = 'duration-group';
-                groupDiv.innerHTML = `<div class="duration-title">✨ Paket: ${durasi.toUpperCase()}</div>`;
+        // Buat Kartu HTML untuk Satu Customer
+        function createCustomerCardHTML(c) {
+            const days = getDaysRemaining(c.endDate, c.duration);
+            let statusBadge = '';
 
-                filteredData.forEach(item => {
-                    const isExpired = item.tanggal_selesai !== 'Lifetime' && item.tanggal_selesai <= today;
-                    
-                    // Card Biasa
-                    const card = document.createElement('div');
-                    card.className = 'data-card';
-                    card.innerHTML = `
-                        <p><strong>Nama Team:</strong> ${item.team}</p>
-                        <p><strong>Nomor HP:</strong> ${item.nomor}</p>
-                        <p><strong>Email:</strong> ${item.email}</p>
-                        <p><strong>Tgl Beli:</strong> ${item.tanggal_beli}</p>
-                        <p><strong>Tgl Selesai:</strong> ${item.tanggal_selesai}</p>
-                        ${isExpired ? `<div class="alert-text">⚠️ HARINI MASA HABIS HARUS KELUAR TEAM ⚠️</div>` : ''}
-                        <div class="card-actions">
-                            <button class="btn-copy" onclick="copyText('${item.email}')">Copas Email 📋</button>
-                            <button class="btn-delete" onclick="hapusData('${item.id}')">Hapus 🗑️</button>
+            if (c.duration === 'Lifetime' || c.endDate === 'Lifetime') {
+                statusBadge = `<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-700 border border-purple-300">♾️ Lifetime</span>`;
+            } else if (days < 0) {
+                statusBadge = `<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-700 border border-rose-300 animate-pulse">🚨 Lewat ${Math.abs(days)} Hari</span>`;
+            } else if (days === 0) {
+                statusBadge = `<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-rose-500 text-white border border-rose-700 animate-bounce">🔔 Habis Hari Ini!</span>`;
+            } else if (days <= 3) {
+                statusBadge = `<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300">⏳ Sisa ${days} Hari</span>`;
+            } else {
+                statusBadge = `<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 border border-emerald-300">✅ Aktif (${days} hr)</span>`;
+            }
+
+            return `
+                <div class="kawaii-card p-4 flex flex-col justify-between gap-3 relative overflow-hidden">
+                    <!-- Bagian Atas Kartu -->
+                    <div class="space-y-2.5">
+                        <div class="flex items-start justify-between gap-2">
+                            <span class="px-3 py-1 rounded-full text-xs font-cute font-bold"
+                                  style="background-color: var(--badge-bg); color: var(--badge-text);">
+                                👑 ${escapeHtml(c.team)}
+                            </span>
+                            ${statusBadge}
                         </div>
-                    `;
-                    groupDiv.appendChild(card);
 
-                    // Tambahkan ke Notifikasi jika Expired & tidak sedang di-filter search (agar notif selalu terlihat)
-                    // (Atau tampilkan di notif meski di-search, sesuai kebutuhan)
-                    if (isExpired && !searchQuery) {
-                        hasNotif = true;
-                        const notifCard = document.createElement('div');
-                        notifCard.className = 'notif-card';
-                        notifCard.innerHTML = `
-                            <div class="alert-text">❗ HARINI MASA HABIS HARUS KELUAR TEAM ❗</div>
-                            <p><strong>Team:</strong> ${item.team}</p>
-                            <p><strong>Email:</strong> ${item.email}</p>
-                            <p><strong>Batas:</strong> ${item.tanggal_selesai}</p>
-                            <div class="card-actions">
-                                <button class="btn-copy" onclick="copyText('${item.email}')">Copas Email 📋</button>
-                                <button class="btn-delete" onclick="hapusData('${item.id}')">Sudah Dihapus 🗑️</button>
+                        <!-- Email Customer + Tombol Copas Cepat -->
+                        <div class="p-2.5 rounded-xl border flex items-center justify-between gap-2"
+                             style="background-color: var(--bg-main); border-color: var(--border-color);">
+                            <div class="truncate">
+                                <p class="text-[11px] font-bold opacity-70">💌 Email Customer:</p>
+                                <p class="text-sm font-bold truncate" title="${escapeHtml(c.email)}">${escapeHtml(c.email)}</p>
                             </div>
+                            <button onclick="copyText('${escapeJs(c.email)}', 'Email berhasil disalin! 🍓')"
+                                    class="btn-kawaii px-3 py-1.5 text-xs shrink-0" title="Salin Email">
+                                <i class="ph-bold ph-copy"></i> Copas
+                            </button>
+                        </div>
+
+                        <!-- Info Nomor & Durasi -->
+                        <div class="grid grid-cols-2 gap-2 text-xs">
+                            <div class="p-2 rounded-xl" style="background-color: var(--bg-soft);">
+                                <span class="opacity-75 block font-semibold">📱 Nomor Customer:</span>
+                                <span class="font-bold text-sm">${escapeHtml(c.phone)}</span>
+                            </div>
+                            <div class="p-2 rounded-xl" style="background-color: var(--bg-soft);">
+                                <span class="opacity-75 block font-semibold">⏳ Paket Durasi:</span>
+                                <span class="font-bold text-sm" style="color: var(--primary);">${escapeHtml(c.duration)}</span>
+                            </div>
+                        </div>
+
+                        <!-- Info Tanggal Beli & Tanggal Selesai -->
+                        <div class="grid grid-cols-2 gap-2 text-xs pt-1 border-t" style="border-color: var(--border-color);">
+                            <div>
+                                <span class="opacity-70 block font-semibold">📅 Tgl Beli:</span>
+                                <span class="font-bold">${formatDateIndo(c.buyDate)}</span>
+                            </div>
+                            <div>
+                                <span class="opacity-70 block font-semibold">🏁 Tgl Selesai:</span>
+                                <span class="font-bold ${days <= 0 ? 'text-rose-600 underline' : ''}">${formatDateIndo(c.endDate)}</span>
+                            </div>
+                        </div>
+
+                        ${c.note ? `<p class="text-xs italic px-2.5 py-1.5 rounded-lg opacity-85" style="background-color: var(--bg-main);">📝 "${escapeHtml(c.note)}"</p>` : ''}
+                    </div>
+
+                    <!-- Tombol Aksi di Bagian Bawah Kartu -->
+                    <div class="pt-2.5 border-t flex items-center justify-between gap-1.5" style="border-color: var(--border-color);">
+                        <button onclick="copyReminderTemplate('${c.id}')"
+                                class="btn-kawaii-soft px-3 py-1.5 text-xs font-bold flex-1" title="Salin Teks Pengingat">
+                            <i class="ph-bold ph-chat-heart"></i> Copas Pesan
+                        </button>
+                        <button onclick="sendWhatsApp('${c.id}')"
+                                class="btn-kawaii-soft px-3 py-1.5 text-xs font-bold" style="color: #16a34a;" title="Kirim WhatsApp">
+                            <i class="ph-bold ph-whatsapp-logo text-sm"></i> WA
+                        </button>
+                        <button onclick="openEditModal('${c.id}')"
+                                class="btn-kawaii-soft px-2.5 py-1.5 text-xs font-bold" title="Edit Data">
+                            <i class="ph-bold ph-pencil-simple text-sm"></i>
+                        </button>
+                        <button onclick="askDeleteCustomer('${c.id}')"
+                                class="btn-kawaii-soft px-2.5 py-1.5 text-xs font-bold text-rose-600" title="Hapus Data">
+                            <i class="ph-bold ph-trash text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render Daftar Customer (Dikelompokkan per Durasi atau Flat)
+        function renderCustomers() {
+            const container = document.getElementById('customersContainer');
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const clearBtn = document.getElementById('clearSearchBtn');
+
+            clearBtn.classList.toggle('hidden', query.length === 0);
+
+            // Filter berdasarkan pencarian & tab durasi
+            const filtered = customers.filter(c => {
+                const matchDuration = selectedDurationFilter === 'Semua' || c.duration === selectedDurationFilter;
+                const matchQuery = !query ||
+                    c.phone.toLowerCase().includes(query) ||
+                    c.email.toLowerCase().includes(query) ||
+                    c.team.toLowerCase().includes(query) ||
+                    (c.note && c.note.toLowerCase().includes(query)) ||
+                    c.duration.toLowerCase().includes(query);
+                return matchDuration && matchQuery;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="kawaii-card p-10 text-center space-y-3">
+                        <div class="text-5xl">🍓✨</div>
+                        <h3 class="text-lg font-cute font-bold">Belum Ada Data Customer yang Cocok</h3>
+                        <p class="text-xs sm:text-sm max-w-md mx-auto" style="color: var(--text-muted);">
+                            Coba gunakan kata kunci pencarian lain atau klik tombol <b>+</b> di bagian bawah untuk menambahkan data customer Canva baru.
+                        </p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Jika mode dikelompokkan per durasi (Grouped)
+            if (viewMode === 'grouped' && selectedDurationFilter === 'Semua') {
+                const groupEmoji = {
+                    '1 Bulan': '🌸',
+                    '2 Bulan': '🍬',
+                    '3 Bulan': '🧁',
+                    '6 Bulan': '🍰',
+                    '1 Tahun': '👑',
+                    'Lifetime': '♾️'
+                };
+
+                let html = '';
+                DURATION_CATEGORIES.forEach(cat => {
+                    const groupItems = filtered.filter(c => c.duration === cat);
+                    if (groupItems.length > 0) {
+                        html += `
+                            <section class="space-y-3">
+                                <div class="flex items-center justify-between px-4 py-2.5 rounded-2xl border-2"
+                                     style="background-color: var(--bg-soft); border-color: var(--border-color);">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xl">${groupEmoji[cat] || '🍓'}</span>
+                                        <h2 class="font-cute font-bold text-base sm:text-lg">Kategori Durasi: ${cat}</h2>
+                                    </div>
+                                    <span class="px-3 py-0.5 rounded-full text-xs font-bold"
+                                          style="background-color: var(--primary); color: #fff;">
+                                        ${groupItems.length} Customer
+                                    </span>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    ${groupItems.map(c => createCustomerCardHTML(c)).join('')}
+                                </div>
+                            </section>
                         `;
-                        notifList.appendChild(notifCard);
                     }
                 });
-
-                dataContainer.appendChild(groupDiv);
-            });
-
-            // Sembunyikan notif jika sedang menggunakan fitur search agar fokus ke hasil search,
-            // atau jika memang tidak ada notif.
-            if(hasNotif && !searchQuery) {
-                notifSection.style.display = 'block';
+                container.innerHTML = html;
             } else {
-                notifSection.style.display = 'none';
+                // Mode daftar langsung atau sedang memfilter 1 durasi spesifik
+                container.innerHTML = `
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        ${filtered.map(c => createCustomerCardHTML(c)).join('')}
+                    </div>
+                `;
             }
         }
 
-        // Render saat pertama kali load
-        renderUI();
+        // ==========================================
+        // FITUR PENGINGAT & COPAS EMAIL / PESAN
+        // ==========================================
+        function setReminderTab(tab) {
+            activeReminderTab = tab;
+            document.getElementById('remTabToday').classList.toggle('active-tab', tab === 'today_expired');
+            document.getElementById('remTabSoon').classList.toggle('active-tab', tab === 'soon');
+            renderReminderList();
+        }
+
+        function renderReminderList() {
+            const todayExpiredList = [];
+            const soonList = [];
+
+            customers.forEach(c => {
+                const days = getDaysRemaining(c.endDate, c.duration);
+                if (days <= 0) {
+                    todayExpiredList.push({ ...c, days });
+                } else if (days >= 1 && days <= 3) {
+                    soonList.push({ ...c, days });
+                }
+            });
+
+            document.getElementById('countRemToday').textContent = todayExpiredList.length;
+            document.getElementById('countRemSoon').textContent = soonList.length;
+
+            const activeList = activeReminderTab === 'today_expired' ? todayExpiredList : soonList;
+            const container = document.getElementById('reminderListContainer');
+
+            if (activeList.length === 0) {
+                container.innerHTML = `
+                    <div class="p-8 text-center rounded-2xl border-2 border-dashed" style="border-color: var(--border-color);">
+                        <div class="text-4xl mb-2">🎉🍓</div>
+                        <p class="font-cute font-bold text-base">Yeay! Tidak ada customer di daftar ini</p>
+                        <p class="text-xs opacity-75 mt-1">Semua durasi customer pada kategori ini masih aman terkendali.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = activeList.map(c => {
+                const statusLabel = c.days === 0
+                    ? `<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-500 text-white">Habis Hari Ini!</span>`
+                    : (c.days < 0
+                        ? `<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-700">Lewat ${Math.abs(c.days)} Hari</span>`
+                        : `<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800">Sisa ${c.days} Hari</span>`);
+
+                return `
+                    <div class="p-3.5 rounded-2xl border-2 flex flex-col gap-2.5"
+                         style="background-color: var(--bg-main); border-color: var(--border-color);">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-lg">🍓</span>
+                                <span class="font-bold text-sm sm:text-base">${escapeHtml(c.email)}</span>
+                            </div>
+                            ${statusLabel}
+                        </div>
+
+                        <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs opacity-85">
+                            <span>📱 <b>WA:</b> ${escapeHtml(c.phone)}</span>
+                            <span>👑 <b>Team:</b> ${escapeHtml(c.team)}</span>
+                            <span>⏳ <b>Durasi:</b> ${escapeHtml(c.duration)}</span>
+                            <span>🏁 <b>Selesai:</b> ${formatDateIndo(c.endDate)}</span>
+                        </div>
+
+                        <!-- Tombol Aksi Cepat di Pengingat (Tinggal Copas) -->
+                        <div class="flex flex-wrap items-center gap-2 pt-1">
+                            <button onclick="copyText('${escapeJs(c.email)}', 'Email ${escapeJs(c.email)} berhasil disalin! 💌')"
+                                    class="btn-kawaii px-3.5 py-1.5 text-xs font-bold">
+                                <i class="ph-bold ph-copy"></i> Copas Email
+                            </button>
+                            <button onclick="copyReminderTemplate('${c.id}')"
+                                    class="btn-kawaii-soft px-3.5 py-1.5 text-xs font-bold">
+                                <i class="ph-bold ph-chat-centered-text"></i> Copas Teks Pengingat
+                            </button>
+                            <button onclick="sendWhatsApp('${c.id}')"
+                                    class="btn-kawaii-soft px-3.5 py-1.5 text-xs font-bold" style="color: #16a34a;">
+                                <i class="ph-bold ph-whatsapp-logo"></i> Kirim WA
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Buat Teks Pengingat Manis untuk Customer
+        function generateReminderMessage(c) {
+            const days = getDaysRemaining(c.endDate, c.duration);
+            const waktuKet = days === 0
+                ? 'berakhir *HARI INI*'
+                : (days < 0 ? `telah berakhir pada *${formatDateIndo(c.endDate)}*` : `akan berakhir dalam *${days} hari lagi* (${formatDateIndo(c.endDate)})`);
+
+            return `Halo Kak! 🍓✨\n\nKami dari *Canva Eurydice* ingin menginfokan bahwa masa aktif langganan Canva Pro Kakak ${waktuKet} yaa:\n\n💌 *Email:* ${c.email}\n👑 *Nama Team:* ${c.team}\n⏳ *Durasi Paket:* ${c.duration}\n🏁 *Tanggal Selesai:* ${formatDateIndo(c.endDate)}\n\nApakah Kakak ingin lanjut perpanjang durasi agar desainnya tetap aman di team yang sama? Yuk kabari kami ya Kak, terima kasih banyak! 🌸🍓`;
+        }
+
+        // Salin Pesan Pengingat
+        function copyReminderTemplate(id) {
+            const c = customers.find(item => item.id === id);
+            if (!c) return;
+            const msg = generateReminderMessage(c);
+            copyText(msg, `Pesan pengingat untuk ${c.email} disalin! 🌸`);
+        }
+
+        // Salin Semua Email di Tab Pengingat Aktif
+        function copyAllReminderEmails() {
+            const list = customers.filter(c => {
+                const days = getDaysRemaining(c.endDate, c.duration);
+                return activeReminderTab === 'today_expired' ? days <= 0 : (days >= 1 && days <= 3);
+            });
+
+            if (list.length === 0) {
+                showToast('Tidak ada email di tab ini untuk disalin 🍓', 'info');
+                return;
+            }
+
+            const emails = list.map(c => c.email).join(', ');
+            copyText(emails, `${list.length} alamat email berhasil disalin sekaligus! 🍓`);
+        }
+
+        // Kirim ke WhatsApp
+        function sendWhatsApp(id) {
+            const c = customers.find(item => item.id === id);
+            if (!c) return;
+            let cleanPhone = c.phone.replace(/[^0-9]/g, '');
+            if (cleanPhone.startsWith('0')) {
+                cleanPhone = '62' + cleanPhone.slice(1);
+            }
+            const msg = encodeURIComponent(generateReminderMessage(c));
+            window.open(`https://wa.me/${cleanPhone}?text=${msg}`, '_blank');
+        }
+
+        // ==========================================
+        // TAMBAH, EDIT, DAN HAPUS DATA CUSTOMER
+        // ==========================================
+        function openAddModal() {
+            document.getElementById('formModalTitle').textContent = 'Tambah Customer Baru';
+            document.getElementById('customerId').value = '';
+            document.getElementById('custPhone').value = '';
+            document.getElementById('custEmail').value = '';
+            document.getElementById('custDuration').value = '1 Bulan';
+            document.getElementById('custTeam').value = '';
+            document.getElementById('custBuyDate').value = getTodayISO();
+            document.getElementById('custNote').value = '';
+
+            calculateEndDate();
+            openModal('customerFormModal');
+        }
+
+        function openEditModal(id) {
+            const c = customers.find(item => item.id === id);
+            if (!c) return;
+
+            document.getElementById('formModalTitle').textContent = 'Edit Data Customer';
+            document.getElementById('customerId').value = c.id;
+            document.getElementById('custPhone').value = c.phone;
+            document.getElementById('custEmail').value = c.email;
+            document.getElementById('custDuration').value = c.duration;
+            document.getElementById('custTeam').value = c.team;
+            document.getElementById('custBuyDate').value = c.buyDate;
+            document.getElementById('custNote').value = c.note || '';
+
+            const endDateInput = document.getElementById('custEndDate');
+            const lifetimeInfo = document.getElementById('lifetimeBadgeInfo');
+
+            if (c.duration === 'Lifetime' || c.endDate === 'Lifetime') {
+                endDateInput.value = '';
+                endDateInput.classList.add('hidden');
+                lifetimeInfo.classList.remove('hidden');
+            } else {
+                endDateInput.classList.remove('hidden');
+                lifetimeInfo.classList.add('hidden');
+                endDateInput.value = c.endDate;
+            }
+
+            openModal('customerFormModal');
+        }
+
+        function saveCustomer(event) {
+            event.preventDefault();
+            const id = document.getElementById('customerId').value;
+            const phone = document.getElementById('custPhone').value.trim();
+            const email = document.getElementById('custEmail').value.trim();
+            const duration = document.getElementById('custDuration').value;
+            const team = document.getElementById('custTeam').value.trim();
+            const buyDate = document.getElementById('custBuyDate').value;
+            const endDateVal = document.getElementById('custEndDate').value;
+            const note = document.getElementById('custNote').value.trim();
+
+            const finalEndDate = duration === 'Lifetime' ? 'Lifetime' : endDateVal;
+
+            if (id) {
+                // Edit Customer
+                const idx = customers.findIndex(c => c.id === id);
+                if (idx !== -1) {
+                    customers[idx] = { id, phone, email, duration, team, buyDate, endDate: finalEndDate, note };
+                    showToast('Data customer berhasil diperbarui! 🍓');
+                }
+            } else {
+                // Tambah Customer Baru
+                const newCustomer = {
+                    id: 'cust-' + Date.now(),
+                    phone,
+                    email,
+                    duration,
+                    team,
+                    buyDate,
+                    endDate: finalEndDate,
+                    note
+                };
+                customers.unshift(newCustomer);
+                showToast('Customer baru berhasil ditambahkan! 🍓✨');
+            }
+
+            saveToStorage();
+            closeModal('customerFormModal');
+            renderAll();
+        }
+
+        function askDeleteCustomer(id) {
+            const c = customers.find(item => item.id === id);
+            if (!c) return;
+            pendingDeleteId = id;
+            document.getElementById('deleteCustomerInfo').textContent = `${c.email} (${c.team} - ${c.duration})`;
+            document.getElementById('confirmDeleteBtn').onclick = () => {
+                customers = customers.filter(item => item.id !== pendingDeleteId);
+                saveToStorage();
+                closeModal('deleteConfirmModal');
+                renderAll();
+                showToast('Data customer telah dihapus 🌸');
+            };
+            openModal('deleteConfirmModal');
+        }
+
+        // ==========================================
+        // FITUR UBAH TEMA TAMPILAN LUCU
+        // ==========================================
+        function applyTheme(themeName, showNotification = true) {
+            document.documentElement.setAttribute('data-theme', themeName);
+            localStorage.setItem(THEME_KEY, themeName);
+
+            const emojiByTheme = {
+                strawberry: '🍓',
+                matcha: '🍵',
+                blueberry: '🫐',
+                peach: '🍑',
+                chocoberry: '🍫'
+            };
+
+            const icon = emojiByTheme[themeName] || '🍓';
+            document.getElementById('headerIconBox').textContent = icon;
+            document.getElementById('headerBgEmoji').textContent = icon;
+
+            if (showNotification) {
+                closeModal('themeModal');
+                showToast(`Tema berhasil diubah! ${icon}✨`);
+            }
+        }
+
+        // ==========================================
+        // EXPORT & IMPORT BACKUP JSON
+        // ==========================================
+        function exportDataJSON() {
+            const dataStr = JSON.stringify(customers, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `recap-canva-eurydice-${getTodayISO()}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast('File backup berhasil diunduh! 💾🍓');
+        }
+
+        function importDataJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const imported = JSON.parse(e.target.result);
+                    if (Array.isArray(imported)) {
+                        customers = imported;
+                        saveToStorage();
+                        renderAll();
+                        closeModal('backupModal');
+                        showToast('Data berhasil dipulihkan dari file backup! 🎉🍓');
+                    } else {
+                        showToast('Format file JSON tidak sesuai 🥺', 'error');
+                    }
+                } catch (err) {
+                    showToast('Gagal membaca file JSON 🥺', 'error');
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        function resetToSampleData() {
+            customers = getInitialSampleData();
+            saveToStorage();
+            renderAll();
+            closeModal('backupModal');
+            showToast('Data contoh awal berhasil dimuat ulang! 🍓');
+        }
+
+        // ==========================================
+        // UTILITIES: CLIPBOARD, MODAL, & TOAST
+        // ==========================================
+        function copyText(text, successMessage) {
+            // Menggunakan textarea fallback agar tetap bekerja di semua iFrame & browser
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-9999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast(successMessage || 'Tersalin ke clipboard! 🍓');
+            } catch (err) {
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        showToast(successMessage || 'Tersalin ke clipboard! 🍓');
+                    });
+                }
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function openModal(modalId) {
+            const m = document.getElementById(modalId);
+            if (!m) return;
+            m.classList.remove('hidden');
+            m.classList.add('flex');
+            if (modalId === 'reminderModal') {
+                renderReminderList();
+            }
+        }
+
+        function closeModal(modalId) {
+            const m = document.getElementById(modalId);
+            if (!m) return;
+            m.classList.add('hidden');
+            m.classList.remove('flex');
+        }
+
+        function scrollToTopAndReset() {
+            selectedDurationFilter = 'Semua';
+            document.getElementById('searchInput').value = '';
+            renderAll();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showToast(message) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'kawaii-card px-4 py-3 text-xs sm:text-sm font-cute font-bold flex items-center gap-2 shadow-lg pointer-events-auto transition-all duration-300';
+            toast.style.backgroundColor = 'var(--bg-card)';
+            toast.style.borderColor = 'var(--primary)';
+            toast.innerHTML = `<span class="text-lg">🍓</span> <span>${escapeHtml(message)}</span>`;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(-10px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 2600);
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function escapeJs(str) {
+            if (!str) return '';
+            return String(str).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+        }
     </script>
 </body>
 </html>
+```
