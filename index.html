@@ -1,418 +1,1680 @@
+```html
 <!DOCTYPE html>
-<html lang="id" data-theme="strawberry">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Recap Canva Eurydice 🍓</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Fredoka & Quicksand untuk kesan bubbly dan lucu -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
-        /* === TEMA LUCU === */
-        :root[data-theme="strawberry"] {
-            --bg-color: #ffe4e1;
-            --container-bg: #fff0f5;
-            --primary: #ff69b4;
-            --secondary: #ffb6c1;
-            --text: #c71585;
-            --btn-text: #fff;
-            --shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
-            --border: 2px dashed #ff69b4;
-        }
-        :root[data-theme="blueberry"] {
-            --bg-color: #e6e6fa;
-            --container-bg: #f8f8ff;
-            --primary: #7b68ee;
-            --secondary: #b0c4de;
-            --text: #483d8b;
-            --btn-text: #fff;
-            --shadow: 0 4px 15px rgba(123, 104, 238, 0.2);
-            --border: 2px dashed #7b68ee;
-        }
-        :root[data-theme="matcha"] {
-            --bg-color: #f5fffa;
-            --container-bg: #f0fff0;
-            --primary: #3cb371;
-            --secondary: #98fb98;
-            --text: #2e8b57;
-            --btn-text: #fff;
-            --shadow: 0 4px 15px rgba(60, 179, 113, 0.2);
-            --border: 2px dashed #3cb371;
+        /* Variabel Tema CSS Dinamis */
+        :root {
+            --bg-main: #FFF0F5;
+            --bg-pattern: #FFD1DC;
+            --card-bg: #FFFFFF;
+            --primary: #FF4D79;
+            --primary-hover: #E63963;
+            --secondary: #FFE4EC;
+            --accent: #FF85A2;
+            --text-main: #5C2838;
+            --text-muted: #9E6B7B;
+            --border-color: #FFCAD8;
+            --shadow-color: rgba(255, 77, 121, 0.2);
+            --btn-shadow: #D93860;
         }
 
-        /* === GLOBAL STYLES === */
+        [data-theme="peach"] {
+            --bg-main: #FFF7F0;
+            --bg-pattern: #FFD8BE;
+            --card-bg: #FFFFFF;
+            --primary: #FF825C;
+            --primary-hover: #E86B46;
+            --secondary: #FFECE2;
+            --accent: #FFA686;
+            --text-main: #593528;
+            --text-muted: #9C7365;
+            --border-color: #FFD2BD;
+            --shadow-color: rgba(255, 130, 92, 0.2);
+            --btn-shadow: #D66340;
+        }
+
+        [data-theme="matcha"] {
+            --bg-main: #F3FAF3;
+            --bg-pattern: #C8E6C9;
+            --card-bg: #FFFFFF;
+            --primary: #5CB874;
+            --primary-hover: #489E5F;
+            --secondary: #E4F5E8;
+            --accent: #82CFA0;
+            --text-main: #284D32;
+            --text-muted: #628C6E;
+            --border-color: #BFE3C8;
+            --shadow-color: rgba(92, 184, 116, 0.2);
+            --btn-shadow: #3E8E53;
+        }
+
+        [data-theme="blueberry"] {
+            --bg-main: #F3F5FF;
+            --bg-pattern: #D0D7FF;
+            --card-bg: #FFFFFF;
+            --primary: #6C7BFF;
+            --primary-hover: #5463E6;
+            --secondary: #E6E9FF;
+            --accent: #96A1FF;
+            --text-main: #2A3166;
+            --text-muted: #6B73A8;
+            --border-color: #C7D0FF;
+            --shadow-color: rgba(108, 123, 255, 0.2);
+            --btn-shadow: #4A58D4;
+        }
+
+        [data-theme="chocoberry"] {
+            --bg-main: #FDF5F2;
+            --bg-pattern: #E8D0C8;
+            --card-bg: #FFFFFF;
+            --primary: #8C584C;
+            --primary-hover: #734439;
+            --secondary: #F7E6E2;
+            --accent: #F28B9F;
+            --text-main: #4A2C24;
+            --text-muted: #8C6B63;
+            --border-color: #E6C7BE;
+            --shadow-color: rgba(140, 88, 76, 0.22);
+            --btn-shadow: #633930;
+        }
+
         body {
             font-family: 'Quicksand', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text);
-            margin: 0;
-            padding: 20px;
-            padding-bottom: 100px; /* Space for bottom buttons */
+            background-color: var(--bg-main);
+            background-image: radial-gradient(var(--bg-pattern) 2px, transparent 2px), radial-gradient(var(--bg-pattern) 2px, var(--bg-main) 2px);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+            color: var(--text-main);
             transition: all 0.3s ease;
-        }
-        h1, h2, h3 { text-align: center; }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--container-bg);
-            padding: 25px;
-            border-radius: 25px;
-            box-shadow: var(--shadow);
-            border: var(--border);
+            padding-bottom: 120px;
+            overflow-x: hidden;
         }
 
-        /* === FORM & INPUT === */
-        .form-group { margin-bottom: 15px; }
-        label { font-weight: 600; display: block; margin-bottom: 5px; }
-        input, select {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid var(--secondary);
-            border-radius: 15px;
-            font-family: 'Quicksand', sans-serif;
-            outline: none;
-            box-sizing: border-box;
+        h1, h2, h3, .font-bubbly {
+            font-family: 'Fredoka', sans-serif;
         }
-        input:focus { border-color: var(--primary); }
-        .info-text { font-size: 12px; color: var(--primary); }
 
-        /* === DURATION BUTTONS === */
-        .duration-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            gap: 10px;
-            margin-top: 5px;
+        /* Gaya Kartu & Elemen Lucu */
+        .cute-card {
+            background-color: var(--card-bg);
+            border: 2.5px solid var(--border-color);
+            border-radius: 26px;
+            box-shadow: 0 8px 20px -4px var(--shadow-color);
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
         }
-        .btn-duration {
-            background: var(--container-bg);
-            border: 2px solid var(--primary);
+
+        .cute-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -4px var(--shadow-color);
+        }
+
+        /* Tombol Bubbly 3D */
+        .cute-btn-primary {
+            background-color: var(--primary);
+            color: #FFFFFF;
+            border-radius: 18px;
+            box-shadow: 0 4px 0 var(--btn-shadow);
+            transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-family: 'Fredoka', sans-serif;
+            letter-spacing: 0.3px;
+        }
+
+        .cute-btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 var(--btn-shadow);
+        }
+
+        .cute-btn-primary:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 var(--btn-shadow);
+        }
+
+        .cute-btn-secondary {
+            background-color: var(--secondary);
             color: var(--primary);
-            padding: 10px;
-            border-radius: 15px;
-            cursor: pointer;
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            font-family: 'Fredoka', sans-serif;
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .cute-btn-secondary:hover {
+            background-color: var(--border-color);
+            transform: scale(1.03);
+        }
+
+        .cute-btn-secondary:active {
+            transform: scale(0.96);
+        }
+
+        /* Tombol Pilihan Durasi */
+        .duration-pill {
+            background-color: var(--secondary);
+            color: var(--text-main);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            font-family: 'Fredoka', sans-serif;
             font-weight: 600;
-            transition: 0.2s;
-        }
-        .btn-duration.active, .btn-duration:hover {
-            background: var(--primary);
-            color: var(--btn-text);
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        /* === ALERTS & NOTIFS === */
-        .alert {
-            background: #ffb3ba;
-            color: #d1001f;
-            padding: 15px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            border: 2px dashed #ff4d4d;
-        }
-        .alert ul { margin: 10px 0 0 20px; padding: 0; }
-        .btn-copas {
-            background: #fff;
-            color: #d1001f;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 12px;
-            margin-left: 10px;
-            font-weight: bold;
+        .duration-pill:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
         }
 
-        /* === CARDS / TABLE === */
-        .data-card {
-            background: #fff;
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: var(--shadow);
-            border-left: 5px solid var(--primary);
-            position: relative;
-        }
-        .data-card h4 { margin: 0 0 10px 0; color: var(--primary); }
-        .data-card p { margin: 5px 0; font-size: 14px; }
-        .badge {
-            background: var(--secondary);
-            color: var(--text);
-            padding: 3px 10px;
-            border-radius: 10px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        .btn-delete {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #ff4d4d;
+        .duration-pill.active {
+            background-color: var(--primary);
             color: white;
-            border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
+            border-color: var(--primary);
+            box-shadow: 0 4px 0 var(--btn-shadow);
+            transform: translateY(-2px) scale(1.03);
         }
 
-        /* === BOTTOM BUTTONS (STICKY) === */
-        .bottom-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: var(--container-bg);
-            padding: 15px;
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            box-sizing: border-box;
-            border-top: var(--border);
-            z-index: 1000;
+        /* Input Lucu */
+        .cute-input {
+            background-color: var(--bg-main);
+            border: 2px solid var(--border-color);
+            border-radius: 18px;
+            color: var(--text-main);
+            transition: all 0.2s ease;
         }
-        .btn-cute {
-            background: var(--primary);
-            color: var(--btn-text);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 16px;
-            font-weight: bold;
-            font-family: 'Quicksand', sans-serif;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            transition: transform 0.2s;
+
+        .cute-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: #FFFFFF;
+            box-shadow: 0 0 0 4px var(--secondary);
         }
-        .btn-cute:hover { transform: scale(1.05); }
-        .btn-theme { background: var(--secondary); color: var(--text); }
+
+        /* Navigasi Bawah Melayang */
+        .bottom-nav-container {
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(12px);
+            border: 2.5px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 16px var(--shadow-color);
+            border-radius: 34px;
+        }
+
+        .nav-item {
+            color: var(--text-muted);
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .nav-item.active .nav-icon-box {
+            background-color: var(--secondary);
+            border-color: var(--border-color);
+        }
+
+        /* Tombol Plus di Tengah Bawah */
+        .center-plus-btn {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: white;
+            border: 5px solid #FFFFFF;
+            box-shadow: 0 6px 0 var(--btn-shadow), 0 12px 22px var(--shadow-color);
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .center-plus-btn:hover {
+            transform: translateY(-5px) scale(1.06) rotate(90deg);
+            box-shadow: 0 9px 0 var(--btn-shadow), 0 16px 26px var(--shadow-color);
+        }
+
+        .center-plus-btn:active {
+            transform: translateY(2px) scale(0.95);
+            box-shadow: 0 2px 0 var(--btn-shadow);
+        }
+
+        /* Animasi Floating Halus */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .animate-float {
+            animation: floatSlow 3s ease-in-out infinite;
+        }
+
+        /* Scrollbar Halus untuk Filter Horizontal */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
-<body>
+<body class="min-h-screen selection:bg-pink-200 selection:text-pink-900">
 
-    <div class="container">
-        <h1>🍓 Recap Canva Eurydice 🍓</h1>
-        
-        <!-- PENGINGAT (REMINDER) -->
-        <div id="reminderSection" style="display: none;">
-            <div class="alert">
-                <strong>⚠️ Halo Kak! Ada langganan yang habis hari ini nih:</strong>
-                <ul id="reminderList"></ul>
+    <!-- HEADER ATAS -->
+    <header class="max-w-4xl mx-auto pt-5 px-4 sm:px-6">
+        <div class="cute-card p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 relative overflow-hidden">
+            <!-- Dekorasi Latar Belakang Header -->
+            <div class="absolute -right-6 -top-6 text-7xl opacity-15 pointer-events-none select-none" id="headerDecorIcon">🍓</div>
+            
+            <div class="flex items-center gap-3.5 z-10 text-center sm:text-left flex-col sm:flex-row">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shadow-sm border-2 animate-float"
+                     style="background-color: var(--secondary); border-color: var(--border-color);" id="brandEmojiBox">
+                    🍓
+                </div>
+                <div>
+                    <div class="flex items-center justify-center sm:justify-start gap-2">
+                        <h1 class="text-2xl sm:text-3xl font-bold tracking-tight" style="color: var(--primary);">
+                            Recap Canva Eurydice
+                        </h1>
+                        <span class="text-xs font-bold px-2.5 py-1 rounded-full border"
+                              style="background-color: var(--secondary); color: var(--primary); border-color: var(--border-color);">
+                            Pro 🎀
+                        </span>
+                    </div>
+                    <p class="text-xs sm:text-sm font-semibold mt-0.5" style="color: var(--text-muted);">
+                        Kelola Member Team, Durasi & Pengingat Otomatis ✨
+                    </p>
+                </div>
+            </div>
+
+            <!-- Statistik Ringkas -->
+            <div class="flex items-center gap-2.5 z-10 w-full sm:w-auto justify-center">
+                <div class="px-3.5 py-2 rounded-2xl border text-center min-w-[85px]"
+                     style="background-color: var(--bg-main); border-color: var(--border-color);">
+                    <p class="text-[11px] font-bold uppercase tracking-wider" style="color: var(--text-muted);">Total Data</p>
+                    <p class="text-lg font-bubbly font-bold" style="color: var(--primary);" id="statTotal">0</p>
+                </div>
+                <div onclick="switchTab('reminders')" class="cursor-pointer px-3.5 py-2 rounded-2xl border text-center min-w-[95px] transition hover:scale-105"
+                     style="background-color: #FFF0F3; border-color: #FFCCD7;">
+                    <p class="text-[11px] font-bold uppercase tracking-wider text-rose-500">Habis Hari Ini</p>
+                    <p class="text-lg font-bubbly font-bold text-rose-600 flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-bell text-sm animate-bounce"></i>
+                        <span id="statExpiringToday">0</span>
+                    </p>
+                </div>
             </div>
         </div>
 
-        <!-- FORM TAMBAH DATA -->
-        <h3>✨ Tambah Data Baru ✨</h3>
-        <div class="form-group">
-            <label>Nomor Customer (Bisa isi banyak, pisahkan koma)</label>
-            <input type="text" id="inputNomor" placeholder="0812xxx, 0857xxx">
-        </div>
-        <div class="form-group">
-            <label>Email Customer (Bisa isi banyak, pisahkan koma)</label>
-            <input type="text" id="inputEmail" placeholder="abc@gmail.com, def@gmail.com">
-            <small class="info-text">*Fitur recap beberapa langsung: Pisahkan dengan koma untuk tambah banyak data sekaligus.</small>
-        </div>
-        <div class="form-group">
-            <label>Nama Team Canva</label>
-            <input type="text" id="inputTeam" placeholder="Eurydice Team 1">
-        </div>
-        <div class="form-group">
-            <label>Tanggal Pembelian</label>
-            <input type="date" id="inputTglBeli">
-        </div>
-        <div class="form-group">
-            <label>Pilih Durasi ⏳</label>
-            <div class="duration-grid" id="durationGrid">
-                <button class="btn-duration" onclick="setDuration('1 Hari')">1 Hari</button>
-                <button class="btn-duration" onclick="setDuration('3 Hari')">3 Hari</button>
-                <button class="btn-duration" onclick="setDuration('7 Hari')">7 Hari</button>
-                <button class="btn-duration" onclick="setDuration('1 Bulan')">1 Bulan</button>
-                <button class="btn-duration" onclick="setDuration('2 Bulan')">2 Bulan</button>
-                <button class="btn-duration" onclick="setDuration('3 Bulan')">3 Bulan</button>
-                <button class="btn-duration" onclick="setDuration('6 Bulan')">6 Bulan</button>
-                <button class="btn-duration" onclick="setDuration('1 Tahun')">1 Tahun</button>
-                <button class="btn-duration" onclick="setDuration('Lifetime')">Lifetime</button>
+        <!-- BANNER PENGINGAT OTOMATIS (Muncul jika ada yang habis hari ini) -->
+        <div id="urgentBanner" class="hidden mt-4 cute-card p-4 border-2 border-rose-300 bg-gradient-to-r from-rose-50 via-pink-50 to-rose-50">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="flex items-center gap-3 text-center sm:text-left flex-col sm:flex-row">
+                    <div class="w-11 h-11 rounded-2xl bg-rose-500 text-white flex items-center justify-center text-xl shadow-sm shrink-0">
+                        ⏰
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-rose-700 text-sm sm:text-base">
+                            Ting Tong! Ada <span id="bannerCount" class="underline decoration-wavy">0</span> Customer Habis Durasi Hari Ini!
+                        </h3>
+                        <p class="text-xs text-rose-600 font-medium">
+                            Yuk cek daftar pengingat, tinggal sekali klik untuk copas emailnya! 🍓
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 w-full sm:w-auto justify-center">
+                    <button onclick="copyAllTodayEmails()" class="cute-btn-secondary px-3.5 py-2 text-xs font-bold flex items-center gap-1.5 bg-white text-rose-600 border-rose-300">
+                        <i class="fa-regular fa-copy"></i> Copas Email Hari Ini
+                    </button>
+                    <button onclick="switchTab('reminders')" class="cute-btn-primary px-4 py-2 text-xs font-bold flex items-center gap-1.5 shrink-0">
+                        Buka Pengingat <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
+    </header>
 
-        <hr style="border: 1px dashed var(--primary); margin: 30px 0;">
+    <!-- KONTEN UTAMA -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 mt-5">
 
-        <!-- FILTER & PENCARIAN -->
-        <h3>🔍 Cari & Kelompokkan</h3>
-        <div class="form-group">
-            <input type="text" id="searchBox" placeholder="Cari email, nomor, atau team..." oninput="renderData()">
+        <!-- ================= VIEW 1: DAFTAR DATA & RECAP ================= -->
+        <section id="view-data" class="space-y-4">
+            
+            <!-- Bar Pencarian & Mode Tampilan -->
+            <div class="cute-card p-4 space-y-3.5">
+                <div class="flex flex-col sm:flex-row gap-2.5">
+                    <!-- Search Input -->
+                    <div class="relative flex-1">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-sm" style="color: var(--primary);"></i>
+                        <input type="text" id="searchInput" oninput="renderDataView()"
+                               placeholder="Cari nomor WA, email customer, atau nama team..."
+                               class="cute-input w-full pl-10 pr-10 py-2.5 text-sm font-semibold placeholder:font-medium">
+                        <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3.5 top-1/2 -translate-y-1/2 text-xs w-6 h-6 rounded-full bg-rose-100 text-rose-600 hover:bg-rose-200 flex items-center justify-center">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <!-- Tombol Toggle Kelompokkan per Durasi -->
+                    <div class="flex items-center gap-2 shrink-0">
+                        <button id="toggleGroupBtn" onclick="toggleGroupMode()"
+                                class="cute-btn-secondary w-full sm:w-auto px-4 py-2.5 text-xs sm:text-sm font-bold flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span id="groupModeLabel">Mode: Kelompok Durasi</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filter Pill Durasi -->
+                <div>
+                    <div class="flex items-center justify-between mb-1.5 px-1">
+                        <span class="text-xs font-bold flex items-center gap-1.5" style="color: var(--text-muted);">
+                            <i class="fa-solid fa-filter" style="color: var(--primary);"></i> Filter per Durasi:
+                        </span>
+                        <span id="showingCountText" class="text-xs font-bold" style="color: var(--primary);">Menampilkan 0 data</span>
+                    </div>
+                    <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 pt-0.5" id="durationFilterBar">
+                        <!-- Diisi otomatis lewat JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container Kartu Customer / Kelompok Durasi -->
+            <div id="customerListContainer" class="space-y-5">
+                <!-- Diisi melalui JavaScript -->
+            </div>
+        </section>
+
+        <!-- ================= VIEW 2: PENGINGAT & COPAS EMAIL ================= -->
+        <section id="view-reminders" class="hidden space-y-4">
+            <div class="cute-card p-5">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b-2" style="border-color: var(--border-color);">
+                    <div>
+                        <h2 class="text-xl font-bold flex items-center gap-2" style="color: var(--primary);">
+                            <span>🔔</span> Pusat Pengingat & Copas Email
+                        </h2>
+                        <p class="text-xs sm:text-sm font-semibold mt-0.5" style="color: var(--text-muted);">
+                            Daftar customer yang habis hari ini — tinggal klik untuk copas email atau kirim pengingat!
+                        </p>
+                    </div>
+                    <button onclick="copyAllTodayEmails()" class="cute-btn-primary px-4 py-2.5 text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shrink-0">
+                        <i class="fa-solid fa-copy"></i> Copas Semua Email (Habis Hari Ini)
+                    </button>
+                </div>
+
+                <!-- Sub-Tab Filter Pengingat -->
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <button onclick="setReminderSubTab('today')" id="remTab-today" class="duration-pill active px-4 py-2 text-xs sm:text-sm flex items-center gap-1.5">
+                        🚨 Habis Hari Ini <span id="badgeRemToday" class="px-2 py-0.5 text-xs rounded-full bg-white/30">0</span>
+                    </button>
+                    <button onclick="setReminderSubTab('tomorrow')" id="remTab-tomorrow" class="duration-pill px-4 py-2 text-xs sm:text-sm flex items-center gap-1.5">
+                        ⏳ Besok Habis (H-1) <span id="badgeRemTomorrow" class="px-2 py-0.5 text-xs rounded-full bg-black/10">0</span>
+                    </button>
+                    <button onclick="setReminderSubTab('expired')" id="remTab-expired" class="duration-pill px-4 py-2 text-xs sm:text-sm flex items-center gap-1.5">
+                        🥀 Sudah Lewat <span id="badgeRemExpired" class="px-2 py-0.5 text-xs rounded-full bg-black/10">0</span>
+                    </button>
+                </div>
+
+                <!-- Kotak Cepat Copas Kumpulan Email -->
+                <div id="bulkEmailCopyBox" class="mt-4 p-3.5 rounded-2xl border-2 border-dashed flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3"
+                     style="background-color: var(--bg-main); border-color: var(--border-color);">
+                    <div class="overflow-hidden">
+                        <p class="text-[11px] font-bold uppercase tracking-wider mb-1" style="color: var(--text-muted);">
+                            📋 Kumpulan Email pada Tab Ini (Siap Copas):
+                        </p>
+                        <p id="bulkEmailPreview" class="text-xs sm:text-sm font-bold truncate select-all" style="color: var(--text-main);">
+                            -
+                        </p>
+                    </div>
+                    <button onclick="copyCurrentReminderTabEmails()" class="cute-btn-secondary px-3.5 py-2 text-xs font-bold shrink-0 flex items-center justify-center gap-1.5">
+                        <i class="fa-regular fa-clone"></i> Salin Daftar Email Ini
+                    </button>
+                </div>
+            </div>
+
+            <!-- Daftar Kartu Pengingat -->
+            <div id="reminderListContainer" class="space-y-3.5">
+                <!-- Diisi melalui JavaScript -->
+            </div>
+        </section>
+
+        <!-- ================= VIEW 3: UBAH TEMA LUCU ================= -->
+        <section id="view-themes" class="hidden space-y-4">
+            <div class="cute-card p-5 sm:p-6">
+                <div class="text-center max-w-md mx-auto mb-6">
+                    <span class="text-4xl inline-block mb-2 animate-bounce">🎨</span>
+                    <h2 class="text-2xl font-bold" style="color: var(--primary);">Pilih Tema Lucu Favoritmu!</h2>
+                    <p class="text-xs sm:text-sm font-semibold mt-1" style="color: var(--text-muted);">
+                        Ubah suasana web Recap Canva Eurydice kapan saja sesuai mood kamu hari ini ✨
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="themeSelectorGrid">
+                    <!-- Diisi otomatis lewat JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VIEW 4: BACKUP & EXPORT/IMPORT ================= -->
+        <section id="view-backup" class="hidden space-y-4">
+            <div class="cute-card p-5 sm:p-6 space-y-5">
+                <div class="flex items-center gap-3 border-b-2 pb-4" style="border-color: var(--border-color);">
+                    <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl" style="background-color: var(--secondary);">
+                        💾
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold" style="color: var(--primary);">Backup & Kelola Data</h2>
+                        <p class="text-xs sm:text-sm font-semibold" style="color: var(--text-muted);">
+                            Data otomatis tersimpan di browser perangkat ini. Gunakan fitur di bawah untuk pindah perangkat atau backup!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Export JSON -->
+                    <div class="p-4 rounded-2xl border-2 flex flex-col justify-between gap-3" style="background-color: var(--bg-main); border-color: var(--border-color);">
+                        <div>
+                            <h3 class="font-bold text-base flex items-center gap-2" style="color: var(--primary);">
+                                <i class="fa-solid fa-file-arrow-down"></i> Download Backup (.JSON)
+                            </h3>
+                            <p class="text-xs font-semibold mt-1" style="color: var(--text-muted);">
+                                Simpan seluruh data customer ke file JSON agar aman dan bisa dipindahkan ke HP/Laptop lain.
+                            </p>
+                        </div>
+                        <button onclick="exportDataJSON()" class="cute-btn-primary w-full py-2.5 text-sm font-bold flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-download"></i> Download File Backup
+                        </button>
+                    </div>
+
+                    <!-- Import JSON -->
+                    <div class="p-4 rounded-2xl border-2 flex flex-col justify-between gap-3" style="background-color: var(--bg-main); border-color: var(--border-color);">
+                        <div>
+                            <h3 class="font-bold text-base flex items-center gap-2" style="color: var(--primary);">
+                                <i class="fa-solid fa-file-arrow-up"></i> Restore / Import Backup
+                            </h3>
+                            <p class="text-xs font-semibold mt-1" style="color: var(--text-muted);">
+                                Unggah file `.json` hasil backup sebelumnya untuk memulihkan data customer.
+                            </p>
+                        </div>
+                        <label class="cute-btn-secondary w-full py-2.5 text-sm font-bold flex items-center justify-center gap-2 cursor-pointer text-center">
+                            <i class="fa-solid fa-upload"></i> Pilih File JSON
+                            <input type="file" id="importFileInput" accept=".json" onchange="importDataJSON(event)" class="hidden">
+                        </label>
+                    </div>
+
+                    <!-- Copy Semua Text Recap -->
+                    <div class="p-4 rounded-2xl border-2 flex flex-col justify-between gap-3" style="background-color: var(--bg-main); border-color: var(--border-color);">
+                        <div>
+                            <h3 class="font-bold text-base flex items-center gap-2" style="color: var(--primary);">
+                                <i class="fa-regular fa-clipboard"></i> Salin Teks Recap Lengkap
+                            </h3>
+                            <p class="text-xs font-semibold mt-1" style="color: var(--text-muted);">
+                                Salin semua daftar customer dalam format teks rapi untuk ditempel ke catatan / WhatsApp.
+                            </p>
+                        </div>
+                        <button onclick="copyAllRecapText()" class="cute-btn-secondary w-full py-2.5 text-sm font-bold flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-copy"></i> Copas Semua Recap Teks
+                        </button>
+                    </div>
+
+                    <!-- Reset / Muat Sample Data -->
+                    <div class="p-4 rounded-2xl border-2 flex flex-col justify-between gap-3" style="background-color: var(--bg-main); border-color: var(--border-color);">
+                        <div>
+                            <h3 class="font-bold text-base flex items-center gap-2 text-rose-600">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i> Reset ke Data Contoh
+                            </h3>
+                            <p class="text-xs font-semibold mt-1" style="color: var(--text-muted);">
+                                Ingin mencoba ulang dengan data contoh bawaan? Klik tombol di bawah ini.
+                            </p>
+                        </div>
+                        <button onclick="openResetConfirmModal()" class="cute-btn-secondary w-full py-2.5 text-sm font-bold flex items-center justify-center gap-2 text-rose-600 border-rose-200">
+                            <i class="fa-solid fa-rotate-right"></i> Muat Ulang Data Contoh
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= MODAL TAMBAH / EDIT CUSTOMER (Tombol + Tengah) ================= -->
+    <div id="customerModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-4 bg-black/40 backdrop-blur-sm">
+        <div class="cute-card w-full max-w-lg max-h-[92vh] overflow-y-auto p-5 sm:p-6 relative animate-[scaleIn_0.2s_ease-out]">
+            
+            <!-- Header Modal -->
+            <div class="flex items-center justify-between pb-3.5 border-b-2" style="border-color: var(--border-color);">
+                <div class="flex items-center gap-2.5">
+                    <span class="text-2xl" id="modalEmoji">🍓</span>
+                    <h2 id="modalTitle" class="text-xl font-bold" style="color: var(--primary);">
+                        Tambah Customer Baru
+                    </h2>
+                </div>
+                <button onclick="closeCustomerModal()" class="w-9 h-9 rounded-full flex items-center justify-center text-base transition hover:scale-110"
+                        style="background-color: var(--secondary); color: var(--primary);">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Form Input Customer -->
+            <form id="customerForm" onsubmit="saveCustomer(event)" class="space-y-4 mt-4">
+                <input type="hidden" id="custId">
+
+                <!-- Nomor & Email Customer -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                        <label class="block text-xs font-bold mb-1.5" style="color: var(--text-main);">
+                            📱 Nomor Customer (WA/HP) <span class="text-rose-500">*</span>
+                        </label>
+                        <input type="text" id="custPhone" required placeholder="Contoh: 081234567890"
+                               class="cute-input w-full px-3.5 py-2.5 text-sm font-semibold">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold mb-1.5" style="color: var(--text-main);">
+                            📧 Email Customer <span class="text-rose-500">*</span>
+                        </label>
+                        <input type="email" id="custEmail" required placeholder="nama@gmail.com"
+                               class="cute-input w-full px-3.5 py-2.5 text-sm font-semibold">
+                    </div>
+                </div>
+
+                <!-- Pilihan Durasi Bentuk Button Lucu -->
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <label class="text-xs font-bold" style="color: var(--text-main);">
+                            ⏳ Pilih Durasi Langganan <span class="text-rose-500">*</span>
+                        </label>
+                        <span id="selectedDurationBadge" class="text-xs font-bold px-2.5 py-0.5 rounded-full"
+                              style="background-color: var(--secondary); color: var(--primary);">
+                            1 Bulan
+                        </span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2" id="durationButtonsContainer">
+                        <!-- Di-render otomatis: 1 Hari, 3 Hari, 7 Hari, 1 Bulan, 2 Bulan, 3 Bulan, 6 Bulan, 1 Tahun, Lifetime -->
+                    </div>
+                </div>
+
+                <!-- Nama Team Canva -->
+                <div>
+                    <label class="block text-xs font-bold mb-1.5" style="color: var(--text-main);">
+                        👑 Nama Team Canva <span class="text-rose-500">*</span>
+                    </label>
+                    <input type="text" id="custTeam" required placeholder="Contoh: Team Eurydice 01"
+                           list="teamSuggestions"
+                           class="cute-input w-full px-3.5 py-2.5 text-sm font-semibold">
+                    <datalist id="teamSuggestions">
+                        <option value="Team Eurydice 01">
+                        <option value="Team Eurydice 02">
+                        <option value="Team Eurydice VIP">
+                        <option value="Team Strawberry Pro">
+                    </datalist>
+                </div>
+
+                <!-- Tanggal Pembelian & Tanggal Selesai -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                        <label class="block text-xs font-bold mb-1.5" style="color: var(--text-main);">
+                            📅 Tanggal Pembelian <span class="text-rose-500">*</span>
+                        </label>
+                        <input type="date" id="custBuyDate" required onchange="recalculateEndDate()"
+                               class="cute-input w-full px-3.5 py-2.5 text-sm font-semibold">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold mb-1.5 flex items-center justify-between" style="color: var(--text-main);">
+                            <span>🏁 Tanggal Selesai</span>
+                            <span class="text-[10px] font-bold px-1.5 py-0.2 rounded" style="background-color: var(--secondary); color: var(--primary);">Otomatis</span>
+                        </label>
+                        <input type="date" id="custEndDate"
+                               class="cute-input w-full px-3.5 py-2.5 text-sm font-semibold">
+                        <div id="lifetimeEndBox" class="hidden cute-input w-full px-3.5 py-2.5 text-sm font-bold text-center"
+                             style="background-color: var(--secondary); color: var(--primary);">
+                            ♾️ Selamanya (Lifetime)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tombol Aksi Modal -->
+                <div class="flex items-center gap-2.5 pt-3 border-t-2" style="border-color: var(--border-color);">
+                    <button type="button" onclick="closeCustomerModal()"
+                            class="cute-btn-secondary w-1/3 py-3 text-sm font-bold">
+                        Batal
+                    </button>
+                    <button type="submit" class="cute-btn-primary w-2/3 py-3 text-sm font-bold flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-heart"></i> Simpan Data Customer
+                    </button>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <select id="filterDurasi" onchange="renderData()">
-                <option value="Semua">Semua Durasi</option>
-                <option value="1 Hari">1 Hari</option>
-                <option value="3 Hari">3 Hari</option>
-                <option value="7 Hari">7 Hari</option>
-                <option value="1 Bulan">1 Bulan</option>
-                <option value="2 Bulan">2 Bulan</option>
-                <option value="3 Bulan">3 Bulan</option>
-                <option value="6 Bulan">6 Bulan</option>
-                <option value="1 Tahun">1 Tahun</option>
-                <option value="Lifetime">Lifetime</option>
-            </select>
-        </div>
-
-        <!-- LIST DATA -->
-        <div id="dataContainer"></div>
     </div>
 
-    <!-- BOTTOM BUTTONS LUCU -->
-    <div class="bottom-bar">
-        <button class="btn-cute btn-theme" onclick="gantiTema()">🎨 Ganti Tema</button>
-        <button class="btn-cute" onclick="simpanData()">💾 Simpan Data</button>
+    <!-- ================= MODAL KONFIRMASI HAPUS / RESET (Tanpa alert/confirm) ================= -->
+    <div id="confirmModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+        <div class="cute-card w-full max-w-sm p-5 text-center space-y-4">
+            <div class="w-14 h-14 rounded-full bg-rose-100 text-rose-500 flex items-center justify-center text-2xl mx-auto">
+                🥺
+            </div>
+            <div>
+                <h3 id="confirmModalTitle" class="text-lg font-bold" style="color: var(--text-main);">Hapus Data Ini?</h3>
+                <p id="confirmModalDesc" class="text-xs font-semibold mt-1" style="color: var(--text-muted);">
+                    Data customer yang dihapus tidak bisa dikembalikan lagi ya.
+                </p>
+            </div>
+            <div class="flex items-center gap-2.5">
+                <button onclick="closeConfirmModal()" class="cute-btn-secondary flex-1 py-2.5 text-xs font-bold">
+                    Jangan Hapus
+                </button>
+                <button id="confirmModalActionBtn" class="cute-btn-primary flex-1 py-2.5 text-xs font-bold !bg-rose-500">
+                    Ya, Lanjutkan
+                </button>
+            </div>
+        </div>
     </div>
 
+    <!-- ================= TOAST NOTIFIKASI LUCU ================= -->
+    <div id="toastContainer" class="fixed top-4 right-4 left-4 sm:left-auto z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- ================= BOTTOM NAVIGATION BAR LUCU (Tombol + di Tengah) ================= -->
+    <nav class="fixed bottom-4 inset-x-0 z-40 px-4 pointer-events-none">
+        <div class="max-w-md mx-auto bottom-nav-container px-3 py-2 flex items-center justify-between pointer-events-auto relative">
+            
+            <!-- Kiri 1: Data Recap -->
+            <button onclick="switchTab('data')" id="nav-data" class="nav-item active flex-1 flex flex-col items-center py-1">
+                <div class="nav-icon-box w-10 h-8 rounded-2xl flex items-center justify-center text-base border border-transparent transition-all">
+                    <i class="fa-solid fa-table-list"></i>
+                </div>
+                <span class="text-[11px] font-bubbly font-bold mt-0.5">Recap</span>
+            </button>
+
+            <!-- Kiri 2: Pengingat + Badge -->
+            <button onclick="switchTab('reminders')" id="nav-reminders" class="nav-item flex-1 flex flex-col items-center py-1 relative">
+                <div class="nav-icon-box w-10 h-8 rounded-2xl flex items-center justify-center text-base border border-transparent transition-all relative">
+                    <i class="fa-solid fa-bell"></i>
+                    <span id="navReminderBadge" class="hidden absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 rounded-full bg-rose-500 text-white text-[10px] font-bold flex items-center justify-center border-2 border-white shadow">
+                        0
+                    </span>
+                </div>
+                <span class="text-[11px] font-bubbly font-bold mt-0.5">Pengingat</span>
+            </button>
+
+            <!-- TENGAH: Tombol Plus (+) Besar Menonjol -->
+            <div class="px-2 -mt-9">
+                <button onclick="openAddCustomerModal()" title="Tambah Customer Baru"
+                        class="center-plus-btn w-16 h-16 rounded-full flex items-center justify-center text-2xl focus:outline-none">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+
+            <!-- Kanan 1: Ubah Tema -->
+            <button onclick="switchTab('themes')" id="nav-themes" class="nav-item flex-1 flex flex-col items-center py-1">
+                <div class="nav-icon-box w-10 h-8 rounded-2xl flex items-center justify-center text-base border border-transparent transition-all">
+                    <i class="fa-solid fa-palette"></i>
+                </div>
+                <span class="text-[11px] font-bubbly font-bold mt-0.5">Tema</span>
+            </button>
+
+            <!-- Kanan 2: Backup Data -->
+            <button onclick="switchTab('backup')" id="nav-backup" class="nav-item flex-1 flex flex-col items-center py-1">
+                <div class="nav-icon-box w-10 h-8 rounded-2xl flex items-center justify-center text-base border border-transparent transition-all">
+                    <i class="fa-solid fa-cloud-arrow-down"></i>
+                </div>
+                <span class="text-[11px] font-bubbly font-bold mt-0.5">Backup</span>
+            </button>
+
+        </div>
+    </nav>
+
+    <!-- ================= JAVASCRIPT LOGIC ================= -->
     <script>
-        let selectedDuration = "";
-        let dataEurydice = JSON.parse(localStorage.getItem('dataEurydice')) || [];
-        const themes = ['strawberry', 'blueberry', 'matcha'];
-        let currentThemeIndex = 0;
+        // Daftar Pilihan Durasi Wajib
+        const DURATIONS = [
+            { label: '1 Hari', days: 1, icon: '⚡' },
+            { label: '3 Hari', days: 3, icon: '🌸' },
+            { label: '7 Hari', days: 7, icon: '🌷' },
+            { label: '1 Bulan', months: 1, icon: '🍓' },
+            { label: '2 Bulan', months: 2, icon: '🍒' },
+            { label: '3 Bulan', months: 3, icon: '🧁' },
+            { label: '6 Bulan', months: 6, icon: '🍰' },
+            { label: '1 Tahun', years: 1, icon: '👑' },
+            { label: 'Lifetime', lifetime: true, icon: '♾️' }
+        ];
 
-        // Set default date to today
-        document.getElementById('inputTglBeli').valueAsDate = new Date();
+        // Daftar Tema Lucu
+        const THEMES = [
+            {
+                id: 'strawberry',
+                name: 'Strawberry Pink',
+                emoji: '🍓',
+                desc: 'Merah muda stroberi manis & krim lembut',
+                previewBg: '#FFF0F5',
+                previewPrimary: '#FF4D79',
+                previewSecondary: '#FFE4EC'
+            },
+            {
+                id: 'peach',
+                name: 'Peach Milk',
+                emoji: '🍑',
+                desc: 'Pastel persik hangat yang segar & ceria',
+                previewBg: '#FFF7F0',
+                previewPrimary: '#FF825C',
+                previewSecondary: '#FFECE2'
+            },
+            {
+                id: 'matcha',
+                name: 'Matcha Latte',
+                emoji: '🍵',
+                desc: 'Hijau matcha menenangkan & susu lembut',
+                previewBg: '#F3FAF3',
+                previewPrimary: '#5CB874',
+                previewSecondary: '#E4F5E8'
+            },
+            {
+                id: 'blueberry',
+                name: 'Blueberry Tart',
+                emoji: '🫐',
+                desc: 'Biru keunguan pastel manis & dreamy',
+                previewBg: '#F3F5FF',
+                previewPrimary: '#6C7BFF',
+                previewSecondary: '#E6E9FF'
+            },
+            {
+                id: 'chocoberry',
+                name: 'Choco Berry',
+                emoji: '🍫',
+                desc: 'Perpaduan cokelat susu & selai stroberi',
+                previewBg: '#FDF5F2',
+                previewPrimary: '#8C584C',
+                previewSecondary: '#F7E6E2'
+            }
+        ];
 
-        function setDuration(durasi) {
-            selectedDuration = durasi;
-            document.querySelectorAll('.btn-duration').forEach(btn => {
-                btn.classList.remove('active');
-                if(btn.innerText === durasi) btn.classList.add('active');
+        // Kunci LocalStorage
+        const STORAGE_KEY_DATA = 'recap_canva_eurydice_customers_v1';
+        const STORAGE_KEY_THEME = 'recap_canva_eurydice_theme_v1';
+
+        // State Aplikasi
+        let customers = [];
+        let currentTab = 'data';
+        let currentDurationFilter = 'Semua';
+        let isGroupedByDuration = true;
+        let selectedFormDuration = '1 Bulan';
+        let currentReminderSubTab = 'today';
+        let currentTheme = 'strawberry';
+
+        // Helper Tanggal Hari Ini (Format YYYY-MM-DD sesuai waktu lokal)
+        function getTodayStr() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        // Helper Tambah Hari/Bulan/Tahun dari string YYYY-MM-DD
+        function addOffsetToDateStr(baseDateStr, daysOffset = 0, monthsOffset = 0, yearsOffset = 0) {
+            const parts = baseDateStr.split('-').map(Number);
+            const dateObj = new Date(parts[0], parts[1] - 1, parts[2]);
+            if (yearsOffset) dateObj.setFullYear(dateObj.getFullYear() + yearsOffset);
+            if (monthsOffset) dateObj.setMonth(dateObj.getMonth() + monthsOffset);
+            if (daysOffset) dateObj.setDate(dateObj.getDate() + daysOffset);
+
+            const y = dateObj.getFullYear();
+            const m = String(dateObj.getMonth() + 1).padStart(2, '0');
+            const d = String(dateObj.getDate()).padStart(2, '0');
+            return `${y}-${m}-${d}`;
+        }
+
+        // Format Tanggal Cantik Bahasa Indonesia (Contoh: 04 Nov 2026)
+        function formatCuteDate(dateStr) {
+            if (!dateStr || dateStr === 'Lifetime') return '♾️ Selamanya';
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+            const parts = dateStr.split('-');
+            if (parts.length !== 3) return dateStr;
+            const day = parts[2];
+            const monthName = months[parseInt(parts[1], 10) - 1] || parts[1];
+            const year = parts[0];
+            return `${day} ${monthName} ${year}`;
+        }
+
+        // Hitung Selisih Hari terhadap Hari Ini
+        function getDaysRemaining(endDateStr) {
+            if (!endDateStr || endDateStr === 'Lifetime') return 999999;
+            const todayParts = getTodayStr().split('-').map(Number);
+            const endParts = endDateStr.split('-').map(Number);
+            const todayDate = new Date(todayParts[0], todayParts[1] - 1, todayParts[2]);
+            const endDate = new Date(endParts[0], endParts[1] - 1, endParts[2]);
+            const diffTime = endDate.getTime() - todayDate.getTime();
+            return Math.round(diffTime / (1000 * 60 * 60 * 24));
+        }
+
+        // Buat Data Contoh Awal (termasuk yang habis HARI INI agar pengingat langsung terlihat)
+        function getInitialSampleData() {
+            const today = getTodayStr();
+            return [
+                {
+                    id: 'cust-1',
+                    phone: '081234567891',
+                    email: 'nabila.sweet@gmail.com',
+                    duration: '1 Bulan',
+                    team: 'Team Eurydice 01',
+                    buyDate: addOffsetToDateStr(today, 0, -1, 0),
+                    endDate: today // Habis Hari Ini!
+                },
+                {
+                    id: 'cust-2',
+                    phone: '085712349876',
+                    email: 'cherry.blossom99@gmail.com',
+                    duration: '3 Hari',
+                    team: 'Team Eurydice 01',
+                    buyDate: addOffsetToDateStr(today, -3, 0, 0),
+                    endDate: today // Habis Hari Ini!
+                },
+                {
+                    id: 'cust-3',
+                    phone: '081399887766',
+                    email: 'putri.canvapro@gmail.com',
+                    duration: '7 Hari',
+                    team: 'Team Eurydice 02',
+                    buyDate: addOffsetToDateStr(today, -6, 0, 0),
+                    endDate: addOffsetToDateStr(today, 1, 0, 0) // Besok Habis (H-1)
+                },
+                {
+                    id: 'cust-4',
+                    phone: '082155443322',
+                    email: 'amanda.design@gmail.com',
+                    duration: '1 Tahun',
+                    team: 'Team Eurydice VIP',
+                    buyDate: today,
+                    endDate: addOffsetToDateStr(today, 0, 0, 1)
+                },
+                {
+                    id: 'cust-5',
+                    phone: '087811223344',
+                    email: 'rizky.kreatif@gmail.com',
+                    duration: 'Lifetime',
+                    team: 'Team Eurydice VIP',
+                    buyDate: today,
+                    endDate: 'Lifetime'
+                }
+            ];
+        }
+
+        // Inisialisasi Aplikasi
+        function initApp() {
+            // Muat Tema
+            const savedTheme = localStorage.getItem(STORAGE_KEY_THEME) || 'strawberry';
+            applyTheme(savedTheme, false);
+
+            // Muat Data Customer
+            const savedData = localStorage.getItem(STORAGE_KEY_DATA);
+            if (savedData) {
+                try {
+                    customers = JSON.parse(savedData);
+                } catch (e) {
+                    customers = getInitialSampleData();
+                }
+            } else {
+                customers = getInitialSampleData();
+                saveToStorage();
+            }
+
+            renderDurationFilterPills();
+            renderFormDurationButtons();
+            renderThemeSelector();
+            refreshAllViews();
+        }
+
+        function saveToStorage() {
+            localStorage.setItem(STORAGE_KEY_DATA, JSON.stringify(customers));
+        }
+
+        // Terapkan Tema
+        function applyTheme(themeId, showNotification = true) {
+            currentTheme = themeId;
+            if (themeId === 'strawberry') {
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', themeId);
+            }
+            localStorage.setItem(STORAGE_KEY_THEME, themeId);
+
+            const themeObj = THEMES.find(t => t.id === themeId) || THEMES[0];
+            document.getElementById('brandEmojiBox').textContent = themeObj.emoji;
+            document.getElementById('headerDecorIcon').textContent = themeObj.emoji;
+            document.getElementById('modalEmoji').textContent = themeObj.emoji;
+
+            renderThemeSelector();
+            if (showNotification) {
+                showToast(`${themeObj.emoji} Tema diubah ke ${themeObj.name}!`);
+            }
+        }
+
+        // Render Pilihan Tema di Tab Tema
+        function renderThemeSelector() {
+            const grid = document.getElementById('themeSelectorGrid');
+            if (!grid) return;
+
+            grid.innerHTML = THEMES.map(t => {
+                const isActive = t.id === currentTheme;
+                return `
+                    <div onclick="applyTheme('${t.id}', true)"
+                         class="cursor-pointer p-4 rounded-3xl border-2 transition-all flex items-center justify-between gap-3 ${isActive ? 'scale-[1.02]' : 'hover:scale-[1.01]'}"
+                         style="background-color: ${t.previewBg}; border-color: ${isActive ? t.previewPrimary : '#E5E7EB'}; box-shadow: ${isActive ? `0 8px 20px -4px ${t.previewPrimary}40` : 'none'};">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl shadow-sm"
+                                 style="background-color: ${t.previewSecondary}; border: 2px solid ${t.previewPrimary};">
+                                ${t.emoji}
+                            </div>
+                            <div>
+                                <h4 class="font-bubbly font-bold text-base" style="color: ${t.previewPrimary};">
+                                    ${t.name}
+                                </h4>
+                                <p class="text-xs font-semibold text-gray-600">${t.desc}</p>
+                            </div>
+                        </div>
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
+                             style="background-color: ${isActive ? t.previewPrimary : '#FFFFFF'}; color: ${isActive ? '#FFFFFF' : '#9CA3AF'}; border: 2px solid ${t.previewPrimary};">
+                            ${isActive ? '<i class="fa-solid fa-check"></i>' : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Navigasi Antar Tab Bawah
+        function switchTab(tabName) {
+            currentTab = tabName;
+            const views = ['data', 'reminders', 'themes', 'backup'];
+            views.forEach(v => {
+                const section = document.getElementById(`view-${v}`);
+                const navBtn = document.getElementById(`nav-${v}`);
+                if (v === tabName) {
+                    section.classList.remove('hidden');
+                    navBtn.classList.add('active');
+                } else {
+                    section.classList.add('hidden');
+                    navBtn.classList.remove('active');
+                }
             });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            refreshAllViews();
         }
 
-        function gantiTema() {
-            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-            document.documentElement.setAttribute('data-theme', themes[currentThemeIndex]);
+        // Render Bar Filter Durasi di Atas Daftar Data
+        function renderDurationFilterPills() {
+            const bar = document.getElementById('durationFilterBar');
+            const allOptions = [{ label: 'Semua', icon: '✨' }, ...DURATIONS];
+
+            bar.innerHTML = allOptions.map(item => {
+                const activeClass = currentDurationFilter === item.label ? 'active' : '';
+                const count = item.label === 'Semua'
+                    ? customers.length
+                    : customers.filter(c => c.duration === item.label).length;
+
+                return `
+                    <button onclick="setDurationFilter('${item.label}')"
+                            class="duration-pill ${activeClass} px-3.5 py-1.5 text-xs flex items-center gap-1.5 shrink-0">
+                        <span>${item.icon}</span>
+                        <span>${item.label}</span>
+                        <span class="px-1.5 py-0.2 rounded-full text-[10px] ${activeClass ? 'bg-white/25 text-white' : 'bg-black/5'}">${count}</span>
+                    </button>
+                `;
+            }).join('');
         }
 
-        function hitungTanggalSelesai(tglMulai, durasi) {
-            if (durasi === 'Lifetime') return 'Lifetime 💖';
-            let date = new Date(tglMulai);
-            if(durasi === '1 Hari') date.setDate(date.getDate() + 1);
-            if(durasi === '3 Hari') date.setDate(date.getDate() + 3);
-            if(durasi === '7 Hari') date.setDate(date.getDate() + 7);
-            if(durasi === '1 Bulan') date.setMonth(date.getMonth() + 1);
-            if(durasi === '2 Bulan') date.setMonth(date.getMonth() + 2);
-            if(durasi === '3 Bulan') date.setMonth(date.getMonth() + 3);
-            if(durasi === '6 Bulan') date.setMonth(date.getMonth() + 6);
-            if(durasi === '1 Tahun') date.setFullYear(date.getFullYear() + 1);
-            return date.toISOString().split('T')[0];
+        function setDurationFilter(durationLabel) {
+            currentDurationFilter = durationLabel;
+            renderDurationFilterPills();
+            renderDataView();
         }
 
-        function simpanData() {
-            let nomorRaw = document.getElementById('inputNomor').value;
-            let emailRaw = document.getElementById('inputEmail').value;
-            let team = document.getElementById('inputTeam').value;
-            let tglBeli = document.getElementById('inputTglBeli').value;
+        function toggleGroupMode() {
+            isGroupedByDuration = !isGroupedByDuration;
+            const label = document.getElementById('groupModeLabel');
+            label.textContent = isGroupedByDuration ? 'Mode: Kelompok Durasi' : 'Mode: Urut Tanggal Selesai';
+            renderDataView();
+        }
 
-            if(!emailRaw || !team || !selectedDuration) {
-                alert("Email, Team, dan Durasi wajib diisi ya kak! 🍓");
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            renderDataView();
+        }
+
+        // Refresh Seluruh Statistik, Banner, Daftar Data, dan Pengingat
+        function refreshAllViews() {
+            updateStatsAndBanner();
+            renderDurationFilterPills();
+            renderDataView();
+            renderRemindersView();
+        }
+
+        function updateStatsAndBanner() {
+            const total = customers.length;
+            const expiringTodayList = customers.filter(c => getDaysRemaining(c.endDate) === 0);
+            const todayCount = expiringTodayList.length;
+
+            document.getElementById('statTotal').textContent = total;
+            document.getElementById('statExpiringToday').textContent = todayCount;
+
+            // Badge di Navigasi Bawah
+            const navBadge = document.getElementById('navReminderBadge');
+            if (todayCount > 0) {
+                navBadge.textContent = todayCount;
+                navBadge.classList.remove('hidden');
+            } else {
+                navBadge.classList.add('hidden');
+            }
+
+            // Banner Pengingat di Atas
+            const banner = document.getElementById('urgentBanner');
+            if (todayCount > 0) {
+                document.getElementById('bannerCount').textContent = todayCount;
+                banner.classList.remove('hidden');
+            } else {
+                banner.classList.add('hidden');
+            }
+        }
+
+        // Render Daftar Kartu Customer (Mendukung Pencarian + Pengelompokan per Durasi)
+        function renderDataView() {
+            const container = document.getElementById('customerListContainer');
+            const query = (document.getElementById('searchInput').value || '').trim().toLowerCase();
+            const clearBtn = document.getElementById('clearSearchBtn');
+
+            if (query.length > 0) {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+            }
+
+            // Filter berdasarkan pencarian & tombol durasi
+            let filtered = customers.filter(c => {
+                const matchSearch =
+                    c.phone.toLowerCase().includes(query) ||
+                    c.email.toLowerCase().includes(query) ||
+                    c.team.toLowerCase().includes(query) ||
+                    c.duration.toLowerCase().includes(query);
+
+                const matchDuration = currentDurationFilter === 'Semua' || c.duration === currentDurationFilter;
+                return matchSearch && matchDuration;
+            });
+
+            document.getElementById('showingCountText').textContent = `Menampilkan ${filtered.length} customer`;
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="cute-card p-8 text-center space-y-3">
+                        <div class="text-5xl">🍓</div>
+                        <h3 class="text-lg font-bold" style="color: var(--primary);">Belum Ada Data Customer Ditemukan</h3>
+                        <p class="text-xs sm:text-sm font-semibold max-w-md mx-auto" style="color: var(--text-muted);">
+                            Yuk tekan tombol <span class="font-bold" style="color: var(--primary);">+</span> di bagian tengah bawah layar untuk menambahkan data customer Canva Eurydice!
+                        </p>
+                    </div>
+                `;
                 return;
             }
 
-            // Fitur RECAP BEBERAPA LANGSUNG (Split by comma)
-            let emailArray = emailRaw.split(',').map(e => e.trim()).filter(e => e);
-            let nomorArray = nomorRaw.split(',').map(n => n.trim()).filter(n => n);
-
-            emailArray.forEach((email, index) => {
-                let nomor = nomorArray[index] || (nomorArray[0] || "-"); // Assign number appropriately
-                let tglSelesai = hitungTanggalSelesai(tglBeli, selectedDuration);
-                
-                dataEurydice.push({
-                    id: Date.now() + Math.random(),
-                    nomor: nomor,
-                    email: email,
-                    team: team,
-                    tglBeli: tglBeli,
-                    durasi: selectedDuration,
-                    tglSelesai: tglSelesai
+            // Jika Mode Kelompok per Durasi Aktif & Filter "Semua"
+            if (isGroupedByDuration && currentDurationFilter === 'Semua') {
+                let html = '';
+                DURATIONS.forEach(durObj => {
+                    const groupItems = filtered.filter(c => c.duration === durObj.label);
+                    if (groupItems.length > 0) {
+                        html += `
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between px-3 py-2 rounded-2xl border-2"
+                                     style="background-color: var(--secondary); border-color: var(--border-color);">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-lg">${durObj.icon}</span>
+                                        <h3 class="font-bubbly font-bold text-sm sm:text-base" style="color: var(--primary);">
+                                            Kategori Durasi: ${durObj.label}
+                                        </h3>
+                                    </div>
+                                    <span class="px-3 py-0.5 rounded-full text-xs font-bold bg-white shadow-sm" style="color: var(--primary);">
+                                        ${groupItems.length} Customer
+                                    </span>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                                    ${groupItems.map(c => createCustomerCardHTML(c)).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }
                 });
-            });
-
-            localStorage.setItem('dataEurydice', JSON.stringify(dataEurydice));
-            
-            // Reset form
-            document.getElementById('inputNomor').value = '';
-            document.getElementById('inputEmail').value = '';
-            document.querySelectorAll('.btn-duration').forEach(b => b.classList.remove('active'));
-            selectedDuration = '';
-            
-            renderData();
-            alert("Yeay! Data berhasil disimpan ✨");
-        }
-
-        function hapusData(id) {
-            if(confirm("Yakin ingin menghapus data ini? 🥺")) {
-                dataEurydice = dataEurydice.filter(d => d.id !== id);
-                localStorage.setItem('dataEurydice', JSON.stringify(dataEurydice));
-                renderData();
+                container.innerHTML = html;
+            } else {
+                // Urutkan yang paling cepat habis di atas
+                filtered.sort((a, b) => getDaysRemaining(a.endDate) - getDaysRemaining(b.endDate));
+                container.innerHTML = `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                        ${filtered.map(c => createCustomerCardHTML(c)).join('')}
+                    </div>
+                `;
             }
         }
 
-        function copasEmail(email) {
-            navigator.clipboard.writeText(email);
-            alert("Email " + email + " berhasil di-copy! Siap kirim pengingat 💌");
+        // Buat HTML Kartu Customer Individual
+        function createCustomerCardHTML(c) {
+            const daysLeft = getDaysRemaining(c.endDate);
+            const durObj = DURATIONS.find(d => d.label === c.duration) || { icon: '🍓' };
+
+            let statusBadge = '';
+            if (c.endDate === 'Lifetime') {
+                statusBadge = `<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-100 text-purple-700 border border-purple-200">♾️ Lifetime Aktif</span>`;
+            } else if (daysLeft < 0) {
+                statusBadge = `<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-gray-200 text-gray-700">🥀 Lewat ${Math.abs(daysLeft)} hari</span>`;
+            } else if (daysLeft === 0) {
+                statusBadge = `<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-rose-500 text-white animate-pulse">🚨 Habis Hari Ini!</span>`;
+            } else if (daysLeft === 1) {
+                statusBadge = `<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-100 text-amber-700 border border-amber-300">⏳ Besok Habis</span>`;
+            } else {
+                statusBadge = `<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-700 border border-emerald-200">✨ Sisa ${daysLeft} hari</span>`;
+            }
+
+            return `
+                <div class="cute-card p-4 flex flex-col justify-between gap-3 relative overflow-hidden">
+                    <!-- Bar Atas: Team & Status -->
+                    <div class="flex items-start justify-between gap-2">
+                        <div>
+                            <span class="inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-0.5 rounded-full mb-1"
+                                  style="background-color: var(--secondary); color: var(--primary);">
+                                ${durObj.icon} ${escapeHTML(c.duration)}
+                            </span>
+                            <h4 class="font-bubbly font-bold text-base flex items-center gap-1.5" style="color: var(--text-main);">
+                                <i class="fa-solid fa-users-rectangle text-xs" style="color: var(--primary);"></i>
+                                ${escapeHTML(c.team)}
+                            </h4>
+                        </div>
+                        ${statusBadge}
+                    </div>
+
+                    <!-- Kotak Email & Nomor Customer (Siap Copas) -->
+                    <div class="space-y-2 p-3 rounded-2xl border" style="background-color: var(--bg-main); border-color: var(--border-color);">
+                        <!-- Email Baris + Tombol Copas -->
+                        <div class="flex items-center justify-between gap-2">
+                            <div class="min-w-0">
+                                <p class="text-[10px] font-bold uppercase tracking-wider" style="color: var(--text-muted);">Email Customer</p>
+                                <p class="text-xs sm:text-sm font-bold truncate select-all" style="color: var(--text-main);">${escapeHTML(c.email)}</p>
+                            </div>
+                            <button onclick="copyText('${escapeJS(c.email)}', '📧 Email berhasil dicopas!')"
+                                    class="cute-btn-primary px-3 py-1.5 text-xs font-bold shrink-0 flex items-center gap-1">
+                                <i class="fa-regular fa-copy"></i> Copas
+                            </button>
+                        </div>
+
+                        <hr class="border-dashed" style="border-color: var(--border-color);">
+
+                        <!-- Nomor Customer + Tombol WA / Copas -->
+                        <div class="flex items-center justify-between gap-2">
+                            <div class="min-w-0">
+                                <p class="text-[10px] font-bold uppercase tracking-wider" style="color: var(--text-muted);">Nomor Customer</p>
+                                <p class="text-xs sm:text-sm font-bold truncate" style="color: var(--text-main);">${escapeHTML(c.phone)}</p>
+                            </div>
+                            <div class="flex items-center gap-1.5 shrink-0">
+                                <button onclick="copyText('${escapeJS(c.phone)}', '📱 Nomor HP dicopas!')"
+                                        title="Salin Nomor"
+                                        class="cute-btn-secondary px-2.5 py-1.5 text-xs font-bold">
+                                    <i class="fa-regular fa-copy"></i>
+                                </button>
+                                <button onclick="sendWhatsAppReminder('${escapeJS(c.id)}')"
+                                        title="Kirim WA Pengingat"
+                                        class="px-2.5 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold flex items-center gap-1 transition">
+                                    <i class="fa-brands fa-whatsapp"></i> WA
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer Kartu: Tanggal & Edit/Hapus -->
+                    <div class="flex items-center justify-between pt-1 text-xs">
+                        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 font-semibold" style="color: var(--text-muted);">
+                            <span>🛒 Beli: <strong style="color: var(--text-main);">${formatCuteDate(c.buyDate)}</strong></span>
+                            <span>🏁 Selesai: <strong style="color: var(--primary);">${formatCuteDate(c.endDate)}</strong></span>
+                        </div>
+                        <div class="flex items-center gap-1.5 shrink-0">
+                            <button onclick="openEditCustomerModal('${escapeJS(c.id)}')" title="Edit Data"
+                                    class="w-8 h-8 rounded-xl flex items-center justify-center transition hover:scale-110"
+                                    style="background-color: var(--secondary); color: var(--primary);">
+                                <i class="fa-solid fa-pen-to-square text-xs"></i>
+                            </button>
+                            <button onclick="openDeleteConfirmModal('${escapeJS(c.id)}')" title="Hapus Data"
+                                    class="w-8 h-8 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center transition hover:scale-110">
+                                <i class="fa-solid fa-trash-can text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
         }
 
-        function checkReminders() {
-            let today = new Date().toISOString().split('T')[0];
-            let reminderList = document.getElementById('reminderList');
-            let reminderSection = document.getElementById('reminderSection');
-            reminderList.innerHTML = '';
-            
-            let adaReminder = false;
-            dataEurydice.forEach(d => {
-                if(d.tglSelesai === today) {
-                    adaReminder = true;
-                    let li = document.createElement('li');
-                    li.innerHTML = `Email: <b>${d.email}</b> (Team: ${d.team}) 
-                        <button class="btn-copas" onclick="copasEmail('${d.email}')">📋 Copas Email</button>`;
-                    reminderList.appendChild(li);
+        // ================= FITUR PENGINGAT & COPAS EMAIL =================
+        function setReminderSubTab(subTab) {
+            currentReminderSubTab = subTab;
+            ['today', 'tomorrow', 'expired'].forEach(t => {
+                const btn = document.getElementById(`remTab-${t}`);
+                if (t === subTab) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
                 }
             });
+            renderRemindersView();
+        }
 
-            if(adaReminder) {
-                reminderSection.style.display = 'block';
+        function getReminderFilteredList(subTab) {
+            return customers.filter(c => {
+                const days = getDaysRemaining(c.endDate);
+                if (subTab === 'today') return days === 0;
+                if (subTab === 'tomorrow') return days === 1;
+                if (subTab === 'expired') return days < 0;
+                return false;
+            });
+        }
+
+        function renderRemindersView() {
+            const todayList = getReminderFilteredList('today');
+            const tomorrowList = getReminderFilteredList('tomorrow');
+            const expiredList = getReminderFilteredList('expired');
+
+            document.getElementById('badgeRemToday').textContent = todayList.length;
+            document.getElementById('badgeRemTomorrow').textContent = tomorrowList.length;
+            document.getElementById('badgeRemExpired').textContent = expiredList.length;
+
+            const activeList = getReminderFilteredList(currentReminderSubTab);
+            const bulkPreview = document.getElementById('bulkEmailPreview');
+            if (activeList.length > 0) {
+                bulkPreview.textContent = activeList.map(c => c.email).join(', ');
             } else {
-                reminderSection.style.display = 'none';
+                bulkPreview.textContent = 'Tidak ada email pada kategori ini.';
+            }
+
+            const container = document.getElementById('reminderListContainer');
+            if (activeList.length === 0) {
+                container.innerHTML = `
+                    <div class="cute-card p-8 text-center space-y-2">
+                        <div class="text-4xl">🎉</div>
+                        <h3 class="text-base font-bold" style="color: var(--primary);">Yeay! Tidak Ada Customer di Kategori Ini</h3>
+                        <p class="text-xs font-semibold" style="color: var(--text-muted);">
+                            Semua durasi langganan terpantau aman dan terkendali! 🍓
+                        </p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = activeList.map(c => `
+                <div class="cute-card p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-l-8"
+                     style="border-left-color: var(--primary);">
+                    <div class="space-y-1 min-w-0">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold"
+                                  style="background-color: var(--secondary); color: var(--primary);">
+                                ${escapeHTML(c.team)}
+                            </span>
+                            <span class="text-xs font-bold text-rose-600">
+                                • Durasi ${escapeHTML(c.duration)} (Selesai: ${formatCuteDate(c.endDate)})
+                            </span>
+                        </div>
+                        <p class="text-base font-bubbly font-bold truncate select-all" style="color: var(--text-main);">
+                            📧 ${escapeHTML(c.email)}
+                        </p>
+                        <p class="text-xs font-semibold" style="color: var(--text-muted);">
+                            📱 No. Customer: <strong style="color: var(--text-main);">${escapeHTML(c.phone)}</strong>
+                        </p>
+                    </div>
+
+                    <!-- Tombol Cepat Copas Email & Pengingat -->
+                    <div class="flex flex-wrap sm:flex-nowrap items-center gap-2 shrink-0">
+                        <button onclick="copyText('${escapeJS(c.email)}', '📧 Email ${escapeJS(c.email)} berhasil dicopas!')"
+                                class="cute-btn-primary px-4 py-2.5 text-xs font-bold flex items-center gap-1.5 flex-1 sm:flex-initial justify-center">
+                            <i class="fa-regular fa-copy"></i> Copas Email
+                        </button>
+                        <button onclick="copyReminderTemplate('${escapeJS(c.id)}')"
+                                class="cute-btn-secondary px-3 py-2.5 text-xs font-bold flex items-center gap-1.5 justify-center"
+                                title="Copas Pesan Pengingat">
+                            <i class="fa-regular fa-comment-dots"></i> Copas Pesan
+                        </button>
+                        <button onclick="sendWhatsAppReminder('${escapeJS(c.id)}')"
+                                class="px-3.5 py-2.5 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold flex items-center gap-1.5 justify-center transition">
+                            <i class="fa-brands fa-whatsapp"></i> Ingatkan WA
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Copas Semua Email yang Habis Hari Ini
+        function copyAllTodayEmails() {
+            const list = getReminderFilteredList('today');
+            if (list.length === 0) {
+                showToast('🍓 Tidak ada customer yang habis hari ini!');
+                return;
+            }
+            const emails = list.map(c => c.email).join(', ');
+            copyText(emails, `🍓 ${list.length} Email yang habis hari ini berhasil dicopas!`);
+        }
+
+        // Copas Semua Email di Sub-Tab Pengingat Aktif
+        function copyCurrentReminderTabEmails() {
+            const list = getReminderFilteredList(currentReminderSubTab);
+            if (list.length === 0) {
+                showToast('🍓 Belum ada email di tab ini untuk disalin.');
+                return;
+            }
+            const emails = list.map(c => c.email).join(', ');
+            copyText(emails, `📋 ${list.length} Email berhasil dicopas!`);
+        }
+
+        // Buat Teks Pesan Pengingat Lucu
+        function generateReminderMessage(c) {
+            return `Halo kak! 🍓✨\nPengingat manis dari *Canva Eurydice* 🎀\n\nLangganan Canva Pro kakak dengan detail:\n📧 Email: ${c.email}\n👑 Team: ${c.team}\n⏳ Durasi: ${c.duration}\n🏁 Tanggal Selesai: ${formatCuteDate(c.endDate)}\n\nMasa aktifnya sudah berakhir hari ini ya kak 🥺👉👈 Apakah kakak ingin perpanjang durasi agar tetap bisa akses fitur Pro? Yuk kabari admin ya, terima kasih banyak! 🍓💗`;
+        }
+
+        function copyReminderTemplate(id) {
+            const c = customers.find(item => item.id === id);
+            if (!c) return;
+            copyText(generateReminderMessage(c), '💌 Pesan pengingat berhasil dicopas!');
+        }
+
+        function sendWhatsAppReminder(id) {
+            const c = customers.find(item => item.id === id);
+            if (!c) return;
+            let cleanPhone = c.phone.replace(/[^0-9]/g, '');
+            if (cleanPhone.startsWith('0')) {
+                cleanPhone = '62' + cleanPhone.slice(1);
+            }
+            const msg = encodeURIComponent(generateReminderMessage(c));
+            window.open(`https://wa.me/${cleanPhone}?text=${msg}`, '_blank');
+        }
+
+        // ================= MODAL FORM TAMBAH & EDIT CUSTOMER =================
+        function renderFormDurationButtons() {
+            const container = document.getElementById('durationButtonsContainer');
+            container.innerHTML = DURATIONS.map(d => {
+                const isSelected = d.label === selectedFormDuration;
+                return `
+                    <button type="button" onclick="selectFormDuration('${d.label}')"
+                            class="duration-pill ${isSelected ? 'active' : ''} py-2.5 px-2 text-xs flex items-center justify-center gap-1.5">
+                        <span>${d.icon}</span>
+                        <span>${d.label}</span>
+                    </button>
+                `;
+            }).join('');
+            document.getElementById('selectedDurationBadge').textContent = selectedFormDuration;
+        }
+
+        function selectFormDuration(durationLabel) {
+            selectedFormDuration = durationLabel;
+            renderFormDurationButtons();
+            recalculateEndDate();
+        }
+
+        // Hitung Otomatis Tanggal Selesai Berdasarkan Tanggal Pembelian + Tombol Durasi
+        function recalculateEndDate() {
+            const buyDateInput = document.getElementById('custBuyDate');
+            const endDateInput = document.getElementById('custEndDate');
+            const lifetimeBox = document.getElementById('lifetimeEndBox');
+
+            const buyDateVal = buyDateInput.value || getTodayStr();
+            const durObj = DURATIONS.find(d => d.label === selectedFormDuration);
+
+            if (!durObj) return;
+
+            if (durObj.lifetime) {
+                endDateInput.classList.add('hidden');
+                endDateInput.removeAttribute('required');
+                lifetimeBox.classList.remove('hidden');
+            } else {
+                endDateInput.classList.remove('hidden');
+                endDateInput.setAttribute('required', 'required');
+                lifetimeBox.classList.add('hidden');
+
+                const calculatedEnd = addOffsetToDateStr(
+                    buyDateVal,
+                    durObj.days || 0,
+                    durObj.months || 0,
+                    durObj.years || 0
+                );
+                endDateInput.value = calculatedEnd;
             }
         }
 
-        function renderData() {
-            let container = document.getElementById('dataContainer');
-            let search = document.getElementById('searchBox').value.toLowerCase();
-            let filter = document.getElementById('filterDurasi').value;
-            container.innerHTML = '';
+        function openAddCustomerModal() {
+            document.getElementById('modalTitle').textContent = 'Tambah Customer Baru';
+            document.getElementById('custId').value = '';
+            document.getElementById('custPhone').value = '';
+            document.getElementById('custEmail').value = '';
+            document.getElementById('custTeam').value = '';
+            document.getElementById('custBuyDate').value = getTodayStr();
 
-            let filteredData = dataEurydice.filter(d => {
-                let matchSearch = d.email.toLowerCase().includes(search) || 
-                                  d.nomor.toLowerCase().includes(search) || 
-                                  d.team.toLowerCase().includes(search);
-                let matchFilter = filter === 'Semua' || d.durasi === filter;
-                return matchSearch && matchFilter;
-            });
+            selectedFormDuration = '1 Bulan';
+            renderFormDurationButtons();
+            recalculateEndDate();
 
-            // Sort by tanggal selesai terdekat
-            filteredData.sort((a, b) => new Date(a.tglSelesai) - new Date(b.tglSelesai));
-
-            filteredData.forEach(d => {
-                let card = document.createElement('div');
-                card.className = 'data-card';
-                card.innerHTML = `
-                    <button class="btn-delete" onclick="hapusData(${d.id})">✖</button>
-                    <h4>${d.team} <span class="badge">${d.durasi}</span></h4>
-                    <p>📱 Nomor: <b>${d.nomor}</b></p>
-                    <p>✉️ Email: <b>${d.email}</b></p>
-                    <p>🗓️ Mulai: ${d.tglBeli} &nbsp;|&nbsp; 🏁 Selesai: <b>${d.tglSelesai}</b></p>
-                `;
-                container.appendChild(card);
-            });
-
-            checkReminders();
+            document.getElementById('customerModal').classList.remove('hidden');
         }
 
-        // Initial render
-        renderData();
+        function openEditCustomerModal(id) {
+            const c = customers.find(item => item.id === id);
+            if (!c) return;
+
+            document.getElementById('modalTitle').textContent = 'Edit Data Customer';
+            document.getElementById('custId').value = c.id;
+            document.getElementById('custPhone').value = c.phone;
+            document.getElementById('custEmail').value = c.email;
+            document.getElementById('custTeam').value = c.team;
+            document.getElementById('custBuyDate').value = c.buyDate;
+
+            selectedFormDuration = c.duration;
+            renderFormDurationButtons();
+
+            const endDateInput = document.getElementById('custEndDate');
+            const lifetimeBox = document.getElementById('lifetimeEndBox');
+
+            if (c.duration === 'Lifetime' || c.endDate === 'Lifetime') {
+                endDateInput.classList.add('hidden');
+                endDateInput.removeAttribute('required');
+                lifetimeBox.classList.remove('hidden');
+            } else {
+                endDateInput.classList.remove('hidden');
+                endDateInput.setAttribute('required', 'required');
+                lifetimeBox.classList.add('hidden');
+                endDateInput.value = c.endDate;
+            }
+
+            document.getElementById('customerModal').classList.remove('hidden');
+        }
+
+        function closeCustomerModal() {
+            document.getElementById('customerModal').classList.add('hidden');
+        }
+
+        function saveCustomer(event) {
+            event.preventDefault();
+
+            const id = document.getElementById('custId').value;
+            const phone = document.getElementById('custPhone').value.trim();
+            const email = document.getElementById('custEmail').value.trim();
+            const team = document.getElementById('custTeam').value.trim();
+            const buyDate = document.getElementById('custBuyDate').value;
+            const endDate = selectedFormDuration === 'Lifetime'
+                ? 'Lifetime'
+                : document.getElementById('custEndDate').value;
+
+            if (id) {
+                // Edit Data Lama
+                const idx = customers.findIndex(item => item.id === id);
+                if (idx !== -1) {
+                    customers[idx] = { id, phone, email, duration: selectedFormDuration, team, buyDate, endDate };
+                    showToast('✨ Data customer berhasil diperbarui!');
+                }
+            } else {
+                // Tambah Data Baru
+                const newCustomer = {
+                    id: 'cust-' + Date.now(),
+                    phone,
+                    email,
+                    duration: selectedFormDuration,
+                    team,
+                    buyDate,
+                    endDate
+                };
+                customers.unshift(newCustomer);
+                showToast('🍓 Customer baru berhasil ditambahkan!');
+            }
+
+            saveToStorage();
+            closeCustomerModal();
+            refreshAllViews();
+        }
+
+        // ================= MODAL KONFIRMASI HAPUS & RESET =================
+        function openDeleteConfirmModal(id) {
+            const c = customers.find(item => item.id === id);
+            if (!c) return;
+
+            document.getElementById('confirmModalTitle').textContent = 'Hapus Customer Ini?';
+            document.getElementById('confirmModalDesc').textContent = `Yakin ingin menghapus ${c.email} (${c.team}) dari daftar recap?`;
+
+            const actionBtn = document.getElementById('confirmModalActionBtn');
+            actionBtn.textContent = 'Ya, Hapus';
+            actionBtn.onclick = () => {
+                customers = customers.filter(item => item.id !== id);
+                saveToStorage();
+                closeConfirmModal();
+                refreshAllViews();
+                showToast('🗑️ Data customer telah dihapus.');
+            };
+
+            document.getElementById('confirmModal').classList.remove('hidden');
+        }
+
+        function openResetConfirmModal() {
+            document.getElementById('confirmModalTitle').textContent = 'Muat Ulang Data Contoh?';
+            document.getElementById('confirmModalDesc').textContent = 'Data saat ini akan diganti dengan 5 data contoh bawaan aplikasi.';
+
+            const actionBtn = document.getElementById('confirmModalActionBtn');
+            actionBtn.textContent = 'Ya, Muat Contoh';
+            actionBtn.onclick = () => {
+                customers = getInitialSampleData();
+                saveToStorage();
+                closeConfirmModal();
+                refreshAllViews();
+                showToast('🍓 Data contoh berhasil dimuat ulang!');
+            };
+
+            document.getElementById('confirmModal').classList.remove('hidden');
+        }
+
+        function closeConfirmModal() {
+            document.getElementById('confirmModal').classList.add('hidden');
+        }
+
+        // ================= FITUR BACKUP (EXPORT / IMPORT JSON & SALIN TEKS) =================
+        function exportDataJSON() {
+            const dataStr = JSON.stringify(customers, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Recap-Canva-Eurydice-${getTodayStr()}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            showToast('💾 File Backup JSON berhasil diunduh!');
+        }
+
+        function importDataJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const imported = JSON.parse(e.target.result);
+                    if (Array.isArray(imported)) {
+                        customers = imported;
+                        saveToStorage();
+                        refreshAllViews();
+                        showToast(`🎉 Berhasil memulihkan ${imported.length} data customer!`);
+                        switchTab('data');
+                    } else {
+                        showToast('⚠️ Format file JSON tidak sesuai.');
+                    }
+                } catch (err) {
+                    showToast('⚠️ Gagal membaca file JSON.');
+                }
+                event.target.value = '';
+            };
+            reader.readAsText(file);
+        }
+
+        function copyAllRecapText() {
+            if (customers.length === 0) {
+                showToast('🍓 Belum ada data untuk disalin.');
+                return;
+            }
+            const lines = customers.map((c, i) =>
+                `${i + 1}. [${c.duration}] ${c.email} | WA: ${c.phone} | Team: ${c.team} | Selesai: ${formatCuteDate(c.endDate)}`
+            );
+            const fullText = `🍓 RECAP CANVA EURYDICE (${getTodayStr()})\nTotal: ${customers.length} Customer\n\n` + lines.join('\n');
+            copyText(fullText, '📋 Seluruh teks recap berhasil dicopas!');
+        }
+
+        // ================= UTILITAS CLIPBOARD & TOAST =================
+        function copyText(text, successMessage) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast(successMessage || '📋 Berhasil disalin ke clipboard!');
+            } catch (err) {
+                showToast('⚠️ Gagal menyalin teks.');
+            }
+            document.body.removeChild(textarea);
+        }
+
+        function showToast(message) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'cute-card px-4 py-3 flex items-center gap-2.5 shadow-lg border-2 pointer-events-auto transition-all duration-300 transform translate-y-0 opacity-100';
+            toast.style.borderColor = 'var(--primary)';
+            toast.innerHTML = `
+                <span class="text-lg">🍓</span>
+                <span class="text-xs sm:text-sm font-bubbly font-bold" style="color: var(--text-main);">${message}</span>
+            `;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(-10px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 2600);
+        }
+
+        function escapeHTML(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function escapeJS(str) {
+            return String(str || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+        }
+
+        // Jalankan saat halaman selesai dimuat
+        window.onload = initApp;
     </script>
 </body>
 </html>
+```
